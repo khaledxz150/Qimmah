@@ -1,0 +1,282 @@
+/*html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}*/
+
+
+
+:root {
+    --primary-bg: #0a2f4d; /* Dark blue */
+    --accent-color: #00c795; /* Teal/Green */
+    --text-color: #ffffff;
+    --font-family: 'Cairo', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: var(--primary-bg); /* Or slightly different shade if needed */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.nav-left, .nav-right, .nav-center {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left {
+    gap: 20px;
+}
+
+.login-btn {
+    background-color: var(--text-color);
+    color: var(--primary-bg);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-family: var(--font-family);
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.lang-selector {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+    .lang-selector img {
+        width: 20px;
+        height: auto;
+        margin-left: 5px; /* For RTL, margin-left */
+    }
+
+    .lang-selector span {
+        font-size: 12px;
+        margin-right: 3px;
+    }
+
+
+.nav-center a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+    .nav-center a.active {
+        color: var(--accent-color);
+        font-weight: bold;
+    }
+
+.logo-small {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--text-color);
+}
+
+    .logo-small::first-letter {
+        color: var(--accent-color);
+    }
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    text-align: center;
+    padding-top: 70px; /* Account for fixed navbar */
+    position: relative; /* For canvas positioning */
+    overflow: hidden; /* Important for canvas not overflowing */
+}
+
+.hero-content {
+    position: relative; /* To be above the canvas */
+    z-index: 10;
+    padding-bottom: 50px; /* Space above the globe */
+    background-color: var(--primary-bg);
+    width:100%;
+}
+
+
+.main-logo {
+    font-size: 100px; /* Adjust as needed */
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    background-color: var(--primary-bg);
+}
+
+    .main-logo::first-letter { /* Style 'A' */
+        color: var(--accent-color);
+    }
+/* Simple way to style the 'S' if AYITS is fixed. For dynamic, JS/SVG needed */
+.main-logo img{
+    height: 100px;
+}
+
+
+h1 {
+    font-size: 32px; /* Adjust as needed */
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.countdown-label {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #bbb; /* Lighter than main text */
+}
+
+.countdown {
+    font-size: 70px; /* Adjust as needed */
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+    .countdown #hours {
+        color: var(--accent-color);
+    }
+
+.event-date {
+    font-size: 16px;
+    color: #ccc;
+}
+
+#globeCanvas {
+    /*position: absolute;
+    bottom: -20%;*/ /* Start lower, adjust for visual effect */
+    /*left: 50%;
+    transform: translateX(-50%);
+    width: 120%;*/ /* Make it wider than viewport to simulate curve */
+    /*max-width: 1800px;*/ /* Cap width */
+    /*height: 60%;*/ /* Adjust height */
+    /*z-index: 1;
+    opacity: 0.5;*/ /* Make dots a bit subtle */
+    background-color: var(--primary-bg);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-center {
+        display: none; /* Simple hide for mobile, implement burger menu for real app */
+    }
+
+    .main-logo {
+        height: 114px;
+        width: 391px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .countdown {
+        font-size: 50px;
+    }
+
+    .countdown-label, .event-date {
+        font-size: 14px;
+    }
+
+    #globeCanvas {
+        bottom: -10%;
+        height: 50%;
+        width: 150%;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-logo {
+        height: 80px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .countdown {
+        font-size: 40px;
+    }
+
+    nav {
+        padding: 10px 15px;
+    }
+
+    .login-btn {
+        padding: 6px 15px;
+        font-size: 12px;
+    }
+}
+
+.text-color-main {
+    color: var(--primary-bg);
+}
+.text-color-green {
+    color: var(--accent-color);
+}
+.text-glowing {
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}
+
+.svg-background-box {
+    background-image: url('/images/background/bluebackground.svg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color:var(--primary-bg);
+    border-radius: 1rem; 
+    padding: 2rem; 
+    color: #fff;
+}
