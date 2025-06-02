@@ -1,10 +1,16 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+
+using Qimmah.Data.User;
 
 namespace Qimmah.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext :IdentityDbContext<Users, IdentityRole<long>, long>
     {
+        public override DbSet<Users> Users { set; get; }
+        public DbSet<UserLocalization> UserLocalization { set; get; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

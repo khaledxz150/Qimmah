@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Qimmah.Data;
+using Qimmah.Managers;
 
 namespace Qimmah
 {
@@ -12,13 +13,19 @@ namespace Qimmah
 
             // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(connectionString));
+           
+            //DB
+            builder.Services.InjectDB(connectionString);
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            //IDentity
+            builder.Services.InjectIdentity(builder.Configuration);
+            //Services
+            builder.Services.InjectServices();
+
             builder.Services.AddControllersWithViews();
+            //Options
+            builder.Services.AddOptions();
 
             var app = builder.Build();
 
