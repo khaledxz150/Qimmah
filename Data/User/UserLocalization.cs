@@ -17,11 +17,11 @@ namespace Qimmah.Data.User
         public Users Users { get; set; }
     }
 
-    public class Configuration : IEntityTypeConfiguration<UserLocalization>
+    public class UserLocalization_Configuration : IEntityTypeConfiguration<UserLocalization>
     {
         public void Configure(EntityTypeBuilder<UserLocalization> builder)
         {
-            builder.HasMany<Users>().WithOne().OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany<Users>().WithOne().OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
