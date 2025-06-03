@@ -21,7 +21,8 @@ namespace Qimmah.Data.User
     {
         public void Configure(EntityTypeBuilder<UserLocalization> builder)
         {
-            builder.HasMany<Users>().WithOne().OnDelete(DeleteBehavior.Restrict);
+            builder.HasKey(x => new { x.LanguageID, x.UserID });
+            builder.HasOne<Users>().WithMany().OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

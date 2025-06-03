@@ -69,57 +69,6 @@ namespace Qimmah.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AspNetUserClaims",
-                schema: "Users",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<long>(type: "bigint", nullable: false),
-                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUserLogins",
-                schema: "Users",
-                columns: table => new
-                {
-                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<long>(type: "bigint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUserRoles",
-                schema: "Users",
-                columns: table => new
-                {
-                    UserId = table.Column<long>(type: "bigint", nullable: false),
-                    RoleId = table.Column<long>(type: "bigint", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
-                    table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalSchema: "Users",
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetUsers",
                 schema: "Users",
                 columns: table => new
@@ -127,7 +76,6 @@ namespace Qimmah.Migrations
                     LanguageID = table.Column<int>(type: "int", nullable: false),
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserLocalizationLanguageID = table.Column<int>(type: "int", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -152,6 +100,78 @@ namespace Qimmah.Migrations
                         principalSchema: "Users",
                         principalTable: "Languages",
                         principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserClaims",
+                schema: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<long>(type: "bigint", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserLogins",
+                schema: "Users",
+                columns: table => new
+                {
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserRoles",
+                schema: "Users",
+                columns: table => new
+                {
+                    UserId = table.Column<long>(type: "bigint", nullable: false),
+                    RoleId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -184,25 +204,24 @@ namespace Qimmah.Migrations
                 {
                     LanguageID = table.Column<int>(type: "int", nullable: false),
                     UserID = table.Column<long>(type: "bigint", nullable: false),
+                    UsersId = table.Column<long>(type: "bigint", nullable: true),
+                    UsersId1 = table.Column<long>(type: "bigint", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users_Localization", x => x.LanguageID);
+                    table.PrimaryKey("PK_Users_Localization", x => new { x.LanguageID, x.UserID });
+                    
                     table.ForeignKey(
-                        name: "FK_Users_Localization_AspNetUsers_UserID",
-                        column: x => x.UserID,
+                        name: "FK_Users_Localization_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
                         principalSchema: "Users",
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Users_Localization_Languages_LanguageID",
-                        column: x => x.LanguageID,
-                        principalSchema: "Users",
-                        principalTable: "Languages",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                 
+                  
+                  
                 });
 
             migrationBuilder.CreateIndex(
@@ -256,12 +275,6 @@ namespace Qimmah.Migrations
                 column: "LanguageID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_UserLocalizationLanguageID",
-                schema: "Users",
-                table: "AspNetUsers",
-                column: "UserLocalizationLanguageID");
-
-            migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
                 schema: "Users",
                 table: "AspNetUsers",
@@ -275,55 +288,22 @@ namespace Qimmah.Migrations
                 table: "Users_Localization",
                 column: "UserID");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Localization_UsersId",
                 schema: "Users",
-                table: "AspNetUserClaims",
-                column: "UserId",
-                principalSchema: "Users",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                table: "Users_Localization",
+                column: "UsersId");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Localization_UsersId1",
                 schema: "Users",
-                table: "AspNetUserLogins",
-                column: "UserId",
-                principalSchema: "Users",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUserRoles_AspNetUsers_UserId",
-                schema: "Users",
-                table: "AspNetUserRoles",
-                column: "UserId",
-                principalSchema: "Users",
-                principalTable: "AspNetUsers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUsers_Users_Localization_UserLocalizationLanguageID",
-                schema: "Users",
-                table: "AspNetUsers",
-                column: "UserLocalizationLanguageID",
-                principalSchema: "Users",
-                principalTable: "Users_Localization",
-                principalColumn: "LanguageID",
-                onDelete: ReferentialAction.Restrict);
+                table: "Users_Localization",
+                column: "UsersId1");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Users_Localization_AspNetUsers_UserID",
-                schema: "Users",
-                table: "Users_Localization");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims",
                 schema: "Users");
@@ -345,15 +325,15 @@ namespace Qimmah.Migrations
                 schema: "Users");
 
             migrationBuilder.DropTable(
+                name: "Users_Localization",
+                schema: "Users");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles",
                 schema: "Users");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers",
-                schema: "Users");
-
-            migrationBuilder.DropTable(
-                name: "Users_Localization",
                 schema: "Users");
 
             migrationBuilder.DropTable(

@@ -22,6 +22,7 @@ namespace Qimmah.Data
             builder.HasDefaultSchema("Users");
 
             builder.ApplyConfiguration(new UserLocalization_Configuration());
+            builder.ApplyConfiguration(new User_Configuration());
 
             base.OnModelCreating(builder);
         }

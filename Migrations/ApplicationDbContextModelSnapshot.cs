@@ -183,16 +183,26 @@ namespace Qimmah.Migrations
                     b.Property<int>("LanguageID")
                         .HasColumnType("int");
 
+                    b.Property<long>("UserID")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("UserID")
+                    b.Property<long?>("UsersId")
                         .HasColumnType("bigint");
 
-                    b.HasKey("LanguageID");
+                    b.Property<long?>("UsersId1")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("LanguageID", "UserID");
 
                     b.HasIndex("UserID");
+
+                    b.HasIndex("UsersId");
+
+                    b.HasIndex("UsersId1");
 
                     b.ToTable("Users_Localization", "Users");
                 });
@@ -252,9 +262,6 @@ namespace Qimmah.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("UserLocalizationLanguageID")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -270,8 +277,6 @@ namespace Qimmah.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("UserLocalizationLanguageID");
 
                     b.HasIndex("Id", "LanguageID");
 
@@ -338,10 +343,20 @@ namespace Qimmah.Migrations
                         .IsRequired();
 
                     b.HasOne("Qimmah.Data.User.Users", "Users")
-                        .WithMany("userLocalizations")
+                        .WithMany("UserLocalizations")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Qimmah.Data.User.Users", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("Qimmah.Data.User.Users", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId1")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Language");
 
@@ -356,17 +371,12 @@ namespace Qimmah.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Qimmah.Data.User.UserLocalization", null)
-                        .WithMany()
-                        .HasForeignKey("UserLocalizationLanguageID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.Navigation("Language");
                 });
 
             modelBuilder.Entity("Qimmah.Data.User.Users", b =>
                 {
-                    b.Navigation("userLocalizations");
+                    b.Navigation("UserLocalizations");
                 });
 #pragma warning restore 612, 618
         }
