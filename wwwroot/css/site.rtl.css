@@ -1,4 +1,4 @@
-﻿/* ----------------- Cairo Fonts ----------------- */
+/* ----------------- Cairo Fonts ----------------- */
 @font-face {
   font-family: "Cairo";
   src: url("/fonts/Cairo/static/Cairo-Black.ttf") format("truetype");
@@ -195,8 +195,8 @@ nav {
   border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
   position: relative;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   z-index: 1000;
 }
 
@@ -243,11 +243,11 @@ nav {
 .lang-selector img {
   width: 1.25rem;
   height: auto;
-  margin-right: 0.3125rem;
+  margin-left: 0.3125rem;
 }
 .lang-selector span {
   font-size: 0.75rem;
-  margin-left: 0.3125rem;
+  margin-right: 0.3125rem;
 }
 
 .logo-small {
@@ -306,7 +306,7 @@ nav {
 .clouds-decoration {
   position: absolute;
   top: -3.6875rem;
-  right: 5.875rem;
+  left: 5.875rem;
 }
 
 .about-summit-container {
@@ -348,7 +348,7 @@ nav {
 .building-decoration {
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 0;
   max-width: 100%;
   height: auto;
 }
@@ -382,7 +382,7 @@ nav {
   box-shadow: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.4);
 }
 .card-wrapper:hover .card-back {
-  transform: translateZ(-0.3125rem) rotate(5deg) translateX(-0.625rem);
+  transform: translateZ(-0.3125rem) rotate(-5deg) translateX(0.625rem);
   opacity: 0.8;
 }
 
@@ -413,7 +413,7 @@ nav {
 
 .card-back {
   z-index: 1;
-  transform: translateZ(-0.625rem) rotate(-3deg);
+  transform: translateZ(-0.625rem) rotate(3deg);
   opacity: 0;
 }
 
@@ -441,8 +441,8 @@ nav {
 .title-section {
   flex: 1;
   font-size: 2.25rem;
-  margin-left: 0.3125rem;
-  text-align: left;
+  margin-right: 0.3125rem;
+  text-align: right;
   margin-top: 4.6875rem;
   line-height: 1.875rem !important;
 }
@@ -455,7 +455,7 @@ nav {
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
-  text-align: left;
+  text-align: right;
 }
 
 .sub-title2 {
@@ -466,7 +466,7 @@ nav {
   font-weight: 500;
   line-height: normal;
   text-transform: uppercase;
-  text-align: left;
+  text-align: right;
 }
 
 .day-title {
@@ -493,12 +493,12 @@ nav {
 }
 .event-list li {
   position: relative;
-  padding-left: 2rem;
+  padding-right: 2rem;
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
   color: #FFF;
-  text-align: left;
+  text-align: right;
   font-family: Cairo;
   font-size: 2rem;
   font-style: normal;
@@ -509,7 +509,7 @@ nav {
 .event-list li::before {
   content: "";
   position: absolute;
-  left: 0;
+  right: 0;
   width: 0.75rem;
   height: 0.75rem;
   background: white;
@@ -519,7 +519,7 @@ nav {
 .event-list li::after {
   content: "";
   position: absolute;
-  left: 0.34375rem;
+  right: 0.34375rem;
   top: 2.625rem;
   width: 0.125rem;
   height: 83%;
@@ -533,7 +533,7 @@ nav {
 .know-more {
   position: absolute;
   bottom: 0.5rem;
-  right: 42%;
+  left: 42%;
 }
 
 .text-color-main {
@@ -573,7 +573,7 @@ nav {
   }
   .clouds-decoration {
     top: -5.6875rem;
-    right: 0.875rem;
+    left: 0.875rem;
   }
   .about-summit-content {
     text-align: center;
@@ -590,14 +590,14 @@ nav {
   }
   .clouds-decoration {
     top: -30rem;
-    right: 22%;
-    transform: translateX(50%);
+    left: 22%;
+    transform: translateX(-50%);
     width: 18rem;
   }
 }
 @media (max-width: 62rem) {
   .clouds-decoration {
-    right: 0.875rem !important;
+    left: 0.875rem !important;
   }
 }
 @media (max-width: 40rem) {
@@ -625,7 +625,7 @@ nav {
   }
   .clouds-decoration {
     top: -27.2875rem;
-    right: 9.875rem;
+    left: 9.875rem;
   }
 }
 @media (max-width: 30rem) {
@@ -656,7 +656,7 @@ nav {
   }
   .clouds-decoration {
     top: -27.2875rem;
-    right: 9.875rem;
+    left: 9.875rem;
   }
   .cards-container {
     flex-direction: column;
@@ -696,11 +696,11 @@ nav {
   }
   .know-more {
     bottom: 1.5rem;
-    right: 34%;
+    left: 34%;
   }
   .event-list {
     font-size: 1rem;
-    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .event-list li {
     font-size: 1rem;
@@ -708,7 +708,7 @@ nav {
   .event-list li::after {
     content: "";
     position: absolute;
-    left: 0.34375rem;
+    right: 0.34375rem;
     top: 1.625rem;
     width: 0.125rem;
     height: 83%;
