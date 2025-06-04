@@ -54,12 +54,20 @@
         justify-content: flex-start; // Changed from justify-content: start for LTR
         font-size: $fs-lg;
     }
-
+     
     .clouds-decoration {
-        top: -30rem;
+        top: -5rem;
         right: 22%; // Changed from left for LTR
         transform: translateX(50%); // Changed from translateX(-50%) for LTR
         width: 18rem;
+    }
+
+    .card-wrapper {
+        width: 15.8rem;
+    }
+
+    .know-more {
+        font-size:0.6rem;
     }
 }
 
@@ -67,11 +75,26 @@
     .clouds-decoration {
         right: 0.875rem !important; // Changed from left for LTR
     }
+    .card-wrapper {
+        width: 15.8rem !important;
+    }
+
+    .know-more {
+        font-size: 0.6rem;
+    }
+
+    .generic-card-icon {
+    left:30%;
+    }
 }
 
 @media (max-width: 40rem) {
     .cards-container {
         flex-direction: column;
+    }
+    .generic-cards-container {
+        flex-direction: column;
+        gap: $fs-10xl !important;
     }
 }
 
@@ -145,6 +168,9 @@
     .cards-container {
         flex-direction: column;
     }
+    .generic-cards-container {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: $breakpoint-xs) {
@@ -158,9 +184,12 @@
     .cards-container {
         gap: $fs-2xl;
     }
+    .generic-cards-container {
+        gap: $fs-2xl;
+    }
 
     .card-wrapper {
-        width: 15.625rem;
+        width: 22.250rem;
         height: 21.875rem;
     }
 
@@ -183,9 +212,7 @@
         margin-top: 2.1875rem;
     }
 
-    .card {
-        height: 90%;
-    }
+
 
     .know-more {
         bottom: $fs-2xl;
@@ -211,4 +238,45 @@
             }
         }
     }
+   
 }
+
+
+@media (max-width: 87.375rem) {
+    .card-wrapper {
+        width: 22.1875rem !important;
+    }
+
+    .day-number {
+        color: #FFF;
+        text-align: center;
+        font-family: Cairo;
+        font-size: 6.5rem;
+        font-style: normal;
+        font-weight: $font-weight-black;
+        line-height: 100%;
+        text-transform: uppercase;
+    }
+
+    .day-title {
+        font-size: $fs-2xl;
+    }
+
+    .title-section {
+        margin-top: 2.1875rem;
+    }
+}
+
+    @media (max-width: 1200px) {
+        .card-wrapper {
+            width: 19.8875rem !important;
+        }
+    
+       
+    }
+    @media (max-width: 70rem) {
+        .card-wrapper {
+            width: 20.0rem;
+        }
+    }
+

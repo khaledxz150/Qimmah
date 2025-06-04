@@ -1,7 +1,7 @@
 ﻿// ===========================================
 // FONTS PARTIAL
 // ===========================================
-
+@import "variables";
 /* ----------------- Cairo Fonts ----------------- */
 @font-face {
     font-family: 'Cairo';
@@ -176,4 +176,12 @@
     src: url('/fonts/Poppins/Poppins-ThinItalic.ttf') format('truetype');
     font-weight: 100;
     font-style: italic;
+}
+
+.font-color-main {
+    color: $color-main;
+}
+
+.fs-125-rem {
+    font-size: 1.25rem;
 }

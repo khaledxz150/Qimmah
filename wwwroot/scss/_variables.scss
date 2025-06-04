@@ -36,6 +36,8 @@ $fs-3xl: 2rem;
 $fs-4xl: 2.25rem;
 $fs-5xl: 4.375rem;
 $fs-6xl: 6.25rem;
+$fs-10xl: 10rem;
+
 $fs-huge: 12.5rem;
 
 // Spacing
@@ -50,6 +52,9 @@ $spacing-4xl: 2rem;
 $spacing-5xl: 2.5rem;
 $spacing-6xl: 3.125rem;
 
+$spacing-10xl: 7.5rem;
+
+
 // Border Radius
 $border-radius-sm: 0.0625rem;
 $border-radius-md: 1rem;
@@ -58,6 +63,7 @@ $border-radius-xl: 1.5rem;
 $border-radius-full: 50%;
 
 // Shadows
+$shadow-xsm: 0px 0.16rem 3.75rem 0px rgba(38, 45, 118, 0.08);
 $shadow-sm: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
 $shadow-md: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.4);
 $text-shadow-glow: 0 0 0.625rem rgba(255, 255, 255, 1);
@@ -77,3 +83,7 @@ $z-index-nav: 1000;
 $z-index-hero: 10;
 $z-index-card-front: 2;
 $z-index-card-back: 1;
+
+
+//Colors
+$color-main: #2F327D
