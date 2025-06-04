@@ -1,0 +1,83 @@
+﻿// ===========================================
+// NAVIGATION PARTIAL
+// ===========================================
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-xl $spacing-3xl;
+    background-color: $primary-bg;
+    border-bottom: $border-radius-sm solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $z-index-nav;
+}
+
+.nav-left,
+.nav-right,
+.nav-center {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left {
+    gap: $spacing-xl;
+}
+
+.nav-center {
+    a {
+        color: $text-color;
+        text-decoration: none;
+        margin: 0 $spacing-xl;
+        font-size: $spacing-xl;
+        font-weight: $font-weight-medium;
+
+        &.active {
+            color: $accent-color;
+            font-weight: $font-weight-bold;
+        }
+    }
+}
+
+.login-btn {
+    background-color: $text-color;
+    color: $primary-bg;
+    border: none;
+    padding: $spacing-sm $spacing-xl;
+    border-radius: $spacing-xl;
+    font-family: $font-family;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    font-size: $fs-sm;
+}
+
+.lang-selector {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+        width: $spacing-xl;
+        height: auto;
+        margin-right: $spacing-xs; // Changed from margin-left for LTR
+    }
+
+    span {
+        font-size: $fs-xs;
+        margin-left: $spacing-xs; // Changed from margin-right for LTR
+    }
+}
+
+.logo-small {
+    font-size: $fs-2xl;
+    font-weight: $font-weight-black;
+    letter-spacing: $border-radius-sm;
+    color: $text-color;
+
+    &::first-letter {
+        color: $accent-color;
+    }
+}

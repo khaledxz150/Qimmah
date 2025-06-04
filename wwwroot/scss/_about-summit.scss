@@ -1,0 +1,59 @@
+﻿// ===========================================
+// ABOUT SUMMIT SECTION PARTIAL
+// ===========================================
+
+.about-summit-container {
+    background-color: white;
+    width: 100%;
+    position: relative;
+}
+
+.about-summit-title {
+    margin: $spacing-6xl 0;
+    color: $primary-bg;
+}
+
+.host-country-title {
+    color: $accent-color;
+    font-size: $fs-3xl;
+}
+
+.country-name-title {
+    margin-top: $spacing-5xl;
+    font-size: $fs-3xl;
+    font-weight: $font-weight-bold;
+    line-height: 177%;
+}
+
+.event-info-item {
+    margin-top: $spacing-5xl;
+    font-size: $fs-xl;
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    img {
+        width: $fs-2xl;
+        height: $fs-2xl;
+        flex-shrink: 0;
+    }
+}
+
+.building-decoration {
+    position: absolute;
+    bottom: 0;
+    right: 0; // Changed from left to right for LTR
+    max-width: 100%;
+    height: auto;
+}
+
+.svg-background-box {
+    background-image: url('/images/background/bluebackground.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $primary-bg;
+    border-radius: $border-radius-md;
+    padding: $spacing-4xl;
+    color: #fff;
+}

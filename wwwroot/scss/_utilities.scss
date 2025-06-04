@@ -1,0 +1,17 @@
+﻿// ===========================================
+// UTILITIES PARTIAL
+// ===========================================
+
+// Text Color Utilities
+.text-color-main {
+    color: $primary-bg;
+}
+
+.text-color-green {
+    color: $accent-color;
+}
+
+.text-glowing {
+    color: white;
+    text-shadow: $text-shadow-glow;
+}

@@ -388,7 +388,11 @@ h1 {
     font-size: 1rem;
     color: #ccc;
 }
-
+.clouds-decoration {
+    position: absolute;
+    top: -3.6875rem;
+    left: 5.875rem;
+}
 #globeCanvas {
     /*position: absolute;
     bottom: -20%;*/ /* Start lower, adjust for visual effect */
@@ -414,148 +418,431 @@ h1 {
         height: 50%;
         width: 150%;
     }
+
+    .clouds-decoration {
+        top: -5.6875rem;
+        left: 0.875rem;
+    }
 }
 
-/* Fine-tune specific elements that need adjustment beyond global scaling */
-@media (max-width: 36rem) {
-    .main-logo img {
-        max-width: 90%;
+@media (max-width: 62rem) {
+    .clouds-decoration {
+        
+        left: 0.875rem !important;
+    }
+}
+
+    /* Fine-tune specific elements that need adjustment beyond global scaling */
+    @media (max-width: 36rem) {
+        .main-logo img {
+            max-width: 90%;
+            height: auto;
+        }
+
+        .nav-left {
+            gap: 0.75rem;
+        }
+    }
+
+    @media (max-width: 25rem) {
+        nav {
+            padding: 0.5rem 1rem;
+        }
+
+        .login-btn {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+
+        .lang-selector span {
+            display: none; /* Hide text, keep only flag */
+        }
+    }
+
+    .text-color-main {
+        color: var(--primary-bg);
+    }
+
+    .text-color-green {
+        color: var(--accent-color);
+    }
+
+    .text-glowing {
+        color: white;
+        text-shadow: 0 0 0.625rem rgba(255, 255, 255, 1);
+    }
+
+    .svg-background-box {
+        background-image: url('/images/background/bluebackground.svg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-bg);
+        border-radius: 1rem;
+        padding: 2rem;
+        color: #fff;
+    }
+
+    /* About Summit Section Styles */
+    .about-summit-container {
+        background-color: white;
+        width: 100%;
+        position: relative;
+    }
+
+    .about-summit-title {
+        margin: 3.125rem 0;
+        color: var(--primary-bg);
+    }
+
+    .host-country-title {
+        color: var(--accent-color);
+        font-size: 2rem;
+    }
+
+    .country-name-title {
+        margin-top: 2.5rem;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 177%;
+    }
+
+    .event-info-item {
+        margin-top: 2.5rem;
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+        .event-info-item img {
+            width: 1.5rem;
+            height: 1.5rem;
+            flex-shrink: 0;
+        }
+
+   
+
+    .building-decoration {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
         height: auto;
     }
 
-    .nav-left {
-        gap: 0.75rem;
-    }
-}
+    /* Responsive adjustments for about summit section */
+    @media (max-width: 48rem) {
+        .about-summit-content {
+            text-align: center;
+            margin: 0;
+        }
 
-@media (max-width: 25rem) {
-    nav {
-        padding: 0.5rem 1rem;
-    }
+        .clouds-decoration {
+            top: -30rem;
+            left: 22%;
+            transform: translateX(-50%);
+            width: 18rem;
+        }
 
-    .login-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-    }
+        .building-decoration {
+            position: relative;
+            width: 100%;
+            margin-top: 2rem;
+        }
 
-    .lang-selector span {
-        display: none; /* Hide text, keep only flag */
-    }
-}
-
-.text-color-main {
-    color: var(--primary-bg);
-}
-
-.text-color-green {
-    color: var(--accent-color);
-}
-
-.text-glowing {
-    color: white;
-    text-shadow: 0 0 0.625rem rgba(255, 255, 255, 1);
-}
-
-.svg-background-box {
-    background-image: url('/images/background/bluebackground.svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: var(--primary-bg);
-    border-radius: 1rem;
-    padding: 2rem;
-    color: #fff;
-}
-
-/* About Summit Section Styles */
-.about-summit-container {
-    background-color: white;
-    width: 100%;
-    position: relative;
-}
-
-.about-summit-title {
-    margin: 3.125rem 0;
-    color: var(--primary-bg);
-}
-
-.host-country-title {
-    color: var(--accent-color);
-    font-size: 2rem;
-}
-
-.country-name-title {
-    margin-top: 2.5rem;
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 177%;
-}
-
-.event-info-item {
-    margin-top: 2.5rem;
-    font-size: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-    .event-info-item img {
-        width: 1.5rem;
-        height: 1.5rem;
-        flex-shrink: 0;
+        .event-info-item {
+            justify-content: start;
+            font-size: 1.125rem;
+        }
     }
 
-.clouds-decoration {
-    position: absolute;
-    top: -3.6875rem;
-    left: 5.875rem;
-}
+    @media (max-width: 36rem) {
+        .host-country-title,
+        .country-name-title {
+            font-size: 1.5rem;
+        }
 
-.building-decoration {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    max-width: 100%;
-    height: auto;
-}
+        .event-info-item {
+            font-size: 1rem;
+        }
 
-/* Responsive adjustments for about summit section */
-@media (max-width: 48rem) {
-    .about-summit-content {
-        text-align: center;
-        margin: 0;
+        .clouds-decoration {
+            top: -27.2875rem;
+            left: 9.875rem;
+        }
     }
 
-    .clouds-decoration {
-        top: -30rem;
-        left: 22%;
-        transform: translateX(-50%);
-        width: 18rem;
+
+
+    @media (max-width: 40rem) {
+        .cards-container {
+            flex-direction: column;
+        }
     }
 
-    .building-decoration {
+    @media (max-width: 25rem) {
+        .host-country-title,
+        .country-name-title {
+            font-size: 1.5rem;
+        }
+
+        .event-info-item {
+            font-size: 1rem;
+        }
+
+        .clouds-decoration {
+            top: -27.2875rem;
+            left: 9.875rem;
+        }
+
+        .cards-container {
+            flex-direction: column;
+        }
+    }
+
+    .cards-container {
+        display: flex;
+        gap: 2rem;
+        perspective: 62.5rem;
+    }
+
+    .card-wrapper {
         position: relative;
+        width: 25.6875rem;
+        height: 29.6875rem;
+        cursor: pointer;
+        background-image: url(/images/background/bluebackground.svg) !important;
+    }
+
+    .card {
+        position: absolute;
         width: 100%;
-        margin-top: 2rem;
+        height: 100%;
+        border-radius: 1.25rem;
+        padding: 0rem 1rem 1rem 1rem;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(0.625rem);
+        background-image: url(/images/background/bluebackground.svg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: var(--primary-bg);
     }
 
-    .event-info-item {
-        justify-content: center;
-        font-size: 1.125rem;
-    }
-}
-
-@media (max-width: 36rem) {
-    .host-country-title,
-    .country-name-title {
-        font-size: 1.5rem;
+    .card-front {
+        z-index: 2;
+        transform: translateZ(0);
     }
 
-    .event-info-item {
+    .card-back {
+        z-index: 1;
+        transform: translateZ(-0.625rem) rotate(-3deg);
+        opacity: 0;
+    }
+
+    /* Card Colors */
+
+
+    .card-1 .card-back {
+        background: #00AA8B;
+    }
+
+    .card-2 .card-front {
+        background: #00AA8B;
+    }
+
+
+    .card-2 .card-back {
+        background-color: var(--primary-bg);
+    }
+
+
+    .card-3 .card-back {
+        background: #00AA8B;
+    }
+
+    /* Hover Effects */
+    .card-wrapper:hover .card-front {
+        transform: translateZ(1.25rem) translateY(-0.625rem);
+        box-shadow: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.4);
+    }
+
+    .card-wrapper:hover .card-back {
+        transform: translateZ(-0.3125rem) rotate(5deg) translateX(0.625rem);
+        opacity: 0.8;
+    }
+
+    .qimmah-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .title-section {
+        flex: 1;
+        font-size: 2.25rem;
+        margin-right: 0.3125rem;
+        text-align: right;
+        margin-top: 4.6875rem;
+        line-height: 1.875rem !important;
+    }
+
+    .sub-title {
+        color: var(--d-9-d-9-d-9, #00AA8B);
+        font-family: Cairo;
         font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-transform: uppercase;
+        text-align: right;
     }
 
-    .clouds-decoration {
-        width: 4rem;
+    .sub-title2 {
+        color: white;
+        font-family: Cairo;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-transform: uppercase;
+        text-align: right;
     }
-}
+
+    .day-title {
+        color: #FFF;
+        font-family: Cairo;
+        font-size: 2.25rem;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 1.875rem;
+        text-transform: uppercase;
+    }
+
+    .day-number {
+        font-size: 12.5rem;
+        font-weight: 900;
+        line-height: 1;
+    }
+
+    .event-list {
+        list-style: none;
+        font-size: 1.1rem;
+        line-height: 2;
+        margin-bottom: 2rem;
+    }
+
+        .event-list li {
+            position: relative;
+            padding-right: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            color: #FFF;
+            text-align: right;
+            font-family: Cairo;
+            font-size: 2rem;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 188.346%; /* 60.271px */
+            text-transform: uppercase;
+        }
+
+            .event-list li::before {
+                content: '';
+                position: absolute;
+                right: 0;
+                width: 0.75rem;
+                height: 0.75rem;
+                background: white;
+                border-radius: 50%;
+                opacity: 1;
+            }
+
+            .event-list li::after {
+                content: '';
+                position: absolute;
+                right: 0.34375rem;
+                top: 2.625rem;
+                width: 0.125rem;
+                height: 83%;
+                background: rgba(255, 255, 255, 1);
+                border-radius: 0.0625rem;
+            }
+
+            .event-list li:last-child::after {
+                display: none;
+            }
+
+    .know-more {
+        position: absolute;
+        bottom: 0.5rem;
+        left: 42%;
+    }
+
+
+    /* Responsive Design */
+    @media (max-width: 80rem) {
+        .cards-container {
+            gap: 1.5rem;
+        }
+
+        .card-wrapper {
+            width: 15.625rem;
+            height: 21.875rem;
+        }
+
+        .day-number {
+            color: #FFF;
+            text-align: center;
+            font-family: Cairo;
+            font-size: 6.5rem;
+            font-style: normal;
+            font-weight: 900;
+            line-height: 100%;
+            text-transform: uppercase;
+        }
+
+        .day-title {
+            font-size: 1.5rem;
+        }
+
+        .title-section {
+            margin-top: 2.1875rem;
+        }
+
+        .card {
+            height: 90%;
+        }
+
+        .know-more {
+            bottom: 1.5rem;
+            left: 34%;
+        }
+
+        .event-list {
+            font-size: 1rem;
+            padding-right: 1rem !important;
+        }
+
+            .event-list li {
+                font-size: 1rem;
+            }
+
+                .event-list li::after {
+                    content: '';
+                    position: absolute;
+                    right: 0.34375rem;
+                    top: 1.625rem;
+                    width: 0.125rem;
+                    height: 83%;
+                    background: rgba(255, 255, 255, 1);
+                    border-radius: 0.0625rem;
+                }
+    }

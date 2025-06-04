@@ -1,0 +1,214 @@
+﻿// ===========================================
+// RESPONSIVE STYLES PARTIAL
+// ===========================================
+
+// Responsive font scaling
+@media (max-width: $breakpoint-3xl) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: $breakpoint-2xl) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: $breakpoint-xl) {
+    html {
+        font-size: 13px;
+    }
+
+    // Navigation
+    .nav-center {
+        display: none; // Simple hide for mobile
+    }
+
+    // Canvas
+    #globeCanvas {
+        bottom: -10%;
+        height: 50%;
+        width: 150%;
+    }
+
+    // Decorations
+    .clouds-decoration {
+        top: -5.6875rem;
+        right: 0.875rem; // Changed from left for LTR
+    }
+
+    // About Summit
+    .about-summit-content {
+        text-align: center;
+        margin: 0;
+    }
+
+    .building-decoration {
+        position: relative;
+        width: 100%;
+        margin-top: $spacing-4xl;
+    }
+
+    .event-info-item {
+        justify-content: flex-start; // Changed from justify-content: start for LTR
+        font-size: $fs-lg;
+    }
+
+    .clouds-decoration {
+        top: -30rem;
+        right: 22%; // Changed from left for LTR
+        transform: translateX(50%); // Changed from translateX(-50%) for LTR
+        width: 18rem;
+    }
+}
+
+@media (max-width: $breakpoint-2xl) {
+    .clouds-decoration {
+        right: 0.875rem !important; // Changed from left for LTR
+    }
+}
+
+@media (max-width: 40rem) {
+    .cards-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: $breakpoint-lg) {
+    html {
+        font-size: 12px;
+    }
+
+    .main-logo img {
+        max-width: 90%;
+        height: auto;
+    }
+
+    .nav-left {
+        gap: $spacing-md;
+    }
+
+    .host-country-title,
+    .country-name-title {
+        font-size: $fs-2xl;
+    }
+
+    .event-info-item {
+        font-size: $fs-base;
+    }
+
+    .clouds-decoration {
+        top: -27.2875rem;
+        right: 9.875rem; // Changed from left for LTR
+    }
+}
+
+@media (max-width: $breakpoint-md) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: $breakpoint-sm) {
+    html {
+        font-size: 10px;
+    }
+
+    nav {
+        padding: $spacing-sm $spacing-lg;
+    }
+
+    .login-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .lang-selector span {
+        display: none; // Hide text, keep only flag
+    }
+
+    .host-country-title,
+    .country-name-title {
+        font-size: $fs-2xl;
+    }
+
+    .event-info-item {
+        font-size: $fs-base;
+    }
+
+    .clouds-decoration {
+        top: -27.2875rem;
+        right: 9.875rem; // Changed from left for LTR
+    }
+
+    .cards-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: $breakpoint-xs) {
+    html {
+        font-size: 9px;
+    }
+}
+
+// Card Responsive Styles
+@media (max-width: 80rem) {
+    .cards-container {
+        gap: $fs-2xl;
+    }
+
+    .card-wrapper {
+        width: 15.625rem;
+        height: 21.875rem;
+    }
+
+    .day-number {
+        color: #FFF;
+        text-align: center;
+        font-family: Cairo;
+        font-size: 6.5rem;
+        font-style: normal;
+        font-weight: $font-weight-black;
+        line-height: 100%;
+        text-transform: uppercase;
+    }
+
+    .day-title {
+        font-size: $fs-2xl;
+    }
+
+    .title-section {
+        margin-top: 2.1875rem;
+    }
+
+    .card {
+        height: 90%;
+    }
+
+    .know-more {
+        bottom: $fs-2xl;
+        right: 34%; // Changed from left for LTR
+    }
+
+    .event-list {
+        font-size: $fs-base;
+        padding-left: $spacing-lg !important; // Changed from padding-right for LTR
+
+        li {
+            font-size: $fs-base;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0.34375rem; // Changed from right for LTR
+                top: 1.625rem;
+                width: 0.125rem;
+                height: 83%;
+                background: rgba(255, 255, 255, 1);
+                border-radius: $border-radius-sm;
+            }
+        }
+    }
+}

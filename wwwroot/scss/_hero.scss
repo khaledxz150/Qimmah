@@ -1,0 +1,55 @@
+﻿// ===========================================
+// HERO SECTION PARTIAL
+// ===========================================
+
+.hero-content {
+    position: relative;
+    z-index: $z-index-hero;
+    padding-bottom: $spacing-6xl;
+    background-color: $primary-bg;
+    width: 100%;
+}
+
+.main-logo {
+    font-size: $fs-6xl;
+    font-weight: $font-weight-black;
+    letter-spacing: 0.125rem;
+    margin-bottom: $spacing-xl;
+    color: $text-color;
+    background-color: $primary-bg;
+
+    &::first-letter {
+        color: $accent-color;
+    }
+
+    img {
+        height: $fs-6xl;
+    }
+}
+
+.countdown-label {
+    font-size: $fs-lg;
+    margin-bottom: $spacing-xl;
+    color: $light-text;
+}
+
+.countdown {
+    font-size: $fs-5xl;
+    font-weight: $font-weight-black;
+    margin-bottom: $spacing-xl;
+
+    #hours {
+        color: $accent-color;
+    }
+}
+
+.event-date {
+    font-size: $fs-base;
+    color: $medium-text;
+}
+
+.clouds-decoration {
+    position: absolute;
+    top: -3.6875rem;
+    right: 5.875rem; // Changed from left to right for LTR
+}

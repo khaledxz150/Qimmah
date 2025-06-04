@@ -1,0 +1,79 @@
+﻿// ===========================================
+// VARIABLES PARTIAL
+// ===========================================
+
+// Colors
+$primary-bg: #0a2f4d;
+$accent-color: #00c795;
+$text-color: #ffffff;
+$card-bg-green: #00AA8B;
+$light-text: #bbb;
+$medium-text: #ccc;
+
+// Typography
+$font-family: 'Cairo', sans-serif;
+$font-family-poppins: 'Poppins', sans-serif;
+
+// Font Weights
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+
+// Font Sizes
+$fs-xs: 0.75rem;
+$fs-sm: 0.875rem;
+$fs-base: 1rem;
+$fs-lg: 1.125rem;
+$fs-xl: 1.25rem;
+$fs-2xl: 1.5rem;
+$fs-3xl: 2rem;
+$fs-4xl: 2.25rem;
+$fs-5xl: 4.375rem;
+$fs-6xl: 6.25rem;
+$fs-huge: 12.5rem;
+
+// Spacing
+$spacing-xs: 0.3125rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 0.75rem;
+$spacing-lg: 1rem;
+$spacing-xl: 1.25rem;
+$spacing-2xl: 1.5rem;
+$spacing-3xl: 1.875rem;
+$spacing-4xl: 2rem;
+$spacing-5xl: 2.5rem;
+$spacing-6xl: 3.125rem;
+
+// Border Radius
+$border-radius-sm: 0.0625rem;
+$border-radius-md: 1rem;
+$border-radius-lg: 1.25rem;
+$border-radius-xl: 1.5rem;
+$border-radius-full: 50%;
+
+// Shadows
+$shadow-sm: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
+$shadow-md: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.4);
+$text-shadow-glow: 0 0 0.625rem rgba(255, 255, 255, 1);
+
+// Breakpoints
+$breakpoint-xs: 20rem; // 320px
+$breakpoint-sm: 25rem; // 400px
+$breakpoint-md: 30rem; // 480px
+$breakpoint-lg: 36rem; // 576px
+$breakpoint-xl: 48rem; // 768px
+$breakpoint-2xl: 62rem; // 992px
+$breakpoint-3xl: 75rem; // 1200px
+
+// Z-index
+$z-index-base: 1;
+$z-index-nav: 1000;
+$z-index-hero: 10;
+$z-index-card-front: 2;
+$z-index-card-back: 1;

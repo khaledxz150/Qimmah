@@ -1,0 +1,16 @@
+﻿// ===========================================
+// SITE.SCSS - Main SCSS File (LTR Version)
+// ===========================================
+
+// Import all partial files
+@import 'fonts';
+@import 'variables';
+@import 'base';
+@import 'navigation';
+@import 'hero';
+@import 'about-summit';
+@import 'cards';
+@import 'utilities';
+@import 'responsive';
+
+// Additional global styles can be added here if needed
