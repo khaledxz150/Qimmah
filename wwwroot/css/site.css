@@ -1,36 +1,234 @@
-/*html {
-  font-size: 14px;
+/* ----------------- Cairo Fonts ----------------- */
+@font-face {
+    font-family: 'Cairo';
+    src: url('/fonts/Cairo/static/Cairo-Black.ttf') format('truetype');
+    font-weight: 900;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+@font-face {
+    font-family: 'Cairo';
+    src: url('/fonts/Cairo/static/Cairo-Bold.ttf') format('truetype');
+    font-weight: 700;
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+@font-face {
+    font-family: 'Cairo';
+    src: url('/fonts/Cairo/static/Cairo-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
 }
 
+@font-face {
+    font-family: 'Cairo';
+    src: url('/fonts/Cairo/static/Cairo-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('/fonts/Cairo/static/Cairo-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('/fonts/Cairo/static/Cairo-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('/fonts/Cairo/static/Cairo-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Cairo';
+    src: url('/fonts/Cairo/static/Cairo-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+}
+
+/* ----------------- Poppins Fonts ----------------- */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ExtraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins/Poppins-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+}
+
+/* Set root font size to ensure 1rem = 16px */
 html {
-  position: relative;
-  min-height: 100%;
+    font-size: 16px;
+}
+
+/* Responsive font scaling - scales entire layout */
+@media (max-width: 75rem) { /* 1200px */
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 62rem) { /* 992px */
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 48rem) { /* 768px */
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 36rem) { /* 576px */
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 30rem) { /* 480px */
+    html {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 25rem) { /* 400px */
+    html {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 20rem) { /* 320px */
+    html {
+        font-size: 9px;
+    }
 }
 
 body {
-  margin-bottom: 60px;
+    font-family: 'Cairo', sans-serif;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+body, * {
+    font-family: 'Cairo', sans-serif;
 }
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}*/
-
-
 
 :root {
     --primary-bg: #0a2f4d; /* Dark blue */
@@ -53,10 +251,10 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 0.9375rem 1.875rem;
     background-color: var(--primary-bg); /* Or slightly different shade if needed */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    position: fixed;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.1);
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
@@ -69,19 +267,19 @@ nav {
 }
 
 .nav-left {
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .login-btn {
     background-color: var(--text-color);
     color: var(--primary-bg);
     border: none;
-    padding: 8px 20px;
-    border-radius: 20px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 1.25rem;
     font-family: var(--font-family);
     font-weight: bold;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
 .lang-selector {
@@ -91,22 +289,22 @@ nav {
 }
 
     .lang-selector img {
-        width: 20px;
+        width: 1.25rem;
         height: auto;
-        margin-left: 5px; /* For RTL, margin-left */
+        margin-left: 0.3125rem; /* For RTL, margin-left */
     }
 
     .lang-selector span {
-        font-size: 12px;
-        margin-right: 3px;
+        font-size: 0.75rem;
+        margin-right: 0.1875rem;
     }
 
 
 .nav-center a {
     color: var(--text-color);
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 15px;
+    margin: 0 0.9375rem;
+    font-size: 0.9375rem;
     font-weight: 500;
 }
 
@@ -116,9 +314,9 @@ nav {
     }
 
 .logo-small {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 900;
-    letter-spacing: 1px;
+    letter-spacing: 0.0625rem;
     color: var(--text-color);
 }
 
@@ -133,7 +331,6 @@ main {
     align-items: center;
     justify-content: center; /* Center content vertically */
     text-align: center;
-    padding-top: 70px; /* Account for fixed navbar */
     position: relative; /* For canvas positioning */
     overflow: hidden; /* Important for canvas not overflowing */
 }
@@ -141,17 +338,17 @@ main {
 .hero-content {
     position: relative; /* To be above the canvas */
     z-index: 10;
-    padding-bottom: 50px; /* Space above the globe */
+    padding-bottom: 3.125rem; /* Space above the globe */
     background-color: var(--primary-bg);
-    width:100%;
+    width: 100%;
 }
 
 
 .main-logo {
-    font-size: 100px; /* Adjust as needed */
+    font-size: 6.25rem; /* Adjust as needed */
     font-weight: 900;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+    letter-spacing: 0.125rem;
+    margin-bottom: 1.25rem;
     color: var(--text-color);
     background-color: var(--primary-bg);
 }
@@ -159,28 +356,28 @@ main {
     .main-logo::first-letter { /* Style 'A' */
         color: var(--accent-color);
     }
-/* Simple way to style the 'S' if AYITS is fixed. For dynamic, JS/SVG needed */
-.main-logo img{
-    height: 100px;
-}
+    /* Simple way to style the 'S' if AYITS is fixed. For dynamic, JS/SVG needed */
+    .main-logo img {
+        height: 6.25rem;
+    }
 
 
 h1 {
-    font-size: 32px; /* Adjust as needed */
+    font-size: 2rem; /* Adjust as needed */
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
 }
 
 .countdown-label {
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
     color: #bbb; /* Lighter than main text */
 }
 
 .countdown {
-    font-size: 70px; /* Adjust as needed */
+    font-size: 4.375rem; /* Adjust as needed */
     font-weight: 900;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
     .countdown #hours {
@@ -188,7 +385,7 @@ h1 {
     }
 
 .event-date {
-    font-size: 16px;
+    font-size: 1rem;
     color: #ccc;
 }
 
@@ -198,7 +395,7 @@ h1 {
     /*left: 50%;
     transform: translateX(-50%);
     width: 120%;*/ /* Make it wider than viewport to simulate curve */
-    /*max-width: 1800px;*/ /* Cap width */
+    /*max-width: 112.5rem;*/ /* Cap width */
     /*height: 60%;*/ /* Adjust height */
     /*z-index: 1;
     opacity: 0.5;*/ /* Make dots a bit subtle */
@@ -206,27 +403,10 @@ h1 {
 }
 
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Layout-specific responsive adjustments */
+@media (max-width: 48rem) {
     .nav-center {
         display: none; /* Simple hide for mobile, implement burger menu for real app */
-    }
-
-    .main-logo {
-        height: 114px;
-        width: 391px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    .countdown {
-        font-size: 50px;
-    }
-
-    .countdown-label, .event-date {
-        font-size: 14px;
     }
 
     #globeCanvas {
@@ -236,47 +416,146 @@ h1 {
     }
 }
 
-@media (max-width: 480px) {
-    .main-logo {
-        height: 80px;
+/* Fine-tune specific elements that need adjustment beyond global scaling */
+@media (max-width: 36rem) {
+    .main-logo img {
+        max-width: 90%;
+        height: auto;
     }
 
-    h1 {
-        font-size: 20px;
+    .nav-left {
+        gap: 0.75rem;
     }
+}
 
-    .countdown {
-        font-size: 40px;
-    }
-
+@media (max-width: 25rem) {
     nav {
-        padding: 10px 15px;
+        padding: 0.5rem 1rem;
     }
 
     .login-btn {
-        padding: 6px 15px;
-        font-size: 12px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .lang-selector span {
+        display: none; /* Hide text, keep only flag */
     }
 }
 
 .text-color-main {
     color: var(--primary-bg);
 }
+
 .text-color-green {
     color: var(--accent-color);
 }
+
 .text-glowing {
     color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+    text-shadow: 0 0 0.625rem rgba(255, 255, 255, 1);
 }
 
 .svg-background-box {
-    background-image: url('/images/background/bluebackground.svg'); 
+    background-image: url('/images/background/bluebackground.svg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color:var(--primary-bg);
-    border-radius: 1rem; 
-    padding: 2rem; 
+    background-color: var(--primary-bg);
+    border-radius: 1rem;
+    padding: 2rem;
     color: #fff;
+}
+
+/* About Summit Section Styles */
+.about-summit-container {
+    background-color: white;
+    width: 100%;
+    position: relative;
+}
+
+.about-summit-title {
+    margin: 3.125rem 0;
+    color: var(--primary-bg);
+}
+
+.host-country-title {
+    color: var(--accent-color);
+    font-size: 2rem;
+}
+
+.country-name-title {
+    margin-top: 2.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 177%;
+}
+
+.event-info-item {
+    margin-top: 2.5rem;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+    .event-info-item img {
+        width: 1.5rem;
+        height: 1.5rem;
+        flex-shrink: 0;
+    }
+
+.clouds-decoration {
+    position: absolute;
+    top: -3.6875rem;
+    left: 5.875rem;
+}
+
+.building-decoration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive adjustments for about summit section */
+@media (max-width: 48rem) {
+    .about-summit-content {
+        text-align: center;
+        margin: 0;
+    }
+
+    .clouds-decoration {
+        top: -30rem;
+        left: 22%;
+        transform: translateX(-50%);
+        width: 18rem;
+    }
+
+    .building-decoration {
+        position: relative;
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .event-info-item {
+        justify-content: center;
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 36rem) {
+    .host-country-title,
+    .country-name-title {
+        font-size: 1.5rem;
+    }
+
+    .event-info-item {
+        font-size: 1rem;
+    }
+
+    .clouds-decoration {
+        width: 4rem;
+    }
 }

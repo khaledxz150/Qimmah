@@ -2,10 +2,15 @@
     ViewData["Title"] = "الصفحة الرئيسية";
 }
 @{
-    await Html.RenderPartialAsync("LandingGlobe.cshtml");
+    await Html.RenderPartialAsync("_landingGlobe.cshtml");
 }
 
 @{
-    await Html.RenderPartialAsync("AboutQimmah.cshtml");
+    await Html.RenderPartialAsync("_aboutQimmah.cshtml");
+
+}
+
+@{
+    await Html.RenderPartialAsync("_activityDays.cshtml");
 
 }
