@@ -194,6 +194,10 @@ h1 {
   background-color: #0a2f4d;
 }
 
+p {
+  color: black;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -594,7 +598,8 @@ nav {
 .know-more {
   position: absolute;
   bottom: 0.5rem;
-  left: 42%;
+  right: 36%;
+  width: 6rem;
 }
 
 .flip-container {
@@ -653,6 +658,18 @@ nav {
   text-shadow: 0 0 0.625rem rgb(255, 255, 255);
 }
 
+.color-accent, .read-more {
+  color: #00c795;
+}
+
+.color-primary {
+  color: #0a2f4d;
+}
+
+.justify-items-baseline {
+  justify-items: baseline;
+}
+
 @media (max-width: 75rem) {
   html {
     font-size: 15px;
@@ -708,6 +725,7 @@ nav {
 @media (max-width: 62rem) {
   .clouds-decoration {
     left: 0.875rem !important;
+    top: -29rem;
   }
   .card-wrapper {
     width: 15.8rem !important;
@@ -871,5 +889,55 @@ nav {
 @media (max-width: 70rem) {
   .card-wrapper {
     width: 20rem;
+  }
+}
+.reveal-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
+.reveal-container.revealed {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.reveal-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: white;
+  z-index: 2;
+  transform: translateY(0%);
+  transition: transform 1s ease;
+}
+.reveal-container.revealed::before {
+  transform: translateY(-100%);
+}
+
+.starting-whatis {
+  gap: 12rem;
+}
+
+@media (max-width: 768px) {
+  .starting-whatis {
+    gap: 10rem;
+  }
+  .reveal-container {
+    max-width: 200px;
+  }
+  .reveal-container .reveal-on-scroll {
+    max-height: 200px;
+  }
+}
+@media (max-width: 480px) {
+  .reveal-container {
+    max-width: 150px;
+  }
+  .reveal-container .reveal-on-scroll {
+    max-height: 150px;
+  }
+  .starting-whatis {
+    gap: 1rem !important;
   }
 }

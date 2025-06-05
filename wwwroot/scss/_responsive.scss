@@ -74,6 +74,7 @@
 @media (max-width: $breakpoint-2xl) {
     .clouds-decoration {
         right: 0.875rem !important; // Changed from left for LTR
+        top: -29rem;
     }
     .card-wrapper {
         width: 15.8rem !important;

@@ -234,11 +234,12 @@
         }
     }
 
-    .know-more {
-        position: absolute;
-        bottom: 0.5rem;
-        right: 42%; // Changed from left: 42% for LTR
-    }
+.know-more {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 36%;
+    width: 6rem;
+}
 
 
 // ===========================================

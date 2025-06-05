@@ -1,0 +1,70 @@
+﻿
+<div class="container py-5 color-primary">
+    <div class="row text-center-md align-items-center">
+        <div class="col-md-4">
+            <div class="align-items-start flex-column row text-center-md starting-whatis" style="gap: 12rem;">
+                <!-- Right Column -->
+                <div class="col-md-12 mb-4 mt-5 d-flex align-items-start flex-column gap-4">
+                    <h2 cite="mb-3" >ما هي؟</h2>
+                    <p class="fs-125-rem"  style="text-align: right;">
+                        قمة الابتكار والتكنولوجيا للشباب العربي هي فعالية إقليمية تهدف إلى جمع الشباب، المبتكرين،
+                        وصناع القرار في مكان واحد، لبحث سبل تمكين الشباب العربي...
+                        <a class="read-more" href="#">اقرأ المزيد</a>
+                    </p>
+                </div>
+                
+                <div class="col-md-12 text-center d-flex align-items-start flex-column gap-4">
+                   <h2>لماذا؟</h2>
+                   <p class="fs-125-rem"  style="text-align: right;">
+                       تُعقد قمة الابتكار والتكنولوجيا للشباب العربي انطلاقاً من الإيمان العميق بأن الشباب هم المحرك
+                       الحقيقي للتغيير في المجتمعات العربية...
+                   </p>
+                </div>
+            </div>
+            <!-- Left Column -->
+          
+        </div>
+
+        <div class="col-md-4 d-flex justify-content-center mb-4">
+            <div class="reveal-container">
+               <img src="~/images/icons/question-mark-green.svg"  class=" img-fluid reveal-on-scroll" />
+            </div>
+        </div>
+       <div class="col-md-4 mb-4 mt-2 d-flex align-items-start flex-column gap-4">
+           <h2>مخرجاتها؟</h2>
+           <p class="fs-125-rem" style="text-align: right;">
+               تسفر قمة الابتكار والتكنولوجيا للشباب العربي عن مجموعة من المخرجات العملية التي تُسهم في تمكين
+               الشباب وتعزيز دورهم في المستقبل الرقمي...
+               <a class="read-more" href="#">اقرأ المزيد</a>
+           </p>
+       </div>
+    </div>
+
+</div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const revealContainers = document.querySelectorAll(".reveal-container");
+
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("revealed");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.5,
+            }
+        );
+
+        revealContainers.forEach(container => {
+            observer.observe(container);
+        });
+    });
+</script>
+
+
+

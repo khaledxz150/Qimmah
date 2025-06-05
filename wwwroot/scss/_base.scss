@@ -45,3 +45,11 @@ h1 {
 #globeCanvas {
     background-color: $primary-bg;
 }
+
+p {
+color:black;
+}
+
+.read-more {
+@extend .color-accent;
+}

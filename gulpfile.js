@@ -9,3 +9,7 @@ gulp.task('rtl', function () {
         .pipe(rename({ suffix: '.rtl' }))            // Rename to site.rtl.css
         .pipe(gulp.dest('wwwroot/css'));             // Output to the same directory
 });
+
+gulp.task('watch-rtl', function () {
+  gulp.watch('wwwroot/css/site.css', gulp.series('rtl'));
+});
