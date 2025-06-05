@@ -4,14 +4,14 @@
 
 .cards-container {
     display: flex;
-    gap: $spacing-4xl;
+    gap: 3rem;
     perspective: 62.5rem;
     justify-content: center;
 }
 
 .generic-cards-container {
     display: flex;
-    gap: $spacing-4xl;
+    gap: 3rem;
     perspective: 62.5rem;
     justify-content: center;
 }
@@ -80,7 +80,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-top: -8.75rem;
+    position: absolute;
+    top: -80px;
 }
 .generic-card-icon-1 {
     /*    position: absolute;

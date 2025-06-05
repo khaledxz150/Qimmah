@@ -1,0 +1,66 @@
+﻿#champion-container {
+    min-height: 19rem;
+    border-radius: 1rem;
+    margin-top: 9rem;
+}
+
+    /* Create a pseudo-element to hide overflow only from below */
+    #champion-container::after {
+        content: '';
+        position: absolute;
+        bottom: -100px;
+        left: 0;
+        right: 0;
+        height: 100px;
+        background: #ffff;
+        z-index: 2;
+    }
+
+.champion-person {
+    position: absolute;
+    right: 61px;
+    bottom: -13rem;
+    width: 34rem;
+    height: auto;
+    z-index: 2;
+    transform: scale(1.1);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+}
+
+#champion-container::before {
+    content: "";
+    height: auto;
+    width: 39rem;
+    position: absolute;
+    top: 0;
+    right: -1rem;
+    bottom: -11rem;
+    z-index: 1;
+    background: radial-gradient(circle at 51% 37%, rgba(0, 170, 139, 0.4) 32%, transparent 70%), /* shadow-like gradient */ radial-gradient(circle at 55% 50%, #00AA8B 50%, transparent 51%);
+}
+
+
+@media (max-width: 48rem) {
+    .champion-person {
+        position: absolute;
+        right: 61px;
+        bottom: -9rem;
+        width: 15rem;
+        height: auto;
+        z-index: 2;
+        transform: scale(1.1);
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
+
+    #champion-container::before {
+        content: "";
+        height: auto;
+        width: 17rem;
+        position: absolute;
+        top: 0;
+        right: 4rem;
+        bottom: -53rem;
+        z-index: 1;
+        background: radial-gradient(circle at 47% 42%, rgba(0, 170, 139, 0.4) 30%, transparent 41%), radial-gradient(circle at 55% 50%, #00AA8B 50%, transparent 51%);
+    }
+}

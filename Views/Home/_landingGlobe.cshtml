@@ -1,6 +1,4 @@
-﻿<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
-        integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+﻿<script src="~/lib/gasp/gasp.min.js"></script>
 <style>
     #theSpecialOne {
         filter: drop-shadow(0 0 3px rgba(0, 170, 139, 1)) drop-shadow(0 0 6px rgba(0, 170, 139, 0.7)) drop-shadow(0 0 10px rgba(0, 170, 139, 0.5));
@@ -18,7 +16,7 @@
         }
     }
 </style>
-<div class="hero-content">
+<div class="hero-content position-relative">
     <div class="main-logo"><img src="~/images/logos/mainlogo.svg" /></div>
     <h1 class="text-glowing">قمة الابتكار والتكنولوجيا للشباب العربي</h1>
     <p class="countdown-label">وقت البدأ مستقبل عربي رقمي</p>
@@ -26,11 +24,11 @@
         <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
     </div>
     <p class="event-date">الخميس ١١ سبتمبر ٢٠٢٥ م</p>
-</div>
-<div id="globeCanvas" style="position: relative; width: 100%; height: 49vh; overflow: hidden;">
-    <div id="particles-js" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></div>
-    <svg id="globesvg" viewBox="0 0 1728 455" xmlns="http://www.w3.org/2000/svg"
-         style="position: relative; width: 100%; height: 100%; z-index: 1; opacity: 0;">
+    <div id="globeCanvas" style="position: relative; width: 100%; height: 100%; overflow: hidden;">
+    <div>
+        <div id="particles-js" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;"></div>
+        <svg id="globesvg" viewBox="0 0 1728 455" xmlns="http://www.w3.org/2000/svg"
+         style="position: relative; width: 100%; height: 100%; z-index: 1; opacity:0;">
         <g clip-path="url(#clip0_112_10269)">
             <defs>
                 <filter id="shadowFilter" x="-50%" y="-50%" width="200%" height="200%">
@@ -6096,94 +6094,10 @@
             </clipPath>
         </defs>
     </svg>
+    </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-    particlesJS( 'particles-js', {
-        particles: {
-            number: {
-                value: 50,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: "#ffffff"
-            },
-            shape: {
-                type: "circle",
-                stroke: {
-                    width: 0,
-                    color: "#000000"
-                }
-            },
-            opacity: {
-                value: 0.5
-            },
-            size: {
-                value: 3
-            },
-            move: {
-                enable: true,
-                speed: 2
-            }
-        },
-        interactivity: {
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "repulse"
-                }
-            }
-        },
-        retina_detect: true
-    } );
-</script>
-<script>
-    document.addEventListener( "DOMContentLoaded", () => {
-        const svgElement = document.getElementById( "globesvg" );
-        const paths = Array.from( svgElement.querySelectorAll( "path" ) );
-        const specialPath = document.getElementById( "theSpecialOne" );
 
-        // Set initial state for all non-special paths
-        gsap.set( paths.filter( p => p !== specialPath ), {
-            opacity: 0.1,
-            scale: 1,
-            x: () => ( Math.random() - 0.5 ) * 30,
-            y: () => ( Math.random() - 0.5 ) * 120,
-            rotation: () => ( Math.random() - 0.5 ) * 45
-        } );
+</div>
 
-        svgElement.style.opacity = "1"; // Reveal SVG immediately
-
-        // Animate all non-special paths in a single call
-        gsap.to( paths.filter( p => p !== specialPath ), {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            rotation: 0,
-            duration: 3,
-            ease: "power2.out"
-        } );
-
-        // Animate the special path with distinct style
-        gsap.to( specialPath, {
-            opacity: 1,
-            x: -10,
-            y: -10,
-            scale: 3,
-            rotation: 0,
-            duration: 3,
-            ease: "power2.out",
-                        attr: { filter: "url(#shadowFilter)" } // If using SVG filter
-        } );
-
-
-
-        // Set up Bootstrap tooltip
-        new bootstrap.Tooltip( specialPath );
-    } );
-
-
-</script>
+<script src="~/lib/particles/particles.min.js"></script>
+<script src="~/js/home/landingglobe.js"></script>

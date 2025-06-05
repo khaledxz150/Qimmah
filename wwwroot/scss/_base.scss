@@ -53,3 +53,10 @@ color:black;
 .read-more {
 @extend .color-accent;
 }
+
+.btn {
+    width: 8.8125rem;
+    height: 3.75rem;
+    flex-shrink: 0;
+    border-radius: 3.125rem;
+}

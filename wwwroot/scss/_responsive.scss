@@ -32,11 +32,6 @@
         width: 150%;
     }
 
-    // Decorations
-    .clouds-decoration {
-        top: -5.6875rem;
-        right: 0.875rem; // Changed from left for LTR
-    }
 
     // About Summit
     .about-summit-content {
@@ -55,12 +50,7 @@
         font-size: $fs-lg;
     }
      
-    .clouds-decoration {
-        top: -5rem;
-        right: 22%; // Changed from left for LTR
-        transform: translateX(50%); // Changed from translateX(-50%) for LTR
-        width: 18rem;
-    }
+    
 
     .card-wrapper {
         width: 15.8rem;
@@ -72,10 +62,7 @@
 }
 
 @media (max-width: $breakpoint-2xl) {
-    .clouds-decoration {
-        right: 0.875rem !important; // Changed from left for LTR
-        top: -29rem;
-    }
+   
     .card-wrapper {
         width: 15.8rem !important;
     }
@@ -122,10 +109,7 @@
         font-size: $fs-base;
     }
 
-    .clouds-decoration {
-        top: -27.2875rem;
-        right: 9.875rem; // Changed from left for LTR
-    }
+    
 }
 
 @media (max-width: $breakpoint-md) {
@@ -161,10 +145,6 @@
         font-size: $fs-base;
     }
 
-    .clouds-decoration {
-        top: -27.2875rem;
-        right: 9.875rem; // Changed from left for LTR
-    }
 
     .cards-container {
         flex-direction: column;
@@ -280,4 +260,5 @@
             width: 20.0rem;
         }
     }
+
 

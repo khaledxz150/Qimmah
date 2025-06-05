@@ -1,9 +1,11 @@
 ﻿// ===========================================
 // VARIABLES PARTIAL
 // ===========================================
-
+@import "../lib/bootstrap/scss/functions";
+@import "../lib/bootstrap/scss/variables";
 // Colors
 $primary-bg: #0a2f4d;
+$primary: #0a2f4d;
 $accent-color: #00c795;
 $text-color: #ffffff;
 $card-bg-green: #00AA8B;
@@ -88,3 +90,8 @@ $z-index-card-back: 1;
 //Colors
 $color-main: #2F327D;
 
+
+
+//color Overrides
+$theme-colors: map-merge($theme-colors, ( "primary": $primary ));
+$theme-colors: map-merge($theme-colors, ( "secondary": $secondary ));

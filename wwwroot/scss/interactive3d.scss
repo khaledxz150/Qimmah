@@ -1,0 +1,17 @@
+﻿.interactive-svg-background-box {
+    background-image: url('/images/background/artificalwave.svg');
+    background-size: 36rem;
+    background-position: initial;
+    background-repeat: no-repeat;
+    background-color: $primary-bg;
+    border-radius: $border-radius-md;
+    padding: $spacing-4xl;
+    color: #fff;
+    
+}
+
+@media (max-width: 48rem) {
+    .interactive-svg-background-box {
+        background-size: 0rem !important;
+    }
+}
