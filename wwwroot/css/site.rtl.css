@@ -12018,6 +12018,14 @@ h1, .h1 {
   background-color: #0a2f4d;
 }
 
+.bg-itched-blue-green {
+  background-image: url("../images/background/bluegreenbackground.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0a2f4d;
+}
+
 p {
   color: black;
 }
@@ -12811,10 +12819,10 @@ nav {
 #champion-container::after {
   content: "";
   position: absolute;
-  bottom: -100px;
-  right: 0;
+  bottom: -242px;
   left: 0;
-  height: 100px;
+  right: 0;
+  height: 15.11rem;
   background: white;
   z-index: 2;
 }
@@ -12864,4 +12872,19 @@ nav {
     z-index: 1;
     background: radial-gradient(circle at 47% 42%, rgba(0, 170, 139, 0.4) 30%, transparent 41%), radial-gradient(circle at 55% 50%, #00AA8B 50%, transparent 51%);
   }
+  #champion-container::after {
+    bottom: -167px;
+  }
+}
+#partnersContainer {
+  height: 40rem;
+  margin-top: 10rem;
+  z-index: 2;
+}
+
+.rounded-white-bg {
+  height: 15rem;
+  width: 15rem;
+  background: white;
+  border-radius: 100rem;
 }

@@ -46,6 +46,14 @@ h1 {
     background-color: $primary-bg;
 }
 
+.bg-itched-blue-green {
+    background-image: url('../images/background/bluegreenbackground.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: $primary-bg;
+}
+
 p {
 color:black;
 }

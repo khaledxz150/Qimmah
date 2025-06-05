@@ -6,13 +6,13 @@
 
     /* Create a pseudo-element to hide overflow only from below */
     #champion-container::after {
-        content: '';
+        content: "";
         position: absolute;
-        bottom: -100px;
-        left: 0;
+        bottom: -242px;
         right: 0;
-        height: 100px;
-        background: #ffff;
+        left: 0;
+        height: 15.11rem;
+        background: white;
         z-index: 2;
     }
 
@@ -62,5 +62,8 @@
         bottom: -53rem;
         z-index: 1;
         background: radial-gradient(circle at 47% 42%, rgba(0, 170, 139, 0.4) 30%, transparent 41%), radial-gradient(circle at 55% 50%, #00AA8B 50%, transparent 51%);
+    }
+    #champion-container::after {
+        bottom: -167px;
     }
 }
