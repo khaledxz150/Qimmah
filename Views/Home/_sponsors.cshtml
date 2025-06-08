@@ -1,0 +1,365 @@
+﻿<!-- Partners Section HTML -->
+<div class="partners-section">
+    <div class="container-fluid">
+        <!-- Section Title -->
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="partners-title">الرعاة والشركاء</h2>
+            </div>
+        </div>
+
+        <!-- Partners Carousel Container -->
+        <div class="partners-carousel" dir="auto">
+            <!-- Navigation Arrows (RTL-aware) -->
+            <button class="carousel-nav carousel-nav-prev" type="button">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <!-- Infinite Scroll Container -->
+            <div class="carousel-track-container">
+                <div class="carousel-track">
+                    <!-- Original Items -->
+                    <div class="partner-item">
+                        <div class="partner-card">
+                            <img class="img-fluid" src="~/images/partners/fursanaltaghayor.jpg" alt="Partner 1" />
+                        </div>
+                    </div>
+
+                    <div class="partner-item">
+                        <div class="partner-card">
+                            <img class="img-fluid" src="~/images/partners/modee.png" alt="Ministry of Digital Economy" />
+                        </div>
+                    </div>
+
+                    <div class="partner-item">
+                        <div class="partner-card">
+                            <img class="img-fluid" src="~/images/partners/coderz.svg" alt="Coderz" />
+                        </div>
+                    </div>
+
+                    <div class="partner-item">
+                        <div class="partner-card">
+                            <img class="img-fluid" src="~/images/partners/ministryofyouth.png" alt="Ministry of Youth" />
+                        </div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-card">
+                            <img class="img-fluid" src="~/images/partners/ministryofyouth.png" alt="Ministry of Youth" />
+                        </div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-card">
+                            <img class="img-fluid" src="~/images/partners/ministryofyouth.png" alt="Ministry of Youth" />
+                        </div>
+                    </div>
+                    <div class="partner-item">
+                        <div class="partner-card">
+                            <img class="img-fluid" src="~/images/partners/ministryofyouth.png" alt="Ministry of Youth" />
+                        </div>
+                    </div>
+                     <div class="partner-item">
+                        <div class="partner-card">
+                            <img class="img-fluid" src="~/images/partners/ministryofyouth.png" alt="Ministry of Youth" />
+                        </div>
+                    </div>
+                     <div class="partner-item">
+                        <div class="partner-card">
+                            <img class="img-fluid" src="~/images/partners/ministryofyouth.png" alt="Ministry of Youth" />
+                        </div>
+                    </div>
+                     <div class="partner-item">
+                        <div class="partner-card">
+                            <img class="img-fluid" src="~/images/partners/ministryofyouth.png" alt="Ministry of Youth" />
+                        </div>
+                    </div>
+
+
+                    <!-- Duplicated items for infinite effect (will be added by JS) -->
+                </div>
+            </div>
+
+            <!-- Navigation Arrows (RTL-aware) -->
+            <button class="carousel-nav carousel-nav-next" type="button">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+          const carousel = document.querySelector('.partners-carousel');
+          const track = document.querySelector('.carousel-track');
+          const prevBtn = document.querySelector('.carousel-nav-prev');
+          const nextBtn = document.querySelector('.carousel-nav-next');
+          const originalItems = document.querySelectorAll('.partner-item');
+
+          if (!carousel || !track || !prevBtn || !nextBtn || originalItems.length === 0) {
+              console.log('Carousel elements not found');
+              return;
+          }
+
+          // Detect RTL direction
+          const isRTL = window.getComputedStyle(document.documentElement).direction === 'rtl' ||
+                        document.documentElement.dir === 'rtl' ||
+                        document.body.dir === 'rtl' ||
+                        carousel.closest('[dir="rtl"]') !== null;
+
+          // Set carousel direction
+          if (isRTL) {
+              carousel.setAttribute('dir', 'rtl');
+          }
+
+          let currentTranslate = 0;
+          let itemWidth = 0;
+          let isAnimating = false;
+          let autoScrollInterval;
+          let totalOriginalWidth = 0;
+
+          // Clone items for infinite effect
+          function setupInfiniteScroll() {
+              // Clear existing clones
+              const existingClones = track.querySelectorAll('.clone');
+              existingClones.forEach(clone => clone.remove());
+
+              // Calculate total width of original items
+              totalOriginalWidth = originalItems.length * (originalItems[0]?.offsetWidth || 200);
+
+              // Clone items for seamless infinite scroll
+              // Add enough clones to fill at least 3 full sets
+              const clonesNeeded = Math.max(originalItems.length * 2, 12);
+
+              // Add clones at the end
+              for (let i = 0; i < clonesNeeded; i++) {
+                  const itemToClone = originalItems[i % originalItems.length];
+                  const clone = itemToClone.cloneNode(true);
+                  clone.classList.add('clone');
+                  track.appendChild(clone);
+              }
+
+              // Add clones at the beginning
+              for (let i = 0; i < clonesNeeded; i++) {
+                  const itemToClone = originalItems[i % originalItems.length];
+                  const clone = itemToClone.cloneNode(true);
+                  clone.classList.add('clone', 'clone-start');
+                  track.insertBefore(clone, track.firstChild);
+              }
+
+              updateDimensions();
+          }
+
+          // Update dimensions
+          function updateDimensions() {
+              if (originalItems.length === 0) return;
+
+              itemWidth = originalItems[0].offsetWidth;
+
+              // Set initial position to show original items (middle section)
+              const clonesAtStart = track.querySelectorAll('.clone-start').length;
+              const startOffset = clonesAtStart * itemWidth;
+              currentTranslate = isRTL ? startOffset : -startOffset;
+              updateTrackPosition(false);
+          }
+
+          // Update track position
+          function updateTrackPosition(animate = true) {
+              if (animate) {
+                  track.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+              } else {
+                  track.style.transition = 'none';
+              }
+              track.style.transform = `translateX(${currentTranslate}px)`;
+          }
+
+          // Move to next item
+          function moveNext() {
+              if (isAnimating) return;
+              isAnimating = true;
+
+              const direction = isRTL ? 1 : -1;
+              currentTranslate += direction * itemWidth;
+              updateTrackPosition();
+
+              setTimeout(() => {
+                  checkAndResetPosition();
+                  isAnimating = false;
+              }, 500);
+          }
+
+          // Move to previous item
+          function movePrev() {
+              if (isAnimating) return;
+              isAnimating = true;
+
+              const direction = isRTL ? -1 : 1;
+              currentTranslate += direction * itemWidth;
+              updateTrackPosition();
+
+              setTimeout(() => {
+                  checkAndResetPosition();
+                  isAnimating = false;
+              }, 500);
+          }
+
+          // Fixed infinite scroll logic
+          function checkAndResetPosition() {
+              const clonesAtStart = track.querySelectorAll('.clone-start').length;
+              const startOffset = clonesAtStart * itemWidth;
+              const originalItemsWidth = originalItems.length * itemWidth;
+
+              if (isRTL) {
+                  // RTL: moving right increases translateX
+                  if (currentTranslate >= startOffset + originalItemsWidth) {
+                      // We've moved too far right, reset to beginning of original items
+                      currentTranslate = startOffset;
+                      updateTrackPosition(false);
+                  } else if (currentTranslate <= startOffset - originalItemsWidth) {
+                      // We've moved too far left, reset to end of original items
+                      currentTranslate = startOffset;
+                      updateTrackPosition(false);
+                  }
+              } else {
+                  // LTR: moving right decreases translateX
+                  if (currentTranslate <= -startOffset - originalItemsWidth) {
+                      // We've moved too far right, reset to beginning
+                      currentTranslate = -startOffset;
+                      updateTrackPosition(false);
+                  } else if (currentTranslate >= -startOffset + originalItemsWidth) {
+                      // We've moved too far left, reset to end
+                      currentTranslate = -startOffset;
+                      updateTrackPosition(false);
+                  }
+              }
+          }
+
+          // Auto scroll functionality
+          function startAutoScroll() {
+              stopAutoScroll();
+              autoScrollInterval = setInterval(() => {
+                  if (!isAnimating) {
+                      moveNext();
+                  }
+              }, 3000);
+          }
+
+          function stopAutoScroll() {
+              if (autoScrollInterval) {
+                  clearInterval(autoScrollInterval);
+                  autoScrollInterval = null;
+              }
+          }
+
+          // Event listeners
+          nextBtn.addEventListener('click', () => {
+              stopAutoScroll();
+              moveNext();
+              setTimeout(startAutoScroll, 5000);
+          });
+
+          prevBtn.addEventListener('click', () => {
+              stopAutoScroll();
+              movePrev();
+              setTimeout(startAutoScroll, 5000);
+          });
+
+          // Pause auto-scroll on hover
+          carousel.addEventListener('mouseenter', stopAutoScroll);
+          carousel.addEventListener('mouseleave', startAutoScroll);
+
+          // Handle window resize
+          window.addEventListener('resize', () => {
+              setupInfiniteScroll();
+          });
+
+          // Touch/swipe support
+          let startX = 0;
+          let isDragging = false;
+          let startTranslate = 0;
+
+          function handleTouchStart(e) {
+              startX = e.touches[0].clientX;
+              startTranslate = currentTranslate;
+              isDragging = true;
+              stopAutoScroll();
+              track.style.transition = 'none';
+          }
+
+          function handleTouchMove(e) {
+              if (!isDragging) return;
+              e.preventDefault();
+
+              const currentX = e.touches[0].clientX;
+              const diffX = currentX - startX;
+              const direction = isRTL ? -1 : 1;
+              currentTranslate = startTranslate + (diffX * direction);
+              updateTrackPosition(false);
+          }
+
+          function handleTouchEnd(e) {
+              if (!isDragging) return;
+              isDragging = false;
+
+              const endX = e.changedTouches[0].clientX;
+              const diffX = startX - endX;
+              const threshold = 50;
+
+              if (Math.abs(diffX) > threshold) {
+                  if (diffX > 0) {
+                      // Swiped left
+                      if (isRTL) {
+                          movePrev();
+                      } else {
+                          moveNext();
+                      }
+                  } else {
+                      // Swiped right
+                      if (isRTL) {
+                          moveNext();
+                      } else {
+                          movePrev();
+                      }
+                  }
+              } else {
+                  // Snap back to current position
+                  currentTranslate = startTranslate;
+                  updateTrackPosition();
+              }
+
+              setTimeout(() => {
+                  startAutoScroll();
+              }, 2000);
+          }
+
+          // Add touch event listeners
+          track.addEventListener('touchstart', handleTouchStart, { passive: false });
+          track.addEventListener('touchmove', handleTouchMove, { passive: false });
+          track.addEventListener('touchend', handleTouchEnd);
+
+          // Keyboard navigation
+          document.addEventListener('keydown', (e) => {
+              if (e.key === 'ArrowLeft') {
+                  e.preventDefault();
+                  stopAutoScroll();
+                  if (isRTL) {
+                      moveNext();
+                  } else {
+                      movePrev();
+                  }
+                  setTimeout(startAutoScroll, 5000);
+              } else if (e.key === 'ArrowRight') {
+                  e.preventDefault();
+                  stopAutoScroll();
+                  if (isRTL) {
+                      movePrev();
+                  } else {
+                      moveNext();
+                  }
+                  setTimeout(startAutoScroll, 5000);
+              }
+          });
+
+          // Initialize carousel
+          setupInfiniteScroll();
+          startAutoScroll();
+      });
+</script>
+</script>

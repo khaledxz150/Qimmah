@@ -1,0 +1,265 @@
+﻿// Partners Section SCSS
+.partners-section {
+    padding: 60px 0;
+
+    .partners-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0;
+        font-family: 'Arial', sans-serif;
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    .partners-carousel {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 80px;
+        overflow: hidden;
+
+        @media (max-width: 768px) {
+            padding: 0 60px;
+        }
+
+        @media (max-width: 576px) {
+            padding: 0 20px;
+        }
+        // RTL Support
+        &[dir="rtl"] {
+            .carousel-nav-prev i {
+                transform: scaleX(-1);
+            }
+
+            .carousel-nav-next i {
+                transform: scaleX(-1);
+            }
+        }
+    }
+
+    .carousel-track-container {
+        overflow: hidden;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
+        // For infinite scroll animation
+        &.infinite-animation {
+            animation: infiniteScroll 20s linear infinite;
+        }
+
+        &.paused {
+            animation-play-state: paused;
+        }
+    }
+
+    @keyframes infiniteScroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+    // RTL Animation
+    [dir="rtl"] {
+        @keyframes infiniteScrollRTL {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(50%);
+            }
+        }
+
+        .carousel-track.infinite-animation {
+            animation: infiniteScrollRTL 20s linear infinite;
+        }
+    }
+
+    .partner-item {
+        flex: 0 0 auto;
+        padding: 0 15px;
+        margin-bottom: 30px;
+        border-radius: 50rem;
+        // Responsive widths for infinite scroll
+        width: 20rem;
+
+        @media (max-width: 768px) {
+            width: 26rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 576px) {
+            width: 22rem;
+        }
+    }
+
+    .partner-card {
+        background: white;
+        border-radius: 50rem;
+        padding: 30px 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 15rem;
+        width: 15rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        @media (max-width: 768px) {
+            padding: 20px 15px;
+            height: 100px;
+        }
+
+        @media (max-width: 576px) {
+            padding: 15px 10px;
+            height: 80px;
+        }
+
+        img {
+            height: auto;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+
+
+            @media (max-width: 768px) {
+                max-height: 50px;
+            }
+
+            @media (max-width: 576px) {
+                max-height: 40px;
+            }
+        }
+
+        &:hover img {
+            filter: grayscale(0%);
+        }
+    }
+
+    .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: white;
+        border: 2px solid #e9ecef;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10;
+        color: #6c757d;
+        font-size: 16px;
+
+        &:hover {
+            background: #007bff;
+            border-color: #007bff;
+            color: white;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            width: 40px;
+            height: 40px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 576px) {
+            display: none; // Hide arrows on mobile
+        }
+
+        i {
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .carousel-nav-prev {
+        left: 10px;
+    }
+
+    .carousel-nav-next {
+        right: 10px;
+    }
+    // RTL adjustments for arrows
+    [dir="rtl"] {
+        .carousel-nav-prev {
+            right: 10px;
+            left: auto;
+        }
+
+        .carousel-nav-next {
+            left: 10px;
+            right: auto;
+        }
+    }
+}
+
+// Utility class for rounded white background (matching your existing code)
+.rounded-white-bg {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+// Additional responsive adjustments
+@media (max-width: 1200px) {
+    .partners-section .partner-item {
+        &.col-lg-2 {
+            flex: 0 0 20%;
+            max-width: 20%;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .partners-section .partner-item {
+        &.col-md-3 {
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .partners-section .partner-item {
+        &.col-sm-4 {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .partners-section .partner-item {
+        &.col-6 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+}
