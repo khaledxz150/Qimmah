@@ -1,0 +1,90 @@
+﻿@import "variables";
+$color-primary: $primary;
+$color-secondary: $secondary;
+$color-bg: $primary-bg;
+
+
+.ptc-logs-page-wrapper {
+
+}
+
+.ptc-logs-expandable-card {
+    position: relative;
+    width: 25.6875rem;
+    height: 29.6875rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+[cardContent] {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    height: inherit;
+
+    [collapsedContent] {
+        display: flex;
+        flex-direction: column;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
+
+    [expandedContent] {
+        visibility: hidden;
+        position: absolute;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
+}
+
+.ptc-logs-expanding-card--backdrop {
+    background: black;
+    opacity: .50;
+}
+
+
+
+
+.col:first-child {
+    margin-right: 24px;
+}
+
+
+.ptc-logs-expanding-card--placeholder {
+    position: relative;
+    height: 0;
+    visibility: hidden;
+    background-color:transparent !important;
+}
+
+.ptc-logs-mock-content {
+    .ptc-logs-mock-content-line {
+        background: #888888;
+        height: 16px;
+        margin-bottom: 8px;
+    }
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.expanding-card-title {
+    @extend .mt-5;
+}
+.read-more-btn {
+    background: $color-primary;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background: darken($color-primary, 10%);
+    }
+}

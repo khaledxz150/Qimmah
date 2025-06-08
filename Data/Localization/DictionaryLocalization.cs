@@ -20,7 +20,6 @@ namespace Qimmah.Data.Localization
         public Languages Language { get; set; }
         public Dictionary Dictionary { get; set; }
 
-        public Lookup Lookup { get; set; }
         public ICollection<CompanyDictionaryLocalization> CompanyDictionaryLocalization { get; set; }
     }
 }

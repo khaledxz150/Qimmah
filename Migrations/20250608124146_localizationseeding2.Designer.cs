@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qimmah.Data;
 
@@ -11,9 +12,11 @@ using Qimmah.Data;
 namespace Qimmah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250608124146_localizationseeding2")]
+    partial class localizationseeding2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4527,13 +4530,13 @@ namespace Qimmah.Migrations
                         {
                             ID = 24,
                             LanguageID = 1,
-                            Description = "By 2030, AYITS will stand as a pivotal turning point that redefined the role of Arab youth as leaders in the global digital economy. It will serve as an integrated platform that unites innovation and technology efforts across the Arab world, leading the region toward excellence in the sustainable knowledge economy."
+                            Description = "By 2030, AYITS will stand as a pivotal turning point that redefined the role"
                         },
                         new
                         {
                             ID = 24,
                             LanguageID = 2,
-                            Description = "بحلول 2030، تصبح AYITS نقطة التحول المفصلية التي أعادت تعريف دور الشباب العربي كقادة للاقتصاد الرقمي العالمي، ومنصة متكاملة توحد جهود الابتكار والتكنولوجيا في العالم العربي لتقود المنطقة نحو الريادة في الاقتصاد المعرفي المستدام.  (المعلومات التالية بناءا على ملف الخطة الاستراتيجية)"
+                            Description = "بحلول 2030، تصبح AYITS نقطة التحول المفصلية التي أعادت تعريف دور الشباب العربي كقادة التغيير"
                         },
                         new
                         {
@@ -4551,13 +4554,13 @@ namespace Qimmah.Migrations
                         {
                             ID = 26,
                             LanguageID = 1,
-                            Description = "To empower Arab youth to lead the region’s digital transformation through an open knowledge ecosystem, strategic partnership networks, and innovative support for promising projects—while strengthening their role in technology policymaking and shaping a sustainable future through technology."
+                            Description = "To empower Arab youth to lead the region’s digital transformation through a"
                         },
                         new
                         {
                             ID = 26,
                             LanguageID = 2,
-                            Description = "تمكين الشباب العربي من قيادة التحول الرقمي في المنطقة عبر بيئة معرفية مفتوحة، شبكات شراكة استراتيجية، ودعم مبتكر للمشاريع الواعدة، مع تعزيز دورهم في السياسات التقنية وصناعة مستقبل مستدام بالتكنولوجيا."
+                            Description = "تمكين الشباب العربي من قيادة التحول الرقمي في المنطقة عبر مبادرة معرفية محكومة بشراكة أوسع"
                         },
                         new
                         {
@@ -4575,25 +4578,25 @@ namespace Qimmah.Migrations
                         {
                             ID = 28,
                             LanguageID = 1,
-                            Description = "AYITS 2025 aspires to turn its vision into tangible outcomes through a set of strategic objectives, including:"
+                            Description = "AYITS 2025 aspires to turn its vision into tangible outcomes through a set"
                         },
                         new
                         {
                             ID = 28,
                             LanguageID = 2,
-                            Description = "تطمح AYITS 2025 إلى تحويل رؤيتها إلى نتائج عملية، من خلال أهداف استراتيجية تشمل:"
+                            Description = "تطمح AYITS 2025 إلى تحويل رؤيتها إلى نتائج ملموسة من خلال مجموعة من المبادرات الإستراتيجية"
                         },
                         new
                         {
                             ID = 29,
                             LanguageID = 1,
-                            Description = "Launching cross-border Arab projects and alliances"
+                            Description = "of strategic objectives. include: • Launching cross-border Arab projects"
                         },
                         new
                         {
                             ID = 29,
                             LanguageID = 2,
-                            Description = "إطلاق مشاريع وتحالفات عربية عابرة للحدود"
+                            Description = "من الأهداف الاستراتيجية، إطلاق مشاريع عربية عابرة للحدود"
                         },
                         new
                         {
@@ -5290,126 +5293,6 @@ namespace Qimmah.Migrations
                             ID = 87,
                             LanguageID = 2,
                             Description = "اليوم الثالث – (بموعد وتاريخ)"
-                        },
-                        new
-                        {
-                            ID = 89,
-                            LanguageID = 1,
-                            Description = "Providing financial and technical support for startups"
-                        },
-                        new
-                        {
-                            ID = 89,
-                            LanguageID = 2,
-                            Description = "توفير دعم مالي وفني للشركات الناشئة"
-                        },
-                        new
-                        {
-                            ID = 90,
-                            LanguageID = 1,
-                            Description = "Creating interactive platforms connecting youth, investors, and policymakers"
-                        },
-                        new
-                        {
-                            ID = 90,
-                            LanguageID = 2,
-                            Description = "إنشاء منصات تفاعلية بين الشباب والمستثمرين وصناع القرار"
-                        },
-                        new
-                        {
-                            ID = 91,
-                            LanguageID = 1,
-                            Description = "Highlighting success stories of Arab youth"
-                        },
-                        new
-                        {
-                            ID = 91,
-                            LanguageID = 2,
-                            Description = "تسليط الضوء على قصص نجاح شبابية عربية"
-                        },
-                        new
-                        {
-                            ID = 92,
-                            LanguageID = 1,
-                            Description = "Developing innovation-friendly policies and legislation"
-                        },
-                        new
-                        {
-                            ID = 92,
-                            LanguageID = 2,
-                            Description = "صياغة سياسات وتشريعات داعمة للابتكار"
-                        },
-                        new
-                        {
-                            ID = 93,
-                            LanguageID = 1,
-                            Description = "Promoting technical education and future skill-building"
-                        },
-                        new
-                        {
-                            ID = 93,
-                            LanguageID = 2,
-                            Description = "تعزيز التعليم التقني وبناء المهارات المستقبلية"
-                        },
-                        new
-                        {
-                            ID = 94,
-                            LanguageID = 1,
-                            Description = "Digitally including marginalized groups"
-                        },
-                        new
-                        {
-                            ID = 94,
-                            LanguageID = 2,
-                            Description = "دمج الفئات المهمشة رقميًا"
-                        },
-                        new
-                        {
-                            ID = 95,
-                            LanguageID = 1,
-                            Description = "Digitizing the tourism sector and empowering youth within it"
-                        },
-                        new
-                        {
-                            ID = 95,
-                            LanguageID = 2,
-                            Description = "رقمنة القطاع السياحي وتمكين الشباب فيه"
-                        },
-                        new
-                        {
-                            ID = 96,
-                            LanguageID = 1,
-                            Description = "Showcasing Arab cultural identity through smart technologies"
-                        },
-                        new
-                        {
-                            ID = 96,
-                            LanguageID = 2,
-                            Description = "ترويج الهوية الثقافية العربية من خلال تقنيات ذكية"
-                        },
-                        new
-                        {
-                            ID = 97,
-                            LanguageID = 1,
-                            Description = "Supporting economically and environmentally sustainable tourism"
-                        },
-                        new
-                        {
-                            ID = 97,
-                            LanguageID = 2,
-                            Description = "دعم السياحة المستدامة اقتصاديًا وبيئيًا"
-                        },
-                        new
-                        {
-                            ID = 98,
-                            LanguageID = 1,
-                            Description = "Exploring the launch of a youth-led Arab digital currency"
-                        },
-                        new
-                        {
-                            ID = 98,
-                            LanguageID = 2,
-                            Description = "استكشاف إطلاق عملة رقمية عربية بقيادة الشباب"
                         });
                 });
 

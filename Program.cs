@@ -1,5 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
+
+using Qimmah.Application;
+
+using Qimmah.Core;
 using Qimmah.Data;
 using Qimmah.Managers;
 
@@ -28,9 +33,12 @@ namespace Qimmah
             builder.Services.AddOptions();
 
             builder.Services.AddRazorPages();
+            builder.Services.AddMemoryCache();
+            builder.Services.AddSingleton(typeof(IDictionaryCacheService<,>), typeof(DictionaryCacheService<,>));
 
             var app = builder.Build();
-
+            var cacheManager = new CacheManagers(app.Services, app.Services.GetRequiredService<IMemoryCache>());
+            cacheManager.StartLocalizationCacheRefresh();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -40,7 +48,7 @@ namespace Qimmah
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                app.UseHsts();                          
             }
 
             app.UseHttpsRedirection();

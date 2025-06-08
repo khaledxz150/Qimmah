@@ -2,41 +2,35 @@
     <h3 class="about-summit-title">
         حول القمة
     </h3>
-    <div class="svg-background-box mb-4 position-relative row ">
+    <div class="svg-background-box mb-4 position-relative row " style="min-height: 26rem;">
         <img class="clouds-decoration" src="~/images/background/clouds-green.svg" alt="Clouds decoration" />
         <div class="row">
-            <div class="col-md-6 text-end about-summit-content">
+            <div class="col-md-6 text-start about-summit-content">
                 <h3 class="host-country-title">
-                    الدولة المضيفة
+                    @Html.GetWord(4)
                 </h3>
                 <h1 class="country-name-title">
-                    ٱلْمَمْلَكَةُ ٱلْأُرْدُنِّيَّةُ ٱلْهَاشِمِيَّةُ
+                    @Html.GetWord(5)
                 </h1>
                 <div class="event-info-item">
                     <img src="~/images/icons/location.svg" alt="Location" />
                     <span>
-                        مركز الملك حسين بن طلال للمؤتمرات
-                    </span>
-                </div>
-                <div class="event-info-item">
-                    <img src="~/images/icons/locationpin.svg" alt="Location Pin" />
-                    <span>
-                        عمّان - البحر الميت
-                    </span>
-                </div>
-                <div class="event-info-item">
-                    <img src="~/images/icons/calendar.svg" alt="Calendar" />
-                    <span>
-                        ٱلْخَمِيسُ ١١ سِبْتَمْبَر ٢٠٢٥ م
+                    @Html.GetWord(6)
                     </span>
                 </div>
                 <div class="event-info-item">
                     <img src="~/images/icons/clock.svg" alt="Clock" />
                     <span>
-                        ٱلسَّاعَةُ ٱلتَّاسِعَةُ صَبَاحًا (٠٩:٠٠ ص)
+                        @Html.GetWord(7)
                     </span>
                 </div>
+
+             <div class="d-flex position-absolute-bottom">
+                  <button type="button" class="btn btn-outline-dark font-color-white border-color-white">@Html.GetWord(8)</button>
+                  <button type="button" class="btn btn-light ms-3 ">@Html.GetWord(9)</button>
+             </div>
             </div>
+            
             <div class="col-md-6 position-relative">
                 <img class="building-decoration" src="~/images/background/building-green.svg" alt="Building decoration" />
             </div>

@@ -1,76 +1,85 @@
-﻿<h3 class="about-summit-title">
+﻿<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+
+<h3 class="about-summit-title">
     عن القمة
 </h3>
-<div class="generic-cards-container mt-5">
-    <div class="card-wrapper">
-        <div class="flip-container">
-            <div class="flip-inner">
-                <div class="generic-card flip-face-front">
-                    <div class="generic-card-icon-1"></div>
-                    <h3 class="font-color-main">الرؤية</h3>
-                    <div class="fs-125-rem fw-normal">
-                        نسعى إلى تمكين الشباب العربي من قيادة المستقبل من خلال الابتكار والتكنولوجيا، وبناء بيئة محفزة للإبداع تُسهم في التنمية المستدامة والريادة العالمية
+<div class="container p-0"> 
+    <div class="row" style="gap: 3rem;">
+        <div id="profile-1" class="ptc-logs-expandable-card col-md-4">
+            <div cardContent>
+                <div collapsedContent >
+                    <div class="generic-card">
+                        <div class="generic-card-icon-1"></div>
+                        <h3 class="font-color-main expanding-card-title">@Html.GetWord(23)</h3>
+                        <div class="fs-125-rem fw-normal font-color-black">
+                          @Html.GetWord(24)
+                        </div>
                     </div>
-                    <div>Lorem posem</div>
                 </div>
-                <div class="generic-card flip-face-back">
-                    <div class="generic-card-icon-1"></div>
-                    <h3 class="font-color-main">تفاصيل الرؤية</h3>
-                    <div class="fs-125-rem fw-normal">
-                        تفاصيل إضافية حول الرؤية وكيفية تحقيقها من خلال الشراكات الاستراتيجية والبرامج المتخصصة
+                <div expandedContent>
+                    <div class="ptc-logs-mock-content font-color-black"> 
+                         
                     </div>
-                    <div>المزيد من التفاصيل</div>
+                </div>
+            </div>
+        </div>
+        <div id="profile-2" class="ptc-logs-expandable-card  col-md-4">
+            <div cardContent>
+                <div collapsedContent >
+                    <div class="generic-card">
+                        <div class="generic-card-icon-2"></div>
+                        <h3 class="font-color-main expanding-card-title">@Html.GetWord(25)</h3>
+                        <div class="fs-125-rem fw-normal font-color-black">
+                            @Html.GetWord(26)
+                        </div>
+                    </div>
+                </div>
+                <div expandedContent>
+                    <div class="ptc-logs-mock-content"></div>
+                </div>
+            </div>
+        </div>
+        <div id="profile-3" class="  ptc-logs-expandable-card col-md-4">
+            <div cardContent>
+                <div collapsedContent >
+                    <div class="generic-card">
+                        <div class="generic-card-icon-3"></div>
+                        <h3 class="font-color-main expanding-card-title">@Html.GetWord(27)</h3>
+                        <div class="fs-125-rem fw-normal font-color-black">
+                            @Html.GetWord(28)
+                            <ul class="text-align-start">
+                                <li>
+                                    @Html.GetWord(29)
+                                </li>
+                                 <li>
+                                    @Html.GetWord(89)
+                                </li>
+                                 <li>
+                                    @Html.GetWord(90)
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" type="button">Click to read more</button>
+                    </div>
+                </div>
+                <div expandedContent>
+                    <div class="ptc-logs-mock-content fs-125-rem fw-normal font-color-black"> 
+                        <ul class="text-align-start">
+                                <li>
+                                    @Html.GetWord(91)
+                                </li>
+                                 <li>
+                                    @Html.GetWord(92)
+                                </li>
+                                 <li>
+                                    @Html.GetWord(93)
+                                </li>
+                            </ul></div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="card-wrapper">
-        <div class="flip-container">
-            <div class="flip-inner">
-                <div class="generic-card flip-face-front">
-                    <div class="generic-card-icon-2"></div>
-                    <h3 class="font-color-main">الأهداف</h3>
-                    <div class="fs-125-rem fw-normal">
-                        نسعى إلى تمكين الشباب العربي من قيادة المستقبل من خلال الابتكار والتكنولوجيا، وبناء بيئة محفزة للإبداع تُسهم في التنمية المستدامة والريادة العالمية
-                    </div>
-                    <div>Lorem posem</div>
-                </div>
-                <div class="generic-card flip-face-back">
-                    <div class="generic-card-icon-2"></div>
-                    <h3 class="font-color-main">تفاصيل الأهداف</h3>
-                    <div class="fs-125-rem fw-normal">
-                        تحقيق التميز في التكنولوجيا من خلال برامج تدريبية متطورة وورش عمل تفاعلية
-                    </div>
-                    <div>خطة التنفيذ</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card-wrapper">
-        <div class="flip-container">
-            <div class="flip-inner">
-                <div class="generic-card flip-face-front">
-                    <div class="generic-card-icon-3"></div>
-                    <h3 class="font-color-main">الخطة</h3>
-                    <div class="fs-125-rem fw-normal">
-                        نسعى إلى تمكين الشباب العربي من قيادة المستقبل من خلال الابتكار والتكنولوجيا، وبناء بيئة محفزة للإبداع تُسهم في التنمية المستدامة والريادة العالمية
-                    </div>
-                    <div>Lorem posem</div>
-                </div>
-                <div class="generic-card flip-face-back">
-                    <div class="generic-card-icon-3"></div>
-                    <h3 class="font-color-main">تفاصيل الخطة</h3>
-                    <div class="fs-125-rem fw-normal">
-                        خطة شاملة تتضمن مراحل متعددة للتطوير والتدريب والمتابعة المستمرة
-                    </div>
-                    <div>مراحل التنفيذ</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>
+
+
+<script src="~/js/home/aboutqimmah2.js"></script>

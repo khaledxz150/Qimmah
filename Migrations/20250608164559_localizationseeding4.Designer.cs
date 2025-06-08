@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qimmah.Data;
 
@@ -11,9 +12,11 @@ using Qimmah.Data;
 namespace Qimmah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250608164559_localizationseeding4")]
+    partial class localizationseeding4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4551,13 +4554,13 @@ namespace Qimmah.Migrations
                         {
                             ID = 26,
                             LanguageID = 1,
-                            Description = "To empower Arab youth to lead the region’s digital transformation through an open knowledge ecosystem, strategic partnership networks, and innovative support for promising projects—while strengthening their role in technology policymaking and shaping a sustainable future through technology."
+                            Description = "To empower Arab youth to lead the region’s digital transformation through a"
                         },
                         new
                         {
                             ID = 26,
                             LanguageID = 2,
-                            Description = "تمكين الشباب العربي من قيادة التحول الرقمي في المنطقة عبر بيئة معرفية مفتوحة، شبكات شراكة استراتيجية، ودعم مبتكر للمشاريع الواعدة، مع تعزيز دورهم في السياسات التقنية وصناعة مستقبل مستدام بالتكنولوجيا."
+                            Description = "تمكين الشباب العربي من قيادة التحول الرقمي في المنطقة عبر مبادرة معرفية محكومة بشراكة أوسع"
                         },
                         new
                         {
