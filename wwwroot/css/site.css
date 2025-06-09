@@ -150,7 +150,7 @@
   font-style: italic;
 }
 .font-color-main {
-  color: #2F327D;
+  color: #0a2f4d;
 }
 
 .font-color-white {
@@ -159,6 +159,10 @@
 
 .font-color-black {
   color: black !important;
+}
+
+.font-color-light {
+  color: #696984 !important;
 }
 
 .fs-125-rem {
@@ -8107,7 +8111,7 @@ textarea.form-control-lg {
   margin-bottom: 1rem !important;
 }
 
-.mb-4 {
+.mb-4, .expanding-card-title {
   margin-bottom: 1.5rem !important;
 }
 
@@ -12170,7 +12174,7 @@ nav {
 .countdown-label {
   font-size: 1.125rem;
   margin-bottom: 1.25rem;
-  color: #bbb;
+  color: #696984;
 }
 
 .countdown {
@@ -12417,7 +12421,7 @@ nav {
 .day-title {
   color: #FFF;
   font-family: Cairo;
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-style: normal;
   font-weight: 900;
   line-height: 2.875rem;
@@ -13276,6 +13280,8 @@ nav {
   height: 29.6875rem;
   border-radius: 1.25rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 [cardContent] {

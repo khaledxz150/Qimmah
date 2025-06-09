@@ -358,6 +358,13 @@ namespace Qimmah.Data.configuration.localization
                 // Exploring the launch of a youth-led Arab digital currency
                 entity.HasData(new DictionaryLocalization { ID = 98, LanguageID = EnglishInt, Description = "Exploring the launch of a youth-led Arab digital currency" });
                 entity.HasData(new DictionaryLocalization { ID = 98, LanguageID = ArabicInt, Description = "استكشاف إطلاق عملة رقمية عربية بقيادة الشباب" });
+               
+                
+                // read more
+                entity.HasData(new DictionaryLocalization { ID = 99, LanguageID = EnglishInt, Description = "Read More" });
+                entity.HasData(new DictionaryLocalization { ID = 99, LanguageID = ArabicInt, Description = "اقرأ المزيد" });
+
+
                 builder.Entity<CompanyDictionaryLocalization>(entity =>
             {
                 entity.ToTable(schema: "Localization", name: "CompanyDictionaryLocalization");

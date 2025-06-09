@@ -65,18 +65,30 @@ class ExpandableCard {
         this.cardContentEl.style.left = `${0}px`;
         this.cardContentEl.style.width = null;
         this.cardContentEl.style.height = null;
+        this.cardContentEl.style.borderRadius = '1.5rem';
+        this.cardContentEl.style.fontSize = '1.5rem';
+
         this.cardContentEl.style.transform = `translate(${cardBoundingRect.left
             }px), ${cardBoundingRect.top}px)`;
         this.expandedContentEl.style.visibility = "visible";
 
+       
+
+        // Set some max width and margin values
+        const maxWidth = Math.min(window.innerWidth * 0.9, 500); // Max width: 90% or 500px
+        const horizontalMargin = (window.innerWidth - maxWidth) / 2;
+        const maxHeight = window.innerHeight * 0.85; // Max height: 85% of viewport
+
+        // Calculate height needed for expanded content
         const fromHeight = this.staticHeight(this.cardContentEl);
         const expandedContentHeight = this.staticHeight(this.expandedContentEl);
-        const toHeight = fromHeight + expandedContentHeight;
+        let toHeight = fromHeight + expandedContentHeight;
+        toHeight = Math.min(toHeight, maxHeight); // Respect max height
 
         const targetBoundingRect = {
-            left: window.innerWidth / 4,
-            top: window.innerHeight / 4,
-            width: window.innerWidth /2,
+            left: horizontalMargin,
+            top: (window.innerHeight - toHeight) / 2, // Vertical center
+            width: maxWidth,
             height: toHeight
         };
         const promises = [
