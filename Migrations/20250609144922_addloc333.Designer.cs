@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qimmah.Data;
 
@@ -11,9 +12,11 @@ using Qimmah.Data;
 namespace Qimmah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250609144922_addloc333")]
+    partial class addloc333
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -5559,13 +5562,13 @@ namespace Qimmah.Migrations
                         {
                             ID = 110,
                             LanguageID = 1,
-                            Description = "Show less"
+                            Description = "عرض اقل"
                         },
                         new
                         {
-                            ID = 110,
+                            ID = 119,
                             LanguageID = 2,
-                            Description = "عرض اقل"
+                            Description = "Show less"
                         });
                 });
 

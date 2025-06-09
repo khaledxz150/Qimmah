@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qimmah.Data;
 
@@ -11,9 +12,11 @@ using Qimmah.Data;
 namespace Qimmah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250609132312_updateloc2")]
+    partial class updateloc2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -4659,13 +4662,13 @@ namespace Qimmah.Migrations
                         {
                             ID = 35,
                             LanguageID = 1,
-                            Description = "AYITS is not about words or slogans — it delivers real, actionable outcomes that translate into policies, platforms, and initiatives.\r\nKey outcomes include:"
+                            Description = "AYITS is not about words or slogans — it delivers real, actionable"
                         },
                         new
                         {
                             ID = 35,
                             LanguageID = 2,
-                            Description = "لا تقتصر القمة على الكلمات أو الشعارات، بل تُطلق مخرجات عملية ملموسة تُترجم إلى سياسات، منصات، ومبادرات تشمل هذه المخرجات:"
+                            Description = "قمة AYITS ليست مجرد شعارات، بل منصة حقيقية تقدم نتائج ملموسة قابلة للتطبيق"
                         },
                         new
                         {
@@ -5293,18 +5296,6 @@ namespace Qimmah.Migrations
                         },
                         new
                         {
-                            ID = 88,
-                            LanguageID = 1,
-                            Description = "عرض المزيد"
-                        },
-                        new
-                        {
-                            ID = 88,
-                            LanguageID = 2,
-                            Description = "Show More"
-                        },
-                        new
-                        {
                             ID = 89,
                             LanguageID = 1,
                             Description = "Providing financial and technical support for startups"
@@ -5434,138 +5425,6 @@ namespace Qimmah.Migrations
                             ID = 99,
                             LanguageID = 2,
                             Description = "اقرأ المزيد"
-                        },
-                        new
-                        {
-                            ID = 100,
-                            LanguageID = 1,
-                            Description = "Launching the Arab Youth Innovation Platform"
-                        },
-                        new
-                        {
-                            ID = 100,
-                            LanguageID = 2,
-                            Description = "إطلاق منصة الشباب العربي للابتكار"
-                        },
-                        new
-                        {
-                            ID = 101,
-                            LanguageID = 1,
-                            Description = "Signing funding agreements and strategic partnerships"
-                        },
-                        new
-                        {
-                            ID = 101,
-                            LanguageID = 2,
-                            Description = "توقيع اتفاقيات تمويل وشراكة استراتيجية"
-                        },
-                        new
-                        {
-                            ID = 102,
-                            LanguageID = 1,
-                            Description = "Publishing the 'State of Arab Innovation' report"
-                        },
-                        new
-                        {
-                            ID = 102,
-                            LanguageID = 2,
-                            Description = "إصدار تقرير \"حالة الابتكار العربي\""
-                        },
-                        new
-                        {
-                            ID = 103,
-                            LanguageID = 1,
-                            Description = "Establishing the Arab Council for Innovation"
-                        },
-                        new
-                        {
-                            ID = 103,
-                            LanguageID = 2,
-                            Description = "تأسيس المجلس العربي للإبداع"
-                        },
-                        new
-                        {
-                            ID = 104,
-                            LanguageID = 1,
-                            Description = "Launching an annual innovation journal and index"
-                        },
-                        new
-                        {
-                            ID = 104,
-                            LanguageID = 2,
-                            Description = "إطلاق مجلة ومؤشر ابتكار سنوي"
-                        },
-                        new
-                        {
-                            ID = 105,
-                            LanguageID = 1,
-                            Description = "Turning the summit into a recurring regional tradition"
-                        },
-                        new
-                        {
-                            ID = 105,
-                            LanguageID = 2,
-                            Description = "تحويل القمة إلى تقليد إقليمي دائم"
-                        },
-                        new
-                        {
-                            ID = 106,
-                            LanguageID = 1,
-                            Description = "Developing practical training and employment programs"
-                        },
-                        new
-                        {
-                            ID = 106,
-                            LanguageID = 2,
-                            Description = "تطوير برامج تدريب وتوظيف فعلي"
-                        },
-                        new
-                        {
-                            ID = 107,
-                            LanguageID = 1,
-                            Description = "Implementing the recommendations of the 'Amman Declaration'"
-                        },
-                        new
-                        {
-                            ID = 107,
-                            LanguageID = 2,
-                            Description = "تفعيل توصيات \"إعلان عمّان\""
-                        },
-                        new
-                        {
-                            ID = 108,
-                            LanguageID = 1,
-                            Description = "Advancing digital sovereignty and smart currencies"
-                        },
-                        new
-                        {
-                            ID = 108,
-                            LanguageID = 2,
-                            Description = "دعم السيادة الرقمية والعملات الذكية"
-                        },
-                        new
-                        {
-                            ID = 109,
-                            LanguageID = 1,
-                            Description = "Improving Arab and Jordanian performance indicators in innovation, environment, and education"
-                        },
-                        new
-                        {
-                            ID = 109,
-                            LanguageID = 2,
-                            Description = "رفع مؤشرات الأداء الأردني والعربي في الابتكار والبيئة والتعليم"
-                        },
-                        new
-                        {
-                            ID = 110,
-                            LanguageID = 1,
-                            Description = "Show less"
-                        },
-                        new
-                        {
-                            ID = 110,
-                            LanguageID = 2,
-                            Description = "عرض اقل"
                         });
                 });
 

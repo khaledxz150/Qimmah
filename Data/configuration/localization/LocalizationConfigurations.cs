@@ -148,20 +148,20 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 30, LanguageID = EnglishInt, Description = "What is It?" });
                 entity.HasData(new DictionaryLocalization { ID = 30, LanguageID = ArabicInt, Description = "ما هي؟" });
 
-                entity.HasData(new DictionaryLocalization { ID = 31, LanguageID = EnglishInt, Description = "The Arab Youth Innovation & Technology Summit (AYITS) is a leading region" });
-                entity.HasData(new DictionaryLocalization { ID = 31, LanguageID = ArabicInt, Description = "قمة الابتكار والتكنولوجيا للشباب العرب (AYITS) هي منصة إقليمية رائدة" });
+                entity.HasData(new DictionaryLocalization { ID = 31, LanguageID = EnglishInt, Description = "The Arab Youth Innovation & Technology Summit (AYITS) is a leading regional platform that brings together young innovators, decision-makers, and experts in one place to redefine the role of youth in driving digital transformation and sustainable development. Held in Amman — the Arab Youth Capital 2025 — under the umbrella of the League of Arab States, the summit serves as a unique meeting point between youthful energy and institutional opportunities, generating real solutions to the Arab world’s most pressing challenges." });
+                entity.HasData(new DictionaryLocalization { ID = 31, LanguageID = ArabicInt, Description = "قمة الابتكار والتكنولوجيا للشباب العربي هي منصة إقليمية رائدة، تجمع الشباب المبتكرين وصنّاع القرار والخبراء في مكان واحد، لإعادة تعريف دور الشباب في قيادة التحول الرقمي والتنمية المستدامة.\r\nتنعقد القمة في عمّان، عاصمة الشباب العربي 2025، تحت مظلة جامعة الدول العربية، وتُعد نقطة التقاء استثنائية بين الطاقات الشابة والفرص المؤسسية لتوليد حلول فعلية لتحديات العالم العربي." });
 
                 entity.HasData(new DictionaryLocalization { ID = 32, LanguageID = EnglishInt, Description = "Why?" });
                 entity.HasData(new DictionaryLocalization { ID = 32, LanguageID = ArabicInt, Description = "لماذا؟" });
 
-                entity.HasData(new DictionaryLocalization { ID = 33, LanguageID = EnglishInt, Description = "Because youth are the true engine of change in our societies. The summit is" });
-                entity.HasData(new DictionaryLocalization { ID = 33, LanguageID = ArabicInt, Description = "لأن الشباب هم المحرك الفعلي للتغيير في مجتمعاتنا. القمة هي إيمان حقيقي باستثمار قدرات الشباب العربي النهائية لقيادة بل" });
+                entity.HasData(new DictionaryLocalization { ID = 33, LanguageID = EnglishInt, Description = "Because youth are the true engine of change in our societies. The summit is rooted in a deep belief that investing in the technical and creative potential of young people is not optional — it is a strategic necessity. With youth unemployment in the Arab world exceeding 25%, AYITS serves as a practical platform to turn challenges into opportunities and accelerate the shift toward a productive, fair, and sustainable digital economy" });
+                entity.HasData(new DictionaryLocalization { ID = 33, LanguageID = ArabicInt, Description = "لأن الشباب هم المحرّك الحقيقي للتغيير في مجتمعاتنا. \r\nتنطلق القمة من إيمان عميق بأن الاستثمار في قدرات الشباب التقنية والإبداعية ليس خيارًا، بل ضرورة استراتيجية. فمع ارتفاع نسبة البطالة في العالم العربي إلى أكثر من 25%، تصبح القمة منصة عملية لتحويل التحديات إلى فرص، وتسريع التحول نحو اقتصاد رقمي منتج وعادل ومستدام." });
 
                 entity.HasData(new DictionaryLocalization { ID = 34, LanguageID = EnglishInt, Description = "Summit Outcomes" });
                 entity.HasData(new DictionaryLocalization { ID = 34, LanguageID = ArabicInt, Description = "مخرجات القمة" });
 
-                entity.HasData(new DictionaryLocalization { ID = 35, LanguageID = EnglishInt, Description = "AYITS is not about words or slogans — it delivers real, actionable" });
-                entity.HasData(new DictionaryLocalization { ID = 35, LanguageID = ArabicInt, Description = "قمة AYITS ليست مجرد شعارات، بل منصة حقيقية تقدم نتائج ملموسة قابلة للتطبيق" });
+                entity.HasData(new DictionaryLocalization { ID = 35, LanguageID = EnglishInt, Description = "AYITS is not about words or slogans — it delivers real, actionable outcomes that translate into policies, platforms, and initiatives.\r\nKey outcomes include:" });
+                entity.HasData(new DictionaryLocalization { ID = 35, LanguageID = ArabicInt, Description = "لا تقتصر القمة على الكلمات أو الشعارات، بل تُطلق مخرجات عملية ملموسة تُترجم إلى سياسات، منصات، ومبادرات تشمل هذه المخرجات:" });
 
                 entity.HasData(new DictionaryLocalization { ID = 36, LanguageID = EnglishInt, Description = "outcomes that translate into policies, platforms, and initiatives." });
                 entity.HasData(new DictionaryLocalization { ID = 36, LanguageID = ArabicInt, Description = "تحولها إلى سياسات ومنصات ومبادرات" });
@@ -319,6 +319,9 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 87, LanguageID = EnglishInt, Description = "Day Three – (Date & Time)" });
                 entity.HasData(new DictionaryLocalization { ID = 87, LanguageID = ArabicInt, Description = "اليوم الثالث – (بموعد وتاريخ)" });
 
+                entity.HasData(new DictionaryLocalization { ID = 88, LanguageID = EnglishInt, Description = "عرض المزيد" });
+                entity.HasData(new DictionaryLocalization { ID = 88, LanguageID = ArabicInt, Description = "Show More" });
+
                 // Providing financial and technical support for startups
                 entity.HasData(new DictionaryLocalization { ID = 89, LanguageID = EnglishInt, Description = "Providing financial and technical support for startups" });
                 entity.HasData(new DictionaryLocalization { ID = 89, LanguageID = ArabicInt, Description = "توفير دعم مالي وفني للشركات الناشئة" });
@@ -363,7 +366,40 @@ namespace Qimmah.Data.configuration.localization
                 // read more
                 entity.HasData(new DictionaryLocalization { ID = 99, LanguageID = EnglishInt, Description = "Read More" });
                 entity.HasData(new DictionaryLocalization { ID = 99, LanguageID = ArabicInt, Description = "اقرأ المزيد" });
+               
+                // AYITS Key Outcomes Descriptions
+                entity.HasData(new DictionaryLocalization { ID = 100, LanguageID = EnglishInt, Description = "Launching the Arab Youth Innovation Platform" });
+                entity.HasData(new DictionaryLocalization { ID = 100, LanguageID = ArabicInt, Description = "إطلاق منصة الشباب العربي للابتكار" });
 
+                entity.HasData(new DictionaryLocalization { ID = 101, LanguageID = EnglishInt, Description = "Signing funding agreements and strategic partnerships" });
+                entity.HasData(new DictionaryLocalization { ID = 101, LanguageID = ArabicInt, Description = "توقيع اتفاقيات تمويل وشراكة استراتيجية" });
+
+                entity.HasData(new DictionaryLocalization { ID = 102, LanguageID = EnglishInt, Description = "Publishing the 'State of Arab Innovation' report" });
+                entity.HasData(new DictionaryLocalization { ID = 102, LanguageID = ArabicInt, Description = "إصدار تقرير \"حالة الابتكار العربي\"" });
+
+                entity.HasData(new DictionaryLocalization { ID = 103, LanguageID = EnglishInt, Description = "Establishing the Arab Council for Innovation" });
+                entity.HasData(new DictionaryLocalization { ID = 103, LanguageID = ArabicInt, Description = "تأسيس المجلس العربي للإبداع" });
+
+                entity.HasData(new DictionaryLocalization { ID = 104, LanguageID = EnglishInt, Description = "Launching an annual innovation journal and index" });
+                entity.HasData(new DictionaryLocalization { ID = 104, LanguageID = ArabicInt, Description = "إطلاق مجلة ومؤشر ابتكار سنوي" });
+
+                entity.HasData(new DictionaryLocalization { ID = 105, LanguageID = EnglishInt, Description = "Turning the summit into a recurring regional tradition" });
+                entity.HasData(new DictionaryLocalization { ID = 105, LanguageID = ArabicInt, Description = "تحويل القمة إلى تقليد إقليمي دائم" });
+
+                entity.HasData(new DictionaryLocalization { ID = 106, LanguageID = EnglishInt, Description = "Developing practical training and employment programs" });
+                entity.HasData(new DictionaryLocalization { ID = 106, LanguageID = ArabicInt, Description = "تطوير برامج تدريب وتوظيف فعلي" });
+
+                entity.HasData(new DictionaryLocalization { ID = 107, LanguageID = EnglishInt, Description = "Implementing the recommendations of the 'Amman Declaration'" });
+                entity.HasData(new DictionaryLocalization { ID = 107, LanguageID = ArabicInt, Description = "تفعيل توصيات \"إعلان عمّان\"" });
+
+                entity.HasData(new DictionaryLocalization { ID = 108, LanguageID = EnglishInt, Description = "Advancing digital sovereignty and smart currencies" });
+                entity.HasData(new DictionaryLocalization { ID = 108, LanguageID = ArabicInt, Description = "دعم السيادة الرقمية والعملات الذكية" });
+
+                entity.HasData(new DictionaryLocalization { ID = 109, LanguageID = EnglishInt, Description = "Improving Arab and Jordanian performance indicators in innovation, environment, and education" });
+                entity.HasData(new DictionaryLocalization { ID = 109, LanguageID = ArabicInt, Description = "رفع مؤشرات الأداء الأردني والعربي في الابتكار والبيئة والتعليم" });
+
+                entity.HasData(new DictionaryLocalization { ID = 110, LanguageID = EnglishInt, Description = "Show less"});
+                entity.HasData(new DictionaryLocalization { ID = 110, LanguageID = ArabicInt, Description =  "عرض اقل"  });
 
                 builder.Entity<CompanyDictionaryLocalization>(entity =>
             {

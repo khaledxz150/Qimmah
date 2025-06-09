@@ -1,0 +1,18 @@
+{
+    "iis.configDir": "${workspaceFolder}\\.vs\\Qimmah\\config",
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/wwwroot/css"
+        }
+    ],
+    "liveSassCompile.settings.includeItems": [
+        "/wwwroot/scss/site.scss"
+    ],
+    "liveSassCompile.settings.excludeList": [
+        "**/node_modules/**",
+        ".vscode/**"
+    ],
+    "liveSassCompile.settings.watchFullTree": true
+}

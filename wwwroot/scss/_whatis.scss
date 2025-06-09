@@ -1,0 +1,110 @@
+﻿.reveal-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+
+    &.revealed {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: white;
+        z-index: 2;
+        transform: translateY(0%);
+        transition: transform 1s ease;
+    }
+
+    &.revealed::before {
+        transform: translateY(-100%);
+    }
+}
+
+.starting-whatis {
+    gap: 12rem;
+}
+
+// Text overflow with show more functionality
+.text-container {
+    position: relative;
+    @extend .text-align-start;
+
+    .text-content {
+         max-height: 11rem;
+        overflow: hidden;
+         transition: max-height 0.8s ease, padding 0.8s ease;
+        line-height: 1.5;
+
+        &.expanded {
+        max-height: 1000px; // Fallback if JS fails
+        }
+
+        &.force-overflow {
+            min-height: 15rem;
+        }
+    }
+
+    .text-fade {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2rem;
+        background: linear-gradient(transparent, white);
+        pointer-events: none;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+
+        &.hidden {
+            opacity: 0;
+        }
+    }
+
+   
+}
+
+// Responsive tweaks
+@media (max-width: 768px) {
+    .starting-whatis {
+        gap: 10rem;
+    }
+
+    .reveal-container {
+        max-width: 200px;
+    }
+
+    .reveal-on-scroll {
+        max-height: 200px;
+    }
+
+    .text-container .text-content {
+        max-height: 9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reveal-container {
+        max-width: 150px;
+    }
+
+    .reveal-on-scroll {
+        max-height: 150px;
+    }
+
+    .starting-whatis {
+        gap: 1rem !important;
+    }
+
+    .text-container .text-content {
+        max-height: 8rem;
+    }
+}
+
+.show-more-btn{
+    @extend .mt-2;
+}

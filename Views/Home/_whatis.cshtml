@@ -1,49 +1,74 @@
-﻿
-<div class="container-md py-5 color-primary">
+﻿<div class="container-md py-5 color-primary">
     <div class="row text-center-md align-items-center">
         <div class="col-md-4">
             <div class="align-items-start flex-column row text-center-md starting-whatis" style="gap: 12rem;">
                 <!-- Right Column -->
                 <div class="col-md-12 mb-4 mt-5 d-flex align-items-start flex-column gap-4">
-                    <h2 cite="mb-3" >ما هي؟</h2>
-                    <p class="fs-125-rem"  style="text-align: right;">
-                        قمة الابتكار والتكنولوجيا للشباب العربي هي فعالية إقليمية تهدف إلى جمع الشباب، المبتكرين،
-                        وصناع القرار في مكان واحد، لبحث سبل تمكين الشباب العربي...
-                        <a class="read-more" href="#">اقرأ المزيد</a>
-                    </p>
+                    <h2 cite="mb-3">@Html.GetWord(30)</h2>
+                    <div class="text-container">
+                        <div class="text-content" data-text-id="text-1">
+                            <p class="fs-125-rem" style="text-align: right;">
+                                @Html.GetWord(31)
+                            </p>
+                        </div>
+
+                        <a class="read-more show-more-btn" data-target="text-1" style="display: none;">
+                            @Html.GetWord(99)
+                        </a>
+                    </div>
                 </div>
-                
+
                 <div class="col-md-12 text-center d-flex align-items-start flex-column gap-4">
-                   <h2>لماذا؟</h2>
-                   <p class="fs-125-rem"  style="text-align: right;">
-                       تُعقد قمة الابتكار والتكنولوجيا للشباب العربي انطلاقاً من الإيمان العميق بأن الشباب هم المحرك
-                       الحقيقي للتغيير في المجتمعات العربية...
-                   </p>
+                    <h2>@Html.GetWord(32)</h2>
+                    <div class="text-container">
+                        <div class="text-content" data-text-id="text-2">
+                            <p class="fs-125-rem" style="text-align: right;">
+                                @Html.GetWord(33)
+                            </p>
+                        </div>
+                        <a class="read-more show-more-btn" data-target="text-2" style="display: none;">
+                            @Html.GetWord(99)
+                        </a>
+                    </div>
                 </div>
             </div>
             <!-- Left Column -->
-          
         </div>
-
         <div class="col-md-4 d-flex justify-content-center mb-4">
-            <div class="reveal-container">
-               <img src="~/images/icons/question-mark-green.svg"  class=" img-fluid reveal-on-scroll" />
+            <img src="~/images/icons/question-mark-green.svg" class=" img-fluid reveal-on-scroll" />
+        </div>
+        <div class="col-md-4 mb-4 mt-2 d-flex align-items-start flex-column gap-4">
+            <h2>@Html.GetWord(34)</h2>
+
+            <div class="text-container">
+                <div class="text-content" data-text-id="text-3">
+                    <p class="fs-125-rem" style="text-align: right;">
+                        @Html.GetWord(35)
+                    <ul class="text-align-start">
+                        <li>@Html.GetWord(100)</li>
+                        <li>@Html.GetWord(101)</li>
+                        <li>@Html.GetWord(102)</li>
+                        <li>@Html.GetWord(103)</li>
+                        <li>@Html.GetWord(104)</li>
+                        <li>@Html.GetWord(105)</li>
+                        <li>@Html.GetWord(106)</li>
+                        <li>@Html.GetWord(107)</li>
+                        <li>@Html.GetWord(108)</li>
+                        <li>@Html.GetWord(109)</li>
+                    </ul>
+                    </p>
+                </div>
+                <a class="read-more show-more-btn" data-target="text-3" style="display: none;">
+                    @Html.GetWord(99)
+                </a>
             </div>
         </div>
-       <div class="col-md-4 mb-4 mt-2 d-flex align-items-start flex-column gap-4">
-           <h2>مخرجاتها؟</h2>
-           <p class="fs-125-rem" style="text-align: right;">
-               تسفر قمة الابتكار والتكنولوجيا للشباب العربي عن مجموعة من المخرجات العملية التي تُسهم في تمكين
-               الشباب وتعزيز دورهم في المستقبل الرقمي...
-               <a class="read-more" href="#">اقرأ المزيد</a>
-           </p>
-       </div>
     </div>
-
 </div>
 
-    <script>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
+        // Existing reveal animation code
         const revealContainers = document.querySelectorAll(".reveal-container");
 
         const observer = new IntersectionObserver(
@@ -63,8 +88,77 @@
         revealContainers.forEach(container => {
             observer.observe(container);
         });
+
+        // Text overflow functionality
+        function initTextOverflow() {
+            const textContainers = document.querySelectorAll('.text-container');
+
+            textContainers.forEach(container => {
+                const textContent = container.querySelector('.text-content');
+                const showMoreBtn = container.querySelector('.show-more-btn');
+
+                if (!textContent || !showMoreBtn) return;
+
+                // Check if text overflows
+                function checkOverflow() {
+
+                    const computedStyle = window.getComputedStyle(textContent);
+                    const maxHeight = parseFloat(computedStyle.maxHeight);
+                    const actualHeight = textContent.scrollHeight;
+
+                    console.log(`Container: ${textContent.dataset.textId}`);
+                    console.log(`Max height: ${maxHeight}px`);
+                    console.log(`Actual height: ${actualHeight}px`);
+                    console.log(`Overflow: ${actualHeight > maxHeight}`);
+
+                    if (actualHeight > maxHeight && !textContent.classList.contains('expanded')) {
+                        showMoreBtn.style.display = 'block';
+                    } else if (!textContent.classList.contains('expanded')) {
+                        showMoreBtn.style.display = 'none';
+                    }
+                }
+
+                // Initial check after a small delay to ensure DOM is fully loaded
+                setTimeout(() => {
+                    checkOverflow();
+                }, 100);
+
+                // Recheck on window resize
+                window.addEventListener('resize', checkOverflow);
+
+                // Handle show more button click
+                showMoreBtn.addEventListener('click', function () {
+                    const isExpanded = textContent.classList.contains('expanded');
+
+                    if (isExpanded) {
+                        // Collapse: Animate max-height to collapsed value
+                        textContent.style.maxHeight = `${textContent.scrollHeight}px`; // Set current height
+                        requestAnimationFrame(() => {
+                            textContent.style.maxHeight = '11rem'; // Collapse target
+                        });
+
+                        textContent.classList.remove('expanded');
+                        showMoreBtn.textContent = '@Html.Raw(Html.GetWord(99))';
+                    } else {
+                        // Expand: Animate to scrollHeight
+                        const fullHeight = textContent.scrollHeight;
+                        textContent.style.maxHeight = `${fullHeight}px`;
+                        textContent.classList.add('expanded');
+                        showMoreBtn.textContent = '@Html.Raw(Html.GetWord(110))';
+                    }
+                });
+            });
+        }
+
+        initTextOverflow();
+
+        // Observe changes in the main container
+        const mainContainer = document.querySelector('.container-md');
+        if (mainContainer) {
+            contentObserver.observe(mainContainer, {
+                childList: true,
+                subtree: true
+            });
+        }
     });
 </script>
-
-
-
