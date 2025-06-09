@@ -1,24 +1,52 @@
-﻿<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+﻿@{
+    var languageId = 2;
+
+    if (Context.Request.Cookies.ContainsKey("LanguageID"))
+    {
+        if (int.TryParse(Context.Request.Cookies["LanguageID"], out int parsedLanguageId))
+        {
+            languageId = parsedLanguageId;
+        }
+    }
+}
+
+<!DOCTYPE html>
+<html lang="@(languageId == 1? "ar" : "en")" dir="@(languageId == 1? "ltr" : "rtl")">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Qimmah</title>
     <script type="importmap"></script>
-    <link rel="stylesheet" href="~/css/site.rtl.css" asp-append-version="true" />
+
+    @{
+
+        if (languageId == 1)
+        {
+            <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        }
+        else if (languageId == 2)
+        {
+            <link rel="stylesheet" href="~/css/site.rtl.css" asp-append-version="true" />
+        }
+    }
+
     <title>AYITS - قمة الابتكار والتكنولوجيا</title>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
 </head>
+
 <body>
-      @{await Html.RenderPartialAsync("../Shared/CommonViews/Menu.cshtml");}
+    @{
+        await Html.RenderPartialAsync("../Shared/CommonViews/Menu.cshtml");
+    }
     <div class="fluid-container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-   @*  <footer class="border-top footer text-muted">
+    @*  <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2025 - Qimmah - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -28,4 +56,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

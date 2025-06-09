@@ -16,13 +16,13 @@
         <a href="#">الرعاة والشركاء</a>
         <a href="#">آخر الأخبار</a>
     </div>
-    <div class="nav-left">
+   <div class="nav-left">
         <button class="login-btn">تسجيل</button>
-        <div class="lang-selector">
-            <img src="https://flagcdn.com/w20/ps.png" alt="Palestine Flag">
-            <span>▼</span>
-        </div>
-    </div>
+        <select class="form-select lang-selector" id="langSelector" name="LanguageID">
+                <option value="2" selected>العربية</option>
+                <option value="1">English</option>
+        </select>
+    </div>  
 </nav>
 
 <!-- Mobile Menu Overlay -->
@@ -39,14 +39,59 @@
 
     <div class="mobile-actions">
         <button class="login-btn">تسجيل</button>
-        <div class="lang-selector">
-            <img src="https://flagcdn.com/w20/ps.png" alt="Palestine Flag">
-            <span>▼</span>
-        </div>
+       <select class="form-select lang-selector" id="langSelectorMobile" name="LanguageID">
+                <option value="2" selected>العربية</option>
+                <option value="1">English</option>
+            </select>
     </div>
 </div>
 
 <script>
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+        location.reload(); // Reload to apply language change
+    }
+
+// Helper to get cookie
+    function getCookie(name) {
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for(let i=0;i < ca.length;i++) {
+            let c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+ // Set default language cookie on load if not set
+    document.addEventListener('DOMContentLoaded', function () {
+        let lang = getCookie('LanguageID');
+        if (!lang) {
+            setCookie('LanguageID', '2', 30); // 2 = Arabic by default
+            document.getElementById('langSelector').value = '2';
+            document.getElementById('langSelectorMobile').value = '2';
+        } else {
+            document.getElementById('langSelector').value = lang;
+            document.getElementById('langSelectorMobile').value = lang;
+        }
+    });
+
+
+    // On change, set cookie and notify backend
+    document.getElementById('langSelector').addEventListener('change', function () {
+        setCookie('LanguageID', this.value, 30);
+    });
+    document.getElementById('langSelectorMobile').addEventListener('change', function () {
+        setCookie('LanguageID', this.value, 30);
+        document.getElementById('langFormMobile').submit();
+    });
       function toggleMobileMenu() {
         const burger = document.querySelector('.burger-menu');
         const mobileMenu = document.getElementById('mobileMenu');

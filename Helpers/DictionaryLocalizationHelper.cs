@@ -26,7 +26,7 @@ public static class DictionaryLocalizationHelper
                 languageId = parsedFromClaim;
             }
         }
-        else if (httpContext.Request.Headers.TryGetValue("LanguageID", out var langHeader))
+        else if (httpContext.Request.Cookies.TryGetValue("LanguageID", out var langHeader))
         {
             if (int.TryParse(langHeader.ToString(), out var parsedFromHeader))
             {

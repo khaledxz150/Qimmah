@@ -11,7 +11,7 @@ $color-bg: $primary-bg;
 .ptc-logs-expandable-card {
     position: relative;
     width: 25.6875rem;
-    height: 29.6875rem;
+    height: 30.6875rem;
     border-radius: 1.25rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     margin-top: 1rem;
@@ -37,6 +37,7 @@ $color-bg: $primary-bg;
         position: absolute;
         padding-right: 1.5rem;
         padding-left: 1.5rem;
+        height: max-content;
     }
 }
 

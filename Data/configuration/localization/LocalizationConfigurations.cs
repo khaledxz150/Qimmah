@@ -193,8 +193,8 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 45, LanguageID = EnglishInt, Description = "Do You Believe Change Starts with Youth?" });
                 entity.HasData(new DictionaryLocalization { ID = 45, LanguageID = ArabicInt, Description = "هل تؤمن أن التغيير يبدأ مع الشباب؟" });
 
-                entity.HasData(new DictionaryLocalization { ID = 46, LanguageID = EnglishInt, Description = "Join the summit team as a volunteer and be at the heart of the Arab world’s" });
-                entity.HasData(new DictionaryLocalization { ID = 46, LanguageID = ArabicInt, Description = "انضم كمتطوع في فريق القمة، وكن في قلب حدث من أكثر الأحداث تأثيراً في الابتكار والتكنولوجيا في العالم العربي" });
+                entity.HasData(new DictionaryLocalization { ID = 46, LanguageID = EnglishInt, Description = "join the summit team as a volunteer and be at the heart of the Arab world’s largest innovation and technology event. Gain experience, build valuable connections, and make real impact — from Jordan to the entire Arab region." });
+                entity.HasData(new DictionaryLocalization { ID = 46, LanguageID = ArabicInt, Description = "انضم إلى فريق القمة كمتطوع، وكن في قلب أكبر حدث عربي للابتكار والتكنولوجيا.   خبرات، شبكة علاقات، وأثر حقيقي... من أرض الأردن إلى كل العالم العربي." });
 
                 entity.HasData(new DictionaryLocalization { ID = 47, LanguageID = EnglishInt, Description = "What role do you play in our journey toward an innovative Arab future?" });
                 entity.HasData(new DictionaryLocalization { ID = 47, LanguageID = ArabicInt, Description = "ما هو الدور الذي تلعبه في رحلتنا نحو مستقبل عربي مبتكر؟" });
@@ -361,12 +361,12 @@ namespace Qimmah.Data.configuration.localization
                 // Exploring the launch of a youth-led Arab digital currency
                 entity.HasData(new DictionaryLocalization { ID = 98, LanguageID = EnglishInt, Description = "Exploring the launch of a youth-led Arab digital currency" });
                 entity.HasData(new DictionaryLocalization { ID = 98, LanguageID = ArabicInt, Description = "استكشاف إطلاق عملة رقمية عربية بقيادة الشباب" });
-               
-                
+
+
                 // read more
                 entity.HasData(new DictionaryLocalization { ID = 99, LanguageID = EnglishInt, Description = "Read More" });
                 entity.HasData(new DictionaryLocalization { ID = 99, LanguageID = ArabicInt, Description = "اقرأ المزيد" });
-               
+
                 // AYITS Key Outcomes Descriptions
                 entity.HasData(new DictionaryLocalization { ID = 100, LanguageID = EnglishInt, Description = "Launching the Arab Youth Innovation Platform" });
                 entity.HasData(new DictionaryLocalization { ID = 100, LanguageID = ArabicInt, Description = "إطلاق منصة الشباب العربي للابتكار" });
@@ -398,8 +398,11 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 109, LanguageID = EnglishInt, Description = "Improving Arab and Jordanian performance indicators in innovation, environment, and education" });
                 entity.HasData(new DictionaryLocalization { ID = 109, LanguageID = ArabicInt, Description = "رفع مؤشرات الأداء الأردني والعربي في الابتكار والبيئة والتعليم" });
 
-                entity.HasData(new DictionaryLocalization { ID = 110, LanguageID = EnglishInt, Description = "Show less"});
-                entity.HasData(new DictionaryLocalization { ID = 110, LanguageID = ArabicInt, Description =  "عرض اقل"  });
+                entity.HasData(new DictionaryLocalization { ID = 110, LanguageID = EnglishInt, Description = "Show less" });
+                entity.HasData(new DictionaryLocalization { ID = 110, LanguageID = ArabicInt, Description = "عرض اقل" });
+
+                entity.HasData(new DictionaryLocalization { ID = 111, LanguageID = EnglishInt, Description = "Join the Team" });
+                entity.HasData(new DictionaryLocalization { ID = 111, LanguageID = ArabicInt, Description = "انضم الى الفريق" });
 
                 builder.Entity<CompanyDictionaryLocalization>(entity =>
             {

@@ -1,69 +1,62 @@
 ﻿#champion-container {
-    min-height: 19rem;
+    min-height: 20rem;
     border-radius: 1rem;
     margin-top: 9rem;
 }
 
-    /* Create a pseudo-element to hide overflow only from below */
-    #champion-container::after {
-        content: "";
-        position: absolute;
-        bottom: -242px;
-        right: 0;
-        left: 0;
-        height: 15.11rem;
-        background: white;
-        z-index: 2;
-    }
-
-.champion-person {
-    position: absolute;
-    right: 61px;
-    bottom: -13rem;
-    width: 34rem;
-    height: auto;
-    z-index: 2;
-    transform: scale(1.1);
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
-}
-
-#champion-container::before {
+/* Create a pseudo-element to hide overflow only from below */
+#champion-container::after {
     content: "";
-    height: auto;
-    width: 39rem;
     position: absolute;
-    top: 0;
-    right: -1rem;
-    bottom: -11rem;
-    z-index: 1;
-    background: radial-gradient(circle at 51% 37%, rgba(0, 170, 139, 0.4) 32%, transparent 70%), /* shadow-like gradient */ radial-gradient(circle at 55% 50%, #00AA8B 50%, transparent 51%);
+    top: -8.5rem;
+    right: 7rem;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    background-image: url(/images/people/champion.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right top;
+    z-index: 2;
 }
 
-
-@media (max-width: 48rem) {
-    .champion-person {
-        position: absolute;
-        right: 61px;
-        bottom: -9rem;
-        width: 15rem;
-        height: auto;
-        z-index: 2;
-        transform: scale(1.1);
-        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+/* Medium devices (≤992px) */
+@media (max-width: 992px) {
+    #champion-container::after {
+        top: -2rem;
+        right: -3rem;
+        bottom: 0;
+        width: 53%;
+        background-size: 100% auto;
     }
+}
 
-    #champion-container::before {
-        content: "";
-        height: auto;
-        width: 17rem;
-        position: absolute;
-        top: 0;
-        right: 4rem;
-        bottom: -53rem;
-        z-index: 1;
-        background: radial-gradient(circle at 47% 42%, rgba(0, 170, 139, 0.4) 30%, transparent 41%), radial-gradient(circle at 55% 50%, #00AA8B 50%, transparent 51%);
+/* Small devices (≤768px) */
+@media (max-width: 768px) {
+     #champion-container {
+    min-height: 29rem;
     }
     #champion-container::after {
-        bottom: -167px;
+         top: 2.125rem;
+        right: -3rem;
+        bottom: 0rem;
+        width: 67%;
+        background-size: cover;
+        background-position: center top;
+    }
+}
+
+/* Extra small devices (≤576px) */
+@media (max-width: 576px) {
+    #champion-container {
+    min-height: 29rem;
+    }
+    #champion-container::after {
+        top: 8.125rem;
+        right: 0;
+        bottom: 0rem;
+        width: 67%;
+        background-size: cover;
+        background-position: center top;
     }
 }
