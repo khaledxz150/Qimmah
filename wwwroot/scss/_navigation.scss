@@ -28,16 +28,22 @@ nav {
 }
 
 .nav-center {
+    gap: $spacing-2xl;
+
     a {
         color: $text-color;
         text-decoration: none;
-        margin: 0 $spacing-xl;
         font-size: $spacing-xl;
         font-weight: $font-weight-medium;
+        transition: color 0.3s ease;
 
         &.active {
             color: $accent-color;
             font-weight: $font-weight-bold;
+        }
+
+        &:hover {
+            color: $accent-color;
         }
     }
 }
@@ -52,22 +58,32 @@ nav {
     font-weight: $font-weight-bold;
     cursor: pointer;
     font-size: $fs-sm;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
 }
 
 .lang-selector {
     display: flex;
     align-items: center;
     cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+        opacity: 0.8;
+    }
 
     img {
         width: $spacing-xl;
         height: auto;
-        margin-right: $spacing-xs; // Changed from margin-left for LTR
+        margin-left: $spacing-xs; // RTL spacing
     }
 
     span {
         font-size: $fs-xs;
-        margin-left: $spacing-xs; // Changed from margin-right for LTR
+        margin-right: $spacing-xs; // RTL spacing
     }
 }
 
@@ -77,7 +93,164 @@ nav {
     letter-spacing: $border-radius-sm;
     color: $text-color;
 
+    img {
+        height: 40px;
+        width: auto;
+    }
+
     &::first-letter {
         color: $accent-color;
+    }
+}
+
+// ===========================================
+// BURGER MENU STYLES
+// ===========================================
+
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 4px;
+    gap: 4px;
+    z-index: calc(#{$z-index-nav} + 1);
+
+    .burger-line {
+        width: 25px;
+        height: 3px;
+        background-color: $text-color;
+        transition: all 0.3s ease;
+        transform-origin: center;
+    }
+
+    &.active {
+        .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .burger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+    }
+}
+
+// ===========================================
+// MOBILE MENU OVERLAY
+// ===========================================
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; // RTL: slide from right
+    width: 100%;
+    height: 100vh;
+    background-color: $primary-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s ease;
+    z-index: $z-index-nav;
+
+    &.active {
+        right: 0;
+    }
+
+    a {
+        color: $text-color;
+        text-decoration: none;
+        font-size: $fs-xl;
+        font-weight: $font-weight-medium;
+        margin: $spacing-2xl 0;
+        transition: color 0.3s ease;
+
+        &.active {
+            color: $accent-color;
+            font-weight: $font-weight-bold;
+        }
+
+        &:hover {
+            color: $accent-color;
+        }
+    }
+
+    .mobile-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-2xl;
+        margin-top: $spacing-3xl;
+    }
+
+    .mobile-menu-close {
+        position: absolute;
+        top: $spacing-2xl;
+        right: $spacing-2xl; // RTL: close button on the right
+        background: none;
+        border: none;
+        color: $text-color;
+        font-size: 2rem;
+        cursor: pointer;
+        padding: $spacing-sm;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        z-index: calc(#{$z-index-nav} + 1);
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: $accent-color;
+            transform: rotate(90deg);
+        }
+
+        span {
+            line-height: 1;
+            font-weight: 300;
+        }
+    }
+}
+
+// ===========================================
+// RESPONSIVE BREAKPOINTS
+// ===========================================
+
+@media (max-width: 768px) {
+    nav {
+        padding: $spacing-xl $spacing-2xl;
+
+        .nav-center {
+            display: none;
+        }
+
+        .nav-left {
+            display: none;
+        }
+
+        .nav-right {
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+    .burger-menu {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: $spacing-md $spacing-xl;
+    }
+
+    .logo-small img {
+        height: 32px;
     }
 }

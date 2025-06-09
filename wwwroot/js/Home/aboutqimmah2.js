@@ -91,6 +91,10 @@ class ExpandableCard {
             width: maxWidth,
             height: toHeight
         };
+
+        this.cardContentEl.addEventListener("click", () => {
+            this.collapse();
+        });
         const promises = [
             anime({
                 targets: this.cardContentEl,
@@ -136,6 +140,10 @@ class ExpandableCard {
         const fromHeight = cardContentRect.height;
         //debugger;
         const toHeight = fromHeight - expandedContentHeight;
+
+        this.cardContentEl.addEventListener("click", () => {
+            
+        });
         const promises = [
             anime({
                 targets: this.cardContentEl,

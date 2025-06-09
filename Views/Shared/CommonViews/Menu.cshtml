@@ -3,6 +3,11 @@
         <div class="logo-small">
             <img src="~/images/logos/mainlogo.svg" />
         </div>
+        <div class="burger-menu" onclick="toggleMobileMenu()">
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+        </div>
     </div>
     <div class="nav-center">
         <a href="#" class="active">الصفحة الرئيسية</a>
@@ -14,8 +19,92 @@
     <div class="nav-left">
         <button class="login-btn">تسجيل</button>
         <div class="lang-selector">
-            <img src="https://flagcdn.com/w20/ps.png" alt="Palestine Flag"> <!-- Placeholder flag -->
+            <img src="https://flagcdn.com/w20/ps.png" alt="Palestine Flag">
             <span>▼</span>
         </div>
     </div>
 </nav>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMobileMenu()">
+        <span>&times;</span>
+    </button>
+
+    <a href="#" class="active">الصفحة الرئيسية</a>
+    <a href="#">عن القمة</a>
+    <a href="#">المتحدثون</a>
+    <a href="#">الرعاة والشركاء</a>
+    <a href="#">آخر الأخبار</a>
+
+    <div class="mobile-actions">
+        <button class="login-btn">تسجيل</button>
+        <div class="lang-selector">
+            <img src="https://flagcdn.com/w20/ps.png" alt="Palestine Flag">
+            <span>▼</span>
+        </div>
+    </div>
+</div>
+
+<script>
+      function toggleMobileMenu() {
+        const burger = document.querySelector('.burger-menu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        burger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+
+        // Prevent body scroll when menu is open
+        if (mobileMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    function closeMobileMenu() {
+        const burger = document.querySelector('.burger-menu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        burger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+    });
+
+    // Close mobile menu when clicking outside (but not on burger or close button)
+    document.addEventListener('click', (e) => {
+        const burger = document.querySelector('.burger-menu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeButton = document.querySelector('.mobile-menu-close');
+
+        if (!burger.contains(e.target) &&
+            !mobileMenu.contains(e.target) &&
+            e.target !== closeButton) {
+            closeMobileMenu();
+        }
+    });
+
+    // Close mobile menu with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        }
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+        }
+    });
+    </script>
