@@ -2,33 +2,40 @@
     <h3 class="about-summit-title">
         حول القمة
     </h3>
-    <div class="svg-background-box mb-4 position-relative row " style="min-height: 26rem;">
+    <div class="svg-background-box mb-4 position-relative row ">
         <img class="clouds-decoration" src="~/images/background/clouds-green.svg" alt="Clouds decoration" />
         <div class="row">
             <div class="col-md-6 text-start about-summit-content">
-                <h3 class="host-country-title">
-                    @Html.GetWord(4)
-                </h3>
-                <h1 class="country-name-title">
-                    @Html.GetWord(5)
-                </h1>
-                <div class="event-info-item">
-                    <img src="~/images/icons/location.svg" alt="Location" />
-                    <span>
-                    @Html.GetWord(6)
-                    </span>
-                </div>
-                <div class="event-info-item">
-                    <img src="~/images/icons/clock.svg" alt="Clock" />
-                    <span>
-                        @Html.GetWord(7)
-                    </span>
-                </div>
+                <div class="row flex-column g-5">
+                    <div class="col-md-12">
+                        <h3 class="host-country-title">
+                            @Html.GetWord(4)
+                        </h3>
+                        <h1 class="country-name-title">
+                            @Html.GetWord(5)
+                        </h1>
+                        <div class="event-info-item">
+                            <img src="~/images/icons/location.svg" alt="Location" />
+                            <span>
+                                @Html.GetWord(6)
+                            </span>
+                        </div>
+                        <div class="event-info-item">
+                            <img src="~/images/icons/clock.svg" alt="Clock" />
+                            <span>
+                                @Html.GetWord(7)
+                            </span>
+                        </div>
+                    </div>
 
-             <div class="d-flex position-absolute-bottom">
-                  <button type="button" class="btn btn-outline-dark font-color-white border-color-white">@Html.GetWord(8)</button>
-                  <button type="button" class="btn btn-light ms-3 ">@Html.GetWord(9)</button>
-             </div>
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-outline-dark font-color-white border-color-white">@Html.GetWord(8)</button>
+                        <button type="button" class="btn btn-light ms-3 ">@Html.GetWord(9)</button>
+                    </div>
+                
+                
+                
+                </div>
             </div>
             
             <div class="col-md-6 position-relative">

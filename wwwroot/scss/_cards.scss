@@ -193,11 +193,11 @@
 .event-list {
     list-style: none;
     font-size: 1.1rem;
-    line-height: 2;
+    line-height: 1;
     margin-bottom: $spacing-4xl;
 
     li {
-        position: relative;
+        position: relative; 
         padding-left: $spacing-4xl; // Changed from padding-right for LTR
         margin-bottom: $spacing-lg;
         display: flex;

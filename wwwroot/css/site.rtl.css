@@ -12225,6 +12225,7 @@ nav {
   border-radius: 1rem;
   padding: 2rem;
   color: #fff;
+  min-height: 30rem;
 }
 
 .cards-container {
@@ -12411,7 +12412,7 @@ nav {
 .event-list {
   list-style: none;
   font-size: 1.1rem;
-  line-height: 2;
+  line-height: 1;
   margin-bottom: 2rem;
 }
 .event-list li {
