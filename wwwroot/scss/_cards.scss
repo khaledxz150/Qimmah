@@ -24,14 +24,14 @@
     background-image: url(/images/background/bluebackground.svg) !important;
 
     &:hover {
-        /*.card-front {
+        .card-front {
             transform: translateZ(1.25rem) translateY(-0.625rem);
         }
 
         .card-back {
             transform: translateZ(-0.3125rem) rotate(5deg) translateX(-0.625rem); // Changed from translateX(0.625rem) for LTR
             opacity: 0.8;
-        }*/
+        }
     }
 }
 

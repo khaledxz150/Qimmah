@@ -404,6 +404,14 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 111, LanguageID = EnglishInt, Description = "Join the Team" });
                 entity.HasData(new DictionaryLocalization { ID = 111, LanguageID = ArabicInt, Description = "انضم الى الفريق" });
 
+                entity.HasData(new DictionaryLocalization { ID = 112, LanguageID = EnglishInt, Description = "Official Sponsors of the Arab Youth Innovation & Technology Summit 2025" });
+                entity.HasData(new DictionaryLocalization { ID = 112, LanguageID = ArabicInt, Description = "الرعاة الرسميون لقمة الابتكار والتكنولوجيا للشباب العربي 2025" });
+
+                entity.HasData(new DictionaryLocalization { ID = 113, LanguageID = EnglishInt, Description = "Subscribe to our newsletter" });
+                entity.HasData(new DictionaryLocalization { ID = 113, LanguageID = ArabicInt, Description = "اشترك في النشرة الإخبارية لدينا" });
+                
+                entity.HasData(new DictionaryLocalization { ID = 113, LanguageID = EnglishInt, Description = "Subscribe to our newsletter" });
+                entity.HasData(new DictionaryLocalization { ID = 113, LanguageID = ArabicInt, Description = "اشترك في النشرة الإخبارية لدينا" });
                 builder.Entity<CompanyDictionaryLocalization>(entity =>
             {
                 entity.ToTable(schema: "Localization", name: "CompanyDictionaryLocalization");

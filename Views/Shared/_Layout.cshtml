@@ -11,7 +11,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="@(languageId == 1? "ar" : "en")" dir="@(languageId == 1? "ltr" : "rtl")">
+<html lang="@(languageId == 1 ? "ar" : "en")" dir="@(languageId == 1 ? "ltr" : "rtl")">
 
 <head>
     <meta charset="utf-8" />
@@ -45,7 +45,9 @@
             @RenderBody()
         </main>
     </div>
-
+    @{
+        await Html.RenderPartialAsync("../Shared/CommonViews/Footer.cshtml");
+    }
     @*  <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2025 - Qimmah - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -55,6 +57,7 @@
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 
 </html>
