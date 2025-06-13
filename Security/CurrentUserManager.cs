@@ -87,7 +87,7 @@ public static class CurrentUserManager
 
     public static int GetLanguageIdFromLocalCookie()
     {
-        var cookieValue = CurrentContextAccessor.HttpContext?.Request.Cookies["LocalLanguage"];
+        var cookieValue = CurrentContextAccessor.HttpContext?.Request.Cookies["LanguageID"];
         return int.TryParse(cookieValue, out int languageId) ? languageId : 1;
     }
 
@@ -105,7 +105,7 @@ public static class CurrentUserManager
 
     public static int? GetLanguageIdFromHeader()
     {
-        var cookieValue = CurrentContextAccessor.HttpContext?.Request.Headers["LocalLanguage"];
+        var cookieValue = CurrentContextAccessor.HttpContext?.Request.Headers["LanguageID"];
         return int.TryParse(cookieValue, out int languageId) ? languageId : null;
     }
 

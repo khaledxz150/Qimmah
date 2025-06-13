@@ -18,6 +18,8 @@ namespace Qimmah.Data.Localization
         public string Description { get; set; }
 
         public Languages Language { get; set; }
+
+        [ForeignKey(nameof(ID))]
         public Dictionary Dictionary { get; set; }
 
         public ICollection<CompanyDictionaryLocalization> CompanyDictionaryLocalization { get; set; }

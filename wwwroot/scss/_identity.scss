@@ -1,0 +1,269 @@
+.password-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .password-input {
+        flex: 1;
+
+        &.is-valid {
+            border-color: #28a745;
+            box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+        }
+
+        &.is-invalid {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+        }
+    }
+
+    .password-toggle {
+        position: absolute;
+        right: 24px;
+        top: 47%;
+        transform: translateY(-50%);
+        border: none;
+        background: transparent;
+        color: #6c757d;
+        cursor: pointer;
+        padding: 4px 8px;
+        border-radius: 100px;
+        width: 12%;
+        z-index: 10;
+        height: 57%;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: #495057;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    }
+}
+
+// Strength Meter
+.password-strength-meter {
+    margin-top: 8px;
+
+    .strength-bar {
+        height: 6px;
+        background-color: #e9ecef;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 4px;
+
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: 3px;
+            transition: width 0.3s ease, background-color 0.3s ease;
+
+            &.strength-veryWeak {
+                background-color: #dc3545;
+            }
+
+            &.strength-weak {
+                background-color: #fd7e14;
+            }
+
+            &.strength-fair {
+                background-color: #ffc107;
+            }
+
+            &.strength-good {
+                background-color: #20c997;
+            }
+
+            &.strength-strong {
+                background-color: #28a745;
+            }
+        }
+    }
+
+    .strength-text {
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &.text-veryWeak {
+            color: #dc3545;
+        }
+
+        &.text-weak {
+            color: #fd7e14;
+        }
+
+        &.text-fair {
+            color: #ffc107;
+        }
+
+        &.text-good {
+            color: #20c997;
+        }
+
+        &.text-strong {
+            color: #28a745;
+        }
+    }
+}
+
+// Password Requirements
+.password-requirements {
+    margin-top: 8px;
+
+    .password-requirements-list {
+        margin: 4px 0 0;
+        padding-left: 20px;
+        list-style: none;
+
+        .requirement-item {
+            position: relative;
+            font-size: 0.875rem;
+            color: #6c757d;
+            margin-bottom: 2px;
+            padding-left: 20px;
+            transition: color 0.2s ease;
+
+            &::before {
+                content: "○";
+                position: absolute;
+                left: 0;
+                top: 0;
+                transition: all 0.2s ease;
+            }
+
+            &.valid {
+                color: #28a745;
+
+                &::before {
+                    content: "✓";
+                    color: #28a745;
+                    font-weight: bold;
+                }
+            }
+
+            &.invalid {
+                color: #dc3545;
+
+                &::before {
+                    content: "✗";
+                    color: #dc3545;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
+
+// Floating Box
+.floating-password-info {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 9999;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+
+    .strength-bar {
+        height: 0.5rem;
+        background-color: #e9ecef;
+        margin-bottom: 0.5rem;
+        border-radius: 0.25rem;
+
+        .strength-fill {
+            height: 100%;
+            border-radius: 0.25rem;
+        }
+    }
+}
+
+// Required asterisk
+.required::after {
+    content: " *";
+    color: #dc3545;
+    font-weight: bold;
+}
+
+// Confirmation feedback
+.confirmation-feedback {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 4px;
+}
+
+// Transitions
+.password-input,
+.password-toggle,
+.strength-fill,
+.strength-text,
+.requirement-item {
+    transition: all 0.2s ease-in-out;
+}
+
+// Dark Mode
+@media (prefers-color-scheme: dark) {
+    .password-toggle {
+        color: #adb5bd;
+
+        &:hover {
+            color: #f8f9fa;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+
+    .strength-bar {
+        background-color: #495057;
+    }
+
+    .requirement-item {
+        color: #adb5bd;
+    }
+}
+
+// Responsive
+@media (max-width: 576px) {
+    .password-input-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+
+        .password-toggle {
+            right: 8px;
+            top: 8px;
+        }
+    }
+
+    .password-requirements-list {
+        padding-left: 16px;
+
+        .requirement-item {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+// High Contrast Mode
+@media (prefers-contrast: high) {
+    .strength-fill {
+        &.strength-veryWeak {
+            background-color: #800000;
+        }
+
+        &.strength-weak {
+            background-color: #cc5500;
+        }
+
+        &.strength-fair {
+            background-color: #996600;
+        }
+
+        &.strength-good {
+            background-color: #006600;
+        }
+
+        &.strength-strong {
+            background-color: #004400;
+        }
+    }
+}

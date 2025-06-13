@@ -10,14 +10,14 @@
         </div>
     </div>
     <div class="nav-center">
-        <a href="#" class="active">الصفحة الرئيسية</a>
-        <a href="#">عن القمة</a>
-        <a href="#">المتحدثون</a>
-        <a href="#">الرعاة والشركاء</a>
-        <a href="#">آخر الأخبار</a>
+        <a href="#" class="active">@Html.GetWord(112)</a>
+        <a href="#">@Html.GetWord(113)</a>
+        <a href="#">@Html.GetWord(114)</a>
+        <a href="#">@Html.GetWord(115)</a>
+        <a href="#">@Html.GetWord(116)</a>
     </div>
    <div class="nav-left">
-        <button class="login-btn">تسجيل</button>
+        <button class="login-btn" onClick='window.location.href=`@(Url.Action("Register","Identity"))`'>@Html.GetWord(121)</button>
         <select class="form-select lang-selector" id="langSelector" name="LanguageID">
                 <option value="2" selected>العربية</option>
                 <option value="1">English</option>
@@ -31,14 +31,14 @@
         <span>&times;</span>
     </button>
 
-    <a href="#" class="active">الصفحة الرئيسية</a>
-    <a href="#">عن القمة</a>
-    <a href="#">المتحدثون</a>
-    <a href="#">الرعاة والشركاء</a>
-    <a href="#">آخر الأخبار</a>
+    <a href="#" class="active">@Html.GetWord(112)</a>
+    <a href="#">@Html.GetWord(113)</a>
+    <a href="#">@Html.GetWord(114)</a>
+    <a href="#">@Html.GetWord(115)</a>
+    <a href="#">@Html.GetWord(116)</a>
 
     <div class="mobile-actions">
-        <button class="login-btn">تسجيل</button>
+        <button class="login-btn">@Html.GetWord(121)</button>
        <select class="form-select lang-selector" id="langSelectorMobile" name="LanguageID">
                 <option value="2" selected>العربية</option>
                 <option value="1">English</option>

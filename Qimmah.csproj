@@ -1,16 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-Qimmah-bc505199-7d41-40ad-9590-37d4f78f6fd0</UserSecretsId>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.3" />
@@ -18,17 +15,38 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.3" />
+    <PackageReference Include="MimeMapping" Version="3.1.0" />
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\fonts\" />
     <Folder Include="wwwroot\images\partners\" />
     <Folder Include="wwwroot\images\people\" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="compilerconfig.json" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Using Include="Qimmah.Application.Security.Cryptography.SecurityExtensions">
+      <Static>True</Static>
+    </Using>
+    <Using Include="Qimmah.Extensions.IHtmlHelperExtension">
+      <Static>True</Static>
+    </Using>
+    <Using Include="Qimmah.Extensions.IMemoryCacheExtensions">
+      <Static>True</Static>
+    </Using>
+    <Using Include="Qimmah.Extensions.ListExtensions">
+      <Static>True</Static>
+    </Using>
+    <Using Include="Qimmah.Extensions.ObjectExtensions">
+      <Static>True</Static>
+    </Using>
+    <Using Include="Qimmah.Extensions.StringExtensions">
+      <Static>True</Static>
+    </Using>
+    <Using Include="Qimmah.Security.CurrentUserManager">
+      <Static>True</Static>
+    </Using>
+  </ItemGroup>
 </Project>

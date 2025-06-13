@@ -5,6 +5,7 @@ using Microsoft.Extensions.Caching.Memory;
 using System.Security.Claims;
 
 namespace Qimmah.Helpers;
+
 public static class DictionaryLocalizationHelper
 {
     public static string GetWord(this IHtmlHelper htmlHelper, int dictionaryId)
@@ -13,6 +14,61 @@ public static class DictionaryLocalizationHelper
 
         // Retrieve memory cache service
         var memoryCache = httpContext.RequestServices.GetRequiredService<IMemoryCache>();
+
+        int languageId = GetCurrentLanguageID();
+        // Try retrieving from the cache
+        if (memoryCache.TryGetValue("DictionaryLocalizationCache", out Dictionary<int, Dictionary<int, string>> allLocalizations))
+        {
+            if (allLocalizations.TryGetValue(languageId, out var localizationsForLanguage))
+            {
+                if (localizationsForLanguage.TryGetValue(dictionaryId, out var text))
+                {
+                    return text;
+                }
+            }
+        }
+
+        return $"[Missing:{dictionaryId}]";
+    }
+
+    public static Dictionary<int, string> GetLocalization(this IHtmlHelper htmlHelper)
+    {
+        int languageId = GetCurrentLanguageID();
+        var httpContext = htmlHelper.ViewContext.HttpContext;
+        // Retrieve memory cache service
+        var memoryCache = httpContext.RequestServices.GetRequiredService<IMemoryCache>();
+        // Try retrieving from the cache
+        if (memoryCache.TryGetValue("DictionaryLocalizationCache", out Dictionary<int, Dictionary<int, string>> allLocalizations))
+        {
+            if (allLocalizations.TryGetValue(languageId, out var localizationsForLanguage))
+            {
+                return localizationsForLanguage;
+            }
+        }
+
+        return new Dictionary<int, string>();
+    }
+
+    public static Dictionary<int, string> GetLocalization(this HttpContext httpContext)
+    {
+        int languageId = GetCurrentLanguageID();
+        // Retrieve memory cache service
+        var memoryCache = httpContext.RequestServices.GetRequiredService<IMemoryCache>();
+        // Try retrieving from the cache
+        if (memoryCache.TryGetValue("DictionaryLocalizationCache", out Dictionary<int, Dictionary<int, string>> allLocalizations))
+        {
+            if (allLocalizations.TryGetValue(languageId, out var localizationsForLanguage))
+            {
+                return localizationsForLanguage;
+            }
+        }
+
+        return new Dictionary<int, string>();
+    }
+
+    public static int GetCurrentLanguageID()
+    {
+        var httpContext = new HttpContextAccessor().HttpContext;
 
         int languageId = 2; // Default language ID
 
@@ -34,19 +90,7 @@ public static class DictionaryLocalizationHelper
             }
         }
 
-        // Try retrieving from the cache
-        if (memoryCache.TryGetValue("DictionaryLocalizationCache", out Dictionary<int, Dictionary<int, string>> allLocalizations))
-        {
-            if (allLocalizations.TryGetValue(languageId, out var localizationsForLanguage))
-            {
-                if (localizationsForLanguage.TryGetValue(dictionaryId, out var text))
-                {
-                    return text;
-                }
-            }
-        }
-
-        return $"[Missing:{dictionaryId}]";
+        return languageId;
     }
 
 }

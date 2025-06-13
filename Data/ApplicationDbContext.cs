@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 using Qimmah.Data.configuration.localization;
+using Qimmah.Data.configuration.System;
 using Qimmah.Data.Localization;
+using Qimmah.Data.System;
 using Qimmah.Data.User;
 
 namespace Qimmah.Data
@@ -15,6 +17,10 @@ namespace Qimmah.Data
         public DbSet<Languages> Languages { set; get; }
         public DbSet<DictionaryLocalization> DictionaryLocalization { set; get; }
         public DbSet<Dictionary> Dictionary { set; get; }
+        public DbSet<Lookup> Lookups { set; get; }
+        public DbSet<LookupCategory> LookupsCategory { set; get; }
+
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -28,6 +34,12 @@ namespace Qimmah.Data
 
             builder.ApplyConfiguration(new UserLocalization_Configuration());
             builder.ApplyConfiguration(new User_Configuration());
+            builder.ApplyConfiguration(new LookupsCategoryConfiguration());
+
+            builder.ApplyConfiguration(new LookupsConfiguration());
+
+            builder.ApplyConfiguration(new CountrySeeding());
+
             new LocalizationConfigurations(builder);
 
             base.OnModelCreating(builder);

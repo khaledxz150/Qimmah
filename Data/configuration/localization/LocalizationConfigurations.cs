@@ -1,10 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Reflection.Emit;
 using Qimmah.Data.Localization;
 using Qimmah.Enums.Localization;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Diagnostics;
+
 
 namespace Qimmah.Data.configuration.localization
 {
@@ -32,7 +29,7 @@ namespace Qimmah.Data.configuration.localization
                 var dictionaryEntries = new List<Dictionary>();
 
                 /*DictionaryLocalization.ID.Max +1*/
-                for (int i = 1; i <= 1000; i++)
+                for (int i = 1; i <= 1500; i++)
                 {
                     dictionaryEntries.Add(new Dictionary { ID = i });
                 }
@@ -50,7 +47,7 @@ namespace Qimmah.Data.configuration.localization
                       .HasForeignKey(u => u.LanguageID);
 
                 entity.HasOne(u => u.Dictionary)
-                      .WithMany()
+                      .WithMany(u => u.DictionaryLocalization)
                       .HasForeignKey(u => u.ID);
 
 
@@ -404,32 +401,219 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 111, LanguageID = EnglishInt, Description = "Join the Team" });
                 entity.HasData(new DictionaryLocalization { ID = 111, LanguageID = ArabicInt, Description = "انضم الى الفريق" });
 
+                // Navigation menu items
+                entity.HasData(new DictionaryLocalization { ID = 112, LanguageID = EnglishInt, Description = "Home" });
+                entity.HasData(new DictionaryLocalization { ID = 112, LanguageID = ArabicInt, Description = "الصفحة الرئيسية" });
+
+                entity.HasData(new DictionaryLocalization { ID = 113, LanguageID = EnglishInt, Description = "About the Summit" });
+                entity.HasData(new DictionaryLocalization { ID = 113, LanguageID = ArabicInt, Description = "عن القمة" });
+
+                entity.HasData(new DictionaryLocalization { ID = 114, LanguageID = EnglishInt, Description = "Speakers" });
+                entity.HasData(new DictionaryLocalization { ID = 114, LanguageID = ArabicInt, Description = "المتحدثون" });
+
+                entity.HasData(new DictionaryLocalization { ID = 115, LanguageID = EnglishInt, Description = "Sponsors & Partners" });
+                entity.HasData(new DictionaryLocalization { ID = 115, LanguageID = ArabicInt, Description = "الرعاة والشركاء" });
+
+                entity.HasData(new DictionaryLocalization { ID = 116, LanguageID = EnglishInt, Description = "Latest News" });
+                entity.HasData(new DictionaryLocalization { ID = 116, LanguageID = ArabicInt, Description = "آخر الأخبار" });
+
+                // Registration form labels and validation
+                entity.HasData(new DictionaryLocalization { ID = 117, LanguageID = EnglishInt, Description = "Email" });
+                entity.HasData(new DictionaryLocalization { ID = 117, LanguageID = ArabicInt, Description = "البريد الإلكتروني" });
+
+                entity.HasData(new DictionaryLocalization { ID = 118, LanguageID = EnglishInt, Description = "Password" });
+                entity.HasData(new DictionaryLocalization { ID = 118, LanguageID = ArabicInt, Description = "كلمة المرور" });
+
+                entity.HasData(new DictionaryLocalization { ID = 119, LanguageID = EnglishInt, Description = "Confirm Password" });
+                entity.HasData(new DictionaryLocalization { ID = 119, LanguageID = ArabicInt, Description = "تأكيد كلمة المرور" });
+
+                entity.HasData(new DictionaryLocalization { ID = 120, LanguageID = EnglishInt, Description = "Phone Number" });
+                entity.HasData(new DictionaryLocalization { ID = 120, LanguageID = ArabicInt, Description = "رقم الهاتف" });
+
+                entity.HasData(new DictionaryLocalization { ID = 121, LanguageID = EnglishInt, Description = "Register" });
+                entity.HasData(new DictionaryLocalization { ID = 121, LanguageID = ArabicInt, Description = "تسجيل" });
+
+                entity.HasData(new DictionaryLocalization { ID = 122, LanguageID = EnglishInt, Description = "Name in {0}" });
+                entity.HasData(new DictionaryLocalization { ID = 122, LanguageID = ArabicInt, Description = "الأسم باللغة {0}" });
+
+                entity.HasData(new DictionaryLocalization { ID = 123, LanguageID = EnglishInt, Description = "This Field Is Required" });
+                entity.HasData(new DictionaryLocalization { ID = 123, LanguageID = ArabicInt, Description = "هذا الحقل مطلوب" });
+
+
+                entity.HasData(new DictionaryLocalization { ID = 124, LanguageID = EnglishInt, Description = "Please Enter a Password" });
+                entity.HasData(new DictionaryLocalization { ID = 124, LanguageID = ArabicInt, Description = "الرجاء إدخال كلمة مرور" });
+
+                entity.HasData(new DictionaryLocalization { ID = 125, LanguageID = EnglishInt, Description = "Please Confirm Your Password" });
+                entity.HasData(new DictionaryLocalization { ID = 125, LanguageID = ArabicInt, Description = "الرجاء تأكيد كلمة المرور" });
+
+
+
+
+
+
+
+
+                // Password validation messages
+                entity.HasData(new DictionaryLocalization { ID = 150, LanguageID = EnglishInt, Description = "Password does not meet security requirements" });
+                entity.HasData(new DictionaryLocalization { ID = 150, LanguageID = ArabicInt, Description = "كلمة المرور لا تلبي متطلبات الأمان" });
+
+                entity.HasData(new DictionaryLocalization { ID = 151, LanguageID = EnglishInt, Description = "Password must be at least {0} characters long" });
+                entity.HasData(new DictionaryLocalization { ID = 151, LanguageID = ArabicInt, Description = "كلمة المرور يجب أن تكون على الأقل {0} حرف" });
+
+                entity.HasData(new DictionaryLocalization { ID = 152, LanguageID = EnglishInt, Description = "Password must not exceed {0} characters" });
+                entity.HasData(new DictionaryLocalization { ID = 152, LanguageID = ArabicInt, Description = "كلمة المرور يجب ألا تتجاوز {0} حرف" });
+
+                entity.HasData(new DictionaryLocalization { ID = 153, LanguageID = EnglishInt, Description = "Password must contain at least {0} uppercase letter(s)" });
+                entity.HasData(new DictionaryLocalization { ID = 153, LanguageID = ArabicInt, Description = "كلمة المرور يجب أن تحتوي على {0} حرف كبير على الأقل" });
+
+                entity.HasData(new DictionaryLocalization { ID = 154, LanguageID = EnglishInt, Description = "Password must contain at least {0} lowercase letter(s)" });
+                entity.HasData(new DictionaryLocalization { ID = 154, LanguageID = ArabicInt, Description = "كلمة المرور يجب أن تحتوي على {0} حرف صغير على الأقل" });
+
+                entity.HasData(new DictionaryLocalization { ID = 155, LanguageID = EnglishInt, Description = "Password must contain at least {0} digit(s)" });
+                entity.HasData(new DictionaryLocalization { ID = 155, LanguageID = ArabicInt, Description = "كلمة المرور يجب أن تحتوي على {0} رقم على الأقل" });
+
+                entity.HasData(new DictionaryLocalization { ID = 156, LanguageID = EnglishInt, Description = "Password must contain at least {0} special character(s)" });
+                entity.HasData(new DictionaryLocalization { ID = 156, LanguageID = ArabicInt, Description = "كلمة المرور يجب أن تحتوي على {0} رمز خاص على الأقل" });
+
+                // Password requirements text
+                entity.HasData(new DictionaryLocalization { ID = 157, LanguageID = EnglishInt, Description = "Password must contain:" });
+                entity.HasData(new DictionaryLocalization { ID = 157, LanguageID = ArabicInt, Description = "كلمة المرور يجب أن تحتوي على:" });
+
+                entity.HasData(new DictionaryLocalization { ID = 158, LanguageID = EnglishInt, Description = "Between {0} and {1} characters" });
+                entity.HasData(new DictionaryLocalization { ID = 158, LanguageID = ArabicInt, Description = "بين {0} و {1} حرف" });
+
+                entity.HasData(new DictionaryLocalization { ID = 159, LanguageID = EnglishInt, Description = "At least {0} uppercase letter(s)" });
+                entity.HasData(new DictionaryLocalization { ID = 159, LanguageID = ArabicInt, Description = "{0} حرف كبير على الأقل" });
+
+                entity.HasData(new DictionaryLocalization { ID = 160, LanguageID = EnglishInt, Description = "At least {0} lowercase letter(s)" });
+                entity.HasData(new DictionaryLocalization { ID = 160, LanguageID = ArabicInt, Description = "{0} حرف صغير على الأقل" });
+
+                entity.HasData(new DictionaryLocalization { ID = 161, LanguageID = EnglishInt, Description = "At least {0} digit(s)" });
+                entity.HasData(new DictionaryLocalization { ID = 161, LanguageID = ArabicInt, Description = "{0} رقم على الأقل" });
+
+                entity.HasData(new DictionaryLocalization { ID = 162, LanguageID = EnglishInt, Description = "At least {0} special character(s)" });
+                entity.HasData(new DictionaryLocalization { ID = 162, LanguageID = ArabicInt, Description = "{0} رمز خاص على الأقل" });
+
+                // Password strength labels
+                entity.HasData(new DictionaryLocalization { ID = 163, LanguageID = EnglishInt, Description = "Very Weak" });
+                entity.HasData(new DictionaryLocalization { ID = 163, LanguageID = ArabicInt, Description = "ضعيف جداً" });
+
+                entity.HasData(new DictionaryLocalization { ID = 164, LanguageID = EnglishInt, Description = "Weak" });
+                entity.HasData(new DictionaryLocalization { ID = 164, LanguageID = ArabicInt, Description = "ضعيف" });
+
+                entity.HasData(new DictionaryLocalization { ID = 165, LanguageID = EnglishInt, Description = "Fair" });
+                entity.HasData(new DictionaryLocalization { ID = 165, LanguageID = ArabicInt, Description = "متوسط" });
+
+                entity.HasData(new DictionaryLocalization { ID = 166, LanguageID = EnglishInt, Description = "Good" });
+                entity.HasData(new DictionaryLocalization { ID = 166, LanguageID = ArabicInt, Description = "جيد" });
+
+                entity.HasData(new DictionaryLocalization { ID = 167, LanguageID = EnglishInt, Description = "Strong" });
+                entity.HasData(new DictionaryLocalization { ID = 167, LanguageID = ArabicInt, Description = "قوي" });
+
+                // Password confirmation
+                entity.HasData(new DictionaryLocalization { ID = 168, LanguageID = EnglishInt, Description = "Passwords do not match" });
+                entity.HasData(new DictionaryLocalization { ID = 168, LanguageID = ArabicInt, Description = "كلمات المرور غير متطابقة" });
+
+                // Password visibility toggle
+                entity.HasData(new DictionaryLocalization { ID = 169, LanguageID = EnglishInt, Description = "Show password" });
+                entity.HasData(new DictionaryLocalization { ID = 169, LanguageID = ArabicInt, Description = "إظهار كلمة المرور" });
+
+                entity.HasData(new DictionaryLocalization { ID = 170, LanguageID = EnglishInt, Description = "Hide password" });
+                entity.HasData(new DictionaryLocalization { ID = 170, LanguageID = ArabicInt, Description = "إخفاء كلمة المرور" });
+
+                // Password strength validation
+                entity.HasData(new DictionaryLocalization { ID = 171, LanguageID = EnglishInt, Description = "Password is too weak. Please create a stronger password." });
+                entity.HasData(new DictionaryLocalization { ID = 171, LanguageID = ArabicInt, Description = "كلمة المرور ضعيفة جداً. يرجى إنشاء كلمة مرور أقوى." });
+
+                entity.HasData(new DictionaryLocalization { ID = 172, LanguageID = EnglishInt, Description = "Country" });
+                entity.HasData(new DictionaryLocalization { ID = 172, LanguageID = ArabicInt, Description = "الدولة" });
+
+                // Jordan
+                entity.HasData(new DictionaryLocalization { ID = 1001, LanguageID = EnglishInt, Description = "Jordan" });
+                entity.HasData(new DictionaryLocalization { ID = 1001, LanguageID = ArabicInt, Description = "الأردن" });
+
+                // Palestine
+                entity.HasData(new DictionaryLocalization { ID = 1002, LanguageID = EnglishInt, Description = "Palestine" });
+                entity.HasData(new DictionaryLocalization { ID = 1002, LanguageID = ArabicInt, Description = "فلسطين" });
+
+                // Lebanon
+                entity.HasData(new DictionaryLocalization { ID = 1003, LanguageID = EnglishInt, Description = "Lebanon" });
+                entity.HasData(new DictionaryLocalization { ID = 1003, LanguageID = ArabicInt, Description = "لبنان" });
+
+                // Syria
+                entity.HasData(new DictionaryLocalization { ID = 1004, LanguageID = EnglishInt, Description = "Syria" });
+                entity.HasData(new DictionaryLocalization { ID = 1004, LanguageID = ArabicInt, Description = "سوريا" });
+
+                // Iraq
+                entity.HasData(new DictionaryLocalization { ID = 1005, LanguageID = EnglishInt, Description = "Iraq" });
+                entity.HasData(new DictionaryLocalization { ID = 1005, LanguageID = ArabicInt, Description = "العراق" });
+
+                // Saudi Arabia
+                entity.HasData(new DictionaryLocalization { ID = 1006, LanguageID = EnglishInt, Description = "Saudi Arabia" });
+                entity.HasData(new DictionaryLocalization { ID = 1006, LanguageID = ArabicInt, Description = "السعودية" });
+
+                // Kuwait
+                entity.HasData(new DictionaryLocalization { ID = 1007, LanguageID = EnglishInt, Description = "Kuwait" });
+                entity.HasData(new DictionaryLocalization { ID = 1007, LanguageID = ArabicInt, Description = "الكويت" });
+
+                // Bahrain
+                entity.HasData(new DictionaryLocalization { ID = 1008, LanguageID = EnglishInt, Description = "Bahrain" });
+                entity.HasData(new DictionaryLocalization { ID = 1008, LanguageID = ArabicInt, Description = "البحرين" });
+
+                // Qatar
+                entity.HasData(new DictionaryLocalization { ID = 1009, LanguageID = EnglishInt, Description = "Qatar" });
+                entity.HasData(new DictionaryLocalization { ID = 1009, LanguageID = ArabicInt, Description = "قطر" });
+
+                // UAE
+                entity.HasData(new DictionaryLocalization { ID = 1010, LanguageID = EnglishInt, Description = "United Arab Emirates" });
+                entity.HasData(new DictionaryLocalization { ID = 1010, LanguageID = ArabicInt, Description = "الإمارات العربية المتحدة" });
+
+                // Oman
+                entity.HasData(new DictionaryLocalization { ID = 1011, LanguageID = EnglishInt, Description = "Oman" });
+                entity.HasData(new DictionaryLocalization { ID = 1011, LanguageID = ArabicInt, Description = "عُمان" });
+
+                // Yemen
+                entity.HasData(new DictionaryLocalization { ID = 1012, LanguageID = EnglishInt, Description = "Yemen" });
+                entity.HasData(new DictionaryLocalization { ID = 1012, LanguageID = ArabicInt, Description = "اليمن" });
+                // Egypt
+                entity.HasData(new DictionaryLocalization { ID = 1013, LanguageID = EnglishInt, Description = "Egypt" });
+                entity.HasData(new DictionaryLocalization { ID = 1013, LanguageID = ArabicInt, Description = "مصر" });
+
+                entity.HasData(new DictionaryLocalization { ID = 1014, LanguageID = EnglishInt, Description = "Turkey" });
+                entity.HasData(new DictionaryLocalization { ID = 1014, LanguageID = ArabicInt, Description = "تركيا" });
+
+                entity.HasData(new DictionaryLocalization { ID = 1015, LanguageID = EnglishInt, Description = "Iran" });
+                entity.HasData(new DictionaryLocalization { ID = 1015, LanguageID = ArabicInt, Description = "إيران" });
+
+
+
+
                 builder.Entity<CompanyDictionaryLocalization>(entity =>
-            {
-                entity.ToTable(schema: "Localization", name: "CompanyDictionaryLocalization");
-                entity.HasKey(u => new { u.ID, u.LanguageID });
-                entity.HasOne(u => u.Language)
-                      .WithMany()
-                      .HasForeignKey(u => u.LanguageID);
+                {
+                    entity.ToTable(schema: "Localization", name: "CompanyDictionaryLocalization");
+                    entity.HasKey(u => new { u.ID, u.LanguageID });
+                    entity.HasOne(u => u.Language)
+                          .WithMany()
+                          .HasForeignKey(u => u.LanguageID);
 
-                entity.HasOne(u => u.Dictionary)
-                      .WithMany()
-                .HasForeignKey(u => u.ID);
+                    entity.HasOne(u => u.Dictionary)
+                          .WithMany()
+                    .HasForeignKey(u => u.ID);
 
-                entity
-                 .HasOne(cdl => cdl.DictionaryLocalization)
-                 .WithMany()
-                 .HasForeignKey(cdl => new { cdl.ID, cdl.LanguageID }).OnDelete(DeleteBehavior.Restrict);
+                    entity
+                     .HasOne(cdl => cdl.DictionaryLocalization)
+                     .WithMany()
+                     .HasForeignKey(cdl => new { cdl.ID, cdl.LanguageID }).OnDelete(DeleteBehavior.Restrict);
 
 
-                // Seed data for English
-                entity.HasData(new CompanyDictionaryLocalization { ID = 1, LanguageID = EnglishInt, TenantID = 1, Description = "Home" });
-                entity.HasData(new CompanyDictionaryLocalization { ID = 2, LanguageID = EnglishInt, TenantID = 1, Description = "About" });
+                    // Seed data for English
+                    entity.HasData(new CompanyDictionaryLocalization { ID = 1, LanguageID = EnglishInt, TenantID = 1, Description = "Home" });
+                    entity.HasData(new CompanyDictionaryLocalization { ID = 2, LanguageID = EnglishInt, TenantID = 1, Description = "About" });
 
-                // Seed data for Arabic
-                entity.HasData(new CompanyDictionaryLocalization { ID = 1, LanguageID = ArabicInt, TenantID = 1, Description = "الصفحة الرئيسية اسامه" });
-                entity.HasData(new CompanyDictionaryLocalization { ID = 2, LanguageID = ArabicInt, TenantID = 1, Description = "من نحن اسامه" });
-            });
+                    // Seed data for Arabic
+                    entity.HasData(new CompanyDictionaryLocalization { ID = 1, LanguageID = ArabicInt, TenantID = 1, Description = "الصفحة الرئيسية اسامه" });
+                    entity.HasData(new CompanyDictionaryLocalization { ID = 2, LanguageID = ArabicInt, TenantID = 1, Description = "من نحن اسامه" });
+                });
             });
         }
     }

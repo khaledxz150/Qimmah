@@ -19,7 +19,7 @@ namespace Qimmah.Data.System
 
         public long? LongValue { get; set; }
 
-        public string StringValue { get; set; }
+        public string? StringValue { get; set; } = null;
 
         public bool? BoolValue { get; set; }
 

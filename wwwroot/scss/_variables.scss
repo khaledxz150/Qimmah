@@ -3,6 +3,7 @@
 // ===========================================
 @import "../lib/bootstrap/scss/functions";
 @import "../lib/bootstrap/scss/variables";
+@import 'mixins';
 // Colors
 $primary-bg: #0a2f4d;
 $primary: #0a2f4d;
@@ -11,10 +12,24 @@ $text-color: #ffffff;
 $card-bg-green: #00AA8B;
 $light-text: #696984;
 $medium-text: #ccc;
+$card-title-color: #4C4C4C !default;
+$card-color: black !default;
 
 // Typography
 $font-family: 'Cairo', sans-serif;
 $font-family-poppins: 'Poppins', sans-serif;
+
+
+//backgrounds
+$Transparency01: 0.2;
+$Transparency02: 0.2;
+$Transparency03: 0.3;
+$Transparency04: 0.4;
+
+$extralightPrimaryBackground: rgba($primary, $Transparency02);
+$lightPrimaryBackground: rgba($primary, $Transparency03);
+$lightBoldPrimaryBackground: rgba($primary, $Transparency04);
+
 
 // Font Weights
 $font-weight-thin: 100;
@@ -91,7 +106,29 @@ $z-index-card-back: 1;
 $color-main: #0a2f4d;
 
 
+//Inputs
+$border-width: 0.0325rem;
+$border-color: #ADADAD;
+$focus-ring-width: 0.25rem;
+$focus-ring-opacity: 0.25;
+$focus-ring-color: rgba($accent-color, 0.25);
 
 //color Overrides
-$theme-colors: map-merge($theme-colors, ( "primary": $primary ));
-$theme-colors: map-merge($theme-colors, ( "secondary": $secondary ));
+$theme-colors: map-merge($theme-colors, ("primary": $primary ));
+$theme-colors: map-merge($theme-colors, ("secondary": $accent-color ));
+
+
+
+$transparency-levels: (
+    "2": 0.2,
+    "5": 0.5,
+    "4":0.4,
+    "8": 0.8
+);
+
+$colors: (
+    "primary": $primary
+);
+
+
+@include generate-classes($colors, "bg", $transparency-levels);

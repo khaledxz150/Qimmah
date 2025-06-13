@@ -8,5 +8,7 @@ namespace Qimmah.Data.Localization
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
+
+        public List<DictionaryLocalization> DictionaryLocalization { get; set; } = new List<DictionaryLocalization>();
     }
 }

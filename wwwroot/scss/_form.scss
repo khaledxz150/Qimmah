@@ -1,0 +1,26 @@
+﻿.form-control,
+.select2,
+.select2-selection {
+    direction: inherit;
+    border-radius: $border-radius-xl !important;
+    min-height: 3.5625rem !important;
+}
+
+
+
+.form-control:focus {
+    color: var($body-color);
+    background-color: var($body-bg);
+    border-color: $accent-color;
+    outline: 0;
+    box-shadow: 0 0 0 0rem rgba($accent-color, 0.25);
+}
+
+.form-select:focus {
+    border-color: $primary !important;
+    box-shadow: 0 0 0 0.2rem $lightPrimaryBackground !important;
+}
+
+.form-select {
+    padding: 0.875rem .75rem;
+}

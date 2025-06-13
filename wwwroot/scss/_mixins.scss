@@ -1,0 +1,9 @@
+@mixin generate-classes($colors, $prefix, $values) {
+    @each $color-name, $color-value in $colors {
+        @each $value-name, $value in $values {
+            .#{$prefix}-#{$color-name}-#{$value-name} {
+                background-color: rgba($color-value, $value);
+            }
+        }
+    }
+}

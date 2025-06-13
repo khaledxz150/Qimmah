@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-
+using Qimmah.Application.System;
+using Qimmah.Core.System;
 using Qimmah.Data;
 using Qimmah.Data.User;
 using System.IdentityModel.Tokens.Jwt;
@@ -100,8 +101,8 @@ namespace Qimmah.Managers
 
         public static void InjectServices(this IServiceCollection Services)
         {
+            Services.AddScoped<ILookupService, LookupService>();
         }
-
     }
     public class CustomJwtSecurityTokenHandler : JwtSecurityTokenHandler
     {

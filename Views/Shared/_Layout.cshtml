@@ -1,17 +1,28 @@
 ﻿@{
     var languageId = 2;
-
-    if (Context.Request.Cookies.ContainsKey("LanguageID"))
+    var direction = "rtl";
+    var language = "ar";
+    if (Context.Request.Cookies.ContainsKey("Language"))
     {
-        if (int.TryParse(Context.Request.Cookies["LanguageID"], out int parsedLanguageId))
+        language = Context.Request.Cookies["Language"];
+        if (language == "1")
         {
-            languageId = parsedLanguageId;
+            languageId = 1;
+            direction = "ltr";
+        }
+        else if (language == "2")
+        {
+            languageId = 2;
+            direction = "rtl";
         }
     }
+
+    string select2path = $"/css/lib/select2/select2{direction}.css";
+
 }
 
 <!DOCTYPE html>
-<html lang="@(languageId == 1? "ar" : "en")" dir="@(languageId == 1? "ltr" : "rtl")">
+<html lang="@language" dir="@direction">
 
 <head>
     <meta charset="utf-8" />
@@ -30,6 +41,8 @@
             <link rel="stylesheet" href="~/css/site.rtl.css" asp-append-version="true" />
         }
     }
+    <link href="~/css/lib/select2/select2.css" rel="stylesheet" />
+    <link rel="preload" as="style" href="@select2path" onload="this.onload=null;this.rel='stylesheet'" />
 
     <title>AYITS - قمة الابتكار والتكنولوجيا</title>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -54,6 +67,8 @@
     <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/ajax-forms.js" asp-append-version="true"></script>
+    <script src="~/lib/select2/js/select2.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
