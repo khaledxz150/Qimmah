@@ -12552,15 +12552,12 @@ nav {
   height: 29.6875rem;
   background-image: url(/images/background/bluebackground.svg) !important;
 }
-.card-wrapper:hover {
-  /*.card-front {
-      transform: translateZ(1.25rem) translateY(-0.625rem);
-  }
-
-  .card-back {
-      transform: translateZ(-0.3125rem) rotate(5deg) translateX(-0.625rem); // Changed from translateX(0.625rem) for LTR
-      opacity: 0.8;
-  }*/
+.card-wrapper:hover .card-front {
+  transform: translateZ(1.25rem) translateY(-0.625rem);
+}
+.card-wrapper:hover .card-back {
+  transform: translateZ(-0.3125rem) rotate(5deg) translateX(-0.625rem);
+  opacity: 0.8;
 }
 
 .generic-card-wrapper {

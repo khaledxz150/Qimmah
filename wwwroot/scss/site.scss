@@ -4,7 +4,6 @@
 
 // Import all partial files
 @import 'fonts';
-@import 'mixins';
 @import 'variables';
 @import "../lib/bootstrap/scss/bootstrap";
 @import 'base';
@@ -21,6 +20,8 @@
 @import "partners";
 @import "sponsors";
 @import "expandablecards";
-@import "form";
-@import "identity"
+@import "footer";
+
 // Additional global styles can be added here if needed
+
+
