@@ -1,3 +1,5 @@
+﻿using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
@@ -36,11 +38,21 @@ namespace Qimmah
             builder.Services.AddRazorPages();
             builder.Services.AddMemoryCache();
             builder.Services.AddSingleton(typeof(IDictionaryCacheService<,>), typeof(DictionaryCacheService<,>));
+            builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(Environment.ProcessPath, "DataProtectionKeys")));
+            // ✳️ Configure logging
+            builder.Logging.ClearProviders(); // optional: remove default ones
+            builder.Logging.AddConsole();
+            builder.Logging.AddDebug();
+            builder.Logging.AddEventLog(); // for Windows event log (optional)
+
+            builder.Logging.SetMinimumLevel(LogLevel.Debug); // Or Information, Trace, etc.
+
+         
 
             var app = builder.Build();
             var cacheManager = new CacheManagers(app.Services, app.Services.GetRequiredService<IMemoryCache>());
             cacheManager.StartLocalizationCacheRefresh();
-            cacheManager.CacheLanguages();
+            await cacheManager.CacheLanguages();
 
 
             // Configure the HTTP request pipeline.
@@ -50,6 +62,11 @@ namespace Qimmah
             }
             else
             {
+                using (var scope = app.Services.CreateScope())
+                {
+                    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                    db.Database.Migrate();
+                }
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();                          
@@ -58,9 +75,13 @@ namespace Qimmah
             app.UseHttpsRedirection();
             app.UseRouting();
 
-            app.UseAuthentication(); 
-            app.UseAuthorization();  
 
+            app.UseAuthentication(); 
+            app.UseAuthorization();
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedProto
+            });
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
