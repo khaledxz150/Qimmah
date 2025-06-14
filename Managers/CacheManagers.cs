@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Threading.Tasks;
+
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
 using Qimmah.Data;
@@ -22,6 +24,15 @@ namespace Qimmah.Managers
         public void StartLocalizationCacheRefresh()
         {
             _timer = new Timer(async _ => await CacheLocalization(), null, TimeSpan.Zero, _refreshInterval);
+        }
+
+        internal async Task CacheLanguages()
+        {
+            using var scope = _services.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+            _memoryCache.Set("Languages", await dbContext.Languages.ToListAsync(), _refreshInterval);
+
         }
 
         private async Task CacheLocalization()

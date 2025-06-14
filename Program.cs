@@ -7,12 +7,13 @@ using Qimmah.Application;
 using Qimmah.Core;
 using Qimmah.Data;
 using Qimmah.Managers;
+using Qimmah.Managers.SeedManagers;
 
 namespace Qimmah
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,9 @@ namespace Qimmah
             var app = builder.Build();
             var cacheManager = new CacheManagers(app.Services, app.Services.GetRequiredService<IMemoryCache>());
             cacheManager.StartLocalizationCacheRefresh();
+            cacheManager.CacheLanguages();
+
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -54,7 +58,8 @@ namespace Qimmah
             app.UseHttpsRedirection();
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication(); 
+            app.UseAuthorization();  
 
             app.MapStaticAssets();
             app.MapControllerRoute(
@@ -64,6 +69,14 @@ namespace Qimmah
             app.MapRazorPages()
                .WithStaticAssets();
 
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+
+                // Call your extension methods or seeding logic here
+                await services.SeedRolesAsync();
+                await services.SeedAdminUserAsync(); // if you have this
+            }
             app.Run();
         }
     }

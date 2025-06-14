@@ -1,4 +1,12 @@
-﻿<nav>
+﻿@using Microsoft.Extensions.Caching.Memory
+@inject IMemoryCache _memoryCache
+@{
+    var Languages = _memoryCache.GetLanguagesFromCache();
+    var currentLanguage = GetLanguageIdFromLocalCookie();
+}
+
+
+<nav>
     <div class="nav-right">
         <div class="logo-small">
             <img src="~/images/logos/mainlogo.svg" />
@@ -17,10 +25,28 @@
         <a href="#">@Html.GetWord(116)</a>
     </div>
    <div class="nav-left">
-        <button class="login-btn" onClick='window.location.href=`@(Url.Action("Register","Identity"))`'>@Html.GetWord(121)</button>
-        <select class="form-select lang-selector" id="langSelector" name="LanguageID">
-                <option value="2" selected>العربية</option>
-                <option value="1">English</option>
+       @if (!User.Identity.IsAuthenticated)
+        {
+            <button class="login-btn" onClick='window.location.href=`@(Url.Action("Register","Identity"))`'>@Html.GetWord(121)</button>
+        }
+        else
+        {
+            <button class="btn btn-secondary" onClick='window.location.href=`@(Url.Action("Logout","Identity"))`'>@Html.GetWord(191)</button>
+        }
+        <select class="form-select form-control select2 form-select-lg lang-selector" id="langSelector" name="LanguageID" onchange="ChangeCookieValue(this,false)">
+
+            @foreach (var item in Languages)
+            {
+                var isSelected = item.ID == currentLanguage;
+                if (isSelected)
+                {
+                    <option value="@item.ID" selected>@item.LanguageName</option>
+                }
+                else
+                {
+                    <option value="@item.ID">@item.LanguageName</option>
+                }
+            }
         </select>
     </div>  
 </nav>
@@ -39,117 +65,22 @@
 
     <div class="mobile-actions">
         <button class="login-btn">@Html.GetWord(121)</button>
-       <select class="form-select lang-selector" id="langSelectorMobile" name="LanguageID">
-                <option value="2" selected>العربية</option>
-                <option value="1">English</option>
+        <select class="form-select form-control select2 form-select-lg lang-selector" id="langSelectorMobile" name="LanguageID" onchange="ChangeCookieValue(this,true)">
+
+
+            @foreach (var item in Languages)
+            {
+                var isSelected = item.ID == currentLanguage ;
+                if (isSelected)
+                {
+                    <option value="@item.ID" selected>@item.LanguageName</option>
+                }
+                else
+                {
+                    <option value="@item.ID">@item.LanguageName</option>
+                }
+            }
             </select>
     </div>
 </div>
 
-<script>
-      function setCookie(name, value, days) {
-        let expires = "";
-        if (days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days*24*60*60*1000));
-            expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-        location.reload(); // Reload to apply language change
-    }
-
-// Helper to get cookie
-    function getCookie(name) {
-        let nameEQ = name + "=";
-        let ca = document.cookie.split(';');
-        for(let i=0;i < ca.length;i++) {
-            let c = ca[i];
-            while (c.charAt(0)==' ') c = c.substring(1,c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-        }
-        return null;
-    }
-
- // Set default language cookie on load if not set
-    document.addEventListener('DOMContentLoaded', function () {
-        let lang = getCookie('LanguageID');
-        if (!lang) {
-            setCookie('LanguageID', '2', 30); // 2 = Arabic by default
-            document.getElementById('langSelector').value = '2';
-            document.getElementById('langSelectorMobile').value = '2';
-        } else {
-            document.getElementById('langSelector').value = lang;
-            document.getElementById('langSelectorMobile').value = lang;
-        }
-    });
-
-
-    // On change, set cookie and notify backend
-    document.getElementById('langSelector').addEventListener('change', function () {
-        setCookie('LanguageID', this.value, 30);
-    });
-    document.getElementById('langSelectorMobile').addEventListener('change', function () {
-        setCookie('LanguageID', this.value, 30);
-        document.getElementById('langFormMobile').submit();
-    });
-      function toggleMobileMenu() {
-        const burger = document.querySelector('.burger-menu');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        burger.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-
-        // Prevent body scroll when menu is open
-        if (mobileMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
-    }
-
-    function closeMobileMenu() {
-        const burger = document.querySelector('.burger-menu');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        burger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            closeMobileMenu();
-        });
-    });
-
-    // Close mobile menu when clicking outside (but not on burger or close button)
-    document.addEventListener('click', (e) => {
-        const burger = document.querySelector('.burger-menu');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeButton = document.querySelector('.mobile-menu-close');
-
-        if (!burger.contains(e.target) &&
-            !mobileMenu.contains(e.target) &&
-            e.target !== closeButton) {
-            closeMobileMenu();
-        }
-    });
-
-    // Close mobile menu with Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        }
-    });
-
-    // Handle window resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) {
-            closeMobileMenu();
-        }
-    });
-    </script>

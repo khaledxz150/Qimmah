@@ -27,6 +27,16 @@
     border-end-end-radius: 0rem !important;
     transition: border-radius 0.15s ease-in-out;
 }
+.select2-container--bootstrap-5.select2-container--open.select2-container--above .select2-selection {
+    border-color: $accent-color !important;
+    box-shadow: 0 0 0 0.01rem rgba($accent-color, 0.3) !important;
+    border-top: 0px;
+    border-end-start-radius: 1.5rem !important;
+    border-end-end-radius: 1.5rem !important;
+    border-top-right-radius: 0rem !important;
+    border-top-left-radius: 0rem !important;
+    transition: border-radius 0.15s ease-in-out;
+}
 
 
 .select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered {

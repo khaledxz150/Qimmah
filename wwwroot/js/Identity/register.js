@@ -36,10 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
       return false;
     }
 
-    submitBtn.disabled = true;
-
-    // Submit form (remove preventDefault to allow normal submission)
-    form.submit();
+      submitBtn.disabled = true;
+      debugger;
+    handleAjaxForms(form, e);
   });
 
   // Real-time validation feedback

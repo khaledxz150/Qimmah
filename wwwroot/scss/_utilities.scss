@@ -7,7 +7,7 @@
     color: $primary-bg;
 }
 
-.text-color-green {
+.text-color-accent {
     color: $accent-color;
 }
 
@@ -44,6 +44,11 @@
 .border-color-white {
     border-color: #ffffff !important;
 }
+
+.border-radius-md {
+    border-radius: $border-radius-md;
+}
+
 
 
 

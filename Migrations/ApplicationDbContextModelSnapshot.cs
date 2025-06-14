@@ -8025,6 +8025,234 @@ namespace Qimmah.Migrations
                         },
                         new
                         {
+                            ID = 173,
+                            LanguageID = 1,
+                            Description = "Email Is Already In Use"
+                        },
+                        new
+                        {
+                            ID = 173,
+                            LanguageID = 2,
+                            Description = "البريد الإلكتروني مستخدم"
+                        },
+                        new
+                        {
+                            ID = 174,
+                            LanguageID = 1,
+                            Description = "Invalid email address"
+                        },
+                        new
+                        {
+                            ID = 174,
+                            LanguageID = 2,
+                            Description = "بريد إلكتروني غير صالح"
+                        },
+                        new
+                        {
+                            ID = 175,
+                            LanguageID = 1,
+                            Description = "Password is too short"
+                        },
+                        new
+                        {
+                            ID = 175,
+                            LanguageID = 2,
+                            Description = "كلمة المرور قصيرة جدًا"
+                        },
+                        new
+                        {
+                            ID = 176,
+                            LanguageID = 1,
+                            Description = "Password must contain a symbol"
+                        },
+                        new
+                        {
+                            ID = 176,
+                            LanguageID = 2,
+                            Description = "يجب أن تحتوي كلمة المرور على رمز"
+                        },
+                        new
+                        {
+                            ID = 177,
+                            LanguageID = 1,
+                            Description = "Password must contain a number"
+                        },
+                        new
+                        {
+                            ID = 177,
+                            LanguageID = 2,
+                            Description = "يجب أن تحتوي كلمة المرور على رقم"
+                        },
+                        new
+                        {
+                            ID = 178,
+                            LanguageID = 1,
+                            Description = "Password must contain a lowercase letter"
+                        },
+                        new
+                        {
+                            ID = 178,
+                            LanguageID = 2,
+                            Description = "يجب أن تحتوي كلمة المرور على حرف صغير"
+                        },
+                        new
+                        {
+                            ID = 179,
+                            LanguageID = 1,
+                            Description = "Password must contain an uppercase letter"
+                        },
+                        new
+                        {
+                            ID = 179,
+                            LanguageID = 2,
+                            Description = "يجب أن تحتوي كلمة المرور على حرف كبير"
+                        },
+                        new
+                        {
+                            ID = 180,
+                            LanguageID = 1,
+                            Description = "Passwords do not match"
+                        },
+                        new
+                        {
+                            ID = 180,
+                            LanguageID = 2,
+                            Description = "كلمتا المرور غير متطابقتين"
+                        },
+                        new
+                        {
+                            ID = 181,
+                            LanguageID = 1,
+                            Description = "User already has this role"
+                        },
+                        new
+                        {
+                            ID = 181,
+                            LanguageID = 2,
+                            Description = "المستخدم لديه هذا الدور بالفعل"
+                        },
+                        new
+                        {
+                            ID = 182,
+                            LanguageID = 1,
+                            Description = "Sorry, An Unexpected Issue Has Occoured"
+                        },
+                        new
+                        {
+                            ID = 182,
+                            LanguageID = 2,
+                            Description = "عذرا، حدث خطأ غير متوقع"
+                        },
+                        new
+                        {
+                            ID = 183,
+                            LanguageID = 1,
+                            Description = "Have An Account?"
+                        },
+                        new
+                        {
+                            ID = 183,
+                            LanguageID = 2,
+                            Description = "لديك حساب؟"
+                        },
+                        new
+                        {
+                            ID = 184,
+                            LanguageID = 1,
+                            Description = "Login Now"
+                        },
+                        new
+                        {
+                            ID = 184,
+                            LanguageID = 2,
+                            Description = "سجل الدخول الآن"
+                        },
+                        new
+                        {
+                            ID = 185,
+                            LanguageID = 1,
+                            Description = "Don't have an account?"
+                        },
+                        new
+                        {
+                            ID = 185,
+                            LanguageID = 2,
+                            Description = "ليس لديك حساب؟"
+                        },
+                        new
+                        {
+                            ID = 186,
+                            LanguageID = 1,
+                            Description = "Register Now"
+                        },
+                        new
+                        {
+                            ID = 186,
+                            LanguageID = 2,
+                            Description = "سجل الآن"
+                        },
+                        new
+                        {
+                            ID = 187,
+                            LanguageID = 1,
+                            Description = "Email Or Password Is Wrong"
+                        },
+                        new
+                        {
+                            ID = 187,
+                            LanguageID = 2,
+                            Description = "البريد الألكتروني او الرقم السري خاطئ"
+                        },
+                        new
+                        {
+                            ID = 188,
+                            LanguageID = 1,
+                            Description = "Login"
+                        },
+                        new
+                        {
+                            ID = 188,
+                            LanguageID = 2,
+                            Description = "تسجيل الدخول"
+                        },
+                        new
+                        {
+                            ID = 189,
+                            LanguageID = 1,
+                            Description = "Please Enter Your Email Address"
+                        },
+                        new
+                        {
+                            ID = 189,
+                            LanguageID = 2,
+                            Description = "أدخل بريدك الإلكتروني"
+                        },
+                        new
+                        {
+                            ID = 190,
+                            LanguageID = 1,
+                            Description = "Subscribe"
+                        },
+                        new
+                        {
+                            ID = 190,
+                            LanguageID = 2,
+                            Description = "اشتراك"
+                        },
+                        new
+                        {
+                            ID = 191,
+                            LanguageID = 1,
+                            Description = "LogOut"
+                        },
+                        new
+                        {
+                            ID = 191,
+                            LanguageID = 2,
+                            Description = "تسجيل الخروج"
+                        },
+                        new
+                        {
                             ID = 1001,
                             LanguageID = 1,
                             Description = "Jordan"
@@ -8239,7 +8467,7 @@ namespace Qimmah.Migrations
                             ID = 2,
                             Description = "ar",
                             Direction = "rtl",
-                            LanguageName = "Arabic"
+                            LanguageName = "العربية"
                         });
                 });
 

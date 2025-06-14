@@ -7,7 +7,7 @@
 namespace Qimmah.Migrations
 {
     /// <inheritdoc />
-    public partial class addlocl8 : Migration
+    public partial class addlocalization4 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,10 +18,8 @@ namespace Qimmah.Migrations
                 columns: new[] { "ID", "LanguageID", "Description" },
                 values: new object[,]
                 {
-                    { 124, 1, "Please Enter a Password" },
-                    { 124, 2, "الرجاء إدخال كلمة مرور" },
-                    { 125, 1, "Please Confirm Your Password" },
-                    { 125, 2, "الرجاء تأكيد كلمة المرور" }
+                    { 187, 1, "Email Or Password Is Wrong" },
+                    { 187, 2, "البريد الألكتروني او الرقم السري خاطئ" }
                 });
         }
 
@@ -32,25 +30,13 @@ namespace Qimmah.Migrations
                 schema: "Localization",
                 table: "DictionaryLocalization",
                 keyColumns: new[] { "ID", "LanguageID" },
-                keyValues: new object[] { 124, 1 });
+                keyValues: new object[] { 187, 1 });
 
             migrationBuilder.DeleteData(
                 schema: "Localization",
                 table: "DictionaryLocalization",
                 keyColumns: new[] { "ID", "LanguageID" },
-                keyValues: new object[] { 124, 2 });
-
-            migrationBuilder.DeleteData(
-                schema: "Localization",
-                table: "DictionaryLocalization",
-                keyColumns: new[] { "ID", "LanguageID" },
-                keyValues: new object[] { 125, 1 });
-
-            migrationBuilder.DeleteData(
-                schema: "Localization",
-                table: "DictionaryLocalization",
-                keyColumns: new[] { "ID", "LanguageID" },
-                keyValues: new object[] { 125, 2 });
+                keyValues: new object[] { 187, 2 });
         }
     }
 }

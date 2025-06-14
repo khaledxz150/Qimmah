@@ -1,25 +1,9 @@
 ﻿<script src="~/lib/gasp/gasp.min.js"></script>
-<style>
-    #theSpecialOne {
-        filter: drop-shadow(0 0 3px rgba(0, 170, 139, 1)) drop-shadow(0 0 6px rgba(0, 170, 139, 0.7)) drop-shadow(0 0 10px rgba(0, 170, 139, 0.5));
-        outline: none;
-        animation: pulseShadow 3s infinite ease-in-out;
-    }
 
-    @@keyframes pulseShadow {
-        0%, 100% {
-            filter: drop-shadow(0 0 1px rgba(0, 170, 139, 1)) drop-shadow(0 0 2px rgba(0, 170, 139, 0.7)) drop-shadow(0 0 4px rgba(0, 170, 139, 0.5));
-        }
-
-        50% {
-            filter: drop-shadow(0 0 4px rgba(0, 170, 139, 1)) drop-shadow(0 0 8px rgba(0, 170, 139, 0.7)) drop-shadow(0 0 12px rgba(0, 170, 139, 0.5));
-        }
-    }
-</style>
 <div class="hero-content position-relative">
     <div class="main-logo"><img src="~/images/logos/mainlogo.svg" /></div>
     <h1 class="text-glowing">@Html.GetWord(2)</h1>
-    <p class="countdown-label">@Html.GetWord(3)</p>
+    <p class="countdown-label font-color-white">@Html.GetWord(3)</p>
     <div class="countdown">
         <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
     </div>

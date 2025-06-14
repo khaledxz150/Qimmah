@@ -4,11 +4,11 @@
     "inputFile": "wwwroot/scss/site.scss"
   },
   {
-    "outputFile": "wwwroot/css/lib/select2/select2rtl.css",
-    "inputFile": "wwwroot/css/lib/select2/select2rtl.scss"
-  },
-  {
     "outputFile": "wwwroot/css/lib/select2/select2ltr.css",
     "inputFile": "wwwroot/css/lib/select2/select2ltr.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/lib/select2/select2rtl.css",
+    "inputFile": "wwwroot/css/lib/select2/select2rtl.scss"
   }
 ]

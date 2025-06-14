@@ -23,81 +23,58 @@ namespace Qimmah.Managers
 
         }
 
-        public static void InjectIdentity(this IServiceCollection Services, IConfiguration configuration)
+        public static void InjectIdentity(this IServiceCollection services, IConfiguration configuration)
         {
-
-            Services.AddSingleton<ISecurityTokenValidator, JwtTokenValidator>();
-            Services.AddSingleton<JwtSecurityTokenHandler, CustomJwtSecurityTokenHandler>();
-            Services.AddIdentity<Users, IdentityRole<long>>(options =>
+            // Configure Identity
+            services.AddIdentity<Users, IdentityRole<long>>(options =>
             {
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequiredLength = 3;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireUppercase = false;
+                // Password requirements
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 1;
 
-                // Password settings. 
-                //options.Password.RequireDigit = true;
-                //options.Password.RequireLowercase = true;
-                //options.Password.RequireNonAlphanumeric = true;
-                //options.Password.RequireUppercase = true;
-                //options.Password.RequiredLength = 6;
-                //options.Password.RequiredUniqueChars = 1;
-
-                // Lockout settings.
+                // Lockout settings
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
 
-                // User settings.
-                options.User.AllowedUserNameCharacters =
-                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-                options.User.RequireUniqueEmail = false;
+                // User settings
+                options.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = true;
 
-            }).AddEntityFrameworkStores<ApplicationDbContext>()
+                // Email confirmation (optional)
+                // options.SignIn.RequireConfirmedEmail = true;
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
-            Services.AddAuthentication(options =>
+            // Cookie Authentication
+            services.ConfigureApplicationCookie(options =>
             {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-           .AddJwtBearer(options =>
-           {
-               options.SaveToken = true;
+                options.LoginPath = "/Identity/Login";
+                options.LogoutPath = "/Account/Logout";
+                options.AccessDeniedPath = "/Account/AccessDenied";
 
-               // Inject the custom handler into the options
-               options.TokenHandlers.Add(Services.BuildServiceProvider().GetRequiredService<JwtSecurityTokenHandler>());
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                options.SlidingExpiration = true;
 
-               options.TokenValidationParameters = new TokenValidationParameters
-               {
-                   ValidateIssuer = true,
-                   ValidateAudience = true,
-                   ValidateLifetime = true,
-                   ValidateIssuerSigningKey = true,
-                   ValidIssuer = configuration["Jwt:Issuer"],
-                   ValidAudience = configuration["Jwt:Audience"],
-                   IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
-               };
+                // (Optional) Security settings
+                options.Cookie.HttpOnly = true;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest; // Use Always in production (HTTPS)
+                options.Cookie.SameSite = SameSiteMode.Lax;
+                options.Cookie.Name = ".App.Auth";
+            });
 
-               options.Events = new JwtBearerEvents
-               {
-                   OnTokenValidated = context =>
-                   {
-                       Console.WriteLine("Token validated successfully.");
-                       return Task.CompletedTask;
-                   },
-                   OnAuthenticationFailed = context =>
-                   {
-                       Console.WriteLine("Token validation failed: " + context.Exception.Message);
-                       return Task.CompletedTask;
-                   }
-               };
-           });
-
-            Services.AddAuthorization();
-
+            // Optional: Add role/claim-based policies
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+            });
         }
+
 
         public static void InjectServices(this IServiceCollection Services)
         {

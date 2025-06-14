@@ -5,7 +5,7 @@ namespace Qimmah.Security
     public class UserPrinciple
     {
         [ClaimMapper("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")]
-        public long ID { get; set; }
+        public string Code { get; set; }
 
         [ClaimMapper("LanguageID")]
         public int LanguageID { get; set; }

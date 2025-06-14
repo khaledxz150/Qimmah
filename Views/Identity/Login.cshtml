@@ -1,5 +1,52 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Qimmah.Models.Identity
 @{
+    Layout = "_ExternalLayout";
 }
+@model UserLoginViewModel
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<div class="container-fluid bg-itched-blue-green min-vh-100 d-flex align-items-center justify-content-center p-3">
+    <div class="card  bg-white shadow w-100" style="max-width: 768px; height: fit-content;">
+        <div class="card-body text-align-start">
+            <h4 class="card-title text-center mb-4">@Html.GetWord(188)</h4>
+            <h5 class="card-title text-center mb-4">
+                <span>@Html.GetWord(185)</span>
+                <span class="text-color-main" onclick="window.location.href='@Url.Action("Register", "Identity")'" style="cursor:pointer"> @Html.GetWord(186)</span>
+            </h5>
+
+            <form id="registrationForm" action="@Url.Action("Login", "Identity")" method="post" class="needs-validation" novalidate onsubmit="handleAjaxForms(this,event)">
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        @Html.JTextBoxFor(x => x.Email, new Dictionary<string, object> { 
+                            { "type", "email" }})
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-md-12 mb-3">
+                        @Html.JTextBoxFor(m => m.Password,
+                                 textBoxCustomAttributes: new Dictionary<string, object>
+                        {
+                        { "class", "form-control" },
+                        { "placeholder", Html.GetWord(124) },
+                        { "autocomplete", "current-password" },
+                        { "type", "password" },
+
+                        },
+                                 labelCustomAttributes: new Dictionary<string, object>
+                        {
+                        { "class", "form-label fw-bold" }
+                        })
+                        @Html.ValidationMessageFor(m => m.Password, Html.GetWord(123), new
+                            {
+                                @class = "invalid-feedback"
+                            })
+                    </div>
+                </div>
+                <button id="submitBtn" type="submit" class="btn btn-secondary w-100 mt-4">@Html.GetWord(121)</button>
+            </form>
+        </div>
+    </div>
+</div>
+

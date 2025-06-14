@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
+
 using Qimmah.Application.Security.Cryptography;
 using Qimmah.Data;
 using Qimmah.Data.System;
@@ -10,9 +12,12 @@ namespace Qimmah.Application.System;
 public class LookupService : Core.System.ILookupService
 {
     private readonly ApplicationDbContext _context;
-    public LookupService(ApplicationDbContext context)
+    private readonly IMemoryCache _cache;
+
+    public LookupService(ApplicationDbContext context, IMemoryCache cache)
     {
         _context = context;
+        _cache = cache;
     }
     public async Task<Lookup> GetLookupByIdAsync(int id)
     {
@@ -29,19 +34,34 @@ public class LookupService : Core.System.ILookupService
             .Where(l => l.CategoryID == categoryId)
             .ToListAsync();
     }
-    public async Task<List<DDLViewModel>> GetLookupsAsDDLAsync(LookupCategoryEnum categoryEnum, int LanguageId = 2)
+    public async Task<List<DDLViewModel>> GetLookupsAsDDLAsync(LookupCategoryEnum categoryEnum, int languageId = 2)
     {
-        return await _context.Lookups
-            .Where(l => l.CategoryID == categoryEnum.ToAnyType<int>()).AsNoTracking()
-            .Include(l => l.Dictionary).AsSplitQuery()
-            .Select(l => new DDLViewModel
-            {
-                Value = l.ID.Encrypt(),
-                Text = l.Dictionary.DictionaryLocalization.Where(x => x.LanguageID == LanguageId)
-                    .Select(dl => dl.Description)
-                    .FirstOrDefault()
-            })
-            .ToListAsync();
+        string cacheKey = $"ddl_{categoryEnum}_{languageId}";
+
+        if (!_cache.TryGetValue(cacheKey, out List<DDLViewModel> cachedList))
+        {
+            cachedList = await _context.Lookups
+                .Where(l => l.CategoryID == categoryEnum.ToAnyType<int>()).AsNoTracking()
+                .Include(l => l.Dictionary).AsSplitQuery()
+                .Select(l => new DDLViewModel
+                {
+                    Value = l.ID.Encrypt(),
+                    Text = l.Dictionary.DictionaryLocalization
+                        .Where(x => x.LanguageID == languageId)
+                        .Select(dl => dl.Description)
+                        .FirstOrDefault()
+                })
+                .ToListAsync();
+
+            // Optional: configure cache options
+            var cacheEntryOptions = new MemoryCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(10));
+
+            _cache.Set(cacheKey, cachedList, cacheEntryOptions);
+        }
+
+        return cachedList;
     }
+
 
 }

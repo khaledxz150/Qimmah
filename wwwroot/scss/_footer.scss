@@ -1,6 +1,6 @@
 ﻿.footer {
 
-    min-height: 50rem;
+    min-height: 10rem;
 }
 
 // Variables
@@ -51,6 +51,7 @@ $text-muted: #6c757d;
     .btn-submit {
         position: absolute;
         right: 4px;
+        left: 4px;
         top: 50%;
         transform: translateY(-50%);
         border-radius: 65px;

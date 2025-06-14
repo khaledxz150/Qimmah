@@ -46,11 +46,9 @@ select+.select2-container--bootstrap-5 {
     border-bottom-right-radius: 0
 }
 
-.select2-container--bootstrap-5.select2-container--open.select2-container--above .select2-selection {
-    border-top: 0 solid transparent;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0
-}
+
+
+
 
 .select2-container--bootstrap-5 .select2-search {
     width: 100%
@@ -666,7 +664,7 @@ select+.select2-container--bootstrap-5 {
 }
 
 .form-select-lg~.select2-container--bootstrap-5 .select2-selection--single {
-    padding: .5rem 1rem .5rem 2.25rem
+    padding: .8rem 1rem .5rem 2.25rem
 }
 
 .form-select-lg~.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {

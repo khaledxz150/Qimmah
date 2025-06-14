@@ -1,24 +1,8 @@
 ﻿@{
-    var languageId = 2;
-    var direction = "rtl";
-    var language = "ar";
-    if (Context.Request.Cookies.ContainsKey("Language"))
-    {
-        language = Context.Request.Cookies["Language"];
-        if (language == "1")
-        {
-            languageId = 1;
-            direction = "ltr";
-        }
-        else if (language == "2")
-        {
-            languageId = 2;
-            direction = "rtl";
-        }
-    }
-
+    var languageId = GetLanguageIdFromLocalCookie();
+    var direction = GetLanguageDirectionFromLocalCookie();
+    var language = GetLanguageNameFromLocalCookie();
     string select2path = $"/css/lib/select2/select2{direction}.css";
-
 }
 
 <!DOCTYPE html>
@@ -30,13 +14,14 @@
     <title>@ViewData["Title"] - Qimmah</title>
     <script type="importmap"></script>
 
+
     @{
 
-        if (languageId == 1)
+        if (direction == "ltr")
         {
             <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
         }
-        else if (languageId == 2)
+        else if (direction == "rtl")
         {
             <link rel="stylesheet" href="~/css/site.rtl.css" asp-append-version="true" />
         }
@@ -69,7 +54,7 @@
     <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/ajax-forms.js" asp-append-version="true"></script>
+    <script src="~/js/Helpers/AjaxHelpers.js" asp-append-version="true"></script>
     <script src="~/lib/select2/js/select2.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 

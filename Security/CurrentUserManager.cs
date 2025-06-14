@@ -88,28 +88,28 @@ public static class CurrentUserManager
     public static int GetLanguageIdFromLocalCookie()
     {
         var cookieValue = CurrentContextAccessor.HttpContext?.Request.Cookies["LanguageID"];
-        return int.TryParse(cookieValue, out int languageId) ? languageId : 1;
+        return int.TryParse(cookieValue, out int languageId) ? languageId : 2;
     }
 
     public static string GetLanguageNameFromLocalCookie()
     {
         var cookieValue = CurrentContextAccessor.HttpContext?.Request.Cookies["Name"];
-        return cookieValue.IsNotNullOrEmpty() ? cookieValue : "en";
+        return cookieValue.IsNotNullOrEmpty() ? cookieValue : "ar";
     }
 
     public static string GetLanguageDirectionFromLocalCookie()
     {
         var cookieValue = CurrentContextAccessor.HttpContext?.Request.Cookies["Direction"];
-        return cookieValue.IsNotNullOrEmpty() ? cookieValue : "ltr";
+        return cookieValue.IsNotNullOrEmpty() ? cookieValue : "rtl";
     }
 
     public static int? GetLanguageIdFromHeader()
     {
         var cookieValue = CurrentContextAccessor.HttpContext?.Request.Headers["LanguageID"];
-        return int.TryParse(cookieValue, out int languageId) ? languageId : null;
+        return int.TryParse(cookieValue, out int languageId) ? languageId : 2;
     }
 
-    public static void SetLanguageIdInLocalCookie(int languageId, string Direction = null, string Name = null)
+    public static void SetLanguageIdInLocalCookie(int languageId, string Direction = "rtl", string Name = "ar")
     {
         try
         {

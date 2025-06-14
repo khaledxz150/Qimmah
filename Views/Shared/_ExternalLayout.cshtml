@@ -1,21 +1,7 @@
 ﻿@{
-    var languageId = 2;
-    var direction = "rtl";
-    var language = "ar";
-    if (Context.Request.Cookies.ContainsKey("Language"))
-    {
-        language = Context.Request.Cookies["Language"];
-        if (language == "1")
-        {
-            languageId = 1;
-            direction = "ltr";
-        }
-        else if (language == "2")
-        {
-            languageId = 2;
-            direction = "rtl";
-        }
-    }
+    var languageId = GetLanguageIdFromLocalCookie();
+    var direction = GetLanguageDirectionFromLocalCookie();
+    var language = GetLanguageNameFromLocalCookie();
 
     string select2path = $"/css/lib/select2/select2{direction}.css";
 
@@ -32,11 +18,11 @@
 
     @{
 
-        if (languageId == 1)
+        if (direction =="ltr")
         {
             <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
         }
-        else if (languageId == 2)
+        else if (direction == "rtl")
         {
             <link rel="stylesheet" href="~/css/site.rtl.css" asp-append-version="true" />
         }

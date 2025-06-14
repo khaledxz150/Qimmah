@@ -14,41 +14,29 @@ namespace Qimmah.Security;
 
 public static class AuthenticationManager
 {
-    public static async Task<string> GenerateToken(UserManager<Users> UserManager, Users user, IOptions<JWTOptions> option, string lstPolicyIds = "")
+    public static async Task<ClaimsPrincipal> CreateUserPrincipalAsync(
+     UserManager<Users> userManager,
+     Users user,
+     string lstPolicyIds = "")
     {
-        try
-        {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(option.Value.Key));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+        // Base identity claims
+        var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.NameIdentifier, user.Id.Encrypt().ToString()),
+        new Claim(ClaimTypes.Name, user.UserName ?? string.Empty),
+        new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
+        new Claim("LanguageID", user.LanguageID.ToString()),
+        new Claim("ID", lstPolicyIds ?? string.Empty)
+    };
 
-            var claims = new List<Claim>
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Email, user.Email),
-                new Claim("LanguageID", user.LanguageID.ToString()),
-                new Claim("lstPolicy",lstPolicyIds ),
-            };
+        // Add user roles
+        var roles = await userManager.GetRolesAsync(user);
+        claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
-            var roles = await UserManager.GetRolesAsync(user);
-            claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
-
-            var token = new JwtSecurityToken(
-                issuer: option.Value.Issuer,
-                audience: option.Value.Audience,
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
-                signingCredentials: credentials
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-        catch (Exception e)
-        {
-            throw;
-        }
+        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        return new ClaimsPrincipal(identity);
     }
+
     public static ClaimsPrincipal GetClaimsPrincipalFromToken(string token)
     {
         var handler = new JwtSecurityTokenHandler();

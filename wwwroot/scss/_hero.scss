@@ -54,4 +54,18 @@
     right: 5rem;
     width: 26rem;
 }
+#theSpecialOne {
+    filter: drop-shadow(0 0 3px rgba($accent-color, 1)) drop-shadow(0 0 6px rgba($accent-color, 0.7)) drop-shadow(0 0 10px rgba($accent-color, 0.5));
+    outline: none;
+    animation: pulseShadow 3s infinite ease-in-out;
+}
 
+@keyframes pulseShadow {
+    0%, 100% {
+        filter: drop-shadow(0 0 1px rgba($accent-color, 1)) drop-shadow(0 0 2px rgba($accent-color, 0.7)) drop-shadow(0 0 4px rgba($accent-color, 0.5));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 4px rgba($accent-color, 1)) drop-shadow(0 0 8px rgba($accent-color, 0.7)) drop-shadow(0 0 12px rgba($accent-color, 0.5));
+    }
+}

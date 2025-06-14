@@ -44,3 +44,139 @@ function InitializeSelect2() {
 document.addEventListener("DOMContentLoaded", function () {
   InitializeSelect2();
 });
+
+
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+
+    // Send fetch request to update language on server side
+    const formData = new FormData();
+    formData.append('LanguageId', value);
+
+    fetch('/Home/ChangeLanguageID', {
+        method: 'POST',
+        headers: {
+            'RequestVerificationToken': getAntiForgeryToken()
+        },
+        body: formData
+    })
+        .then(response => {
+            if (!response.ok) throw new Error("Failed to update language");
+            return response.text();
+        })
+        .then(() => location.reload())
+        .catch(error => console.error("Language change failed:", error));
+}
+
+// Utility to get the anti-forgery token if you're using [ValidateAntiForgeryToken]
+function getAntiForgeryToken() {
+    const token = document.querySelector('input[name="__RequestVerificationToken"]');
+    return token ? token.value : '';
+}
+
+// Helper to get cookie
+function getCookie(name) {
+    let nameEQ = name + "=";
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    let lang = getCookie('LanguageID');
+    if (!lang) {
+        lang = '2'; // Arabic by default
+        setCookie('LanguageID', lang, 30);
+    }
+
+    const langSelectors = ['langSelector', 'langSelectorMobile'];
+
+    langSelectors.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            // Set the value
+            el.value = lang;
+        }
+    });
+});
+
+
+
+
+// On change, set cookie and notify backend
+function ChangeCookieValue(sender, isMobile) {
+    setCookie('LanguageID', sender.value, 30);
+  
+}
+
+function toggleMobileMenu() {
+    const burger = document.querySelector('.burger-menu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    burger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+
+    // Prevent body scroll when menu is open
+    if (mobileMenu.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function closeMobileMenu() {
+    const burger = document.querySelector('.burger-menu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    burger.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        closeMobileMenu();
+    });
+});
+
+// Close mobile menu when clicking outside (but not on burger or close button)
+document.addEventListener('click', (e) => {
+    const burger = document.querySelector('.burger-menu');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeButton = document.querySelector('.mobile-menu-close');
+
+    if (!burger.contains(e.target) &&
+        !mobileMenu.contains(e.target) &&
+        e.target !== closeButton) {
+        closeMobileMenu();
+    }
+});
+
+// Close mobile menu with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    }
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        closeMobileMenu();
+    }
+});

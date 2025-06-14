@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+
 using Qimmah.Data.Localization;
 using Qimmah.Enums.Localization;
 
@@ -18,7 +19,7 @@ namespace Qimmah.Data.configuration.localization
             {
                 entity.ToTable(schema: "Localization", name: "Language");
                 entity.HasData(new Languages { ID = EnglishInt, LanguageName = EnglishString, Description = "en", Direction = Direction.ltr.ToString() });
-                entity.HasData(new Languages { ID = ArabicInt, LanguageName = ArabicString, Description = "ar", Direction = Direction.rtl.ToString() });
+                entity.HasData(new Languages { ID = ArabicInt, LanguageName = "العربية", Description = "ar", Direction = Direction.rtl.ToString() });
             });
 
 
@@ -527,6 +528,74 @@ namespace Qimmah.Data.configuration.localization
 
                 entity.HasData(new DictionaryLocalization { ID = 172, LanguageID = EnglishInt, Description = "Country" });
                 entity.HasData(new DictionaryLocalization { ID = 172, LanguageID = ArabicInt, Description = "الدولة" });
+
+                entity.HasData(new DictionaryLocalization { ID = 173, LanguageID = EnglishInt, Description = "Email Is Already In Use" });
+                entity.HasData(new DictionaryLocalization { ID = 173, LanguageID = ArabicInt, Description = "البريد الإلكتروني مستخدم" });
+
+                entity.HasData(
+                               new DictionaryLocalization { ID = 174, LanguageID = EnglishInt, Description = "Invalid email address" },
+                               new DictionaryLocalization { ID = 174, LanguageID = ArabicInt, Description = "بريد إلكتروني غير صالح" },
+
+                               new DictionaryLocalization { ID = 175, LanguageID = EnglishInt, Description = "Password is too short" },
+                               new DictionaryLocalization { ID = 175, LanguageID = ArabicInt, Description = "كلمة المرور قصيرة جدًا" },
+
+                               new DictionaryLocalization { ID = 176, LanguageID = EnglishInt, Description = "Password must contain a symbol" },
+                               new DictionaryLocalization { ID = 176, LanguageID = ArabicInt, Description = "يجب أن تحتوي كلمة المرور على رمز" },
+
+                               new DictionaryLocalization { ID = 177, LanguageID = EnglishInt, Description = "Password must contain a number" },
+                               new DictionaryLocalization { ID = 177, LanguageID = ArabicInt, Description = "يجب أن تحتوي كلمة المرور على رقم" },
+
+                               new DictionaryLocalization { ID = 178, LanguageID = EnglishInt, Description = "Password must contain a lowercase letter" },
+                               new DictionaryLocalization { ID = 178, LanguageID = ArabicInt, Description = "يجب أن تحتوي كلمة المرور على حرف صغير" },
+
+                               new DictionaryLocalization { ID = 179, LanguageID = EnglishInt, Description = "Password must contain an uppercase letter" },
+                               new DictionaryLocalization { ID = 179, LanguageID = ArabicInt, Description = "يجب أن تحتوي كلمة المرور على حرف كبير" },
+
+                               new DictionaryLocalization { ID = 180, LanguageID = EnglishInt, Description = "Passwords do not match" },
+                               new DictionaryLocalization { ID = 180, LanguageID = ArabicInt, Description = "كلمتا المرور غير متطابقتين" },
+
+                               new DictionaryLocalization { ID = 181, LanguageID = EnglishInt, Description = "User already has this role" },
+                               new DictionaryLocalization { ID = 181, LanguageID = ArabicInt, Description = "المستخدم لديه هذا الدور بالفعل" },
+
+
+                               new DictionaryLocalization { ID = 182, LanguageID = EnglishInt, Description = "Sorry, An Unexpected Issue Has Occoured" },
+                               new DictionaryLocalization { ID = 182, LanguageID = ArabicInt, Description = "عذرا، حدث خطأ غير متوقع" },
+
+                               new DictionaryLocalization { ID = 183, LanguageID = EnglishInt, Description = "Have An Account?" },
+                               new DictionaryLocalization { ID = 183, LanguageID = ArabicInt, Description = "لديك حساب؟"  },
+
+                               new DictionaryLocalization { ID = 184, LanguageID = EnglishInt, Description = "Login Now" },
+                               new DictionaryLocalization { ID = 184, LanguageID = ArabicInt, Description = "سجل الدخول الآن" },
+
+                                // "You don't have an account?"
+                                new DictionaryLocalization { ID = 185, LanguageID = EnglishInt, Description = "Don't have an account?" },
+                                new DictionaryLocalization { ID = 185, LanguageID = ArabicInt, Description = "ليس لديك حساب؟" },
+                                
+                                // "Register Now"
+                                new DictionaryLocalization { ID = 186, LanguageID = EnglishInt, Description = "Register Now" },
+                                new DictionaryLocalization { ID = 186, LanguageID = ArabicInt, Description = "سجل الآن" },
+
+
+
+                                new DictionaryLocalization { ID = 187, LanguageID = EnglishInt, Description = "Email Or Password Is Wrong" },
+                                new DictionaryLocalization { ID = 187, LanguageID = ArabicInt, Description = "البريد الألكتروني او الرقم السري خاطئ" },
+
+
+                                new DictionaryLocalization { ID = 188, LanguageID = EnglishInt, Description = "Login" },
+                                new DictionaryLocalization { ID = 188, LanguageID = ArabicInt, Description = "تسجيل الدخول" },
+
+
+                                new DictionaryLocalization { ID = 189, LanguageID = EnglishInt, Description = "Please Enter Your Email Address" },
+                                new DictionaryLocalization { ID = 189, LanguageID = ArabicInt, Description = "أدخل بريدك الإلكتروني" },
+                                     
+                                new DictionaryLocalization { ID = 190, LanguageID = EnglishInt, Description = "Subscribe" },
+                                new DictionaryLocalization { ID = 190, LanguageID = ArabicInt, Description = "اشتراك" },
+                                 
+                                new DictionaryLocalization { ID = 191, LanguageID = EnglishInt, Description = "LogOut" },
+                                new DictionaryLocalization { ID = 191, LanguageID = ArabicInt, Description = "تسجيل الخروج" }
+
+                                );
+
 
                 // Jordan
                 entity.HasData(new DictionaryLocalization { ID = 1001, LanguageID = EnglishInt, Description = "Jordan" });

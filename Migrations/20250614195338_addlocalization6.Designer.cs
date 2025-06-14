@@ -12,8 +12,8 @@ using Qimmah.Data;
 namespace Qimmah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250611090427_addlocalization1")]
-    partial class addlocalization1
+    [Migration("20250614195338_addlocalization6")]
+    partial class addlocalization6
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -4228,6 +4228,2006 @@ namespace Qimmah.Migrations
                         new
                         {
                             ID = 1000
+                        },
+                        new
+                        {
+                            ID = 1001
+                        },
+                        new
+                        {
+                            ID = 1002
+                        },
+                        new
+                        {
+                            ID = 1003
+                        },
+                        new
+                        {
+                            ID = 1004
+                        },
+                        new
+                        {
+                            ID = 1005
+                        },
+                        new
+                        {
+                            ID = 1006
+                        },
+                        new
+                        {
+                            ID = 1007
+                        },
+                        new
+                        {
+                            ID = 1008
+                        },
+                        new
+                        {
+                            ID = 1009
+                        },
+                        new
+                        {
+                            ID = 1010
+                        },
+                        new
+                        {
+                            ID = 1011
+                        },
+                        new
+                        {
+                            ID = 1012
+                        },
+                        new
+                        {
+                            ID = 1013
+                        },
+                        new
+                        {
+                            ID = 1014
+                        },
+                        new
+                        {
+                            ID = 1015
+                        },
+                        new
+                        {
+                            ID = 1016
+                        },
+                        new
+                        {
+                            ID = 1017
+                        },
+                        new
+                        {
+                            ID = 1018
+                        },
+                        new
+                        {
+                            ID = 1019
+                        },
+                        new
+                        {
+                            ID = 1020
+                        },
+                        new
+                        {
+                            ID = 1021
+                        },
+                        new
+                        {
+                            ID = 1022
+                        },
+                        new
+                        {
+                            ID = 1023
+                        },
+                        new
+                        {
+                            ID = 1024
+                        },
+                        new
+                        {
+                            ID = 1025
+                        },
+                        new
+                        {
+                            ID = 1026
+                        },
+                        new
+                        {
+                            ID = 1027
+                        },
+                        new
+                        {
+                            ID = 1028
+                        },
+                        new
+                        {
+                            ID = 1029
+                        },
+                        new
+                        {
+                            ID = 1030
+                        },
+                        new
+                        {
+                            ID = 1031
+                        },
+                        new
+                        {
+                            ID = 1032
+                        },
+                        new
+                        {
+                            ID = 1033
+                        },
+                        new
+                        {
+                            ID = 1034
+                        },
+                        new
+                        {
+                            ID = 1035
+                        },
+                        new
+                        {
+                            ID = 1036
+                        },
+                        new
+                        {
+                            ID = 1037
+                        },
+                        new
+                        {
+                            ID = 1038
+                        },
+                        new
+                        {
+                            ID = 1039
+                        },
+                        new
+                        {
+                            ID = 1040
+                        },
+                        new
+                        {
+                            ID = 1041
+                        },
+                        new
+                        {
+                            ID = 1042
+                        },
+                        new
+                        {
+                            ID = 1043
+                        },
+                        new
+                        {
+                            ID = 1044
+                        },
+                        new
+                        {
+                            ID = 1045
+                        },
+                        new
+                        {
+                            ID = 1046
+                        },
+                        new
+                        {
+                            ID = 1047
+                        },
+                        new
+                        {
+                            ID = 1048
+                        },
+                        new
+                        {
+                            ID = 1049
+                        },
+                        new
+                        {
+                            ID = 1050
+                        },
+                        new
+                        {
+                            ID = 1051
+                        },
+                        new
+                        {
+                            ID = 1052
+                        },
+                        new
+                        {
+                            ID = 1053
+                        },
+                        new
+                        {
+                            ID = 1054
+                        },
+                        new
+                        {
+                            ID = 1055
+                        },
+                        new
+                        {
+                            ID = 1056
+                        },
+                        new
+                        {
+                            ID = 1057
+                        },
+                        new
+                        {
+                            ID = 1058
+                        },
+                        new
+                        {
+                            ID = 1059
+                        },
+                        new
+                        {
+                            ID = 1060
+                        },
+                        new
+                        {
+                            ID = 1061
+                        },
+                        new
+                        {
+                            ID = 1062
+                        },
+                        new
+                        {
+                            ID = 1063
+                        },
+                        new
+                        {
+                            ID = 1064
+                        },
+                        new
+                        {
+                            ID = 1065
+                        },
+                        new
+                        {
+                            ID = 1066
+                        },
+                        new
+                        {
+                            ID = 1067
+                        },
+                        new
+                        {
+                            ID = 1068
+                        },
+                        new
+                        {
+                            ID = 1069
+                        },
+                        new
+                        {
+                            ID = 1070
+                        },
+                        new
+                        {
+                            ID = 1071
+                        },
+                        new
+                        {
+                            ID = 1072
+                        },
+                        new
+                        {
+                            ID = 1073
+                        },
+                        new
+                        {
+                            ID = 1074
+                        },
+                        new
+                        {
+                            ID = 1075
+                        },
+                        new
+                        {
+                            ID = 1076
+                        },
+                        new
+                        {
+                            ID = 1077
+                        },
+                        new
+                        {
+                            ID = 1078
+                        },
+                        new
+                        {
+                            ID = 1079
+                        },
+                        new
+                        {
+                            ID = 1080
+                        },
+                        new
+                        {
+                            ID = 1081
+                        },
+                        new
+                        {
+                            ID = 1082
+                        },
+                        new
+                        {
+                            ID = 1083
+                        },
+                        new
+                        {
+                            ID = 1084
+                        },
+                        new
+                        {
+                            ID = 1085
+                        },
+                        new
+                        {
+                            ID = 1086
+                        },
+                        new
+                        {
+                            ID = 1087
+                        },
+                        new
+                        {
+                            ID = 1088
+                        },
+                        new
+                        {
+                            ID = 1089
+                        },
+                        new
+                        {
+                            ID = 1090
+                        },
+                        new
+                        {
+                            ID = 1091
+                        },
+                        new
+                        {
+                            ID = 1092
+                        },
+                        new
+                        {
+                            ID = 1093
+                        },
+                        new
+                        {
+                            ID = 1094
+                        },
+                        new
+                        {
+                            ID = 1095
+                        },
+                        new
+                        {
+                            ID = 1096
+                        },
+                        new
+                        {
+                            ID = 1097
+                        },
+                        new
+                        {
+                            ID = 1098
+                        },
+                        new
+                        {
+                            ID = 1099
+                        },
+                        new
+                        {
+                            ID = 1100
+                        },
+                        new
+                        {
+                            ID = 1101
+                        },
+                        new
+                        {
+                            ID = 1102
+                        },
+                        new
+                        {
+                            ID = 1103
+                        },
+                        new
+                        {
+                            ID = 1104
+                        },
+                        new
+                        {
+                            ID = 1105
+                        },
+                        new
+                        {
+                            ID = 1106
+                        },
+                        new
+                        {
+                            ID = 1107
+                        },
+                        new
+                        {
+                            ID = 1108
+                        },
+                        new
+                        {
+                            ID = 1109
+                        },
+                        new
+                        {
+                            ID = 1110
+                        },
+                        new
+                        {
+                            ID = 1111
+                        },
+                        new
+                        {
+                            ID = 1112
+                        },
+                        new
+                        {
+                            ID = 1113
+                        },
+                        new
+                        {
+                            ID = 1114
+                        },
+                        new
+                        {
+                            ID = 1115
+                        },
+                        new
+                        {
+                            ID = 1116
+                        },
+                        new
+                        {
+                            ID = 1117
+                        },
+                        new
+                        {
+                            ID = 1118
+                        },
+                        new
+                        {
+                            ID = 1119
+                        },
+                        new
+                        {
+                            ID = 1120
+                        },
+                        new
+                        {
+                            ID = 1121
+                        },
+                        new
+                        {
+                            ID = 1122
+                        },
+                        new
+                        {
+                            ID = 1123
+                        },
+                        new
+                        {
+                            ID = 1124
+                        },
+                        new
+                        {
+                            ID = 1125
+                        },
+                        new
+                        {
+                            ID = 1126
+                        },
+                        new
+                        {
+                            ID = 1127
+                        },
+                        new
+                        {
+                            ID = 1128
+                        },
+                        new
+                        {
+                            ID = 1129
+                        },
+                        new
+                        {
+                            ID = 1130
+                        },
+                        new
+                        {
+                            ID = 1131
+                        },
+                        new
+                        {
+                            ID = 1132
+                        },
+                        new
+                        {
+                            ID = 1133
+                        },
+                        new
+                        {
+                            ID = 1134
+                        },
+                        new
+                        {
+                            ID = 1135
+                        },
+                        new
+                        {
+                            ID = 1136
+                        },
+                        new
+                        {
+                            ID = 1137
+                        },
+                        new
+                        {
+                            ID = 1138
+                        },
+                        new
+                        {
+                            ID = 1139
+                        },
+                        new
+                        {
+                            ID = 1140
+                        },
+                        new
+                        {
+                            ID = 1141
+                        },
+                        new
+                        {
+                            ID = 1142
+                        },
+                        new
+                        {
+                            ID = 1143
+                        },
+                        new
+                        {
+                            ID = 1144
+                        },
+                        new
+                        {
+                            ID = 1145
+                        },
+                        new
+                        {
+                            ID = 1146
+                        },
+                        new
+                        {
+                            ID = 1147
+                        },
+                        new
+                        {
+                            ID = 1148
+                        },
+                        new
+                        {
+                            ID = 1149
+                        },
+                        new
+                        {
+                            ID = 1150
+                        },
+                        new
+                        {
+                            ID = 1151
+                        },
+                        new
+                        {
+                            ID = 1152
+                        },
+                        new
+                        {
+                            ID = 1153
+                        },
+                        new
+                        {
+                            ID = 1154
+                        },
+                        new
+                        {
+                            ID = 1155
+                        },
+                        new
+                        {
+                            ID = 1156
+                        },
+                        new
+                        {
+                            ID = 1157
+                        },
+                        new
+                        {
+                            ID = 1158
+                        },
+                        new
+                        {
+                            ID = 1159
+                        },
+                        new
+                        {
+                            ID = 1160
+                        },
+                        new
+                        {
+                            ID = 1161
+                        },
+                        new
+                        {
+                            ID = 1162
+                        },
+                        new
+                        {
+                            ID = 1163
+                        },
+                        new
+                        {
+                            ID = 1164
+                        },
+                        new
+                        {
+                            ID = 1165
+                        },
+                        new
+                        {
+                            ID = 1166
+                        },
+                        new
+                        {
+                            ID = 1167
+                        },
+                        new
+                        {
+                            ID = 1168
+                        },
+                        new
+                        {
+                            ID = 1169
+                        },
+                        new
+                        {
+                            ID = 1170
+                        },
+                        new
+                        {
+                            ID = 1171
+                        },
+                        new
+                        {
+                            ID = 1172
+                        },
+                        new
+                        {
+                            ID = 1173
+                        },
+                        new
+                        {
+                            ID = 1174
+                        },
+                        new
+                        {
+                            ID = 1175
+                        },
+                        new
+                        {
+                            ID = 1176
+                        },
+                        new
+                        {
+                            ID = 1177
+                        },
+                        new
+                        {
+                            ID = 1178
+                        },
+                        new
+                        {
+                            ID = 1179
+                        },
+                        new
+                        {
+                            ID = 1180
+                        },
+                        new
+                        {
+                            ID = 1181
+                        },
+                        new
+                        {
+                            ID = 1182
+                        },
+                        new
+                        {
+                            ID = 1183
+                        },
+                        new
+                        {
+                            ID = 1184
+                        },
+                        new
+                        {
+                            ID = 1185
+                        },
+                        new
+                        {
+                            ID = 1186
+                        },
+                        new
+                        {
+                            ID = 1187
+                        },
+                        new
+                        {
+                            ID = 1188
+                        },
+                        new
+                        {
+                            ID = 1189
+                        },
+                        new
+                        {
+                            ID = 1190
+                        },
+                        new
+                        {
+                            ID = 1191
+                        },
+                        new
+                        {
+                            ID = 1192
+                        },
+                        new
+                        {
+                            ID = 1193
+                        },
+                        new
+                        {
+                            ID = 1194
+                        },
+                        new
+                        {
+                            ID = 1195
+                        },
+                        new
+                        {
+                            ID = 1196
+                        },
+                        new
+                        {
+                            ID = 1197
+                        },
+                        new
+                        {
+                            ID = 1198
+                        },
+                        new
+                        {
+                            ID = 1199
+                        },
+                        new
+                        {
+                            ID = 1200
+                        },
+                        new
+                        {
+                            ID = 1201
+                        },
+                        new
+                        {
+                            ID = 1202
+                        },
+                        new
+                        {
+                            ID = 1203
+                        },
+                        new
+                        {
+                            ID = 1204
+                        },
+                        new
+                        {
+                            ID = 1205
+                        },
+                        new
+                        {
+                            ID = 1206
+                        },
+                        new
+                        {
+                            ID = 1207
+                        },
+                        new
+                        {
+                            ID = 1208
+                        },
+                        new
+                        {
+                            ID = 1209
+                        },
+                        new
+                        {
+                            ID = 1210
+                        },
+                        new
+                        {
+                            ID = 1211
+                        },
+                        new
+                        {
+                            ID = 1212
+                        },
+                        new
+                        {
+                            ID = 1213
+                        },
+                        new
+                        {
+                            ID = 1214
+                        },
+                        new
+                        {
+                            ID = 1215
+                        },
+                        new
+                        {
+                            ID = 1216
+                        },
+                        new
+                        {
+                            ID = 1217
+                        },
+                        new
+                        {
+                            ID = 1218
+                        },
+                        new
+                        {
+                            ID = 1219
+                        },
+                        new
+                        {
+                            ID = 1220
+                        },
+                        new
+                        {
+                            ID = 1221
+                        },
+                        new
+                        {
+                            ID = 1222
+                        },
+                        new
+                        {
+                            ID = 1223
+                        },
+                        new
+                        {
+                            ID = 1224
+                        },
+                        new
+                        {
+                            ID = 1225
+                        },
+                        new
+                        {
+                            ID = 1226
+                        },
+                        new
+                        {
+                            ID = 1227
+                        },
+                        new
+                        {
+                            ID = 1228
+                        },
+                        new
+                        {
+                            ID = 1229
+                        },
+                        new
+                        {
+                            ID = 1230
+                        },
+                        new
+                        {
+                            ID = 1231
+                        },
+                        new
+                        {
+                            ID = 1232
+                        },
+                        new
+                        {
+                            ID = 1233
+                        },
+                        new
+                        {
+                            ID = 1234
+                        },
+                        new
+                        {
+                            ID = 1235
+                        },
+                        new
+                        {
+                            ID = 1236
+                        },
+                        new
+                        {
+                            ID = 1237
+                        },
+                        new
+                        {
+                            ID = 1238
+                        },
+                        new
+                        {
+                            ID = 1239
+                        },
+                        new
+                        {
+                            ID = 1240
+                        },
+                        new
+                        {
+                            ID = 1241
+                        },
+                        new
+                        {
+                            ID = 1242
+                        },
+                        new
+                        {
+                            ID = 1243
+                        },
+                        new
+                        {
+                            ID = 1244
+                        },
+                        new
+                        {
+                            ID = 1245
+                        },
+                        new
+                        {
+                            ID = 1246
+                        },
+                        new
+                        {
+                            ID = 1247
+                        },
+                        new
+                        {
+                            ID = 1248
+                        },
+                        new
+                        {
+                            ID = 1249
+                        },
+                        new
+                        {
+                            ID = 1250
+                        },
+                        new
+                        {
+                            ID = 1251
+                        },
+                        new
+                        {
+                            ID = 1252
+                        },
+                        new
+                        {
+                            ID = 1253
+                        },
+                        new
+                        {
+                            ID = 1254
+                        },
+                        new
+                        {
+                            ID = 1255
+                        },
+                        new
+                        {
+                            ID = 1256
+                        },
+                        new
+                        {
+                            ID = 1257
+                        },
+                        new
+                        {
+                            ID = 1258
+                        },
+                        new
+                        {
+                            ID = 1259
+                        },
+                        new
+                        {
+                            ID = 1260
+                        },
+                        new
+                        {
+                            ID = 1261
+                        },
+                        new
+                        {
+                            ID = 1262
+                        },
+                        new
+                        {
+                            ID = 1263
+                        },
+                        new
+                        {
+                            ID = 1264
+                        },
+                        new
+                        {
+                            ID = 1265
+                        },
+                        new
+                        {
+                            ID = 1266
+                        },
+                        new
+                        {
+                            ID = 1267
+                        },
+                        new
+                        {
+                            ID = 1268
+                        },
+                        new
+                        {
+                            ID = 1269
+                        },
+                        new
+                        {
+                            ID = 1270
+                        },
+                        new
+                        {
+                            ID = 1271
+                        },
+                        new
+                        {
+                            ID = 1272
+                        },
+                        new
+                        {
+                            ID = 1273
+                        },
+                        new
+                        {
+                            ID = 1274
+                        },
+                        new
+                        {
+                            ID = 1275
+                        },
+                        new
+                        {
+                            ID = 1276
+                        },
+                        new
+                        {
+                            ID = 1277
+                        },
+                        new
+                        {
+                            ID = 1278
+                        },
+                        new
+                        {
+                            ID = 1279
+                        },
+                        new
+                        {
+                            ID = 1280
+                        },
+                        new
+                        {
+                            ID = 1281
+                        },
+                        new
+                        {
+                            ID = 1282
+                        },
+                        new
+                        {
+                            ID = 1283
+                        },
+                        new
+                        {
+                            ID = 1284
+                        },
+                        new
+                        {
+                            ID = 1285
+                        },
+                        new
+                        {
+                            ID = 1286
+                        },
+                        new
+                        {
+                            ID = 1287
+                        },
+                        new
+                        {
+                            ID = 1288
+                        },
+                        new
+                        {
+                            ID = 1289
+                        },
+                        new
+                        {
+                            ID = 1290
+                        },
+                        new
+                        {
+                            ID = 1291
+                        },
+                        new
+                        {
+                            ID = 1292
+                        },
+                        new
+                        {
+                            ID = 1293
+                        },
+                        new
+                        {
+                            ID = 1294
+                        },
+                        new
+                        {
+                            ID = 1295
+                        },
+                        new
+                        {
+                            ID = 1296
+                        },
+                        new
+                        {
+                            ID = 1297
+                        },
+                        new
+                        {
+                            ID = 1298
+                        },
+                        new
+                        {
+                            ID = 1299
+                        },
+                        new
+                        {
+                            ID = 1300
+                        },
+                        new
+                        {
+                            ID = 1301
+                        },
+                        new
+                        {
+                            ID = 1302
+                        },
+                        new
+                        {
+                            ID = 1303
+                        },
+                        new
+                        {
+                            ID = 1304
+                        },
+                        new
+                        {
+                            ID = 1305
+                        },
+                        new
+                        {
+                            ID = 1306
+                        },
+                        new
+                        {
+                            ID = 1307
+                        },
+                        new
+                        {
+                            ID = 1308
+                        },
+                        new
+                        {
+                            ID = 1309
+                        },
+                        new
+                        {
+                            ID = 1310
+                        },
+                        new
+                        {
+                            ID = 1311
+                        },
+                        new
+                        {
+                            ID = 1312
+                        },
+                        new
+                        {
+                            ID = 1313
+                        },
+                        new
+                        {
+                            ID = 1314
+                        },
+                        new
+                        {
+                            ID = 1315
+                        },
+                        new
+                        {
+                            ID = 1316
+                        },
+                        new
+                        {
+                            ID = 1317
+                        },
+                        new
+                        {
+                            ID = 1318
+                        },
+                        new
+                        {
+                            ID = 1319
+                        },
+                        new
+                        {
+                            ID = 1320
+                        },
+                        new
+                        {
+                            ID = 1321
+                        },
+                        new
+                        {
+                            ID = 1322
+                        },
+                        new
+                        {
+                            ID = 1323
+                        },
+                        new
+                        {
+                            ID = 1324
+                        },
+                        new
+                        {
+                            ID = 1325
+                        },
+                        new
+                        {
+                            ID = 1326
+                        },
+                        new
+                        {
+                            ID = 1327
+                        },
+                        new
+                        {
+                            ID = 1328
+                        },
+                        new
+                        {
+                            ID = 1329
+                        },
+                        new
+                        {
+                            ID = 1330
+                        },
+                        new
+                        {
+                            ID = 1331
+                        },
+                        new
+                        {
+                            ID = 1332
+                        },
+                        new
+                        {
+                            ID = 1333
+                        },
+                        new
+                        {
+                            ID = 1334
+                        },
+                        new
+                        {
+                            ID = 1335
+                        },
+                        new
+                        {
+                            ID = 1336
+                        },
+                        new
+                        {
+                            ID = 1337
+                        },
+                        new
+                        {
+                            ID = 1338
+                        },
+                        new
+                        {
+                            ID = 1339
+                        },
+                        new
+                        {
+                            ID = 1340
+                        },
+                        new
+                        {
+                            ID = 1341
+                        },
+                        new
+                        {
+                            ID = 1342
+                        },
+                        new
+                        {
+                            ID = 1343
+                        },
+                        new
+                        {
+                            ID = 1344
+                        },
+                        new
+                        {
+                            ID = 1345
+                        },
+                        new
+                        {
+                            ID = 1346
+                        },
+                        new
+                        {
+                            ID = 1347
+                        },
+                        new
+                        {
+                            ID = 1348
+                        },
+                        new
+                        {
+                            ID = 1349
+                        },
+                        new
+                        {
+                            ID = 1350
+                        },
+                        new
+                        {
+                            ID = 1351
+                        },
+                        new
+                        {
+                            ID = 1352
+                        },
+                        new
+                        {
+                            ID = 1353
+                        },
+                        new
+                        {
+                            ID = 1354
+                        },
+                        new
+                        {
+                            ID = 1355
+                        },
+                        new
+                        {
+                            ID = 1356
+                        },
+                        new
+                        {
+                            ID = 1357
+                        },
+                        new
+                        {
+                            ID = 1358
+                        },
+                        new
+                        {
+                            ID = 1359
+                        },
+                        new
+                        {
+                            ID = 1360
+                        },
+                        new
+                        {
+                            ID = 1361
+                        },
+                        new
+                        {
+                            ID = 1362
+                        },
+                        new
+                        {
+                            ID = 1363
+                        },
+                        new
+                        {
+                            ID = 1364
+                        },
+                        new
+                        {
+                            ID = 1365
+                        },
+                        new
+                        {
+                            ID = 1366
+                        },
+                        new
+                        {
+                            ID = 1367
+                        },
+                        new
+                        {
+                            ID = 1368
+                        },
+                        new
+                        {
+                            ID = 1369
+                        },
+                        new
+                        {
+                            ID = 1370
+                        },
+                        new
+                        {
+                            ID = 1371
+                        },
+                        new
+                        {
+                            ID = 1372
+                        },
+                        new
+                        {
+                            ID = 1373
+                        },
+                        new
+                        {
+                            ID = 1374
+                        },
+                        new
+                        {
+                            ID = 1375
+                        },
+                        new
+                        {
+                            ID = 1376
+                        },
+                        new
+                        {
+                            ID = 1377
+                        },
+                        new
+                        {
+                            ID = 1378
+                        },
+                        new
+                        {
+                            ID = 1379
+                        },
+                        new
+                        {
+                            ID = 1380
+                        },
+                        new
+                        {
+                            ID = 1381
+                        },
+                        new
+                        {
+                            ID = 1382
+                        },
+                        new
+                        {
+                            ID = 1383
+                        },
+                        new
+                        {
+                            ID = 1384
+                        },
+                        new
+                        {
+                            ID = 1385
+                        },
+                        new
+                        {
+                            ID = 1386
+                        },
+                        new
+                        {
+                            ID = 1387
+                        },
+                        new
+                        {
+                            ID = 1388
+                        },
+                        new
+                        {
+                            ID = 1389
+                        },
+                        new
+                        {
+                            ID = 1390
+                        },
+                        new
+                        {
+                            ID = 1391
+                        },
+                        new
+                        {
+                            ID = 1392
+                        },
+                        new
+                        {
+                            ID = 1393
+                        },
+                        new
+                        {
+                            ID = 1394
+                        },
+                        new
+                        {
+                            ID = 1395
+                        },
+                        new
+                        {
+                            ID = 1396
+                        },
+                        new
+                        {
+                            ID = 1397
+                        },
+                        new
+                        {
+                            ID = 1398
+                        },
+                        new
+                        {
+                            ID = 1399
+                        },
+                        new
+                        {
+                            ID = 1400
+                        },
+                        new
+                        {
+                            ID = 1401
+                        },
+                        new
+                        {
+                            ID = 1402
+                        },
+                        new
+                        {
+                            ID = 1403
+                        },
+                        new
+                        {
+                            ID = 1404
+                        },
+                        new
+                        {
+                            ID = 1405
+                        },
+                        new
+                        {
+                            ID = 1406
+                        },
+                        new
+                        {
+                            ID = 1407
+                        },
+                        new
+                        {
+                            ID = 1408
+                        },
+                        new
+                        {
+                            ID = 1409
+                        },
+                        new
+                        {
+                            ID = 1410
+                        },
+                        new
+                        {
+                            ID = 1411
+                        },
+                        new
+                        {
+                            ID = 1412
+                        },
+                        new
+                        {
+                            ID = 1413
+                        },
+                        new
+                        {
+                            ID = 1414
+                        },
+                        new
+                        {
+                            ID = 1415
+                        },
+                        new
+                        {
+                            ID = 1416
+                        },
+                        new
+                        {
+                            ID = 1417
+                        },
+                        new
+                        {
+                            ID = 1418
+                        },
+                        new
+                        {
+                            ID = 1419
+                        },
+                        new
+                        {
+                            ID = 1420
+                        },
+                        new
+                        {
+                            ID = 1421
+                        },
+                        new
+                        {
+                            ID = 1422
+                        },
+                        new
+                        {
+                            ID = 1423
+                        },
+                        new
+                        {
+                            ID = 1424
+                        },
+                        new
+                        {
+                            ID = 1425
+                        },
+                        new
+                        {
+                            ID = 1426
+                        },
+                        new
+                        {
+                            ID = 1427
+                        },
+                        new
+                        {
+                            ID = 1428
+                        },
+                        new
+                        {
+                            ID = 1429
+                        },
+                        new
+                        {
+                            ID = 1430
+                        },
+                        new
+                        {
+                            ID = 1431
+                        },
+                        new
+                        {
+                            ID = 1432
+                        },
+                        new
+                        {
+                            ID = 1433
+                        },
+                        new
+                        {
+                            ID = 1434
+                        },
+                        new
+                        {
+                            ID = 1435
+                        },
+                        new
+                        {
+                            ID = 1436
+                        },
+                        new
+                        {
+                            ID = 1437
+                        },
+                        new
+                        {
+                            ID = 1438
+                        },
+                        new
+                        {
+                            ID = 1439
+                        },
+                        new
+                        {
+                            ID = 1440
+                        },
+                        new
+                        {
+                            ID = 1441
+                        },
+                        new
+                        {
+                            ID = 1442
+                        },
+                        new
+                        {
+                            ID = 1443
+                        },
+                        new
+                        {
+                            ID = 1444
+                        },
+                        new
+                        {
+                            ID = 1445
+                        },
+                        new
+                        {
+                            ID = 1446
+                        },
+                        new
+                        {
+                            ID = 1447
+                        },
+                        new
+                        {
+                            ID = 1448
+                        },
+                        new
+                        {
+                            ID = 1449
+                        },
+                        new
+                        {
+                            ID = 1450
+                        },
+                        new
+                        {
+                            ID = 1451
+                        },
+                        new
+                        {
+                            ID = 1452
+                        },
+                        new
+                        {
+                            ID = 1453
+                        },
+                        new
+                        {
+                            ID = 1454
+                        },
+                        new
+                        {
+                            ID = 1455
+                        },
+                        new
+                        {
+                            ID = 1456
+                        },
+                        new
+                        {
+                            ID = 1457
+                        },
+                        new
+                        {
+                            ID = 1458
+                        },
+                        new
+                        {
+                            ID = 1459
+                        },
+                        new
+                        {
+                            ID = 1460
+                        },
+                        new
+                        {
+                            ID = 1461
+                        },
+                        new
+                        {
+                            ID = 1462
+                        },
+                        new
+                        {
+                            ID = 1463
+                        },
+                        new
+                        {
+                            ID = 1464
+                        },
+                        new
+                        {
+                            ID = 1465
+                        },
+                        new
+                        {
+                            ID = 1466
+                        },
+                        new
+                        {
+                            ID = 1467
+                        },
+                        new
+                        {
+                            ID = 1468
+                        },
+                        new
+                        {
+                            ID = 1469
+                        },
+                        new
+                        {
+                            ID = 1470
+                        },
+                        new
+                        {
+                            ID = 1471
+                        },
+                        new
+                        {
+                            ID = 1472
+                        },
+                        new
+                        {
+                            ID = 1473
+                        },
+                        new
+                        {
+                            ID = 1474
+                        },
+                        new
+                        {
+                            ID = 1475
+                        },
+                        new
+                        {
+                            ID = 1476
+                        },
+                        new
+                        {
+                            ID = 1477
+                        },
+                        new
+                        {
+                            ID = 1478
+                        },
+                        new
+                        {
+                            ID = 1479
+                        },
+                        new
+                        {
+                            ID = 1480
+                        },
+                        new
+                        {
+                            ID = 1481
+                        },
+                        new
+                        {
+                            ID = 1482
+                        },
+                        new
+                        {
+                            ID = 1483
+                        },
+                        new
+                        {
+                            ID = 1484
+                        },
+                        new
+                        {
+                            ID = 1485
+                        },
+                        new
+                        {
+                            ID = 1486
+                        },
+                        new
+                        {
+                            ID = 1487
+                        },
+                        new
+                        {
+                            ID = 1488
+                        },
+                        new
+                        {
+                            ID = 1489
+                        },
+                        new
+                        {
+                            ID = 1490
+                        },
+                        new
+                        {
+                            ID = 1491
+                        },
+                        new
+                        {
+                            ID = 1492
+                        },
+                        new
+                        {
+                            ID = 1493
+                        },
+                        new
+                        {
+                            ID = 1494
+                        },
+                        new
+                        {
+                            ID = 1495
+                        },
+                        new
+                        {
+                            ID = 1496
+                        },
+                        new
+                        {
+                            ID = 1497
+                        },
+                        new
+                        {
+                            ID = 1498
+                        },
+                        new
+                        {
+                            ID = 1499
+                        },
+                        new
+                        {
+                            ID = 1500
                         });
                 });
 
@@ -5586,13 +7586,817 @@ namespace Qimmah.Migrations
                         {
                             ID = 112,
                             LanguageID = 1,
-                            Description = "Official Sponsors of the Arab Youth Innovation & Technology Summit 2025"
+                            Description = "Home"
                         },
                         new
                         {
                             ID = 112,
                             LanguageID = 2,
-                            Description = "الرعاة الرسميون لقمة الابتكار والتكنولوجيا للشباب العربي 2025"
+                            Description = "الصفحة الرئيسية"
+                        },
+                        new
+                        {
+                            ID = 113,
+                            LanguageID = 1,
+                            Description = "About the Summit"
+                        },
+                        new
+                        {
+                            ID = 113,
+                            LanguageID = 2,
+                            Description = "عن القمة"
+                        },
+                        new
+                        {
+                            ID = 114,
+                            LanguageID = 1,
+                            Description = "Speakers"
+                        },
+                        new
+                        {
+                            ID = 114,
+                            LanguageID = 2,
+                            Description = "المتحدثون"
+                        },
+                        new
+                        {
+                            ID = 115,
+                            LanguageID = 1,
+                            Description = "Sponsors & Partners"
+                        },
+                        new
+                        {
+                            ID = 115,
+                            LanguageID = 2,
+                            Description = "الرعاة والشركاء"
+                        },
+                        new
+                        {
+                            ID = 116,
+                            LanguageID = 1,
+                            Description = "Latest News"
+                        },
+                        new
+                        {
+                            ID = 116,
+                            LanguageID = 2,
+                            Description = "آخر الأخبار"
+                        },
+                        new
+                        {
+                            ID = 117,
+                            LanguageID = 1,
+                            Description = "Email"
+                        },
+                        new
+                        {
+                            ID = 117,
+                            LanguageID = 2,
+                            Description = "البريد الإلكتروني"
+                        },
+                        new
+                        {
+                            ID = 118,
+                            LanguageID = 1,
+                            Description = "Password"
+                        },
+                        new
+                        {
+                            ID = 118,
+                            LanguageID = 2,
+                            Description = "كلمة المرور"
+                        },
+                        new
+                        {
+                            ID = 119,
+                            LanguageID = 1,
+                            Description = "Confirm Password"
+                        },
+                        new
+                        {
+                            ID = 119,
+                            LanguageID = 2,
+                            Description = "تأكيد كلمة المرور"
+                        },
+                        new
+                        {
+                            ID = 120,
+                            LanguageID = 1,
+                            Description = "Phone Number"
+                        },
+                        new
+                        {
+                            ID = 120,
+                            LanguageID = 2,
+                            Description = "رقم الهاتف"
+                        },
+                        new
+                        {
+                            ID = 121,
+                            LanguageID = 1,
+                            Description = "Register"
+                        },
+                        new
+                        {
+                            ID = 121,
+                            LanguageID = 2,
+                            Description = "تسجيل"
+                        },
+                        new
+                        {
+                            ID = 122,
+                            LanguageID = 1,
+                            Description = "Name in {0}"
+                        },
+                        new
+                        {
+                            ID = 122,
+                            LanguageID = 2,
+                            Description = "الأسم باللغة {0}"
+                        },
+                        new
+                        {
+                            ID = 123,
+                            LanguageID = 1,
+                            Description = "This Field Is Required"
+                        },
+                        new
+                        {
+                            ID = 123,
+                            LanguageID = 2,
+                            Description = "هذا الحقل مطلوب"
+                        },
+                        new
+                        {
+                            ID = 124,
+                            LanguageID = 1,
+                            Description = "Please Enter a Password"
+                        },
+                        new
+                        {
+                            ID = 124,
+                            LanguageID = 2,
+                            Description = "الرجاء إدخال كلمة مرور"
+                        },
+                        new
+                        {
+                            ID = 125,
+                            LanguageID = 1,
+                            Description = "Please Confirm Your Password"
+                        },
+                        new
+                        {
+                            ID = 125,
+                            LanguageID = 2,
+                            Description = "الرجاء تأكيد كلمة المرور"
+                        },
+                        new
+                        {
+                            ID = 150,
+                            LanguageID = 1,
+                            Description = "Password does not meet security requirements"
+                        },
+                        new
+                        {
+                            ID = 150,
+                            LanguageID = 2,
+                            Description = "كلمة المرور لا تلبي متطلبات الأمان"
+                        },
+                        new
+                        {
+                            ID = 151,
+                            LanguageID = 1,
+                            Description = "Password must be at least {0} characters long"
+                        },
+                        new
+                        {
+                            ID = 151,
+                            LanguageID = 2,
+                            Description = "كلمة المرور يجب أن تكون على الأقل {0} حرف"
+                        },
+                        new
+                        {
+                            ID = 152,
+                            LanguageID = 1,
+                            Description = "Password must not exceed {0} characters"
+                        },
+                        new
+                        {
+                            ID = 152,
+                            LanguageID = 2,
+                            Description = "كلمة المرور يجب ألا تتجاوز {0} حرف"
+                        },
+                        new
+                        {
+                            ID = 153,
+                            LanguageID = 1,
+                            Description = "Password must contain at least {0} uppercase letter(s)"
+                        },
+                        new
+                        {
+                            ID = 153,
+                            LanguageID = 2,
+                            Description = "كلمة المرور يجب أن تحتوي على {0} حرف كبير على الأقل"
+                        },
+                        new
+                        {
+                            ID = 154,
+                            LanguageID = 1,
+                            Description = "Password must contain at least {0} lowercase letter(s)"
+                        },
+                        new
+                        {
+                            ID = 154,
+                            LanguageID = 2,
+                            Description = "كلمة المرور يجب أن تحتوي على {0} حرف صغير على الأقل"
+                        },
+                        new
+                        {
+                            ID = 155,
+                            LanguageID = 1,
+                            Description = "Password must contain at least {0} digit(s)"
+                        },
+                        new
+                        {
+                            ID = 155,
+                            LanguageID = 2,
+                            Description = "كلمة المرور يجب أن تحتوي على {0} رقم على الأقل"
+                        },
+                        new
+                        {
+                            ID = 156,
+                            LanguageID = 1,
+                            Description = "Password must contain at least {0} special character(s)"
+                        },
+                        new
+                        {
+                            ID = 156,
+                            LanguageID = 2,
+                            Description = "كلمة المرور يجب أن تحتوي على {0} رمز خاص على الأقل"
+                        },
+                        new
+                        {
+                            ID = 157,
+                            LanguageID = 1,
+                            Description = "Password must contain:"
+                        },
+                        new
+                        {
+                            ID = 157,
+                            LanguageID = 2,
+                            Description = "كلمة المرور يجب أن تحتوي على:"
+                        },
+                        new
+                        {
+                            ID = 158,
+                            LanguageID = 1,
+                            Description = "Between {0} and {1} characters"
+                        },
+                        new
+                        {
+                            ID = 158,
+                            LanguageID = 2,
+                            Description = "بين {0} و {1} حرف"
+                        },
+                        new
+                        {
+                            ID = 159,
+                            LanguageID = 1,
+                            Description = "At least {0} uppercase letter(s)"
+                        },
+                        new
+                        {
+                            ID = 159,
+                            LanguageID = 2,
+                            Description = "{0} حرف كبير على الأقل"
+                        },
+                        new
+                        {
+                            ID = 160,
+                            LanguageID = 1,
+                            Description = "At least {0} lowercase letter(s)"
+                        },
+                        new
+                        {
+                            ID = 160,
+                            LanguageID = 2,
+                            Description = "{0} حرف صغير على الأقل"
+                        },
+                        new
+                        {
+                            ID = 161,
+                            LanguageID = 1,
+                            Description = "At least {0} digit(s)"
+                        },
+                        new
+                        {
+                            ID = 161,
+                            LanguageID = 2,
+                            Description = "{0} رقم على الأقل"
+                        },
+                        new
+                        {
+                            ID = 162,
+                            LanguageID = 1,
+                            Description = "At least {0} special character(s)"
+                        },
+                        new
+                        {
+                            ID = 162,
+                            LanguageID = 2,
+                            Description = "{0} رمز خاص على الأقل"
+                        },
+                        new
+                        {
+                            ID = 163,
+                            LanguageID = 1,
+                            Description = "Very Weak"
+                        },
+                        new
+                        {
+                            ID = 163,
+                            LanguageID = 2,
+                            Description = "ضعيف جداً"
+                        },
+                        new
+                        {
+                            ID = 164,
+                            LanguageID = 1,
+                            Description = "Weak"
+                        },
+                        new
+                        {
+                            ID = 164,
+                            LanguageID = 2,
+                            Description = "ضعيف"
+                        },
+                        new
+                        {
+                            ID = 165,
+                            LanguageID = 1,
+                            Description = "Fair"
+                        },
+                        new
+                        {
+                            ID = 165,
+                            LanguageID = 2,
+                            Description = "متوسط"
+                        },
+                        new
+                        {
+                            ID = 166,
+                            LanguageID = 1,
+                            Description = "Good"
+                        },
+                        new
+                        {
+                            ID = 166,
+                            LanguageID = 2,
+                            Description = "جيد"
+                        },
+                        new
+                        {
+                            ID = 167,
+                            LanguageID = 1,
+                            Description = "Strong"
+                        },
+                        new
+                        {
+                            ID = 167,
+                            LanguageID = 2,
+                            Description = "قوي"
+                        },
+                        new
+                        {
+                            ID = 168,
+                            LanguageID = 1,
+                            Description = "Passwords do not match"
+                        },
+                        new
+                        {
+                            ID = 168,
+                            LanguageID = 2,
+                            Description = "كلمات المرور غير متطابقة"
+                        },
+                        new
+                        {
+                            ID = 169,
+                            LanguageID = 1,
+                            Description = "Show password"
+                        },
+                        new
+                        {
+                            ID = 169,
+                            LanguageID = 2,
+                            Description = "إظهار كلمة المرور"
+                        },
+                        new
+                        {
+                            ID = 170,
+                            LanguageID = 1,
+                            Description = "Hide password"
+                        },
+                        new
+                        {
+                            ID = 170,
+                            LanguageID = 2,
+                            Description = "إخفاء كلمة المرور"
+                        },
+                        new
+                        {
+                            ID = 171,
+                            LanguageID = 1,
+                            Description = "Password is too weak. Please create a stronger password."
+                        },
+                        new
+                        {
+                            ID = 171,
+                            LanguageID = 2,
+                            Description = "كلمة المرور ضعيفة جداً. يرجى إنشاء كلمة مرور أقوى."
+                        },
+                        new
+                        {
+                            ID = 172,
+                            LanguageID = 1,
+                            Description = "Country"
+                        },
+                        new
+                        {
+                            ID = 172,
+                            LanguageID = 2,
+                            Description = "الدولة"
+                        },
+                        new
+                        {
+                            ID = 173,
+                            LanguageID = 1,
+                            Description = "Email Is Already In Use"
+                        },
+                        new
+                        {
+                            ID = 173,
+                            LanguageID = 2,
+                            Description = "البريد الإلكتروني مستخدم"
+                        },
+                        new
+                        {
+                            ID = 174,
+                            LanguageID = 1,
+                            Description = "Invalid email address"
+                        },
+                        new
+                        {
+                            ID = 174,
+                            LanguageID = 2,
+                            Description = "بريد إلكتروني غير صالح"
+                        },
+                        new
+                        {
+                            ID = 175,
+                            LanguageID = 1,
+                            Description = "Password is too short"
+                        },
+                        new
+                        {
+                            ID = 175,
+                            LanguageID = 2,
+                            Description = "كلمة المرور قصيرة جدًا"
+                        },
+                        new
+                        {
+                            ID = 176,
+                            LanguageID = 1,
+                            Description = "Password must contain a symbol"
+                        },
+                        new
+                        {
+                            ID = 176,
+                            LanguageID = 2,
+                            Description = "يجب أن تحتوي كلمة المرور على رمز"
+                        },
+                        new
+                        {
+                            ID = 177,
+                            LanguageID = 1,
+                            Description = "Password must contain a number"
+                        },
+                        new
+                        {
+                            ID = 177,
+                            LanguageID = 2,
+                            Description = "يجب أن تحتوي كلمة المرور على رقم"
+                        },
+                        new
+                        {
+                            ID = 178,
+                            LanguageID = 1,
+                            Description = "Password must contain a lowercase letter"
+                        },
+                        new
+                        {
+                            ID = 178,
+                            LanguageID = 2,
+                            Description = "يجب أن تحتوي كلمة المرور على حرف صغير"
+                        },
+                        new
+                        {
+                            ID = 179,
+                            LanguageID = 1,
+                            Description = "Password must contain an uppercase letter"
+                        },
+                        new
+                        {
+                            ID = 179,
+                            LanguageID = 2,
+                            Description = "يجب أن تحتوي كلمة المرور على حرف كبير"
+                        },
+                        new
+                        {
+                            ID = 180,
+                            LanguageID = 1,
+                            Description = "Passwords do not match"
+                        },
+                        new
+                        {
+                            ID = 180,
+                            LanguageID = 2,
+                            Description = "كلمتا المرور غير متطابقتين"
+                        },
+                        new
+                        {
+                            ID = 181,
+                            LanguageID = 1,
+                            Description = "User already has this role"
+                        },
+                        new
+                        {
+                            ID = 181,
+                            LanguageID = 2,
+                            Description = "المستخدم لديه هذا الدور بالفعل"
+                        },
+                        new
+                        {
+                            ID = 182,
+                            LanguageID = 1,
+                            Description = "Sorry, An Unexpected Issue Has Occoured"
+                        },
+                        new
+                        {
+                            ID = 182,
+                            LanguageID = 2,
+                            Description = "عذرا، حدث خطأ غير متوقع"
+                        },
+                        new
+                        {
+                            ID = 183,
+                            LanguageID = 1,
+                            Description = "Have An Account?"
+                        },
+                        new
+                        {
+                            ID = 183,
+                            LanguageID = 2,
+                            Description = "لديك حساب؟"
+                        },
+                        new
+                        {
+                            ID = 184,
+                            LanguageID = 1,
+                            Description = "Login Now"
+                        },
+                        new
+                        {
+                            ID = 184,
+                            LanguageID = 2,
+                            Description = "سجل الدخول الآن"
+                        },
+                        new
+                        {
+                            ID = 185,
+                            LanguageID = 1,
+                            Description = "Don't have an account?"
+                        },
+                        new
+                        {
+                            ID = 185,
+                            LanguageID = 2,
+                            Description = "ليس لديك حساب؟"
+                        },
+                        new
+                        {
+                            ID = 186,
+                            LanguageID = 1,
+                            Description = "Register Now"
+                        },
+                        new
+                        {
+                            ID = 186,
+                            LanguageID = 2,
+                            Description = "سجل الآن"
+                        },
+                        new
+                        {
+                            ID = 187,
+                            LanguageID = 1,
+                            Description = "Email Or Password Is Wrong"
+                        },
+                        new
+                        {
+                            ID = 187,
+                            LanguageID = 2,
+                            Description = "البريد الألكتروني او الرقم السري خاطئ"
+                        },
+                        new
+                        {
+                            ID = 188,
+                            LanguageID = 1,
+                            Description = "Login"
+                        },
+                        new
+                        {
+                            ID = 188,
+                            LanguageID = 2,
+                            Description = "تسجيل الدخول"
+                        },
+                        new
+                        {
+                            ID = 1001,
+                            LanguageID = 1,
+                            Description = "Jordan"
+                        },
+                        new
+                        {
+                            ID = 1001,
+                            LanguageID = 2,
+                            Description = "الأردن"
+                        },
+                        new
+                        {
+                            ID = 1002,
+                            LanguageID = 1,
+                            Description = "Palestine"
+                        },
+                        new
+                        {
+                            ID = 1002,
+                            LanguageID = 2,
+                            Description = "فلسطين"
+                        },
+                        new
+                        {
+                            ID = 1003,
+                            LanguageID = 1,
+                            Description = "Lebanon"
+                        },
+                        new
+                        {
+                            ID = 1003,
+                            LanguageID = 2,
+                            Description = "لبنان"
+                        },
+                        new
+                        {
+                            ID = 1004,
+                            LanguageID = 1,
+                            Description = "Syria"
+                        },
+                        new
+                        {
+                            ID = 1004,
+                            LanguageID = 2,
+                            Description = "سوريا"
+                        },
+                        new
+                        {
+                            ID = 1005,
+                            LanguageID = 1,
+                            Description = "Iraq"
+                        },
+                        new
+                        {
+                            ID = 1005,
+                            LanguageID = 2,
+                            Description = "العراق"
+                        },
+                        new
+                        {
+                            ID = 1006,
+                            LanguageID = 1,
+                            Description = "Saudi Arabia"
+                        },
+                        new
+                        {
+                            ID = 1006,
+                            LanguageID = 2,
+                            Description = "السعودية"
+                        },
+                        new
+                        {
+                            ID = 1007,
+                            LanguageID = 1,
+                            Description = "Kuwait"
+                        },
+                        new
+                        {
+                            ID = 1007,
+                            LanguageID = 2,
+                            Description = "الكويت"
+                        },
+                        new
+                        {
+                            ID = 1008,
+                            LanguageID = 1,
+                            Description = "Bahrain"
+                        },
+                        new
+                        {
+                            ID = 1008,
+                            LanguageID = 2,
+                            Description = "البحرين"
+                        },
+                        new
+                        {
+                            ID = 1009,
+                            LanguageID = 1,
+                            Description = "Qatar"
+                        },
+                        new
+                        {
+                            ID = 1009,
+                            LanguageID = 2,
+                            Description = "قطر"
+                        },
+                        new
+                        {
+                            ID = 1010,
+                            LanguageID = 1,
+                            Description = "United Arab Emirates"
+                        },
+                        new
+                        {
+                            ID = 1010,
+                            LanguageID = 2,
+                            Description = "الإمارات العربية المتحدة"
+                        },
+                        new
+                        {
+                            ID = 1011,
+                            LanguageID = 1,
+                            Description = "Oman"
+                        },
+                        new
+                        {
+                            ID = 1011,
+                            LanguageID = 2,
+                            Description = "عُمان"
+                        },
+                        new
+                        {
+                            ID = 1012,
+                            LanguageID = 1,
+                            Description = "Yemen"
+                        },
+                        new
+                        {
+                            ID = 1012,
+                            LanguageID = 2,
+                            Description = "اليمن"
+                        },
+                        new
+                        {
+                            ID = 1013,
+                            LanguageID = 1,
+                            Description = "Egypt"
+                        },
+                        new
+                        {
+                            ID = 1013,
+                            LanguageID = 2,
+                            Description = "مصر"
+                        },
+                        new
+                        {
+                            ID = 1014,
+                            LanguageID = 1,
+                            Description = "Turkey"
+                        },
+                        new
+                        {
+                            ID = 1014,
+                            LanguageID = 2,
+                            Description = "تركيا"
+                        },
+                        new
+                        {
+                            ID = 1015,
+                            LanguageID = 1,
+                            Description = "Iran"
+                        },
+                        new
+                        {
+                            ID = 1015,
+                            LanguageID = 2,
+                            Description = "إيران"
                         });
                 });
 
@@ -5630,7 +8434,263 @@ namespace Qimmah.Migrations
                             ID = 2,
                             Description = "ar",
                             Direction = "rtl",
-                            LanguageName = "Arabic"
+                            LanguageName = "العربية"
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.System.Lookup", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<bool?>("BoolValue")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DictionaryID")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("GuidValue")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("IntValue")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<long?>("LongValue")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ParentID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StringValue")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CategoryID");
+
+                    b.HasIndex("DictionaryID");
+
+                    b.HasIndex("ParentID");
+
+                    b.ToTable("Lookups", "System");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            CategoryID = 1,
+                            Description = "Jordan",
+                            DictionaryID = 1001,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 2,
+                            CategoryID = 1,
+                            Description = "Palestine",
+                            DictionaryID = 1002,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 3,
+                            CategoryID = 1,
+                            Description = "Lebanon",
+                            DictionaryID = 1003,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 4,
+                            CategoryID = 1,
+                            Description = "Syria",
+                            DictionaryID = 1004,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 5,
+                            CategoryID = 1,
+                            Description = "Iraq",
+                            DictionaryID = 1005,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 6,
+                            CategoryID = 1,
+                            Description = "Saudi Arabia",
+                            DictionaryID = 1006,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 7,
+                            CategoryID = 1,
+                            Description = "Kuwait",
+                            DictionaryID = 1007,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 8,
+                            CategoryID = 1,
+                            Description = "Bahrain",
+                            DictionaryID = 1008,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 9,
+                            CategoryID = 1,
+                            Description = "Qatar",
+                            DictionaryID = 1009,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 10,
+                            CategoryID = 1,
+                            Description = "United Arab Emirates",
+                            DictionaryID = 1010,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 11,
+                            CategoryID = 1,
+                            Description = "Oman",
+                            DictionaryID = 1011,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 12,
+                            CategoryID = 1,
+                            Description = "Yemen",
+                            DictionaryID = 1012,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 13,
+                            CategoryID = 1,
+                            Description = "Egypt",
+                            DictionaryID = 1013,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 14,
+                            CategoryID = 1,
+                            Description = "Turkey",
+                            DictionaryID = 1014,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 15,
+                            CategoryID = 1,
+                            Description = "Iran",
+                            DictionaryID = 1015,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.System.LookupCategory", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ParentID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("LookupCategories", "System");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Description = "List of countries",
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Description = "List of cities",
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0
                         });
                 });
 
@@ -5824,7 +8884,7 @@ namespace Qimmah.Migrations
             modelBuilder.Entity("Qimmah.Data.Localization.DictionaryLocalization", b =>
                 {
                     b.HasOne("Qimmah.Data.Localization.Dictionary", "Dictionary")
-                        .WithMany()
+                        .WithMany("DictionaryLocalization")
                         .HasForeignKey("ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -5838,6 +8898,29 @@ namespace Qimmah.Migrations
                     b.Navigation("Dictionary");
 
                     b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.System.Lookup", b =>
+                {
+                    b.HasOne("Qimmah.Data.System.LookupCategory", "LookupCategory")
+                        .WithMany("Lookup")
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Localization.Dictionary", "Dictionary")
+                        .WithMany()
+                        .HasForeignKey("DictionaryID");
+
+                    b.HasOne("Qimmah.Data.System.Lookup", "ParentLookup")
+                        .WithMany()
+                        .HasForeignKey("ParentID");
+
+                    b.Navigation("Dictionary");
+
+                    b.Navigation("LookupCategory");
+
+                    b.Navigation("ParentLookup");
                 });
 
             modelBuilder.Entity("Qimmah.Data.User.UserLocalization", b =>
@@ -5880,9 +8963,19 @@ namespace Qimmah.Migrations
                     b.Navigation("Language");
                 });
 
+            modelBuilder.Entity("Qimmah.Data.Localization.Dictionary", b =>
+                {
+                    b.Navigation("DictionaryLocalization");
+                });
+
             modelBuilder.Entity("Qimmah.Data.Localization.DictionaryLocalization", b =>
                 {
                     b.Navigation("CompanyDictionaryLocalization");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.System.LookupCategory", b =>
+                {
+                    b.Navigation("Lookup");
                 });
 
             modelBuilder.Entity("Qimmah.Data.User.Users", b =>

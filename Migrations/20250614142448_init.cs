@@ -1,0 +1,2488 @@
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
+namespace Qimmah.Migrations
+{
+    /// <inheritdoc />
+    public partial class init : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.EnsureSchema(
+                name: "Users");
+
+            migrationBuilder.EnsureSchema(
+                name: "Localization");
+
+            migrationBuilder.EnsureSchema(
+                name: "System");
+
+            migrationBuilder.CreateTable(
+                name: "AspNetRoles",
+                schema: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Dictionary",
+                schema: "Localization",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dictionary", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Language",
+                schema: "Localization",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false),
+                    LanguageName = table.Column<string>(type: "nvarchar(10)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    Direction = table.Column<string>(type: "nvarchar(20)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Language", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LookupCategories",
+                schema: "System",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ParentID = table.Column<int>(type: "int", nullable: true),
+                    OrderID = table.Column<int>(type: "int", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LookupCategories", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetRoleClaims",
+                schema: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RoleId = table.Column<long>(type: "bigint", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetRoleClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUsers",
+                schema: "Users",
+                columns: table => new
+                {
+                    LanguageID = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUsers_Language_LanguageID",
+                        column: x => x.LanguageID,
+                        principalSchema: "Localization",
+                        principalTable: "Language",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DictionaryLocalization",
+                schema: "Localization",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false),
+                    LanguageID = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DictionaryLocalization", x => new { x.ID, x.LanguageID });
+                    table.ForeignKey(
+                        name: "FK_DictionaryLocalization_Dictionary_ID",
+                        column: x => x.ID,
+                        principalSchema: "Localization",
+                        principalTable: "Dictionary",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DictionaryLocalization_Language_LanguageID",
+                        column: x => x.LanguageID,
+                        principalSchema: "Localization",
+                        principalTable: "Language",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Lookups",
+                schema: "System",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryID = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DictionaryID = table.Column<int>(type: "int", nullable: true),
+                    ParentID = table.Column<int>(type: "int", nullable: true),
+                    IntValue = table.Column<int>(type: "int", nullable: true),
+                    LongValue = table.Column<long>(type: "bigint", nullable: true),
+                    StringValue = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
+                    BoolValue = table.Column<bool>(type: "bit", nullable: true),
+                    GuidValue = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    OrderID = table.Column<int>(type: "int", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Lookups", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Lookups_Dictionary_DictionaryID",
+                        column: x => x.DictionaryID,
+                        principalSchema: "Localization",
+                        principalTable: "Dictionary",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_Lookups_LookupCategories_CategoryID",
+                        column: x => x.CategoryID,
+                        principalSchema: "System",
+                        principalTable: "LookupCategories",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Lookups_Lookups_ParentID",
+                        column: x => x.ParentID,
+                        principalSchema: "System",
+                        principalTable: "Lookups",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserClaims",
+                schema: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<long>(type: "bigint", nullable: false),
+                    ClaimType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ClaimValue = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserLogins",
+                schema: "Users",
+                columns: table => new
+                {
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserRoles",
+                schema: "Users",
+                columns: table => new
+                {
+                    UserId = table.Column<long>(type: "bigint", nullable: false),
+                    RoleId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserRoles", x => new { x.UserId, x.RoleId });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetRoles_RoleId",
+                        column: x => x.RoleId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AspNetUserTokens",
+                schema: "Users",
+                columns: table => new
+                {
+                    UserId = table.Column<long>(type: "bigint", nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.ForeignKey(
+                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users_Localization",
+                schema: "Users",
+                columns: table => new
+                {
+                    LanguageID = table.Column<int>(type: "int", nullable: false),
+                    UserID = table.Column<long>(type: "bigint", nullable: false),
+                    UsersId = table.Column<long>(type: "bigint", nullable: true),
+                    UsersId1 = table.Column<long>(type: "bigint", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users_Localization", x => new { x.LanguageID, x.UserID });
+                    table.ForeignKey(
+                        name: "FK_Users_Localization_AspNetUsers_UserID",
+                        column: x => x.UserID,
+                        principalSchema: "Users",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Users_Localization_AspNetUsers_UsersId",
+                        column: x => x.UsersId,
+                        principalSchema: "Users",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Users_Localization_AspNetUsers_UsersId1",
+                        column: x => x.UsersId1,
+                        principalSchema: "Users",
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Users_Localization_Language_LanguageID",
+                        column: x => x.LanguageID,
+                        principalSchema: "Localization",
+                        principalTable: "Language",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CompanyDictionaryLocalization",
+                schema: "Localization",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false),
+                    LanguageID = table.Column<int>(type: "int", nullable: false),
+                    TenantID = table.Column<long>(type: "bigint", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DictionaryLocalizationID = table.Column<int>(type: "int", nullable: true),
+                    DictionaryLocalizationLanguageID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CompanyDictionaryLocalization", x => new { x.ID, x.LanguageID });
+                    table.ForeignKey(
+                        name: "FK_CompanyDictionaryLocalization_DictionaryLocalization_DictionaryLocalizationID_DictionaryLocalizationLanguageID",
+                        columns: x => new { x.DictionaryLocalizationID, x.DictionaryLocalizationLanguageID },
+                        principalSchema: "Localization",
+                        principalTable: "DictionaryLocalization",
+                        principalColumns: new[] { "ID", "LanguageID" });
+                    table.ForeignKey(
+                        name: "FK_CompanyDictionaryLocalization_DictionaryLocalization_ID_LanguageID",
+                        columns: x => new { x.ID, x.LanguageID },
+                        principalSchema: "Localization",
+                        principalTable: "DictionaryLocalization",
+                        principalColumns: new[] { "ID", "LanguageID" },
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CompanyDictionaryLocalization_Dictionary_ID",
+                        column: x => x.ID,
+                        principalSchema: "Localization",
+                        principalTable: "Dictionary",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CompanyDictionaryLocalization_Language_LanguageID",
+                        column: x => x.LanguageID,
+                        principalSchema: "Localization",
+                        principalTable: "Language",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                schema: "Localization",
+                table: "Dictionary",
+                column: "ID",
+                values: new object[]
+                {
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28,
+                    29,
+                    30,
+                    31,
+                    32,
+                    33,
+                    34,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                    51,
+                    52,
+                    53,
+                    54,
+                    55,
+                    56,
+                    57,
+                    58,
+                    59,
+                    60,
+                    61,
+                    62,
+                    63,
+                    64,
+                    65,
+                    66,
+                    67,
+                    68,
+                    69,
+                    70,
+                    71,
+                    72,
+                    73,
+                    74,
+                    75,
+                    76,
+                    77,
+                    78,
+                    79,
+                    80,
+                    81,
+                    82,
+                    83,
+                    84,
+                    85,
+                    86,
+                    87,
+                    88,
+                    89,
+                    90,
+                    91,
+                    92,
+                    93,
+                    94,
+                    95,
+                    96,
+                    97,
+                    98,
+                    99,
+                    100,
+                    101,
+                    102,
+                    103,
+                    104,
+                    105,
+                    106,
+                    107,
+                    108,
+                    109,
+                    110,
+                    111,
+                    112,
+                    113,
+                    114,
+                    115,
+                    116,
+                    117,
+                    118,
+                    119,
+                    120,
+                    121,
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    131,
+                    132,
+                    133,
+                    134,
+                    135,
+                    136,
+                    137,
+                    138,
+                    139,
+                    140,
+                    141,
+                    142,
+                    143,
+                    144,
+                    145,
+                    146,
+                    147,
+                    148,
+                    149,
+                    150,
+                    151,
+                    152,
+                    153,
+                    154,
+                    155,
+                    156,
+                    157,
+                    158,
+                    159,
+                    160,
+                    161,
+                    162,
+                    163,
+                    164,
+                    165,
+                    166,
+                    167,
+                    168,
+                    169,
+                    170,
+                    171,
+                    172,
+                    173,
+                    174,
+                    175,
+                    176,
+                    177,
+                    178,
+                    179,
+                    180,
+                    181,
+                    182,
+                    183,
+                    184,
+                    185,
+                    186,
+                    187,
+                    188,
+                    189,
+                    190,
+                    191,
+                    192,
+                    193,
+                    194,
+                    195,
+                    196,
+                    197,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    204,
+                    205,
+                    206,
+                    207,
+                    208,
+                    209,
+                    210,
+                    211,
+                    212,
+                    213,
+                    214,
+                    215,
+                    216,
+                    217,
+                    218,
+                    219,
+                    220,
+                    221,
+                    222,
+                    223,
+                    224,
+                    225,
+                    226,
+                    227,
+                    228,
+                    229,
+                    230,
+                    231,
+                    232,
+                    233,
+                    234,
+                    235,
+                    236,
+                    237,
+                    238,
+                    239,
+                    240,
+                    241,
+                    242,
+                    243,
+                    244,
+                    245,
+                    246,
+                    247,
+                    248,
+                    249,
+                    250,
+                    251,
+                    252,
+                    253,
+                    254,
+                    255,
+                    256,
+                    257,
+                    258,
+                    259,
+                    260,
+                    261,
+                    262,
+                    263,
+                    264,
+                    265,
+                    266,
+                    267,
+                    268,
+                    269,
+                    270,
+                    271,
+                    272,
+                    273,
+                    274,
+                    275,
+                    276,
+                    277,
+                    278,
+                    279,
+                    280,
+                    281,
+                    282,
+                    283,
+                    284,
+                    285,
+                    286,
+                    287,
+                    288,
+                    289,
+                    290,
+                    291,
+                    292,
+                    293,
+                    294,
+                    295,
+                    296,
+                    297,
+                    298,
+                    299,
+                    300,
+                    301,
+                    302,
+                    303,
+                    304,
+                    305,
+                    306,
+                    307,
+                    308,
+                    309,
+                    310,
+                    311,
+                    312,
+                    313,
+                    314,
+                    315,
+                    316,
+                    317,
+                    318,
+                    319,
+                    320,
+                    321,
+                    322,
+                    323,
+                    324,
+                    325,
+                    326,
+                    327,
+                    328,
+                    329,
+                    330,
+                    331,
+                    332,
+                    333,
+                    334,
+                    335,
+                    336,
+                    337,
+                    338,
+                    339,
+                    340,
+                    341,
+                    342,
+                    343,
+                    344,
+                    345,
+                    346,
+                    347,
+                    348,
+                    349,
+                    350,
+                    351,
+                    352,
+                    353,
+                    354,
+                    355,
+                    356,
+                    357,
+                    358,
+                    359,
+                    360,
+                    361,
+                    362,
+                    363,
+                    364,
+                    365,
+                    366,
+                    367,
+                    368,
+                    369,
+                    370,
+                    371,
+                    372,
+                    373,
+                    374,
+                    375,
+                    376,
+                    377,
+                    378,
+                    379,
+                    380,
+                    381,
+                    382,
+                    383,
+                    384,
+                    385,
+                    386,
+                    387,
+                    388,
+                    389,
+                    390,
+                    391,
+                    392,
+                    393,
+                    394,
+                    395,
+                    396,
+                    397,
+                    398,
+                    399,
+                    400,
+                    401,
+                    402,
+                    403,
+                    404,
+                    405,
+                    406,
+                    407,
+                    408,
+                    409,
+                    410,
+                    411,
+                    412,
+                    413,
+                    414,
+                    415,
+                    416,
+                    417,
+                    418,
+                    419,
+                    420,
+                    421,
+                    422,
+                    423,
+                    424,
+                    425,
+                    426,
+                    427,
+                    428,
+                    429,
+                    430,
+                    431,
+                    432,
+                    433,
+                    434,
+                    435,
+                    436,
+                    437,
+                    438,
+                    439,
+                    440,
+                    441,
+                    442,
+                    443,
+                    444,
+                    445,
+                    446,
+                    447,
+                    448,
+                    449,
+                    450,
+                    451,
+                    452,
+                    453,
+                    454,
+                    455,
+                    456,
+                    457,
+                    458,
+                    459,
+                    460,
+                    461,
+                    462,
+                    463,
+                    464,
+                    465,
+                    466,
+                    467,
+                    468,
+                    469,
+                    470,
+                    471,
+                    472,
+                    473,
+                    474,
+                    475,
+                    476,
+                    477,
+                    478,
+                    479,
+                    480,
+                    481,
+                    482,
+                    483,
+                    484,
+                    485,
+                    486,
+                    487,
+                    488,
+                    489,
+                    490,
+                    491,
+                    492,
+                    493,
+                    494,
+                    495,
+                    496,
+                    497,
+                    498,
+                    499,
+                    500,
+                    501,
+                    502,
+                    503,
+                    504,
+                    505,
+                    506,
+                    507,
+                    508,
+                    509,
+                    510,
+                    511,
+                    512,
+                    513,
+                    514,
+                    515,
+                    516,
+                    517,
+                    518,
+                    519,
+                    520,
+                    521,
+                    522,
+                    523,
+                    524,
+                    525,
+                    526,
+                    527,
+                    528,
+                    529,
+                    530,
+                    531,
+                    532,
+                    533,
+                    534,
+                    535,
+                    536,
+                    537,
+                    538,
+                    539,
+                    540,
+                    541,
+                    542,
+                    543,
+                    544,
+                    545,
+                    546,
+                    547,
+                    548,
+                    549,
+                    550,
+                    551,
+                    552,
+                    553,
+                    554,
+                    555,
+                    556,
+                    557,
+                    558,
+                    559,
+                    560,
+                    561,
+                    562,
+                    563,
+                    564,
+                    565,
+                    566,
+                    567,
+                    568,
+                    569,
+                    570,
+                    571,
+                    572,
+                    573,
+                    574,
+                    575,
+                    576,
+                    577,
+                    578,
+                    579,
+                    580,
+                    581,
+                    582,
+                    583,
+                    584,
+                    585,
+                    586,
+                    587,
+                    588,
+                    589,
+                    590,
+                    591,
+                    592,
+                    593,
+                    594,
+                    595,
+                    596,
+                    597,
+                    598,
+                    599,
+                    600,
+                    601,
+                    602,
+                    603,
+                    604,
+                    605,
+                    606,
+                    607,
+                    608,
+                    609,
+                    610,
+                    611,
+                    612,
+                    613,
+                    614,
+                    615,
+                    616,
+                    617,
+                    618,
+                    619,
+                    620,
+                    621,
+                    622,
+                    623,
+                    624,
+                    625,
+                    626,
+                    627,
+                    628,
+                    629,
+                    630,
+                    631,
+                    632,
+                    633,
+                    634,
+                    635,
+                    636,
+                    637,
+                    638,
+                    639,
+                    640,
+                    641,
+                    642,
+                    643,
+                    644,
+                    645,
+                    646,
+                    647,
+                    648,
+                    649,
+                    650,
+                    651,
+                    652,
+                    653,
+                    654,
+                    655,
+                    656,
+                    657,
+                    658,
+                    659,
+                    660,
+                    661,
+                    662,
+                    663,
+                    664,
+                    665,
+                    666,
+                    667,
+                    668,
+                    669,
+                    670,
+                    671,
+                    672,
+                    673,
+                    674,
+                    675,
+                    676,
+                    677,
+                    678,
+                    679,
+                    680,
+                    681,
+                    682,
+                    683,
+                    684,
+                    685,
+                    686,
+                    687,
+                    688,
+                    689,
+                    690,
+                    691,
+                    692,
+                    693,
+                    694,
+                    695,
+                    696,
+                    697,
+                    698,
+                    699,
+                    700,
+                    701,
+                    702,
+                    703,
+                    704,
+                    705,
+                    706,
+                    707,
+                    708,
+                    709,
+                    710,
+                    711,
+                    712,
+                    713,
+                    714,
+                    715,
+                    716,
+                    717,
+                    718,
+                    719,
+                    720,
+                    721,
+                    722,
+                    723,
+                    724,
+                    725,
+                    726,
+                    727,
+                    728,
+                    729,
+                    730,
+                    731,
+                    732,
+                    733,
+                    734,
+                    735,
+                    736,
+                    737,
+                    738,
+                    739,
+                    740,
+                    741,
+                    742,
+                    743,
+                    744,
+                    745,
+                    746,
+                    747,
+                    748,
+                    749,
+                    750,
+                    751,
+                    752,
+                    753,
+                    754,
+                    755,
+                    756,
+                    757,
+                    758,
+                    759,
+                    760,
+                    761,
+                    762,
+                    763,
+                    764,
+                    765,
+                    766,
+                    767,
+                    768,
+                    769,
+                    770,
+                    771,
+                    772,
+                    773,
+                    774,
+                    775,
+                    776,
+                    777,
+                    778,
+                    779,
+                    780,
+                    781,
+                    782,
+                    783,
+                    784,
+                    785,
+                    786,
+                    787,
+                    788,
+                    789,
+                    790,
+                    791,
+                    792,
+                    793,
+                    794,
+                    795,
+                    796,
+                    797,
+                    798,
+                    799,
+                    800,
+                    801,
+                    802,
+                    803,
+                    804,
+                    805,
+                    806,
+                    807,
+                    808,
+                    809,
+                    810,
+                    811,
+                    812,
+                    813,
+                    814,
+                    815,
+                    816,
+                    817,
+                    818,
+                    819,
+                    820,
+                    821,
+                    822,
+                    823,
+                    824,
+                    825,
+                    826,
+                    827,
+                    828,
+                    829,
+                    830,
+                    831,
+                    832,
+                    833,
+                    834,
+                    835,
+                    836,
+                    837,
+                    838,
+                    839,
+                    840,
+                    841,
+                    842,
+                    843,
+                    844,
+                    845,
+                    846,
+                    847,
+                    848,
+                    849,
+                    850,
+                    851,
+                    852,
+                    853,
+                    854,
+                    855,
+                    856,
+                    857,
+                    858,
+                    859,
+                    860,
+                    861,
+                    862,
+                    863,
+                    864,
+                    865,
+                    866,
+                    867,
+                    868,
+                    869,
+                    870,
+                    871,
+                    872,
+                    873,
+                    874,
+                    875,
+                    876,
+                    877,
+                    878,
+                    879,
+                    880,
+                    881,
+                    882,
+                    883,
+                    884,
+                    885,
+                    886,
+                    887,
+                    888,
+                    889,
+                    890,
+                    891,
+                    892,
+                    893,
+                    894,
+                    895,
+                    896,
+                    897,
+                    898,
+                    899,
+                    900,
+                    901,
+                    902,
+                    903,
+                    904,
+                    905,
+                    906,
+                    907,
+                    908,
+                    909,
+                    910,
+                    911,
+                    912,
+                    913,
+                    914,
+                    915,
+                    916,
+                    917,
+                    918,
+                    919,
+                    920,
+                    921,
+                    922,
+                    923,
+                    924,
+                    925,
+                    926,
+                    927,
+                    928,
+                    929,
+                    930,
+                    931,
+                    932,
+                    933,
+                    934,
+                    935,
+                    936,
+                    937,
+                    938,
+                    939,
+                    940,
+                    941,
+                    942,
+                    943,
+                    944,
+                    945,
+                    946,
+                    947,
+                    948,
+                    949,
+                    950,
+                    951,
+                    952,
+                    953,
+                    954,
+                    955,
+                    956,
+                    957,
+                    958,
+                    959,
+                    960,
+                    961,
+                    962,
+                    963,
+                    964,
+                    965,
+                    966,
+                    967,
+                    968,
+                    969,
+                    970,
+                    971,
+                    972,
+                    973,
+                    974,
+                    975,
+                    976,
+                    977,
+                    978,
+                    979,
+                    980,
+                    981,
+                    982,
+                    983,
+                    984,
+                    985,
+                    986,
+                    987,
+                    988,
+                    989,
+                    990,
+                    991,
+                    992,
+                    993,
+                    994,
+                    995,
+                    996,
+                    997,
+                    998,
+                    999,
+                    1000,
+                    1001,
+                    1002,
+                    1003,
+                    1004,
+                    1005,
+                    1006,
+                    1007,
+                    1008,
+                    1009,
+                    1010,
+                    1011,
+                    1012,
+                    1013,
+                    1014,
+                    1015,
+                    1016,
+                    1017,
+                    1018,
+                    1019,
+                    1020,
+                    1021,
+                    1022,
+                    1023,
+                    1024,
+                    1025,
+                    1026,
+                    1027,
+                    1028,
+                    1029,
+                    1030,
+                    1031,
+                    1032,
+                    1033,
+                    1034,
+                    1035,
+                    1036,
+                    1037,
+                    1038,
+                    1039,
+                    1040,
+                    1041,
+                    1042,
+                    1043,
+                    1044,
+                    1045,
+                    1046,
+                    1047,
+                    1048,
+                    1049,
+                    1050,
+                    1051,
+                    1052,
+                    1053,
+                    1054,
+                    1055,
+                    1056,
+                    1057,
+                    1058,
+                    1059,
+                    1060,
+                    1061,
+                    1062,
+                    1063,
+                    1064,
+                    1065,
+                    1066,
+                    1067,
+                    1068,
+                    1069,
+                    1070,
+                    1071,
+                    1072,
+                    1073,
+                    1074,
+                    1075,
+                    1076,
+                    1077,
+                    1078,
+                    1079,
+                    1080,
+                    1081,
+                    1082,
+                    1083,
+                    1084,
+                    1085,
+                    1086,
+                    1087,
+                    1088,
+                    1089,
+                    1090,
+                    1091,
+                    1092,
+                    1093,
+                    1094,
+                    1095,
+                    1096,
+                    1097,
+                    1098,
+                    1099,
+                    1100,
+                    1101,
+                    1102,
+                    1103,
+                    1104,
+                    1105,
+                    1106,
+                    1107,
+                    1108,
+                    1109,
+                    1110,
+                    1111,
+                    1112,
+                    1113,
+                    1114,
+                    1115,
+                    1116,
+                    1117,
+                    1118,
+                    1119,
+                    1120,
+                    1121,
+                    1122,
+                    1123,
+                    1124,
+                    1125,
+                    1126,
+                    1127,
+                    1128,
+                    1129,
+                    1130,
+                    1131,
+                    1132,
+                    1133,
+                    1134,
+                    1135,
+                    1136,
+                    1137,
+                    1138,
+                    1139,
+                    1140,
+                    1141,
+                    1142,
+                    1143,
+                    1144,
+                    1145,
+                    1146,
+                    1147,
+                    1148,
+                    1149,
+                    1150,
+                    1151,
+                    1152,
+                    1153,
+                    1154,
+                    1155,
+                    1156,
+                    1157,
+                    1158,
+                    1159,
+                    1160,
+                    1161,
+                    1162,
+                    1163,
+                    1164,
+                    1165,
+                    1166,
+                    1167,
+                    1168,
+                    1169,
+                    1170,
+                    1171,
+                    1172,
+                    1173,
+                    1174,
+                    1175,
+                    1176,
+                    1177,
+                    1178,
+                    1179,
+                    1180,
+                    1181,
+                    1182,
+                    1183,
+                    1184,
+                    1185,
+                    1186,
+                    1187,
+                    1188,
+                    1189,
+                    1190,
+                    1191,
+                    1192,
+                    1193,
+                    1194,
+                    1195,
+                    1196,
+                    1197,
+                    1198,
+                    1199,
+                    1200,
+                    1201,
+                    1202,
+                    1203,
+                    1204,
+                    1205,
+                    1206,
+                    1207,
+                    1208,
+                    1209,
+                    1210,
+                    1211,
+                    1212,
+                    1213,
+                    1214,
+                    1215,
+                    1216,
+                    1217,
+                    1218,
+                    1219,
+                    1220,
+                    1221,
+                    1222,
+                    1223,
+                    1224,
+                    1225,
+                    1226,
+                    1227,
+                    1228,
+                    1229,
+                    1230,
+                    1231,
+                    1232,
+                    1233,
+                    1234,
+                    1235,
+                    1236,
+                    1237,
+                    1238,
+                    1239,
+                    1240,
+                    1241,
+                    1242,
+                    1243,
+                    1244,
+                    1245,
+                    1246,
+                    1247,
+                    1248,
+                    1249,
+                    1250,
+                    1251,
+                    1252,
+                    1253,
+                    1254,
+                    1255,
+                    1256,
+                    1257,
+                    1258,
+                    1259,
+                    1260,
+                    1261,
+                    1262,
+                    1263,
+                    1264,
+                    1265,
+                    1266,
+                    1267,
+                    1268,
+                    1269,
+                    1270,
+                    1271,
+                    1272,
+                    1273,
+                    1274,
+                    1275,
+                    1276,
+                    1277,
+                    1278,
+                    1279,
+                    1280,
+                    1281,
+                    1282,
+                    1283,
+                    1284,
+                    1285,
+                    1286,
+                    1287,
+                    1288,
+                    1289,
+                    1290,
+                    1291,
+                    1292,
+                    1293,
+                    1294,
+                    1295,
+                    1296,
+                    1297,
+                    1298,
+                    1299,
+                    1300,
+                    1301,
+                    1302,
+                    1303,
+                    1304,
+                    1305,
+                    1306,
+                    1307,
+                    1308,
+                    1309,
+                    1310,
+                    1311,
+                    1312,
+                    1313,
+                    1314,
+                    1315,
+                    1316,
+                    1317,
+                    1318,
+                    1319,
+                    1320,
+                    1321,
+                    1322,
+                    1323,
+                    1324,
+                    1325,
+                    1326,
+                    1327,
+                    1328,
+                    1329,
+                    1330,
+                    1331,
+                    1332,
+                    1333,
+                    1334,
+                    1335,
+                    1336,
+                    1337,
+                    1338,
+                    1339,
+                    1340,
+                    1341,
+                    1342,
+                    1343,
+                    1344,
+                    1345,
+                    1346,
+                    1347,
+                    1348,
+                    1349,
+                    1350,
+                    1351,
+                    1352,
+                    1353,
+                    1354,
+                    1355,
+                    1356,
+                    1357,
+                    1358,
+                    1359,
+                    1360,
+                    1361,
+                    1362,
+                    1363,
+                    1364,
+                    1365,
+                    1366,
+                    1367,
+                    1368,
+                    1369,
+                    1370,
+                    1371,
+                    1372,
+                    1373,
+                    1374,
+                    1375,
+                    1376,
+                    1377,
+                    1378,
+                    1379,
+                    1380,
+                    1381,
+                    1382,
+                    1383,
+                    1384,
+                    1385,
+                    1386,
+                    1387,
+                    1388,
+                    1389,
+                    1390,
+                    1391,
+                    1392,
+                    1393,
+                    1394,
+                    1395,
+                    1396,
+                    1397,
+                    1398,
+                    1399,
+                    1400,
+                    1401,
+                    1402,
+                    1403,
+                    1404,
+                    1405,
+                    1406,
+                    1407,
+                    1408,
+                    1409,
+                    1410,
+                    1411,
+                    1412,
+                    1413,
+                    1414,
+                    1415,
+                    1416,
+                    1417,
+                    1418,
+                    1419,
+                    1420,
+                    1421,
+                    1422,
+                    1423,
+                    1424,
+                    1425,
+                    1426,
+                    1427,
+                    1428,
+                    1429,
+                    1430,
+                    1431,
+                    1432,
+                    1433,
+                    1434,
+                    1435,
+                    1436,
+                    1437,
+                    1438,
+                    1439,
+                    1440,
+                    1441,
+                    1442,
+                    1443,
+                    1444,
+                    1445,
+                    1446,
+                    1447,
+                    1448,
+                    1449,
+                    1450,
+                    1451,
+                    1452,
+                    1453,
+                    1454,
+                    1455,
+                    1456,
+                    1457,
+                    1458,
+                    1459,
+                    1460,
+                    1461,
+                    1462,
+                    1463,
+                    1464,
+                    1465,
+                    1466,
+                    1467,
+                    1468,
+                    1469,
+                    1470,
+                    1471,
+                    1472,
+                    1473,
+                    1474,
+                    1475,
+                    1476,
+                    1477,
+                    1478,
+                    1479,
+                    1480,
+                    1481,
+                    1482,
+                    1483,
+                    1484,
+                    1485,
+                    1486,
+                    1487,
+                    1488,
+                    1489,
+                    1490,
+                    1491,
+                    1492,
+                    1493,
+                    1494,
+                    1495,
+                    1496,
+                    1497,
+                    1498,
+                    1499,
+                    1500
+                });
+
+            migrationBuilder.InsertData(
+                schema: "Localization",
+                table: "Language",
+                columns: new[] { "ID", "Description", "Direction", "LanguageName" },
+                values: new object[,]
+                {
+                    { 1, "en", "ltr", "English" },
+                    { 2, "ar", "rtl", "Arabic" }
+                });
+
+            migrationBuilder.InsertData(
+                schema: "System",
+                table: "LookupCategories",
+                columns: new[] { "ID", "Description", "IsActive", "IsDeleted", "OrderID", "ParentID" },
+                values: new object[,]
+                {
+                    { 1, "List of countries", true, false, 0, null },
+                    { 2, "List of cities", true, false, 0, null }
+                });
+
+            migrationBuilder.InsertData(
+                schema: "Localization",
+                table: "DictionaryLocalization",
+                columns: new[] { "ID", "LanguageID", "Description" },
+                values: new object[,]
+                {
+                    { 1, 1, "AYITS" },
+                    { 1, 2, "AYITS" },
+                    { 2, 1, "Arab Youth Innovation & Technology Summit" },
+                    { 2, 2, "قمة الابتكار والتكنولوجيا للشباب العربي" },
+                    { 3, 1, "Begin your journey toward an Arab future led by innovation" },
+                    { 3, 2, "ابدأ رحلتك نحو مستقبل عربي تقوده الابتكار" },
+                    { 4, 1, "from the Land of Civilizations… the Arab Innovation Summit Begins" },
+                    { 4, 2, "من أرض الحضارات… تنطلق قمة الابتكار العربي" },
+                    { 5, 1, "Hashemite Kingdom of Jordan" },
+                    { 5, 2, "ٱلْمَمْلَكَةُ ٱلْأُرْدُنِّيَّةُ ٱلْهَاشِمِيَّةُ" },
+                    { 6, 1, "King Hussein Bin Talal Convention Center – Dead Sea" },
+                    { 6, 2, "مركز الملك الحسين بن طلال للمؤتمرات – البحر الميت" },
+                    { 7, 1, "9:00 AM – The Start of Arab Transformation" },
+                    { 7, 2, "التاسعة صباحاً – انطلاقة التغيير العربي" },
+                    { 8, 1, "Join the Changemakers Now" },
+                    { 8, 2, "انضم إلى صُنّاع التغيير الآن" },
+                    { 9, 1, "Explore Summit Details" },
+                    { 9, 2, "استكشف تفاصيل القمة" },
+                    { 10, 1, "Day One – (Date & Time)" },
+                    { 10, 2, "اليوم الأول – (بموعد وتاريخ)" },
+                    { 11, 1, "Official Opening Session with Key Dignitaries" },
+                    { 11, 2, "الجلسة الافتتاحية الرسمية بمشاركة كبار الشخصيات" },
+                    { 12, 1, "Opening of the Arab Smart Innovation Exhibition" },
+                    { 12, 2, "افتتاح المعرض العربي للابتكار الذكي" },
+                    { 13, 1, "Key Sessions on Digital Transformation and Education" },
+                    { 13, 2, "جلسات محورية حول التحول الرقمي والتعليم" },
+                    { 14, 1, "Explore the Day’s Agenda" },
+                    { 14, 2, "اكتشف برنامج اليوم" },
+                    { 15, 1, "Day Two – (Date & Time)" },
+                    { 15, 2, "اليوم الثاني – (بموعد وتاريخ)" },
+                    { 16, 1, "Sectoral Sessions (Health, Tourism, Agriculture)" },
+                    { 16, 2, "جلسات قطاعية (صحة، سياحة، زراعة)" },
+                    { 17, 1, "Presentations of Promising Youth Projects" },
+                    { 17, 2, "عروض لمشاريع شبابية واعدة" },
+                    { 18, 1, "Specialized Discussion Forums with Thought Leaders and Executives" },
+                    { 18, 2, "جلسات نقاشية متخصصة بمشاركة قادة فكر وتنفيذيين" },
+                    { 19, 1, "Youth Leadership Debates" },
+                    { 19, 2, "مناظرات شبابية قيادية" },
+                    { 20, 1, "Arab Innovation Competitions" },
+                    { 20, 2, "مسابقات الابتكار العربي" },
+                    { 21, 1, "Presentation of Summit Recommendations & Future Roadmap" },
+                    { 21, 2, "عرض توصيات القمة وخطة الطريق المستقبلية" },
+                    { 22, 1, "About the Summit" },
+                    { 22, 2, "عن القمة" },
+                    { 23, 1, "Vision" },
+                    { 23, 2, "الرؤية:" },
+                    { 24, 1, "By 2030, AYITS will stand as a pivotal turning point that redefined the role of Arab youth as leaders in the global digital economy. It will serve as an integrated platform that unites innovation and technology efforts across the Arab world, leading the region toward excellence in the sustainable knowledge economy." },
+                    { 24, 2, "بحلول 2030، تصبح AYITS نقطة التحول المفصلية التي أعادت تعريف دور الشباب العربي كقادة للاقتصاد الرقمي العالمي، ومنصة متكاملة توحد جهود الابتكار والتكنولوجيا في العالم العربي لتقود المنطقة نحو الريادة في الاقتصاد المعرفي المستدام.  (المعلومات التالية بناءا على ملف الخطة الاستراتيجية)" },
+                    { 25, 1, "Mission" },
+                    { 25, 2, "الرسالة:" },
+                    { 26, 1, "To empower Arab youth to lead the region’s digital transformation through an open knowledge ecosystem, strategic partnership networks, and innovative support for promising projects—while strengthening their role in technology policymaking and shaping a sustainable future through technology." },
+                    { 26, 2, "تمكين الشباب العربي من قيادة التحول الرقمي في المنطقة عبر بيئة معرفية مفتوحة، شبكات شراكة استراتيجية، ودعم مبتكر للمشاريع الواعدة، مع تعزيز دورهم في السياسات التقنية وصناعة مستقبل مستدام بالتكنولوجيا." },
+                    { 27, 1, "Objectives:" },
+                    { 27, 2, "الأهداف:" },
+                    { 28, 1, "AYITS 2025 aspires to turn its vision into tangible outcomes through a set of strategic objectives, including:" },
+                    { 28, 2, "تطمح AYITS 2025 إلى تحويل رؤيتها إلى نتائج عملية، من خلال أهداف استراتيجية تشمل:" },
+                    { 29, 1, "Launching cross-border Arab projects and alliances" },
+                    { 29, 2, "إطلاق مشاريع وتحالفات عربية عابرة للحدود" },
+                    { 30, 1, "What is It?" },
+                    { 30, 2, "ما هي؟" },
+                    { 31, 1, "The Arab Youth Innovation & Technology Summit (AYITS) is a leading regional platform that brings together young innovators, decision-makers, and experts in one place to redefine the role of youth in driving digital transformation and sustainable development. Held in Amman — the Arab Youth Capital 2025 — under the umbrella of the League of Arab States, the summit serves as a unique meeting point between youthful energy and institutional opportunities, generating real solutions to the Arab world’s most pressing challenges." },
+                    { 31, 2, "قمة الابتكار والتكنولوجيا للشباب العربي هي منصة إقليمية رائدة، تجمع الشباب المبتكرين وصنّاع القرار والخبراء في مكان واحد، لإعادة تعريف دور الشباب في قيادة التحول الرقمي والتنمية المستدامة.\r\nتنعقد القمة في عمّان، عاصمة الشباب العربي 2025، تحت مظلة جامعة الدول العربية، وتُعد نقطة التقاء استثنائية بين الطاقات الشابة والفرص المؤسسية لتوليد حلول فعلية لتحديات العالم العربي." },
+                    { 32, 1, "Why?" },
+                    { 32, 2, "لماذا؟" },
+                    { 33, 1, "Because youth are the true engine of change in our societies. The summit is rooted in a deep belief that investing in the technical and creative potential of young people is not optional — it is a strategic necessity. With youth unemployment in the Arab world exceeding 25%, AYITS serves as a practical platform to turn challenges into opportunities and accelerate the shift toward a productive, fair, and sustainable digital economy" },
+                    { 33, 2, "لأن الشباب هم المحرّك الحقيقي للتغيير في مجتمعاتنا. \r\nتنطلق القمة من إيمان عميق بأن الاستثمار في قدرات الشباب التقنية والإبداعية ليس خيارًا، بل ضرورة استراتيجية. فمع ارتفاع نسبة البطالة في العالم العربي إلى أكثر من 25%، تصبح القمة منصة عملية لتحويل التحديات إلى فرص، وتسريع التحول نحو اقتصاد رقمي منتج وعادل ومستدام." },
+                    { 34, 1, "Summit Outcomes" },
+                    { 34, 2, "مخرجات القمة" },
+                    { 35, 1, "AYITS is not about words or slogans — it delivers real, actionable outcomes that translate into policies, platforms, and initiatives.\r\nKey outcomes include:" },
+                    { 35, 2, "لا تقتصر القمة على الكلمات أو الشعارات، بل تُطلق مخرجات عملية ملموسة تُترجم إلى سياسات، منصات، ومبادرات تشمل هذه المخرجات:" },
+                    { 36, 1, "outcomes that translate into policies, platforms, and initiatives." },
+                    { 36, 2, "تحولها إلى سياسات ومنصات ومبادرات" },
+                    { 37, 1, "Key outcomes include:" },
+                    { 37, 2, "تشمل المخرجات الرئيسية:" },
+                    { 38, 1, "Explore the Summit… As If You Were There!" },
+                    { 38, 2, "اكتشف القمة… كما لو أنك كنت هناك!" },
+                    { 39, 1, "Experience something extraordinary through our interactive 360° virtual" },
+                    { 39, 2, "عش تجربة استثنائية من خلال الجولة الافتراضية التفاعلية (360 درجة)" },
+                    { 40, 1, "tour. Navigate the summit venue virtually — from main halls to university" },
+                    { 40, 2, "تنقل افتراضياً في موقع القمة – من القاعات الرئيسية إلى الجامعات والمكان" },
+                    { 41, 1, "Explore the Interactive Summit Map" },
+                    { 41, 2, "استعرض الخريطة التفاعلية للقمة" },
+                    { 42, 1, "Speakers" },
+                    { 42, 2, "المتحدثون" },
+                    { 43, 1, "Sara Al-Omari" },
+                    { 43, 2, "سارة العمري" },
+                    { 44, 1, "Technical Advisor – Artificial Intelligence" },
+                    { 44, 2, "مستشار تقني – الذكاء الاصطناعي" },
+                    { 45, 1, "Do You Believe Change Starts with Youth?" },
+                    { 45, 2, "هل تؤمن أن التغيير يبدأ مع الشباب؟" },
+                    { 46, 1, "join the summit team as a volunteer and be at the heart of the Arab world’s largest innovation and technology event. Gain experience, build valuable connections, and make real impact — from Jordan to the entire Arab region." },
+                    { 46, 2, "انضم إلى فريق القمة كمتطوع، وكن في قلب أكبر حدث عربي للابتكار والتكنولوجيا.   خبرات، شبكة علاقات، وأثر حقيقي... من أرض الأردن إلى كل العالم العربي." },
+                    { 47, 1, "What role do you play in our journey toward an innovative Arab future?" },
+                    { 47, 2, "ما هو الدور الذي تلعبه في رحلتنا نحو مستقبل عربي مبتكر؟" },
+                    { 48, 1, "Select the category that represents you so we can provide the appropriate registration form:" },
+                    { 48, 2, "اختر الفئة التي تُمثلك لنتمكن من تقديم نموذج التسجيل المناسب:" },
+                    { 49, 1, "Main Categories" },
+                    { 49, 2, "الفئات الرئيسية" },
+                    { 50, 1, "Young entrepreneurs and innovators" },
+                    { 50, 2, "رياد الأعمال والمبتكرين الشباب" },
+                    { 51, 1, "Founders of tech startups" },
+                    { 51, 2, "مؤسسي الشركات الناشئة التقنية" },
+                    { 52, 1, "University students and researchers" },
+                    { 52, 2, "الطلاب الجامعيين والباحثين" },
+                    { 53, 1, "Investors and funding entities" },
+                    { 53, 2, "المستثمرين وجهات التمويل" },
+                    { 54, 1, "Policymakers and government officials" },
+                    { 54, 2, "صُناع السياسات والمسؤولين الحكوميين" },
+                    { 55, 1, "Regional and international organizations" },
+                    { 55, 2, "المنظمات الإقليمية والدولية" },
+                    { 56, 1, "Underrepresented youth groups" },
+                    { 56, 2, "الفئات الشبابية أقل حظاً" },
+                    { 57, 1, "Full Name" },
+                    { 57, 2, "الاسم الكامل" },
+                    { 58, 1, "Email Address" },
+                    { 58, 2, "البريد الإلكتروني" },
+                    { 59, 1, "Phone Number" },
+                    { 59, 2, "رقم الهاتف" },
+                    { 60, 1, "Country / Nationality" },
+                    { 60, 2, "البلد / الجنسية" },
+                    { 61, 1, "Password" },
+                    { 61, 2, "كلمة المرور" },
+                    { 62, 1, "Age" },
+                    { 62, 2, "العمر" },
+                    { 63, 1, "Brief description of your idea or innovative project" },
+                    { 63, 2, "نبذة مختصرة عن فكرتك أو مشروعك الابتكاري" },
+                    { 64, 1, "Would you like to participate in the showcase area or innovation competition?" },
+                    { 64, 2, "هل ترغب بالمشاركة في منطقة العرض أو مسابقة الابتكار؟" },
+                    { 65, 1, "Startup Name" },
+                    { 65, 2, "اسم الشركة الناشئة" },
+                    { 66, 1, "Year of Establishment" },
+                    { 66, 2, "سنة التأسيس" },
+                    { 67, 1, "Website link or company profile page" },
+                    { 67, 2, "رابط الموقع أو صفحة بروفايل الشركة" },
+                    { 68, 1, "Are you seeking funding?" },
+                    { 68, 2, "هل تبحث عن تمويل؟" },
+                    { 69, 1, "University / Institute / Academy Name" },
+                    { 69, 2, "اسم الجامعة / المؤسسة / الأكاديمية" },
+                    { 70, 1, "Academic Major" },
+                    { 70, 2, "التخصص الأكاديمي" },
+                    { 71, 1, "Level of Study (Bachelor's / Master's / PhD)" },
+                    { 71, 2, "درجة الدراسة (بكالوريوس / ماجستير / دكتوراه)" },
+                    { 72, 1, "Do you have a graduation project or research you would like to showcase?" },
+                    { 72, 2, "هل لديك مشروع تخرج أو بحث ترغب بعرضه؟" },
+                    { 73, 1, "Type of Entity (Individual Investor / Investment Fund / Financing Company)" },
+                    { 73, 2, "نوع الجهة (مستثمر فردي / صندوق استثماري / شركة تمويل)" },
+                    { 74, 1, "Sectors of Investment Interest" },
+                    { 74, 2, "القطاعات التي تهتم بالاستثمار فيها" },
+                    { 75, 1, "Expected Investment Size" },
+                    { 75, 2, "حجم الاستثمار المتوقع" },
+                    { 76, 1, "Would you like to attend pitch sessions?" },
+                    { 76, 2, "هل ترغب بحضور جلسات العرض التقديمي؟" },
+                    { 77, 1, "Name of Government Entity" },
+                    { 77, 2, "اسم الجهة الحكومية" },
+                    { 78, 1, "Job Title" },
+                    { 78, 2, "المسمى الوظيفي" },
+                    { 79, 1, "Would you like to participate in a session?" },
+                    { 79, 2, "هل ترغب بالمشاركة في جلسة؟" },
+                    { 80, 1, "Organization Name" },
+                    { 80, 2, "اسم المنظمة" },
+                    { 81, 1, "Role/Title (e.g., Expert, Coordinator, Official Representative, etc.)" },
+                    { 81, 2, "صفة الحضور (مثال: خبير، منسق، ممثل رسمي...إلخ)" },
+                    { 82, 1, "Would you like to present an initiative or program during the summit?" },
+                    { 82, 2, "هل ترغب بعرض مبادرة أو برنامج خلال القمة؟" },
+                    { 83, 1, "Do you require special support to participate?" },
+                    { 83, 2, "هل تحتاج إلى دعم خاص للمشاركة؟" },
+                    { 84, 1, "Do you belong to a specific group (e.g., persons with disabilities, remote area residents, etc.)?" },
+                    { 84, 2, "هل تنتمي إلى فئة خاصة (مثال: أشخاص ذوي إعاقة، سكان مناطق نائية...إلخ)؟" },
+                    { 85, 1, "Would you like to apply for financial or logistical support program offered by the summit?" },
+                    { 85, 2, "هل ترغب بالتقدم لبرنامج الدعم المالي أو اللوجستي المقدم من القمة؟" },
+                    { 86, 1, "Summit Calendar" },
+                    { 86, 2, "جدول القمة؟" },
+                    { 87, 1, "Day Three – (Date & Time)" },
+                    { 87, 2, "اليوم الثالث – (بموعد وتاريخ)" },
+                    { 88, 1, "عرض المزيد" },
+                    { 88, 2, "Show More" },
+                    { 89, 1, "Providing financial and technical support for startups" },
+                    { 89, 2, "توفير دعم مالي وفني للشركات الناشئة" },
+                    { 90, 1, "Creating interactive platforms connecting youth, investors, and policymakers" },
+                    { 90, 2, "إنشاء منصات تفاعلية بين الشباب والمستثمرين وصناع القرار" },
+                    { 91, 1, "Highlighting success stories of Arab youth" },
+                    { 91, 2, "تسليط الضوء على قصص نجاح شبابية عربية" },
+                    { 92, 1, "Developing innovation-friendly policies and legislation" },
+                    { 92, 2, "صياغة سياسات وتشريعات داعمة للابتكار" },
+                    { 93, 1, "Promoting technical education and future skill-building" },
+                    { 93, 2, "تعزيز التعليم التقني وبناء المهارات المستقبلية" },
+                    { 94, 1, "Digitally including marginalized groups" },
+                    { 94, 2, "دمج الفئات المهمشة رقميًا" },
+                    { 95, 1, "Digitizing the tourism sector and empowering youth within it" },
+                    { 95, 2, "رقمنة القطاع السياحي وتمكين الشباب فيه" },
+                    { 96, 1, "Showcasing Arab cultural identity through smart technologies" },
+                    { 96, 2, "ترويج الهوية الثقافية العربية من خلال تقنيات ذكية" },
+                    { 97, 1, "Supporting economically and environmentally sustainable tourism" },
+                    { 97, 2, "دعم السياحة المستدامة اقتصاديًا وبيئيًا" },
+                    { 98, 1, "Exploring the launch of a youth-led Arab digital currency" },
+                    { 98, 2, "استكشاف إطلاق عملة رقمية عربية بقيادة الشباب" },
+                    { 99, 1, "Read More" },
+                    { 99, 2, "اقرأ المزيد" },
+                    { 100, 1, "Launching the Arab Youth Innovation Platform" },
+                    { 100, 2, "إطلاق منصة الشباب العربي للابتكار" },
+                    { 101, 1, "Signing funding agreements and strategic partnerships" },
+                    { 101, 2, "توقيع اتفاقيات تمويل وشراكة استراتيجية" },
+                    { 102, 1, "Publishing the 'State of Arab Innovation' report" },
+                    { 102, 2, "إصدار تقرير \"حالة الابتكار العربي\"" },
+                    { 103, 1, "Establishing the Arab Council for Innovation" },
+                    { 103, 2, "تأسيس المجلس العربي للإبداع" },
+                    { 104, 1, "Launching an annual innovation journal and index" },
+                    { 104, 2, "إطلاق مجلة ومؤشر ابتكار سنوي" },
+                    { 105, 1, "Turning the summit into a recurring regional tradition" },
+                    { 105, 2, "تحويل القمة إلى تقليد إقليمي دائم" },
+                    { 106, 1, "Developing practical training and employment programs" },
+                    { 106, 2, "تطوير برامج تدريب وتوظيف فعلي" },
+                    { 107, 1, "Implementing the recommendations of the 'Amman Declaration'" },
+                    { 107, 2, "تفعيل توصيات \"إعلان عمّان\"" },
+                    { 108, 1, "Advancing digital sovereignty and smart currencies" },
+                    { 108, 2, "دعم السيادة الرقمية والعملات الذكية" },
+                    { 109, 1, "Improving Arab and Jordanian performance indicators in innovation, environment, and education" },
+                    { 109, 2, "رفع مؤشرات الأداء الأردني والعربي في الابتكار والبيئة والتعليم" },
+                    { 110, 1, "Show less" },
+                    { 110, 2, "عرض اقل" },
+                    { 111, 1, "Join the Team" },
+                    { 111, 2, "انضم الى الفريق" },
+                    { 112, 1, "Home" },
+                    { 112, 2, "الصفحة الرئيسية" },
+                    { 113, 1, "About the Summit" },
+                    { 113, 2, "عن القمة" },
+                    { 114, 1, "Speakers" },
+                    { 114, 2, "المتحدثون" },
+                    { 115, 1, "Sponsors & Partners" },
+                    { 115, 2, "الرعاة والشركاء" },
+                    { 116, 1, "Latest News" },
+                    { 116, 2, "آخر الأخبار" },
+                    { 117, 1, "Email" },
+                    { 117, 2, "البريد الإلكتروني" },
+                    { 118, 1, "Password" },
+                    { 118, 2, "كلمة المرور" },
+                    { 119, 1, "Confirm Password" },
+                    { 119, 2, "تأكيد كلمة المرور" },
+                    { 120, 1, "Phone Number" },
+                    { 120, 2, "رقم الهاتف" },
+                    { 121, 1, "Register" },
+                    { 121, 2, "تسجيل" },
+                    { 122, 1, "Name in {0}" },
+                    { 122, 2, "الأسم باللغة {0}" },
+                    { 123, 1, "This Field Is Required" },
+                    { 123, 2, "هذا الحقل مطلوب" },
+                    { 124, 1, "Please Enter a Password" },
+                    { 124, 2, "الرجاء إدخال كلمة مرور" },
+                    { 125, 1, "Please Confirm Your Password" },
+                    { 125, 2, "الرجاء تأكيد كلمة المرور" },
+                    { 150, 1, "Password does not meet security requirements" },
+                    { 150, 2, "كلمة المرور لا تلبي متطلبات الأمان" },
+                    { 151, 1, "Password must be at least {0} characters long" },
+                    { 151, 2, "كلمة المرور يجب أن تكون على الأقل {0} حرف" },
+                    { 152, 1, "Password must not exceed {0} characters" },
+                    { 152, 2, "كلمة المرور يجب ألا تتجاوز {0} حرف" },
+                    { 153, 1, "Password must contain at least {0} uppercase letter(s)" },
+                    { 153, 2, "كلمة المرور يجب أن تحتوي على {0} حرف كبير على الأقل" },
+                    { 154, 1, "Password must contain at least {0} lowercase letter(s)" },
+                    { 154, 2, "كلمة المرور يجب أن تحتوي على {0} حرف صغير على الأقل" },
+                    { 155, 1, "Password must contain at least {0} digit(s)" },
+                    { 155, 2, "كلمة المرور يجب أن تحتوي على {0} رقم على الأقل" },
+                    { 156, 1, "Password must contain at least {0} special character(s)" },
+                    { 156, 2, "كلمة المرور يجب أن تحتوي على {0} رمز خاص على الأقل" },
+                    { 157, 1, "Password must contain:" },
+                    { 157, 2, "كلمة المرور يجب أن تحتوي على:" },
+                    { 158, 1, "Between {0} and {1} characters" },
+                    { 158, 2, "بين {0} و {1} حرف" },
+                    { 159, 1, "At least {0} uppercase letter(s)" },
+                    { 159, 2, "{0} حرف كبير على الأقل" },
+                    { 160, 1, "At least {0} lowercase letter(s)" },
+                    { 160, 2, "{0} حرف صغير على الأقل" },
+                    { 161, 1, "At least {0} digit(s)" },
+                    { 161, 2, "{0} رقم على الأقل" },
+                    { 162, 1, "At least {0} special character(s)" },
+                    { 162, 2, "{0} رمز خاص على الأقل" },
+                    { 163, 1, "Very Weak" },
+                    { 163, 2, "ضعيف جداً" },
+                    { 164, 1, "Weak" },
+                    { 164, 2, "ضعيف" },
+                    { 165, 1, "Fair" },
+                    { 165, 2, "متوسط" },
+                    { 166, 1, "Good" },
+                    { 166, 2, "جيد" },
+                    { 167, 1, "Strong" },
+                    { 167, 2, "قوي" },
+                    { 168, 1, "Passwords do not match" },
+                    { 168, 2, "كلمات المرور غير متطابقة" },
+                    { 169, 1, "Show password" },
+                    { 169, 2, "إظهار كلمة المرور" },
+                    { 170, 1, "Hide password" },
+                    { 170, 2, "إخفاء كلمة المرور" },
+                    { 171, 1, "Password is too weak. Please create a stronger password." },
+                    { 171, 2, "كلمة المرور ضعيفة جداً. يرجى إنشاء كلمة مرور أقوى." },
+                    { 172, 1, "Country" },
+                    { 172, 2, "الدولة" },
+                    { 173, 1, "Email Is Already In Use" },
+                    { 173, 2, "البريد الإلكتروني مستخدم" },
+                    { 174, 1, "Invalid email address" },
+                    { 174, 2, "بريد إلكتروني غير صالح" },
+                    { 175, 1, "Password is too short" },
+                    { 175, 2, "كلمة المرور قصيرة جدًا" },
+                    { 176, 1, "Password must contain a symbol" },
+                    { 176, 2, "يجب أن تحتوي كلمة المرور على رمز" },
+                    { 177, 1, "Password must contain a number" },
+                    { 177, 2, "يجب أن تحتوي كلمة المرور على رقم" },
+                    { 178, 1, "Password must contain a lowercase letter" },
+                    { 178, 2, "يجب أن تحتوي كلمة المرور على حرف صغير" },
+                    { 179, 1, "Password must contain an uppercase letter" },
+                    { 179, 2, "يجب أن تحتوي كلمة المرور على حرف كبير" },
+                    { 180, 1, "Passwords do not match" },
+                    { 180, 2, "كلمتا المرور غير متطابقتين" },
+                    { 181, 1, "User already has this role" },
+                    { 181, 2, "المستخدم لديه هذا الدور بالفعل" },
+                    { 182, 1, "Sorry, An Unexpected Issue Has Occoured" },
+                    { 182, 2, "عذرا، حدث خطأ غير متوقع" },
+                    { 1001, 1, "Jordan" },
+                    { 1001, 2, "الأردن" },
+                    { 1002, 1, "Palestine" },
+                    { 1002, 2, "فلسطين" },
+                    { 1003, 1, "Lebanon" },
+                    { 1003, 2, "لبنان" },
+                    { 1004, 1, "Syria" },
+                    { 1004, 2, "سوريا" },
+                    { 1005, 1, "Iraq" },
+                    { 1005, 2, "العراق" },
+                    { 1006, 1, "Saudi Arabia" },
+                    { 1006, 2, "السعودية" },
+                    { 1007, 1, "Kuwait" },
+                    { 1007, 2, "الكويت" },
+                    { 1008, 1, "Bahrain" },
+                    { 1008, 2, "البحرين" },
+                    { 1009, 1, "Qatar" },
+                    { 1009, 2, "قطر" },
+                    { 1010, 1, "United Arab Emirates" },
+                    { 1010, 2, "الإمارات العربية المتحدة" },
+                    { 1011, 1, "Oman" },
+                    { 1011, 2, "عُمان" },
+                    { 1012, 1, "Yemen" },
+                    { 1012, 2, "اليمن" },
+                    { 1013, 1, "Egypt" },
+                    { 1013, 2, "مصر" },
+                    { 1014, 1, "Turkey" },
+                    { 1014, 2, "تركيا" },
+                    { 1015, 1, "Iran" },
+                    { 1015, 2, "إيران" }
+                });
+
+            migrationBuilder.InsertData(
+                schema: "System",
+                table: "Lookups",
+                columns: new[] { "ID", "BoolValue", "CategoryID", "Description", "DictionaryID", "GuidValue", "IntValue", "IsActive", "IsDeleted", "LongValue", "OrderID", "ParentID", "StringValue" },
+                values: new object[,]
+                {
+                    { 1, null, 1, "Jordan", 1001, null, null, true, false, null, 0, null, null },
+                    { 2, null, 1, "Palestine", 1002, null, null, true, false, null, 0, null, null },
+                    { 3, null, 1, "Lebanon", 1003, null, null, true, false, null, 0, null, null },
+                    { 4, null, 1, "Syria", 1004, null, null, true, false, null, 0, null, null },
+                    { 5, null, 1, "Iraq", 1005, null, null, true, false, null, 0, null, null },
+                    { 6, null, 1, "Saudi Arabia", 1006, null, null, true, false, null, 0, null, null },
+                    { 7, null, 1, "Kuwait", 1007, null, null, true, false, null, 0, null, null },
+                    { 8, null, 1, "Bahrain", 1008, null, null, true, false, null, 0, null, null },
+                    { 9, null, 1, "Qatar", 1009, null, null, true, false, null, 0, null, null },
+                    { 10, null, 1, "United Arab Emirates", 1010, null, null, true, false, null, 0, null, null },
+                    { 11, null, 1, "Oman", 1011, null, null, true, false, null, 0, null, null },
+                    { 12, null, 1, "Yemen", 1012, null, null, true, false, null, 0, null, null },
+                    { 13, null, 1, "Egypt", 1013, null, null, true, false, null, 0, null, null },
+                    { 14, null, 1, "Turkey", 1014, null, null, true, false, null, 0, null, null },
+                    { 15, null, 1, "Iran", 1015, null, null, true, false, null, 0, null, null }
+                });
+
+            migrationBuilder.InsertData(
+                schema: "Localization",
+                table: "CompanyDictionaryLocalization",
+                columns: new[] { "ID", "LanguageID", "Description", "DictionaryLocalizationID", "DictionaryLocalizationLanguageID", "TenantID" },
+                values: new object[,]
+                {
+                    { 1, 1, "Home", null, null, 1L },
+                    { 1, 2, "الصفحة الرئيسية اسامه", null, null, 1L },
+                    { 2, 1, "About", null, null, 1L },
+                    { 2, 2, "من نحن اسامه", null, null, 1L }
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetRoleClaims_RoleId",
+                schema: "Users",
+                table: "AspNetRoleClaims",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "RoleNameIndex",
+                schema: "Users",
+                table: "AspNetRoles",
+                column: "NormalizedName",
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserClaims_UserId",
+                schema: "Users",
+                table: "AspNetUserClaims",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserLogins_UserId",
+                schema: "Users",
+                table: "AspNetUserLogins",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUserRoles_RoleId",
+                schema: "Users",
+                table: "AspNetUserRoles",
+                column: "RoleId");
+
+            migrationBuilder.CreateIndex(
+                name: "EmailIndex",
+                schema: "Users",
+                table: "AspNetUsers",
+                column: "NormalizedEmail");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_Id_LanguageID",
+                schema: "Users",
+                table: "AspNetUsers",
+                columns: new[] { "Id", "LanguageID" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AspNetUsers_LanguageID",
+                schema: "Users",
+                table: "AspNetUsers",
+                column: "LanguageID");
+
+            migrationBuilder.CreateIndex(
+                name: "UserNameIndex",
+                schema: "Users",
+                table: "AspNetUsers",
+                column: "NormalizedUserName",
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CompanyDictionaryLocalization_DictionaryLocalizationID_DictionaryLocalizationLanguageID",
+                schema: "Localization",
+                table: "CompanyDictionaryLocalization",
+                columns: new[] { "DictionaryLocalizationID", "DictionaryLocalizationLanguageID" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CompanyDictionaryLocalization_LanguageID",
+                schema: "Localization",
+                table: "CompanyDictionaryLocalization",
+                column: "LanguageID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DictionaryLocalization_LanguageID",
+                schema: "Localization",
+                table: "DictionaryLocalization",
+                column: "LanguageID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Lookups_CategoryID",
+                schema: "System",
+                table: "Lookups",
+                column: "CategoryID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Lookups_DictionaryID",
+                schema: "System",
+                table: "Lookups",
+                column: "DictionaryID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Lookups_ParentID",
+                schema: "System",
+                table: "Lookups",
+                column: "ParentID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Localization_UserID",
+                schema: "Users",
+                table: "Users_Localization",
+                column: "UserID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Localization_UsersId",
+                schema: "Users",
+                table: "Users_Localization",
+                column: "UsersId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Localization_UsersId1",
+                schema: "Users",
+                table: "Users_Localization",
+                column: "UsersId1");
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropTable(
+                name: "AspNetRoleClaims",
+                schema: "Users");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserClaims",
+                schema: "Users");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserLogins",
+                schema: "Users");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserRoles",
+                schema: "Users");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUserTokens",
+                schema: "Users");
+
+            migrationBuilder.DropTable(
+                name: "CompanyDictionaryLocalization",
+                schema: "Localization");
+
+            migrationBuilder.DropTable(
+                name: "Lookups",
+                schema: "System");
+
+            migrationBuilder.DropTable(
+                name: "Users_Localization",
+                schema: "Users");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoles",
+                schema: "Users");
+
+            migrationBuilder.DropTable(
+                name: "DictionaryLocalization",
+                schema: "Localization");
+
+            migrationBuilder.DropTable(
+                name: "LookupCategories",
+                schema: "System");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers",
+                schema: "Users");
+
+            migrationBuilder.DropTable(
+                name: "Dictionary",
+                schema: "Localization");
+
+            migrationBuilder.DropTable(
+                name: "Language",
+                schema: "Localization");
+        }
+    }
+}
