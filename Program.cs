@@ -38,7 +38,6 @@ namespace Qimmah
             builder.Services.AddRazorPages();
             builder.Services.AddMemoryCache();
             builder.Services.AddSingleton(typeof(IDictionaryCacheService<,>), typeof(DictionaryCacheService<,>));
-            builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(Environment.ProcessPath, "DataProtectionKeys")));
             // ✳️ Configure logging
             builder.Logging.ClearProviders(); // optional: remove default ones
             builder.Logging.AddConsole();

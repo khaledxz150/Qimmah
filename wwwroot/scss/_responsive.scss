@@ -206,16 +206,7 @@
         li {
             font-size: $fs-base;
 
-            &::after {
-                content: '';
-                position: absolute;
-                left: 0.34375rem; // Changed from right for LTR
-                top: 1.625rem;
-                width: 0.125rem;
-                height: 83%;
-                background: rgba(255, 255, 255, 1);
-                border-radius: $border-radius-sm;
-            }
+           
         }
     }
    

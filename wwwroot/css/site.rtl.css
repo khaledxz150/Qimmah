@@ -12581,7 +12581,6 @@ nav {
 }
 .event-list li {
   position: relative;
-  padding-right: 2rem;
   margin-bottom: 1rem;
   display: list-item;
   align-items: center;
@@ -12967,16 +12966,6 @@ nav {
   }
   .event-list li {
     font-size: 1rem;
-  }
-  .event-list li::after {
-    content: "";
-    position: absolute;
-    right: 0.34375rem;
-    top: 1.625rem;
-    width: 0.125rem;
-    height: 83%;
-    background: rgb(255, 255, 255);
-    border-radius: 0.0625rem;
   }
 }
 @media (max-width: 87.375rem) {
