@@ -18,6 +18,7 @@
     <PackageReference Include="MimeMapping" Version="3.1.0" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\configuration\System\Seeding\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\fonts\" />
     <Folder Include="wwwroot\images\partners\" />
@@ -27,9 +28,6 @@
     <None Include="compilerconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <Using Include="Qimmah.Application.Security.Cryptography.SecurityExtensions">
-      <Static>True</Static>
-    </Using>
     <Using Include="Qimmah.Extensions.IHtmlHelperExtension">
       <Static>True</Static>
     </Using>
@@ -46,6 +44,9 @@
       <Static>True</Static>
     </Using>
     <Using Include="Qimmah.Security.CurrentUserManager">
+      <Static>True</Static>
+    </Using>
+    <Using Include="Qimmah.Security.SecurityExtensions">
       <Static>True</Static>
     </Using>
   </ItemGroup>

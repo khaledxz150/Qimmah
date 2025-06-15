@@ -10,6 +10,8 @@ using Qimmah.Data;
 using Qimmah.Models;
 using Qimmah.Models.Localization;
 using Microsoft.AspNetCore.Identity;
+using Qimmah.Enums.Navigation;
+using Qimmah.Attributes.FilterAttributes;
 
 namespace Qimmah.Controllers
 {
@@ -24,6 +26,7 @@ namespace Qimmah.Controllers
             _context = context;
         }
 
+        [ActiveTabAttribute(TabOptions.Home)]
         public IActionResult Index()
         {
             return View();

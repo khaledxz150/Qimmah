@@ -1,8 +1,10 @@
 ﻿@using Microsoft.Extensions.Caching.Memory
+@using Qimmah.Enums.Navigation
 @inject IMemoryCache _memoryCache
 @{
     var Languages = _memoryCache.GetLanguagesFromCache();
     var currentLanguage = GetLanguageIdFromLocalCookie();
+    var currentActiveTab = GetActiveTabLocalCookie();
 }
 
 
@@ -18,11 +20,12 @@
         </div>
     </div>
     <div class="nav-center">
-        <a href="#" class="active">@Html.GetWord(112)</a>
-        <a href="#">@Html.GetWord(113)</a>
-        <a href="#">@Html.GetWord(114)</a>
-        <a href="#">@Html.GetWord(115)</a>
-        <a href="#">@Html.GetWord(116)</a>
+        <a href="@Url.Action("Index","Home")" data-tab="@nameof(TabOptions.Home)" class="nav-item @(currentActiveTab == nameof(TabOptions.Home) ? "active" : "")">@Html.GetWord(112)</a>
+        <a href="@Url.Action("Index","Calendar")" data-tab="@nameof(TabOptions.Calendar)" class="nav-item @(currentActiveTab == nameof(TabOptions.Calendar) ? "active" : "")">@Html.GetWord(86)</a>
+        @* <a href="#" data-tab="@nameof(TabOptions.About)">@Html.GetWord(113)</a>
+        <a href="#" data-tab="@nameof(TabOptions.Speakers)">@Html.GetWord(114)</a>
+        <a href="#" data-tab="@nameof(TabOptions.SponsorsAndPartners)">@Html.GetWord(115)</a>
+        <a href="#" data-tab="@nameof(TabOptions.LatestNews)">@Html.GetWord(116)</a> *@
     </div>
    <div class="nav-left">
        @if (!User.Identity.IsAuthenticated)
@@ -57,11 +60,11 @@
         <span>&times;</span>
     </button>
 
-    <a href="#" class="active">@Html.GetWord(112)</a>
-    <a href="#">@Html.GetWord(113)</a>
-    <a href="#">@Html.GetWord(114)</a>
-    <a href="#">@Html.GetWord(115)</a>
-    <a href="#">@Html.GetWord(116)</a>
+    <a href="#" data-tab="@nameof(TabOptions.Home)" class="active">@Html.GetWord(112)</a>
+    <a href="#" data-tab="@nameof(TabOptions.About)">@Html.GetWord(113)</a>
+    <a href="#" data-tab="@nameof(TabOptions.Speakers)">@Html.GetWord(114)</a>
+    <a href="#" data-tab="@nameof(TabOptions.SponsorsAndPartners)">@Html.GetWord(115)</a>
+    <a href="#" data-tab="@nameof(TabOptions.LatestNews)">@Html.GetWord(116)</a>
 
     <div class="mobile-actions">
         <button class="login-btn">@Html.GetWord(121)</button>

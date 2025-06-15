@@ -1,9 +1,11 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+
 using Microsoft.AspNetCore.Http;
+
 using MimeMapping;
 
-namespace Qimmah.Application.Security.Cryptography;
+namespace Qimmah.Security;
 
 public static class SecurityExtensions
 {
@@ -29,7 +31,7 @@ public static class SecurityExtensions
     {
         if (text.IsNotNullOrEmpty())
         {
-            return Qimmah.Extensions.ObjectExtensions.ToAnyType<T>(Cryptography.Decrypt(Aes.Create(), ConvertBase64ToString(text, Encoding.Unicode), password));
+            return Cryptography.Decrypt(Aes.Create(), ConvertBase64ToString(text, Encoding.Unicode), password).ToAnyType<T>();
         }
         return text.ToAnyType<T>();
     }

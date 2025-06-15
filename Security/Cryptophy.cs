@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Qimmah.Application.Security.Cryptography
+namespace Qimmah.Security
 {
     public static class Cryptography
     {

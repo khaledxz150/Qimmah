@@ -38,7 +38,6 @@ namespace Qimmah.Data
 
             builder.ApplyConfiguration(new LookupsConfiguration());
 
-            builder.ApplyConfiguration(new CountrySeeding());
 
             new LocalizationConfigurations(builder);
 

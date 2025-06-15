@@ -97,6 +97,12 @@ public static class CurrentUserManager
         return cookieValue.IsNotNullOrEmpty() ? cookieValue : "ar";
     }
 
+    public static string GetActiveTabLocalCookie()
+    {
+        var cookieValue = CurrentContextAccessor.HttpContext?.Request.Cookies["ActiveTab"];
+        return cookieValue.IsNotNullOrEmpty() ? cookieValue : "Home";
+    }
+
     public static string GetLanguageDirectionFromLocalCookie()
     {
         var cookieValue = CurrentContextAccessor.HttpContext?.Request.Cookies["Direction"];

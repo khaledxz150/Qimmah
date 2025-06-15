@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
-using Qimmah.Application.Security.Cryptography;
 using Qimmah.Data;
 using Qimmah.Data.System;
 using Qimmah.Enums.System;
 using Qimmah.Models.Common;
+using Qimmah.Security;
 
 namespace Qimmah.Application.System;
 

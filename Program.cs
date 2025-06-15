@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 
 using Qimmah.Application;
-
+using Qimmah.Attributes.FilterAttributes;
 using Qimmah.Core;
 using Qimmah.Data;
 using Qimmah.Managers;
@@ -46,7 +46,16 @@ namespace Qimmah
 
             builder.Logging.SetMinimumLevel(LogLevel.Debug); // Or Information, Trace, etc.
 
-         
+            builder.Services.AddScoped<ActiveTabFilter>();
+
+            //Filters
+            builder.Services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add<ActiveTabFilter>(); // Add the filter globally
+            });
+
+
+
 
             var app = builder.Build();
             var cacheManager = new CacheManagers(app.Services, app.Services.GetRequiredService<IMemoryCache>());

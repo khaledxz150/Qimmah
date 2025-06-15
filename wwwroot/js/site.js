@@ -1,5 +1,5 @@
 ﻿// --- Countdown Timer ---
-const countdownDate = new Date("Sep 11, 2025 00:00:00").getTime();
+const countdownDate = new Date("2025-09-11T00:00:00Z").getTime();
 
 const hoursEl = document.getElementById("hours");
 const minutesEl = document.getElementById("minutes");
@@ -42,7 +42,23 @@ function InitializeSelect2() {
   });
 }
 document.addEventListener("DOMContentLoaded", function () {
-  InitializeSelect2();
+    new TabManager();
+    InitializeSelect2();
+    let lang = getCookie('LanguageID');
+    if (!lang) {
+        lang = '2'; // Arabic by default
+        setCookie('LanguageID', lang, 30);
+    }
+
+    const langSelectors = ['langSelector', 'langSelectorMobile'];
+
+    langSelectors.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            // Set the value
+            el.value = lang;
+        }
+    });
 });
 
 
@@ -93,23 +109,7 @@ function getCookie(name) {
     return null;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    let lang = getCookie('LanguageID');
-    if (!lang) {
-        lang = '2'; // Arabic by default
-        setCookie('LanguageID', lang, 30);
-    }
 
-    const langSelectors = ['langSelector', 'langSelectorMobile'];
-
-    langSelectors.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            // Set the value
-            el.value = lang;
-        }
-    });
-});
 
 
 
@@ -180,3 +180,29 @@ window.addEventListener('resize', () => {
         closeMobileMenu();
     }
 });
+
+
+class TabManager {
+    ACTIVE_CLASS = 'active';
+    COOKIE_NAME = 'ActiveTab';
+    constructor() {
+        this.initializeActiveTab();
+    }
+    getCookie(name) {
+        let value = `${document.cookie}`;
+        let parts = value.substr(value.indexOf(this.COOKIE_NAME) + (this.COOKIE_NAME.length + 1));
+        return parts;
+    }
+    initializeActiveTab() {
+        let activeTab = this.getCookie(this.COOKIE_NAME) || "Home";
+        if (!activeTab)
+            return;
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.classList.remove(this.ACTIVE_CLASS);
+        });
+        let tabElement = document.querySelector(`.nav-item[data-tab="${activeTab}"]`);
+        if (tabElement) {
+            tabElement.classList.add(this.ACTIVE_CLASS);
+        }
+    }
+}
