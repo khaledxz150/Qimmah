@@ -27,13 +27,13 @@ function initParticles() {
                 }
             },
             color: {
-                value: "#ffffff"
+                value: "#14748e"
             },
             shape: {
                 type: "circle",
                 stroke: {
-                    width: 0,
-                    color: "#000000"
+                    width: 1,
+                    color: "#14748e"
                 }
             },
             opacity: {
@@ -45,7 +45,22 @@ function initParticles() {
             move: {
                 enable: true,
                 speed: 2
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#14748e", // Set the color of the connecting lines
+                opacity: 0.4,
+                width: 1
             }
+
+        },
+        line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#14748e", // Set the color of the connecting lines
+            opacity: 0.4,
+            width: 1
         },
         interactivity: {
             events: {

@@ -12072,7 +12072,7 @@ h1, .h1 {
 }
 
 #globeCanvas {
-  background-color: #14748e;
+  background-color: #fff;
 }
 
 .bg-itched-blue-green {
@@ -12309,7 +12309,7 @@ nav {
 .hero-content {
   position: relative;
   z-index: 10;
-  background-color: #14748e;
+  background-color: #fff;
   width: 100%;
 }
 
@@ -12319,7 +12319,7 @@ nav {
   letter-spacing: 0.125rem;
   margin-bottom: 1.25rem;
   color: #ffffff;
-  background-color: #14748e;
+  background-color: #fff;
 }
 .main-logo::first-letter {
   color: #8A2432;
@@ -12331,7 +12331,7 @@ nav {
 .countdown-label {
   font-size: 1.125rem;
   margin-bottom: 1.25rem;
-  color: #696984;
+  color: black;
 }
 
 .countdown {
@@ -12356,17 +12356,17 @@ nav {
 }
 
 #theSpecialOne {
-  filter: drop-shadow(0 0 3px #8a2432) drop-shadow(0 0 6px rgba(138, 36, 50, 0.7)) drop-shadow(0 0 10px rgba(138, 36, 50, 0.5));
+  filter: drop-shadow(0 0 3px white) drop-shadow(0 0 6px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
   outline: none;
   animation: pulseShadow 3s infinite ease-in-out;
 }
 
 @keyframes pulseShadow {
   0%, 100% {
-    filter: drop-shadow(0 0 1px #8a2432) drop-shadow(0 0 2px rgba(138, 36, 50, 0.7)) drop-shadow(0 0 4px rgba(138, 36, 50, 0.5));
+    filter: drop-shadow(0 0 1px white) drop-shadow(0 0 2px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
   }
   50% {
-    filter: drop-shadow(0 0 4px #8a2432) drop-shadow(0 0 8px rgba(138, 36, 50, 0.7)) drop-shadow(0 0 12px rgba(138, 36, 50, 0.5));
+    filter: drop-shadow(0 0 4px white) drop-shadow(0 0 8px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 12px rgba(255, 255, 255, 0.5));
   }
 }
 .about-summit-container {
@@ -12800,8 +12800,8 @@ nav {
 }
 
 .text-glowing {
-  color: white;
-  text-shadow: 0 0 0.625rem rgb(255, 255, 255);
+  color: black;
+  text-shadow: 0 0 0.625rem rgb(0, 0, 0);
 }
 
 .color-accent, .read-more {

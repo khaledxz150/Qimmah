@@ -13,7 +13,7 @@ function updateCountdown() {
     hoursEl.textContent = "00";
     minutesEl.textContent = "00";
     secondsEl.textContent = "00";
-    clearInterval(timerInterval);
+    clearIntervalt(imerInterval);
     // Optionally display a message like "Event Started!"
     return;
   }

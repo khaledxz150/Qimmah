@@ -14,6 +14,7 @@ $light-text: #696984;
 $medium-text: #ccc;
 $card-title-color: #4C4C4C !default;
 $card-color: black !default;
+$color-black: black;
 
 // Typography
 $font-family: 'Cairo', sans-serif;
@@ -83,7 +84,7 @@ $border-radius-full: 50%;
 $shadow-xsm: 0px 0.16rem 3.75rem 0px rgba(38, 45, 118, 0.08);
 $shadow-sm: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
 $shadow-md: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.4);
-$text-shadow-glow: 0 0 0.625rem rgba(255, 255, 255, 1);
+$text-shadow-glow: 0 0 0.625rem rgb(0, 0, 0);
 
 // Breakpoints
 $breakpoint-xs: 20rem; // 320px
