@@ -5,7 +5,7 @@
 .hero-content {
     position: relative;
     z-index: $z-index-hero;
-    background-color: $primary-bg;
+    background-color: $white;
     width: 100%;
 }
 
@@ -15,7 +15,7 @@
     letter-spacing: 0.125rem;
     margin-bottom: $spacing-xl;
     color: $text-color;
-    background-color: $primary-bg;
+    background-color: $white;
 
     &::first-letter {
         color: $accent-color;
@@ -29,7 +29,7 @@
 .countdown-label {
     font-size: $fs-lg;
     margin-bottom: $spacing-xl;
-    color: $light-text;
+    color: black;
 }
 
 .countdown {
@@ -55,17 +55,17 @@
     width: 26rem;
 }
 #theSpecialOne {
-    filter: drop-shadow(0 0 3px rgba($accent-color, 1)) drop-shadow(0 0 6px rgba($accent-color, 0.7)) drop-shadow(0 0 10px rgba($accent-color, 0.5));
+    filter: drop-shadow(0 0 3px rgba($white, 1)) drop-shadow(0 0 6px rgba($white, 0.7)) drop-shadow(0 0 10px rgba($white, 0.5));
     outline: none;
     animation: pulseShadow 3s infinite ease-in-out;
 }
 
 @keyframes pulseShadow {
     0%, 100% {
-        filter: drop-shadow(0 0 1px rgba($accent-color, 1)) drop-shadow(0 0 2px rgba($accent-color, 0.7)) drop-shadow(0 0 4px rgba($accent-color, 0.5));
+        filter: drop-shadow(0 0 1px rgba($white, 1)) drop-shadow(0 0 2px rgba($white, 0.7)) drop-shadow(0 0 4px rgba($white, 0.5));
     }
 
     50% {
-        filter: drop-shadow(0 0 4px rgba($accent-color, 1)) drop-shadow(0 0 8px rgba($accent-color, 0.7)) drop-shadow(0 0 12px rgba($accent-color, 0.5));
+        filter: drop-shadow(0 0 4px rgba($white, 1)) drop-shadow(0 0 8px rgba($white, 0.7)) drop-shadow(0 0 12px rgba($white, 0.5));
     }
 }

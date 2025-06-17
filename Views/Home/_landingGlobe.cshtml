@@ -3,9 +3,9 @@
 <div class="hero-content position-relative">
     <div class="main-logo"><img src="~/images/logos/mainlogo.svg" /></div>
     <h1 class="text-glowing">@Html.GetWord(2)</h1>
-    <p class="countdown-label font-color-white">@Html.GetWord(3)</p>
-    <div class="countdown">
-        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+    <p class="countdown-label">@Html.GetWord(3)</p>
+    <div class="countdown font-color-main">
+        <span id="hours">00</span>:<span class="font-color-main" id="minutes">00</span>:<span  class="font-color-main" id="seconds">00</span>
     </div>
     <p class="event-date">الخميس ١١ سبتمبر ٢٠٢٥ م</p>
     <div id="globeCanvas" style="position: relative; width: 100%; height: 100%; overflow: hidden;">
