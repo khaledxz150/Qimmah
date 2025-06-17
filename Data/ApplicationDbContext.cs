@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
+using Qimmah.Data.Calendar;
+using Qimmah.Data.configuration.Calendar;
 using Qimmah.Data.configuration.localization;
 using Qimmah.Data.configuration.System;
 using Qimmah.Data.Localization;
@@ -19,6 +21,11 @@ namespace Qimmah.Data
         public DbSet<Dictionary> Dictionary { set; get; }
         public DbSet<Lookup> Lookups { set; get; }
         public DbSet<LookupCategory> LookupsCategory { set; get; }
+
+        public DbSet<CalendarItem> CalendarItems { get; set; }
+        public DbSet<CalendarItemLocalization> CalendarItemLocalizations { get; set; }
+        public DbSet<Timeline> Timelines { get; set; }
+        public DbSet<TimelineLocalization> TimelineLocalizations { get; set; }
 
 
 
@@ -40,6 +47,7 @@ namespace Qimmah.Data
 
 
             new LocalizationConfigurations(builder);
+            new Calendar_Configurationcs(builder);
 
             base.OnModelCreating(builder);
         }

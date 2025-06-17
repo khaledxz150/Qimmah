@@ -11,7 +11,7 @@
             <h4 class="card-title text-center mb-4">@Html.GetWord(188)</h4>
             <h5 class="card-title text-center mb-4">
                 <span>@Html.GetWord(185)</span>
-                <span class="color-main" onclick="window.location.href='@Url.Action("Register", "Identity")'" style="cursor:pointer"> @Html.GetWord(186)</span>
+                <span class="font-color-main" onclick="window.location.href='@Url.Action("Register", "Identity")'" style="cursor:pointer"> @Html.GetWord(186)</span>
             </h5>
 
             <form id="registrationForm" action="@Url.Action("Login", "Identity")" method="post" class="needs-validation" novalidate onsubmit="handleAjaxForms(this,event)">

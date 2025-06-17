@@ -156,6 +156,318 @@ namespace Qimmah.Migrations
                     b.ToTable("AspNetUserTokens", "Users");
                 });
 
+            modelBuilder.Entity("Qimmah.Data.Calendar.CalendarItem", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("ID"));
+
+                    b.Property<int>("DayNumber")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("EventDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("CalendarItems", "Calendar");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1L,
+                            DayNumber = 1,
+                            EventDate = new DateTime(2024, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 1
+                        },
+                        new
+                        {
+                            ID = 2L,
+                            DayNumber = 2,
+                            EventDate = new DateTime(2024, 8, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 2
+                        },
+                        new
+                        {
+                            ID = 3L,
+                            DayNumber = 3,
+                            EventDate = new DateTime(2024, 8, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 3
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Calendar.CalendarItemLocalization", b =>
+                {
+                    b.Property<int>("LanguageID")
+                        .HasColumnType("int");
+
+                    b.Property<long>("CalendarItemID")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("DateDisplay")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LanguageID", "CalendarItemID");
+
+                    b.HasIndex("CalendarItemID");
+
+                    b.ToTable("CalendarItems_Localization", "Calendar");
+
+                    b.HasData(
+                        new
+                        {
+                            LanguageID = 1,
+                            CalendarItemID = 1L,
+                            DateDisplay = "15 أغسطس",
+                            Description = "اليوم الأول"
+                        },
+                        new
+                        {
+                            LanguageID = 1,
+                            CalendarItemID = 2L,
+                            DateDisplay = "16 أغسطس",
+                            Description = "اليوم الثاني"
+                        },
+                        new
+                        {
+                            LanguageID = 1,
+                            CalendarItemID = 3L,
+                            DateDisplay = "17 أغسطس",
+                            Description = "اليوم الثالث"
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Calendar.Timeline", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("ID"));
+
+                    b.Property<long>("CalendarItemID")
+                        .HasColumnType("bigint");
+
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("time");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CalendarItemID", "StartTime");
+
+                    b.HasIndex("ID", "CalendarItemID");
+
+                    b.ToTable("Timelines", "Calendar");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1L,
+                            CalendarItemID = 1L,
+                            EndTime = new TimeSpan(0, 10, 0, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 1,
+                            StartTime = new TimeSpan(0, 9, 0, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 2L,
+                            CalendarItemID = 1L,
+                            EndTime = new TimeSpan(0, 10, 30, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 2,
+                            StartTime = new TimeSpan(0, 10, 0, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 3L,
+                            CalendarItemID = 1L,
+                            EndTime = new TimeSpan(0, 11, 30, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 3,
+                            StartTime = new TimeSpan(0, 10, 30, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 4L,
+                            CalendarItemID = 1L,
+                            EndTime = new TimeSpan(0, 13, 0, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 4,
+                            StartTime = new TimeSpan(0, 12, 0, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 5L,
+                            CalendarItemID = 1L,
+                            EndTime = new TimeSpan(0, 15, 0, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 5,
+                            StartTime = new TimeSpan(0, 13, 0, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 6L,
+                            CalendarItemID = 2L,
+                            EndTime = new TimeSpan(0, 10, 30, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 1,
+                            StartTime = new TimeSpan(0, 9, 0, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 7L,
+                            CalendarItemID = 2L,
+                            EndTime = new TimeSpan(0, 12, 0, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 2,
+                            StartTime = new TimeSpan(0, 10, 30, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 8L,
+                            CalendarItemID = 2L,
+                            EndTime = new TimeSpan(0, 14, 30, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 3,
+                            StartTime = new TimeSpan(0, 13, 0, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 9L,
+                            CalendarItemID = 2L,
+                            EndTime = new TimeSpan(0, 16, 0, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 4,
+                            StartTime = new TimeSpan(0, 14, 30, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 10L,
+                            CalendarItemID = 3L,
+                            EndTime = new TimeSpan(0, 11, 0, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 1,
+                            StartTime = new TimeSpan(0, 9, 0, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 11L,
+                            CalendarItemID = 3L,
+                            EndTime = new TimeSpan(0, 12, 30, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 2,
+                            StartTime = new TimeSpan(0, 11, 0, 0, 0)
+                        },
+                        new
+                        {
+                            ID = 12L,
+                            CalendarItemID = 3L,
+                            EndTime = new TimeSpan(0, 15, 0, 0, 0),
+                            IsActive = true,
+                            IsDeleted = false,
+                            SortOrder = 3,
+                            StartTime = new TimeSpan(0, 13, 30, 0, 0)
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Calendar.TimelineLocalization", b =>
+                {
+                    b.Property<int>("LanguageID")
+                        .HasColumnType("int");
+
+                    b.Property<long>("TimelineID")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LanguageID", "TimelineID");
+
+                    b.HasIndex("TimelineID");
+
+                    b.ToTable("Timelines_Localization", "Calendar");
+
+                    b.HasData(
+                        new
+                        {
+                            LanguageID = 1,
+                            TimelineID = 1L,
+                            Description = "الجلسة الافتتاحية - كلمة ترحيبية من رئيس القمة"
+                        },
+                        new
+                        {
+                            LanguageID = 1,
+                            TimelineID = 2L,
+                            Description = "عرض فيديو تفاعلي \"رحلة التغيير العربي\""
+                        },
+                        new
+                        {
+                            LanguageID = 1,
+                            TimelineID = 3L,
+                            Description = "الجلسة الأولى: التحول الرقمي في العالم العربي"
+                        },
+                        new
+                        {
+                            LanguageID = 1,
+                            TimelineID = 4L,
+                            Description = "حوار شبابي: أصوات من الميدان"
+                        },
+                        new
+                        {
+                            LanguageID = 1,
+                            TimelineID = 5L,
+                            Description = "ورش عمل تطبيقية: كيف نبدأ مشروعك المبتكر؟"
+                        });
+                });
+
             modelBuilder.Entity("Qimmah.Data.Localization.CompanyDictionaryLocalization", b =>
                 {
                     b.Property<int>("ID")
@@ -7175,7 +7487,7 @@ namespace Qimmah.Migrations
                         {
                             ID = 78,
                             LanguageID = 1,
-                            Description = "Job Title"
+                            Description = "Job Description"
                         },
                         new
                         {
@@ -7211,7 +7523,7 @@ namespace Qimmah.Migrations
                         {
                             ID = 81,
                             LanguageID = 1,
-                            Description = "Role/Title (e.g., Expert, Coordinator, Official Representative, etc.)"
+                            Description = "Role/Description (e.g., Expert, Coordinator, Official Representative, etc.)"
                         },
                         new
                         {
@@ -8895,6 +9207,55 @@ namespace Qimmah.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Qimmah.Data.Calendar.CalendarItemLocalization", b =>
+                {
+                    b.HasOne("Qimmah.Data.Calendar.CalendarItem", "CalendarItem")
+                        .WithMany("CalendarItemLocalizations")
+                        .HasForeignKey("CalendarItemID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Localization.Languages", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CalendarItem");
+
+                    b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Calendar.Timeline", b =>
+                {
+                    b.HasOne("Qimmah.Data.Calendar.CalendarItem", "CalendarItem")
+                        .WithMany("Timelines")
+                        .HasForeignKey("CalendarItemID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CalendarItem");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Calendar.TimelineLocalization", b =>
+                {
+                    b.HasOne("Qimmah.Data.Localization.Languages", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Calendar.Timeline", "Timeline")
+                        .WithMany("TimelineLocalizations")
+                        .HasForeignKey("TimelineID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+
+                    b.Navigation("Timeline");
+                });
+
             modelBuilder.Entity("Qimmah.Data.Localization.CompanyDictionaryLocalization", b =>
                 {
                     b.HasOne("Qimmah.Data.Localization.Dictionary", "Dictionary")
@@ -9006,6 +9367,18 @@ namespace Qimmah.Migrations
                         .IsRequired();
 
                     b.Navigation("Language");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Calendar.CalendarItem", b =>
+                {
+                    b.Navigation("CalendarItemLocalizations");
+
+                    b.Navigation("Timelines");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Calendar.Timeline", b =>
+                {
+                    b.Navigation("TimelineLocalizations");
                 });
 
             modelBuilder.Entity("Qimmah.Data.Localization.Dictionary", b =>

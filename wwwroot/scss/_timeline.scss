@@ -1,4 +1,7 @@
-﻿.timeline-container {
+﻿@import "variables";
+.timeline-container {
+    position: relative;
+
     @extend .mb-5
 }
 
@@ -166,3 +169,131 @@
         transform: translate(-75%, 357%) !important;
     }
 }
+
+
+
+
+.timeline-schedule {
+
+    .header {
+        color: $text-color;
+        @extend .text-align-start, .p-4;
+
+        h1 {
+            font-size: $fs-lg;
+            font-weight: $font-weight-semi-bold;
+
+            @media (max-width: $breakpoint-xl) {
+                font-size: $fs-base;
+            }
+        }
+    }
+
+    .timeline-container {
+        @extend .py-6;
+        @extend .text-align-start;
+        @media (max-width: $breakpoint-xl) {
+            padding-top: $spacing-xl;
+            padding-bottom: $spacing-xl;
+        }
+
+        position: relative;
+    }
+
+    .schedule-row {
+        @extend .mb-4, .position-relative;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .bullet-col {
+        @extend .d-flex, .justify-content-center, .align-items-center;
+        position: relative;
+        z-index: $z-index-card-front + 1;
+    }
+
+    .bullet-point {
+        width: 1rem;
+        height: 1rem;
+        background: $accent-color;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        position: relative;
+        z-index: $z-index-card-front + 2;
+    }
+
+    .content-col {
+        @extend .d-flex, .align-items-center;
+        padding-inline-start: $spacing-xl;
+    }
+
+    .session-content {
+        background: #fff;
+        padding: $spacing-lg;
+        width: 100%;
+        @extend .d-flex, .align-items-center;
+    }
+
+    .session-title {
+        font-size: $fs-base;
+        color: $card-color;
+        font-weight: $font-weight-medium;
+        line-height: 1.4;
+        width: 100%;
+
+        @media (max-width: $breakpoint-xl) {
+            font-size: $fs-sm;
+        }
+    }
+
+    .time-col {
+        @extend .d-flex, .align-items-center;
+        justify-content: flex-end;
+        padding-inline-end: $spacing-xl;
+    }
+
+    .time-slot {
+        background: $primary;
+        color: $text-color;
+        padding: $spacing-sm $spacing-lg;
+        font-size: $fs-sm;
+        font-weight: $font-weight-semi-bold;
+        text-align: center;
+        border-radius: $border-radius-xxl;
+        white-space: nowrap;
+    }
+
+    .connecting-line {
+        position: absolute;
+        background: $accent-color;
+        width: 0.25rem;
+        z-index: $z-index-base;
+        transition: all 0.3s ease;
+
+        @media (max-width: $breakpoint-xl) {
+            display: none !important;
+        }
+    }
+}
+
+.bullet-point {
+    width: 1rem;
+    height: 1rem;
+    background: $accent-color;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.connecting-line {
+    position: absolute;
+    width: 2px;
+    background-color: $accent-color;
+    z-index: 1;
+    transform: translateX(-50%);
+    display: none;
+}
+

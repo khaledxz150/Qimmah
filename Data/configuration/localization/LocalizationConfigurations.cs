@@ -287,7 +287,7 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 77, LanguageID = EnglishInt, Description = "Name of Government Entity" });
                 entity.HasData(new DictionaryLocalization { ID = 77, LanguageID = ArabicInt, Description = "اسم الجهة الحكومية" });
 
-                entity.HasData(new DictionaryLocalization { ID = 78, LanguageID = EnglishInt, Description = "Job Title" });
+                entity.HasData(new DictionaryLocalization { ID = 78, LanguageID = EnglishInt, Description = "Job Description" });
                 entity.HasData(new DictionaryLocalization { ID = 78, LanguageID = ArabicInt, Description = "المسمى الوظيفي" });
 
                 entity.HasData(new DictionaryLocalization { ID = 79, LanguageID = EnglishInt, Description = "Would you like to participate in a session?" });
@@ -296,7 +296,7 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 80, LanguageID = EnglishInt, Description = "Organization Name" });
                 entity.HasData(new DictionaryLocalization { ID = 80, LanguageID = ArabicInt, Description = "اسم المنظمة" });
 
-                entity.HasData(new DictionaryLocalization { ID = 81, LanguageID = EnglishInt, Description = "Role/Title (e.g., Expert, Coordinator, Official Representative, etc.)" });
+                entity.HasData(new DictionaryLocalization { ID = 81, LanguageID = EnglishInt, Description = "Role/Description (e.g., Expert, Coordinator, Official Representative, etc.)" });
                 entity.HasData(new DictionaryLocalization { ID = 81, LanguageID = ArabicInt, Description = "صفة الحضور (مثال: خبير، منسق، ممثل رسمي...إلخ)" });
 
                 entity.HasData(new DictionaryLocalization { ID = 82, LanguageID = EnglishInt, Description = "Would you like to present an initiative or program during the summit?" });

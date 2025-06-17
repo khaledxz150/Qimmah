@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+
+using Qimmah.Application.Calendar;
 using Qimmah.Application.System;
+using Qimmah.Core.Calendar;
 using Qimmah.Core.System;
 using Qimmah.Data;
 using Qimmah.Data.User;
@@ -79,6 +82,8 @@ namespace Qimmah.Managers
         public static void InjectServices(this IServiceCollection Services)
         {
             Services.AddScoped<ILookupService, LookupService>();
+            Services.AddScoped<ICalendarService, CalendarService>();
+
         }
     }
     public class CustomJwtSecurityTokenHandler : JwtSecurityTokenHandler

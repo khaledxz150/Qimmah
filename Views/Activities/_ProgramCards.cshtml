@@ -1,0 +1,40 @@
+﻿@model List<Qimmah.Models.Activities.ProgramCardViewModel>
+
+<div class="programs-section">
+    <div class="container">
+        <div class="row g-4">
+            @foreach (var program in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="program-card">
+                        <div class="card-image">
+                            <img src="@program.ImageUrl" alt="@program.Title" class="img-fluid">
+                        </div>
+                        <div class="card-content">
+                            <div class="program-type">
+                                <span class="badge">@program.Type</span>
+                            </div>
+                            <h3 class="program-title">@program.Title</h3>
+                            <p class="program-description">@program.Description</p>
+                            <div class="card-footer-info">
+                                <div class="pricing">
+                                    <span class="price-label">@program.PriceLabel</span>
+                                </div>
+                                <div class="program-details">
+                                    <span class="duration">
+                                        <i class="far fa-clock"></i>
+                                        @program.Duration
+                                    </span>
+                                    <span class="participants">
+                                        <i class="far fa-user"></i>
+                                        @program.ParticipantCount
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

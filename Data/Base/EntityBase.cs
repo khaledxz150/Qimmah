@@ -12,6 +12,7 @@ namespace Qimmah.Data.Base
     {
         [Key]
         public T ID { get; set; }
+        
 
     }
 }

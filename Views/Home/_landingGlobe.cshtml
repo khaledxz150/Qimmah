@@ -2,7 +2,7 @@
 
 <div class="hero-content position-relative">
     <div class="main-logo"><img src="~/images/logos/mainlogo.svg" /></div>
-    <h1 class="text-glowing">@Html.GetWord(2)</h1>
+    <h1 class="font-color-black">@Html.GetWord(2)</h1>
     <p class="countdown-label">@Html.GetWord(3)</p>
     <div class="countdown font-color-main">
         <span id="hours">00</span>:<span class="font-color-main" id="minutes">00</span>:<span  class="font-color-main" id="seconds">00</span>
@@ -14,7 +14,6 @@
         @{
             await Html.RenderPartialAsync("globeViews/_globesvg.cshtml");
         }
-    </svg>
     </div>
 </div>
 

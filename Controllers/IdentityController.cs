@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using Qimmah.Attributes;
 using Qimmah.Core.System;
+using Qimmah.Data.Localization;
 using Qimmah.Data.User;
 using Qimmah.Enums.System;
 using Qimmah.Helpers;
@@ -130,6 +131,9 @@ namespace Qimmah.Controllers
                     return Json(new { success = false, errors = ModelState.ToDictionary(k => k.Key, v => v.Value.Errors.FirstOrDefault()?.ErrorMessage) });
                 }
 
+                user.LanguageID = GetLanguageIdFromLocalCookie();
+;
+                await _userManager.UpdateAsync(user);
                 var principal = await AuthenticationManager.CreateUserPrincipalAsync(_userManager, user);
                 await HttpContext.SignInAsync(
                      IdentityConstants.ApplicationScheme,

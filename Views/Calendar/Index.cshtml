@@ -1,73 +1,120 @@
-﻿<div class="container pt-5">
+﻿@model List<Qimmah.Models.Calendar.CalendarItemViewModel>
+
+<div class="container pt-5">
     <h1 class="color-dark mb-4 mt-5">
         @Html.GetWord(86)
     </h1>
-    <h6 class="color-grey-light ">
+    <h6 class="color-grey-light">
         @Html.GetWord(112) / @Html.GetWord(86)
     </h6>
 
     <h1 class="mx-55 fs-1 font-color-black">
         @Html.GetWord(192)
     </h1>
+
     @{
         await Html.RenderPartialAsync("~/Views/Home/_interactive3d.cshtml");
     }
 
     <div class="timeline-container mt-7 container">
         <div class="row g-5">
-            <div class="col-md-4">
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item">
-                    <div  class="timeline-card timeline-card-1 row">
-                       
-                        <div class="timeline-content col-md-6">
-                            <div class="timeline-date">15 أغسطس</div>
-                            <div class="timeline-title">اليوم الأول</div>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="timeline-item">
+                        <div class="timeline-card timeline-card-@item.DayNumber row">
+                            <div class="timeline-content col-md-7">
+                                <div class="timeline-date">@item.DateDisplay</div>
+                                <div class="timeline-title">@item.Description</div>
+                            </div>
+                            <div class="timeline-number-container col-md-5">
+                                <div class="timeline-number-shadow">@item.DayNumber</div>
+                                <div class="timeline-number">@item.DayNumber</div>
+                            </div>
                         </div>
-                        <div class="timeline-number-container col-md-6">
-                            <div class="timeline-number-shadow">1</div>
-                            <div class="timeline-number">1</div>
-                        </div>
-                    </div>
-                    <a href="#" class="timeline-action">عرض التفاصيل</a>
-                </div>
-            </div>
+                        <a href="#" class="timeline-action" data-bs-toggle="modal"
+                           data-bs-target="#timelineModal@(item.Id)">عرض التفاصيل</a>
 
-            <div class="col-md-4">
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-card timeline-card-2 row">
-                       
-                        <div class="timeline-content col-md-6">
-                            <div class="timeline-date">16 أغسطس</div>
-                            <div class="timeline-title">اليوم الثاني</div>
-                        </div>
-                        <div class="timeline-number-container col-md-6">
-                            <div class="timeline-number-shadow">2</div>
-                            <div class="timeline-number">2</div>
-                        </div>
+                        @await Html.PartialAsync("IndexViews/_TimelineModal", item)
                     </div>
-                    <a href="#" class="timeline-action">عرض التفاصيل</a>
                 </div>
-            </div>
-
-            <div class="col-md-4">
-                <!-- Timeline Item 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-card timeline-card-3 row">
-                       
-                        <div class="timeline-content col-md-6">
-                            <div class="timeline-date">17 أغسطس</div>
-                            <div class="timeline-title">اليوم الثالث</div>
-                        </div>
-                        <div class="timeline-number-container col-md-6">
-                            <div class="timeline-number-shadow">3</div>
-                            <div class="timeline-number">3</div>
-                        </div>
-                    </div>
-                    <a href="#" class="timeline-action">عرض التفاصيل</a>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>
+
+@await Component.InvokeAsync(nameof(Qimmah.Helpers.Components.ProgramCardComponents))
+
+<script>
+    function drawBulletConnections( modal ) {
+        const container = modal.querySelector( '.timeline-container' );
+
+        const bullets = Array.from( container.querySelectorAll( '.bullet-point' ) );
+
+        // Configurable offsets
+        const startOffset = 12;
+        const endOffset = 12;
+        const lineWidth = 2;
+        const lineColor = '#14748e';
+
+        for ( let i = 0; i < bullets.length - 1; i++ ) {
+            const bulletA = bullets[ i ];
+            const bulletB = bullets[ i + 1 ];
+
+            const aCenter = getCenterPosition( bulletA, container );
+            const bCenter = getCenterPosition( bulletB, container );
+
+            const top = aCenter.y + startOffset;
+            const bottom = bCenter.y - endOffset;
+            const height = bottom - top;
+
+            const line = document.createElement( 'div' );
+            line.className = 'connecting-line d-block';
+            line.style.left = `${ aCenter.x }px`;
+            line.style.top = `${ top }px`;
+            line.style.height = '0px';
+            line.style.width = `${ lineWidth }px`;
+            line.style.backgroundColor = lineColor;
+            line.style.position = 'absolute';
+            line.style.transform = 'translateX(-50%)';
+            line.style.zIndex = 1;
+            line.style.transition = 'height 0.3s ease';
+
+            container.appendChild( line );
+
+            requestAnimationFrame( () => {
+                line.style.height = `${ height }px`;
+            } );
+        }
+
+        function getCenterPosition( element, container ) {
+            const elRect = element.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+
+            return {
+                x: elRect.left + elRect.width / 2 - containerRect.left + container.scrollLeft,
+                y: elRect.top + elRect.height / 2 - containerRect.top + container.scrollTop
+            };
+        }
+    }
+
+    document.querySelectorAll( '[id*="timelineModal"]' ).forEach( modal => {
+        const container = modal.querySelector( '.timeline-container' );
+
+        modal.addEventListener( 'shown.bs.modal', () => {
+            setTimeout( () => drawBulletConnections( modal ), 10 );
+        } );
+
+        modal.addEventListener( 'hidden.bs.modal', () => {
+            container.querySelectorAll( '.connecting-line' ).forEach( el => el.remove() );
+        } );
+
+        window.addEventListener( 'resize', () => {
+            if ( modal.classList.contains( 'show' ) ) {
+                modal.querySelectorAll( '.connecting-line' ).forEach( el => el.remove() );
+
+                drawBulletConnections( modal );
+            }
+        } );
+    } );
+</script>

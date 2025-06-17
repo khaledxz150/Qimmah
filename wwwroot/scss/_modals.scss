@@ -1,0 +1,12 @@
+﻿.modal-header
+{
+    border-bottom:0px !important;
+    @extend .p-4;
+}
+
+.modal-footer {
+    border-top: 0px !important;
+}
+.fixed-top, .fixed-bottom, .sticky-top {
+    padding-right: inherit !important;
+}

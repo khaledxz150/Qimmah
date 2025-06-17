@@ -7178,7 +7178,7 @@ namespace Qimmah.Migrations
                         {
                             ID = 78,
                             LanguageID = 1,
-                            Description = "Job Title"
+                            Description = "Job Description"
                         },
                         new
                         {
@@ -7214,7 +7214,7 @@ namespace Qimmah.Migrations
                         {
                             ID = 81,
                             LanguageID = 1,
-                            Description = "Role/Title (e.g., Expert, Coordinator, Official Representative, etc.)"
+                            Description = "Role/Description (e.g., Expert, Coordinator, Official Representative, etc.)"
                         },
                         new
                         {
