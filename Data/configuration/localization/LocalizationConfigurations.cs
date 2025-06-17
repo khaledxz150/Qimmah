@@ -312,7 +312,7 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 85, LanguageID = ArabicInt, Description = "هل ترغب بالتقدم لبرنامج الدعم المالي أو اللوجستي المقدم من القمة؟" });
 
                 entity.HasData(new DictionaryLocalization { ID = 86, LanguageID = EnglishInt, Description = "Summit Calendar" });
-                entity.HasData(new DictionaryLocalization { ID = 86, LanguageID = ArabicInt, Description = "جدول القمة؟" });
+                entity.HasData(new DictionaryLocalization { ID = 86, LanguageID = ArabicInt, Description = "جدول القمة" });
 
                 entity.HasData(new DictionaryLocalization { ID = 87, LanguageID = EnglishInt, Description = "Day Three – (Date & Time)" });
                 entity.HasData(new DictionaryLocalization { ID = 87, LanguageID = ArabicInt, Description = "اليوم الثالث – (بموعد وتاريخ)" });
@@ -592,7 +592,10 @@ namespace Qimmah.Data.configuration.localization
                                 new DictionaryLocalization { ID = 190, LanguageID = ArabicInt, Description = "اشتراك" },
                                  
                                 new DictionaryLocalization { ID = 191, LanguageID = EnglishInt, Description = "LogOut" },
-                                new DictionaryLocalization { ID = 191, LanguageID = ArabicInt, Description = "تسجيل الخروج" }
+                                new DictionaryLocalization { ID = 191, LanguageID = ArabicInt, Description = "تسجيل الخروج" },
+
+                                new DictionaryLocalization { ID = 192, LanguageID = EnglishInt, Description = "Innovation and Technology Summit 2025" },
+                                new DictionaryLocalization { ID = 192, LanguageID = ArabicInt, Description = "قمة الابتكار والتكنولوجيا 2025" }
 
                                 );
 

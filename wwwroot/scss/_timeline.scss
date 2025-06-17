@@ -1,0 +1,168 @@
+﻿.timeline-container {
+    @extend .mb-5
+}
+
+.timeline-item {
+    position: relative;
+    @extend .mb-4
+}
+
+.timeline-card {
+    position: relative;
+    height: 120px;
+    border-radius: 50px;
+    color: $text-color;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+        transform: translateY(-2px);
+        text-decoration: none;
+        color: $text-color;
+        box-shadow: $shadow-md;
+    }
+
+    &.timeline-card-1 {
+        background: linear-gradient(135deg, $primary 0%, rgba($primary, 0.9) 100%);
+    }
+
+    &.timeline-card-2 {
+        background: linear-gradient(135deg, rgba($primary, 0.85) 0%, rgba($primary, 0.75) 100%);
+    }
+
+    &.timeline-card-3 {
+        background: linear-gradient(135deg, rgba($primary, 0.7) 0%, rgba($primary, 0.6) 100%);
+    }
+}
+
+.timeline-number-container {
+    position: absolute;
+    right: 20px; // Changed from left to right
+    top: 0px;
+    transform: translateY(-50%);
+    z-index: $z-index-hero;
+}
+
+.timeline-number-shadow {
+    position: absolute;
+    font-size: 12.5rem;
+    font-weight: $font-weight-black;
+    color: rgba($primary, 0.9);
+    line-height: 1;
+    top: -6rem;
+    right: -$spacing-lg; // Changed from left to right
+    z-index: $z-index-base;
+    user-select: none;
+}
+
+.timeline-number {
+    position: absolute;
+    font-size: 12.5rem;
+    font-weight: $font-weight-black;
+    color: $text-color;
+    line-height: 1;
+    z-index: $z-index-card-front;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    top: -6rem;
+    right: 0rem; // Changed from left to right
+}
+
+.timeline-content {
+    /* flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;*/
+    padding-top: $spacing-lg;
+    @extend .text-align-start;
+}
+
+.timeline-date {
+    font-size: $fs-xl;
+    font-weight: $font-weight-medium;
+    opacity: 0.9;
+    margin-bottom: 0.25rem;
+    @extend .color-accent;
+}
+
+.timeline-title {
+    font-size: $fs-3xl;
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+}
+
+.timeline-action {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75%, 340.1%) !important; // Adjusted to offset correctly in LTR
+    font-size: $fs-lg;
+    font-weight: $font-weight-regular;
+    color: $accent-color;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: $primary;
+        text-decoration: underline;
+    }
+}
+
+
+
+// Responsive Text Adjustments for Timeline Content
+@media (max-width: 767.98px) {
+    .timeline-content {
+        .timeline-date {
+            font-size: $fs-sm; // smaller than base
+        }
+
+        .timeline-title {
+            font-size: $fs-xl; // smaller than 3xl
+        }
+    }
+
+    .timeline-card {
+        height: 100px;
+        border-radius: 40px;
+    }
+
+    .timeline-number,
+    .timeline-number-shadow {
+        font-size: 8rem;
+        top: -4rem;
+    }
+
+    .timeline-action {
+        font-size: $fs-sm;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .timeline-content {
+        .timeline-date {
+            font-size: $fs-xs; // extra small
+        }
+
+        .timeline-title {
+            font-size: $fs-lg; // medium size
+        }
+    }
+
+    .timeline-card {
+        height: 80px;
+        border-radius: 30px;
+    }
+
+    .timeline-number,
+    .timeline-number-shadow {
+        font-size: 5.5rem;
+        top: -3rem;
+    }
+
+    .timeline-action {
+        font-size: $fs-xs;
+        transform: translate(-75%, 357%) !important;
+    }
+}

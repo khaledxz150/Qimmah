@@ -1,1 +1,73 @@
-﻿
+﻿<div class="container pt-5">
+    <h1 class="color-dark mb-4 mt-5">
+        @Html.GetWord(86)
+    </h1>
+    <h6 class="color-grey-light ">
+        @Html.GetWord(112) / @Html.GetWord(86)
+    </h6>
+
+    <h1 class="mx-55 fs-1 font-color-black">
+        @Html.GetWord(192)
+    </h1>
+    @{
+        await Html.RenderPartialAsync("~/Views/Home/_interactive3d.cshtml");
+    }
+
+    <div class="timeline-container mt-7 container">
+        <div class="row g-5">
+            <div class="col-md-4">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div  class="timeline-card timeline-card-1 row">
+                       
+                        <div class="timeline-content col-md-6">
+                            <div class="timeline-date">15 أغسطس</div>
+                            <div class="timeline-title">اليوم الأول</div>
+                        </div>
+                        <div class="timeline-number-container col-md-6">
+                            <div class="timeline-number-shadow">1</div>
+                            <div class="timeline-number">1</div>
+                        </div>
+                    </div>
+                    <a href="#" class="timeline-action">عرض التفاصيل</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-card timeline-card-2 row">
+                       
+                        <div class="timeline-content col-md-6">
+                            <div class="timeline-date">16 أغسطس</div>
+                            <div class="timeline-title">اليوم الثاني</div>
+                        </div>
+                        <div class="timeline-number-container col-md-6">
+                            <div class="timeline-number-shadow">2</div>
+                            <div class="timeline-number">2</div>
+                        </div>
+                    </div>
+                    <a href="#" class="timeline-action">عرض التفاصيل</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-card timeline-card-3 row">
+                       
+                        <div class="timeline-content col-md-6">
+                            <div class="timeline-date">17 أغسطس</div>
+                            <div class="timeline-title">اليوم الثالث</div>
+                        </div>
+                        <div class="timeline-number-container col-md-6">
+                            <div class="timeline-number-shadow">3</div>
+                            <div class="timeline-number">3</div>
+                        </div>
+                    </div>
+                    <a href="#" class="timeline-action">عرض التفاصيل</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
