@@ -12,7 +12,7 @@ namespace Qimmah.Controllers
             {
                 new ProgramCardViewModel
                 {
-                    ImageUrl = "/images/programs/program1.jpg",
+                    ImageUrl = "https://picsum.photos/200/300",
                     Type = "برنامج",
                     Title = "برنامج ابتكار انطلق",
                     Description = "منصة تدريبية لتطوير الأعمال الناشئة في الشرق الأوسط",
@@ -22,7 +22,7 @@ namespace Qimmah.Controllers
                 },
                 new ProgramCardViewModel
                 {
-                    ImageUrl = "/images/programs/program2.jpg",
+                    ImageUrl = "https://picsum.photos/200/300",
                     Type = "برنامج",
                     Title = "برنامج ابتكار انطلق",
                     Description = "منصة تدريبية لتطوير الأعمال الناشئة في الشرق الأوسط",
@@ -32,7 +32,7 @@ namespace Qimmah.Controllers
                 },
                 new ProgramCardViewModel
                 {
-                    ImageUrl = "/images/programs/program3.jpg",
+                    ImageUrl = "https://picsum.photos/200/300",
                     Type = "برنامج",
                     Title = "برنامج ابتكار انطلق",
                     Description = "منصة تدريبية لتطوير الأعمال الناشئة في الشرق الأوسط",

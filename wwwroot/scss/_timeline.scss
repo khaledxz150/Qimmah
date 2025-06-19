@@ -7,7 +7,6 @@
 
 .timeline-item {
     position: relative;
-    @extend .mb-4
 }
 
 .timeline-card {
@@ -17,13 +16,13 @@
     color: $text-color;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: $shadow-sm;
+    box-shadow: $shadow-main-sm;
 
     &:hover {
         transform: translateY(-2px);
         text-decoration: none;
         color: $text-color;
-        box-shadow: $shadow-md;
+        box-shadow: $shadow-main-md;
     }
 
     &.timeline-card-1 {
@@ -90,16 +89,16 @@
 }
 
 .timeline-title {
-    font-size: $fs-3xl;
+    font-size: 1.9rem;
     font-weight: $font-weight-bold;
     line-height: 1.2;
 }
 
 .timeline-action {
     position: absolute;
-    top: 50%;
+    top: 100%;
     left: 50%;
-    transform: translate(-75%, 340.1%) !important; // Adjusted to offset correctly in LTR
+    transform: translate(-50%,50%) !important; // Adjusted to offset correctly in LTR
     font-size: $fs-lg;
     font-weight: $font-weight-regular;
     color: $accent-color;
@@ -116,7 +115,7 @@
 
 // Responsive Text Adjustments for Timeline Content
 @media (max-width: 767.98px) {
-    .timeline-content {
+   /* .timeline-content {
         .timeline-date {
             font-size: $fs-sm; // smaller than base
         }
@@ -124,7 +123,7 @@
         .timeline-title {
             font-size: $fs-xl; // smaller than 3xl
         }
-    }
+    }*/
 
     .timeline-card {
         height: 100px;
@@ -137,13 +136,11 @@
         top: -4rem;
     }
 
-    .timeline-action {
-        font-size: $fs-sm;
-    }
+  
 }
 
 @media (max-width: 575.98px) {
-    .timeline-content {
+  /*  .timeline-content {
         .timeline-date {
             font-size: $fs-xs; // extra small
         }
@@ -151,7 +148,7 @@
         .timeline-title {
             font-size: $fs-lg; // medium size
         }
-    }
+    }*/
 
     .timeline-card {
         height: 80px;
@@ -164,10 +161,7 @@
         top: -3rem;
     }
 
-    .timeline-action {
-        font-size: $fs-xs;
-        transform: translate(-75%, 357%) !important;
-    }
+   
 }
 
 
@@ -182,16 +176,13 @@
         h1 {
             font-size: $fs-lg;
             font-weight: $font-weight-semi-bold;
-
-            @media (max-width: $breakpoint-xl) {
-                font-size: $fs-base;
-            }
         }
     }
 
     .timeline-container {
         @extend .py-6;
         @extend .text-align-start;
+
         @media (max-width: $breakpoint-xl) {
             padding-top: $spacing-xl;
             padding-bottom: $spacing-xl;
@@ -212,11 +203,13 @@
         @extend .d-flex, .justify-content-center, .align-items-center;
         position: relative;
         z-index: $z-index-card-front + 1;
+        width: 40px;
+        min-width: 40px;
+        max-width: 40px;
+        flex: 0 0 40px;
     }
 
     .bullet-point {
-        width: 1rem;
-        height: 1rem;
         background: $accent-color;
         border-radius: 50%;
         border: 2px solid #fff;
@@ -271,10 +264,6 @@
         width: 0.25rem;
         z-index: $z-index-base;
         transition: all 0.3s ease;
-
-        @media (max-width: $breakpoint-xl) {
-            display: none !important;
-        }
     }
 }
 

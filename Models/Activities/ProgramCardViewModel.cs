@@ -2,7 +2,7 @@
 {
     public class ProgramCardViewModel
     {
-        public string ImageUrl { get; set; }
+        public string ImageUrl { get; set; } = "https://picsum.photos/200/300";
         public string Type { get; set; } // "برنامج"
         public string Title { get; set; }
         public string Description { get; set; }

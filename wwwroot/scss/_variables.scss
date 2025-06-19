@@ -86,7 +86,9 @@ $border-radius-full: 50%;
 // Shadows
 $shadow-xsm: 0px 0.16rem 3.75rem 0px rgba(38, 45, 118, 0.08);
 $shadow-sm: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
+$shadow-main-sm: 0 0.625rem 1.875rem rgba($primary, 0.3);
 $shadow-md: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.4);
+$shadow-main-md: 0 1.25rem 3.125rem rgba($primary, 0.4);
 $text-shadow-glow: 0 0 0.625rem rgb(0, 0, 0);
 
 // Breakpoints

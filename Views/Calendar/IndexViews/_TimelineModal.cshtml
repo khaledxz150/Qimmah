@@ -25,28 +25,19 @@
                                 var timeline = Model.Timelines[i];
                                 var sessionNumber = i + 1;
 
-                                <div class="row schedule-row align-items-center mb-4 position-relative"
-                                     data-schedule-item="@sessionNumber">
-                                    <div class="col-1 bullet-col d-flex justify-content-center align-items-center position-relative"
-                                         style="z-index:2;">
-                                        <div class="bullet-point bg-secondary border border-color-white rounded-circle"
-                                             data-bullet="@sessionNumber" style="width: 1rem; height: 1rem;"></div>
+                                <div class="row  flex-nowrap  schedule-row align-items-center mb-4 position-relative" data-schedule-item="@sessionNumber">
+                                    <div class="bullet-col d-flex justify-content-center align-items-center position-relative" style="z-index:2;">
+                                        <div class="bullet-point bg-secondary border border-color-white rounded-circle" data-bullet="@sessionNumber" style="width: 16px; height: 16px;"></div>
                                     </div>
-                                    <div class="col-md-11">
-                                        <div class="row">
-                                            <div class="col-9 content-col d-flex align-items-center"
-                                                 style="padding-inline-start: 1.25rem;">
-                                                <div class="session-content bg-white d-flex align-items-center p-lg w-100">
-                                                    <div class="session-title fs-base fw-medium color-dark w-100">
-                                                        @timeline.Description
-                                                    </div>
+                                    <div class="col-11">
+                                        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-2">
+                                            <div class="session-content bg-white d-flex align-items-center p-lg w-100">
+                                                <div class="session-title fs-base fw-medium color-dark w-100">
+                                                    @timeline.Description
                                                 </div>
                                             </div>
-                                            <div class="col-3 time-col d-flex align-items-center justify-content-end"
-                                                 style="padding-inline-end: 1.25rem;">
-                                                <div class="time-slot bg-primary color-white text-center fw-semibold fs-sm px-4 py-2">
-                                                    @timeline.TimeDisplay
-                                                </div>
+                                            <div class="time-slot bg-primary color-white text-center fw-semibold fs-sm" style="min-width: 120px;">
+                                                @timeline.TimeDisplay
                                             </div>
                                         </div>
                                     </div>

@@ -20,7 +20,7 @@
         <div class="row g-5">
             @foreach (var item in Model)
             {
-                <div class="col-md-4">
+                <div class="col-md-4 mb-5">
                     <div class="timeline-item">
                         <div class="timeline-card timeline-card-@item.DayNumber row">
                             <div class="timeline-content col-md-7">
@@ -31,13 +31,15 @@
                                 <div class="timeline-number-shadow">@item.DayNumber</div>
                                 <div class="timeline-number">@item.DayNumber</div>
                             </div>
+
+                            <a href="#" class="timeline-action" data-bs-toggle="modal" data-bs-target="#timelineModal@(item.Id)">عرض التفاصيل</a>
+
                         </div>
-                        <a href="#" class="timeline-action" data-bs-toggle="modal"
-                           data-bs-target="#timelineModal@(item.Id)">عرض التفاصيل</a>
 
                         @await Html.PartialAsync("IndexViews/_TimelineModal", item)
                     </div>
                 </div>
+
             }
         </div>
     </div>

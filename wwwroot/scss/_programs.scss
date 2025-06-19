@@ -1,12 +1,14 @@
-﻿.programs-section {
-    padding: 60px 0;
-    background-color: #f8f9fa;
+﻿@import "variables";
+.programs-section {
+    width: 100%;
+    @extend .py-4;
 
     .program-card {
+        width: 100%;
         background: #fff;
         border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 20px rgba($primary-bg, 0.08);
         transition: box-shadow 0.3s, transform 0.3s;
         height: 100%;
         display: flex;
@@ -14,7 +16,7 @@
 
         &:hover {
             transform: translateY(-6px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 32px rgba($primary-bg, 0.12);
         }
 
         .card-image {
@@ -36,7 +38,7 @@
         }
 
         .card-content {
-            padding: 24px 20px 16px 20px;   
+            padding: 24px 20px 16px 20px;
             display: flex;
             flex-direction: column;
             flex: 1;
