@@ -1,48 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+using Qimmah.Core.Activities;
 using Qimmah.Models.Activities;
 
 namespace Qimmah.Helpers.Components
 {
     public class ProgramCardComponents : ViewComponent
     {
-        //private DbContextOptions<MyContext> db = new DbContextOptions<MyContext>();
-        public async Task<IViewComponentResult> InvokeAsync()
+        private readonly IProgramService programService;
+        public  ProgramCardComponents(IProgramService programService)
         {
-            return View("_ProgramCards", new List<ProgramCardViewModel>
-            {
-                new ProgramCardViewModel
-                {
-                    ImageUrl = "https://picsum.photos/200/300",
-                    Type = "برنامج",
-                    Title = "برنامج ابتكار انطلق",
-                    Description = "منصة تدريبية لتطوير الأعمال الناشئة في الشرق الأوسط",
-                    PriceLabel = "مجاني",
-                    Duration = "8h 12m",
-                    ParticipantCount = "30 أعضاء"
-                },
-                new ProgramCardViewModel
-                {
-                    ImageUrl = "https://picsum.photos/200/300",
-                    Type = "برنامج",
-                    Title = "برنامج ابتكار انطلق",
-                    Description = "منصة تدريبية لتطوير الأعمال الناشئة في الشرق الأوسط",
-                    PriceLabel = "مجاني",
-                    Duration = "8h 12m",
-                    ParticipantCount = "30 أعضاء"
-                },
-                new ProgramCardViewModel
-                {
-                    ImageUrl = "https://picsum.photos/200/300",
-                    Type = "برنامج",
-                    Title = "برنامج ابتكار انطلق",
-                    Description = "منصة تدريبية لتطوير الأعمال الناشئة في الشرق الأوسط",
-                    PriceLabel = "مجاني",
-                    Duration = "8h 12m",
-                    ParticipantCount = "30 أعضاء"
-                }
-            });
+            this.programService = programService;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync(int size = 3)
+        {
+            return View("_ProgramCards", await programService.GetProgramCardsAsync(1, size));
         }
     }
 }

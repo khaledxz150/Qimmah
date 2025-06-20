@@ -156,6 +156,420 @@ namespace Qimmah.Migrations
                     b.ToTable("AspNetUserTokens", "Users");
                 });
 
+            modelBuilder.Entity("ProgramsUsers", b =>
+                {
+                    b.Property<long>("UsersId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("programsID")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("UsersId", "programsID");
+
+                    b.HasIndex("programsID");
+
+                    b.ToTable("ProgramsUsers", "Users");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramCategory", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("OrderID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.ToTable(" ProgramCategory", "Activities");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            IsActive = true,
+                            OrderID = 1
+                        },
+                        new
+                        {
+                            ID = 2,
+                            IsActive = true,
+                            OrderID = 2
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramCategoryLocalization", b =>
+                {
+                    b.Property<int>("ProgramCategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LanguageID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProgramCategoryID", "LanguageID");
+
+                    b.HasIndex("LanguageID");
+
+                    b.ToTable(" ProgramCategory_Localization", "Activities");
+
+                    b.HasData(
+                        new
+                        {
+                            ProgramCategoryID = 1,
+                            LanguageID = 2,
+                            Description = "برمج"
+                        },
+                        new
+                        {
+                            ProgramCategoryID = 2,
+                            LanguageID = 2,
+                            Description = "الابتكار"
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramComponent", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("ProgramId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProgramId");
+
+                    b.ToTable("ProgramComponents", "Activities");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramComponentLocalization", b =>
+                {
+                    b.Property<long>("ProgramComponentID")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("LanguageID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ComponentText")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProgramComponentID", "LanguageID");
+
+                    b.HasIndex("LanguageID");
+
+                    b.ToTable("ProgramComponents_Localization", "Activities");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramDescriptionLocalization", b =>
+                {
+                    b.Property<long>("ProgramID")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("LanguageID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProgramID", "LanguageID");
+
+                    b.HasIndex("LanguageID");
+
+                    b.ToTable("Programs_Description_Localization", "Activities");
+
+                    b.HasData(
+                        new
+                        {
+                            ProgramID = 1L,
+                            LanguageID = 2,
+                            Description = "برمج. ابتكر. انطلق.\" ليست مجرد فعالية تقنية، بل منصة متكاملة تُطلق العنان لإبداع الشباب، وتمنحهم فرصة حقيقية للانتقال من مجرد أفكار إلى مشاريع واقعية ذات أثر.\r\n\r\n يعيش المشاركون تجربة فريدة تجمع بين التعلم العملي، والتفكير التصميمي، والعمل الجماعي، ضمن بيئة تفاعلية تحفّز الابتكار وتحتضن الموهبة. سواء كنت مبتدئًا في البرمجة أو مطورًا يسعى للارتقاء بمهاراته، ستجد في هذه الفعالية محتوى يناسبك، وورشًا تُشعل شغفك، وفرصًا لصقل مشروعك."
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramGoal", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("ProgramId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProgramId");
+
+                    b.ToTable("ProgramGoals", "Activities");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramGoalLocalization", b =>
+                {
+                    b.Property<long>("ProgramGoalID")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("LanguageID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GoalText")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.HasKey("ProgramGoalID", "LanguageID");
+
+                    b.HasIndex("LanguageID");
+
+                    b.ToTable("ProgramGoals_Localization", "Activities");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramTitleLocalization", b =>
+                {
+                    b.Property<long>("ProgramID")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("LanguageID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortDescription")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.HasKey("ProgramID", "LanguageID");
+
+                    b.HasIndex("LanguageID");
+
+                    b.ToTable("Programs_Title_Localization", "Activities");
+
+                    b.HasData(
+                        new
+                        {
+                            ProgramID = 1L,
+                            LanguageID = 2,
+                            Description = "برمج. ابتكر. انطلق",
+                            ShortDescription = "فعالية تفاعلية تجمع بين التدريب العملي، الإرشاد المهني، وفرص بناء تطبيقات ومشاريع تقنية حقيقية بمساعدة خبراء في المجال."
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.Programs", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("ID"));
+
+                    b.Property<int>("CityLookupID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountryLookupID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DiscountPercent")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DurationMinutes")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsCurrentlyBroadCasting")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsFree")
+                        .HasColumnType("bit");
+
+                    b.Property<long>("OrganizerId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int>("ParticipantCount")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProgramCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Rating")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("RatingCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CityLookupID");
+
+                    b.HasIndex("CountryLookupID");
+
+                    b.HasIndex("OrganizerId");
+
+                    b.HasIndex("ProgramCategoryId");
+
+                    b.ToTable("Programs", "Activities");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1L,
+                            CityLookupID = 16,
+                            CountryLookupID = 1,
+                            DiscountPercent = 100,
+                            DurationMinutes = 192,
+                            ImageUrl = "/images/programs/program1.jpg",
+                            IsActive = true,
+                            IsCurrentlyBroadCasting = false,
+                            IsDeleted = false,
+                            IsFree = true,
+                            OrganizerId = 1L,
+                            ParticipantCount = 30,
+                            ProgramCategoryId = 1,
+                            Rating = 4.7000000000000002,
+                            RatingCount = 128,
+                            StartDate = new DateTime(2023, 7, 18, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.Sessions", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("ID"));
+
+                    b.Property<DateTime>("EndDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("IsCurrentlyBroadcasting")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LiveBroadcastLink")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("ProgramId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("StartDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProgramId");
+
+                    b.ToTable("Sessions", "Activities");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1L,
+                            EndDateTime = new DateTime(2025, 6, 20, 12, 0, 0, 0, DateTimeKind.Local),
+                            IsActive = true,
+                            IsCurrentlyBroadcasting = true,
+                            IsDeleted = false,
+                            LiveBroadcastLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                            ProgramId = 1L,
+                            StartDateTime = new DateTime(2025, 6, 20, 10, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 2L,
+                            EndDateTime = new DateTime(2025, 6, 21, 12, 0, 0, 0, DateTimeKind.Local),
+                            IsActive = false,
+                            IsCurrentlyBroadcasting = false,
+                            IsDeleted = false,
+                            LiveBroadcastLink = "https://www.youtube.com/watch?v=example2",
+                            ProgramId = 1L,
+                            StartDateTime = new DateTime(2025, 6, 21, 10, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 3L,
+                            EndDateTime = new DateTime(2025, 6, 22, 12, 0, 0, 0, DateTimeKind.Local),
+                            IsActive = false,
+                            IsCurrentlyBroadcasting = false,
+                            IsDeleted = false,
+                            LiveBroadcastLink = "https://www.youtube.com/watch?v=example3",
+                            ProgramId = 1L,
+                            StartDateTime = new DateTime(2025, 6, 22, 10, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 4L,
+                            EndDateTime = new DateTime(2025, 6, 27, 12, 0, 0, 0, DateTimeKind.Local),
+                            IsActive = false,
+                            IsCurrentlyBroadcasting = false,
+                            IsDeleted = false,
+                            LiveBroadcastLink = "https://www.youtube.com/watch?v=example4",
+                            ProgramId = 1L,
+                            StartDateTime = new DateTime(2025, 6, 27, 10, 0, 0, 0, DateTimeKind.Local)
+                        },
+                        new
+                        {
+                            ID = 5L,
+                            EndDateTime = new DateTime(2025, 6, 29, 12, 0, 0, 0, DateTimeKind.Local),
+                            IsActive = false,
+                            IsCurrentlyBroadcasting = false,
+                            IsDeleted = false,
+                            LiveBroadcastLink = "https://www.youtube.com/watch?v=example5",
+                            ProgramId = 1L,
+                            StartDateTime = new DateTime(2025, 6, 29, 10, 0, 0, 0, DateTimeKind.Local)
+                        });
+                });
+
             modelBuilder.Entity("Qimmah.Data.Calendar.CalendarItem", b =>
                 {
                     b.Property<long>("ID")
@@ -8577,6 +8991,618 @@ namespace Qimmah.Migrations
                         },
                         new
                         {
+                            ID = 193,
+                            LanguageID = 1,
+                            Description = "Amman"
+                        },
+                        new
+                        {
+                            ID = 193,
+                            LanguageID = 2,
+                            Description = "عمّان"
+                        },
+                        new
+                        {
+                            ID = 194,
+                            LanguageID = 1,
+                            Description = "Irbid"
+                        },
+                        new
+                        {
+                            ID = 194,
+                            LanguageID = 2,
+                            Description = "إربد"
+                        },
+                        new
+                        {
+                            ID = 195,
+                            LanguageID = 1,
+                            Description = "Zarqa"
+                        },
+                        new
+                        {
+                            ID = 195,
+                            LanguageID = 2,
+                            Description = "الزرقاء"
+                        },
+                        new
+                        {
+                            ID = 196,
+                            LanguageID = 1,
+                            Description = "Aqaba"
+                        },
+                        new
+                        {
+                            ID = 196,
+                            LanguageID = 2,
+                            Description = "العقبة"
+                        },
+                        new
+                        {
+                            ID = 197,
+                            LanguageID = 1,
+                            Description = "Ramallah"
+                        },
+                        new
+                        {
+                            ID = 197,
+                            LanguageID = 2,
+                            Description = "رام الله"
+                        },
+                        new
+                        {
+                            ID = 198,
+                            LanguageID = 1,
+                            Description = "Nablus"
+                        },
+                        new
+                        {
+                            ID = 198,
+                            LanguageID = 2,
+                            Description = "نابلس"
+                        },
+                        new
+                        {
+                            ID = 199,
+                            LanguageID = 1,
+                            Description = "Hebron"
+                        },
+                        new
+                        {
+                            ID = 199,
+                            LanguageID = 2,
+                            Description = "الخليل"
+                        },
+                        new
+                        {
+                            ID = 200,
+                            LanguageID = 1,
+                            Description = "Gaza"
+                        },
+                        new
+                        {
+                            ID = 200,
+                            LanguageID = 2,
+                            Description = "غزة"
+                        },
+                        new
+                        {
+                            ID = 201,
+                            LanguageID = 1,
+                            Description = "Beirut"
+                        },
+                        new
+                        {
+                            ID = 201,
+                            LanguageID = 2,
+                            Description = "بيروت"
+                        },
+                        new
+                        {
+                            ID = 202,
+                            LanguageID = 1,
+                            Description = "Tripoli"
+                        },
+                        new
+                        {
+                            ID = 202,
+                            LanguageID = 2,
+                            Description = "طرابلس"
+                        },
+                        new
+                        {
+                            ID = 203,
+                            LanguageID = 1,
+                            Description = "Sidon"
+                        },
+                        new
+                        {
+                            ID = 203,
+                            LanguageID = 2,
+                            Description = "صيدا"
+                        },
+                        new
+                        {
+                            ID = 204,
+                            LanguageID = 1,
+                            Description = "Damascus"
+                        },
+                        new
+                        {
+                            ID = 204,
+                            LanguageID = 2,
+                            Description = "دمشق"
+                        },
+                        new
+                        {
+                            ID = 205,
+                            LanguageID = 1,
+                            Description = "Aleppo"
+                        },
+                        new
+                        {
+                            ID = 205,
+                            LanguageID = 2,
+                            Description = "حلب"
+                        },
+                        new
+                        {
+                            ID = 206,
+                            LanguageID = 1,
+                            Description = "Homs"
+                        },
+                        new
+                        {
+                            ID = 206,
+                            LanguageID = 2,
+                            Description = "حمص"
+                        },
+                        new
+                        {
+                            ID = 207,
+                            LanguageID = 1,
+                            Description = "Baghdad"
+                        },
+                        new
+                        {
+                            ID = 207,
+                            LanguageID = 2,
+                            Description = "بغداد"
+                        },
+                        new
+                        {
+                            ID = 208,
+                            LanguageID = 1,
+                            Description = "Basra"
+                        },
+                        new
+                        {
+                            ID = 208,
+                            LanguageID = 2,
+                            Description = "البصرة"
+                        },
+                        new
+                        {
+                            ID = 209,
+                            LanguageID = 1,
+                            Description = "Erbil"
+                        },
+                        new
+                        {
+                            ID = 209,
+                            LanguageID = 2,
+                            Description = "أربيل"
+                        },
+                        new
+                        {
+                            ID = 210,
+                            LanguageID = 1,
+                            Description = "Riyadh"
+                        },
+                        new
+                        {
+                            ID = 210,
+                            LanguageID = 2,
+                            Description = "الرياض"
+                        },
+                        new
+                        {
+                            ID = 211,
+                            LanguageID = 1,
+                            Description = "Jeddah"
+                        },
+                        new
+                        {
+                            ID = 211,
+                            LanguageID = 2,
+                            Description = "جدة"
+                        },
+                        new
+                        {
+                            ID = 212,
+                            LanguageID = 1,
+                            Description = "Dammam"
+                        },
+                        new
+                        {
+                            ID = 212,
+                            LanguageID = 2,
+                            Description = "الدمام"
+                        },
+                        new
+                        {
+                            ID = 213,
+                            LanguageID = 1,
+                            Description = "Mecca"
+                        },
+                        new
+                        {
+                            ID = 213,
+                            LanguageID = 2,
+                            Description = "مكة"
+                        },
+                        new
+                        {
+                            ID = 214,
+                            LanguageID = 1,
+                            Description = "Medina"
+                        },
+                        new
+                        {
+                            ID = 214,
+                            LanguageID = 2,
+                            Description = "المدينة المنورة"
+                        },
+                        new
+                        {
+                            ID = 215,
+                            LanguageID = 1,
+                            Description = "Kuwait City"
+                        },
+                        new
+                        {
+                            ID = 215,
+                            LanguageID = 2,
+                            Description = "مدينة الكويت"
+                        },
+                        new
+                        {
+                            ID = 216,
+                            LanguageID = 1,
+                            Description = "Manama"
+                        },
+                        new
+                        {
+                            ID = 216,
+                            LanguageID = 2,
+                            Description = "المنامة"
+                        },
+                        new
+                        {
+                            ID = 217,
+                            LanguageID = 1,
+                            Description = "Doha"
+                        },
+                        new
+                        {
+                            ID = 217,
+                            LanguageID = 2,
+                            Description = "الدوحة"
+                        },
+                        new
+                        {
+                            ID = 218,
+                            LanguageID = 1,
+                            Description = "Abu Dhabi"
+                        },
+                        new
+                        {
+                            ID = 218,
+                            LanguageID = 2,
+                            Description = "أبو ظبي"
+                        },
+                        new
+                        {
+                            ID = 219,
+                            LanguageID = 1,
+                            Description = "Dubai"
+                        },
+                        new
+                        {
+                            ID = 219,
+                            LanguageID = 2,
+                            Description = "دبي"
+                        },
+                        new
+                        {
+                            ID = 220,
+                            LanguageID = 1,
+                            Description = "Sharjah"
+                        },
+                        new
+                        {
+                            ID = 220,
+                            LanguageID = 2,
+                            Description = "الشارقة"
+                        },
+                        new
+                        {
+                            ID = 221,
+                            LanguageID = 1,
+                            Description = "Muscat"
+                        },
+                        new
+                        {
+                            ID = 221,
+                            LanguageID = 2,
+                            Description = "مسقط"
+                        },
+                        new
+                        {
+                            ID = 222,
+                            LanguageID = 1,
+                            Description = "Salalah"
+                        },
+                        new
+                        {
+                            ID = 222,
+                            LanguageID = 2,
+                            Description = "صلالة"
+                        },
+                        new
+                        {
+                            ID = 223,
+                            LanguageID = 1,
+                            Description = "Sana'a"
+                        },
+                        new
+                        {
+                            ID = 223,
+                            LanguageID = 2,
+                            Description = "صنعاء"
+                        },
+                        new
+                        {
+                            ID = 224,
+                            LanguageID = 1,
+                            Description = "Aden"
+                        },
+                        new
+                        {
+                            ID = 224,
+                            LanguageID = 2,
+                            Description = "عدن"
+                        },
+                        new
+                        {
+                            ID = 225,
+                            LanguageID = 1,
+                            Description = "Cairo"
+                        },
+                        new
+                        {
+                            ID = 225,
+                            LanguageID = 2,
+                            Description = "القاهرة"
+                        },
+                        new
+                        {
+                            ID = 226,
+                            LanguageID = 1,
+                            Description = "Alexandria"
+                        },
+                        new
+                        {
+                            ID = 226,
+                            LanguageID = 2,
+                            Description = "الإسكندرية"
+                        },
+                        new
+                        {
+                            ID = 227,
+                            LanguageID = 1,
+                            Description = "Giza"
+                        },
+                        new
+                        {
+                            ID = 227,
+                            LanguageID = 2,
+                            Description = "الجيزة"
+                        },
+                        new
+                        {
+                            ID = 228,
+                            LanguageID = 1,
+                            Description = "Istanbul"
+                        },
+                        new
+                        {
+                            ID = 228,
+                            LanguageID = 2,
+                            Description = "إسطنبول"
+                        },
+                        new
+                        {
+                            ID = 229,
+                            LanguageID = 1,
+                            Description = "Ankara"
+                        },
+                        new
+                        {
+                            ID = 229,
+                            LanguageID = 2,
+                            Description = "أنقرة"
+                        },
+                        new
+                        {
+                            ID = 230,
+                            LanguageID = 1,
+                            Description = "Izmir"
+                        },
+                        new
+                        {
+                            ID = 230,
+                            LanguageID = 2,
+                            Description = "إزمير"
+                        },
+                        new
+                        {
+                            ID = 231,
+                            LanguageID = 1,
+                            Description = "Tehran"
+                        },
+                        new
+                        {
+                            ID = 231,
+                            LanguageID = 2,
+                            Description = "طهران"
+                        },
+                        new
+                        {
+                            ID = 232,
+                            LanguageID = 1,
+                            Description = "Mashhad"
+                        },
+                        new
+                        {
+                            ID = 232,
+                            LanguageID = 2,
+                            Description = "مشهد"
+                        },
+                        new
+                        {
+                            ID = 233,
+                            LanguageID = 1,
+                            Description = "Isfahan"
+                        },
+                        new
+                        {
+                            ID = 233,
+                            LanguageID = 2,
+                            Description = "أصفهان"
+                        },
+                        new
+                        {
+                            ID = 234,
+                            LanguageID = 1,
+                            Description = "Free"
+                        },
+                        new
+                        {
+                            ID = 234,
+                            LanguageID = 2,
+                            Description = "مجاني"
+                        },
+                        new
+                        {
+                            ID = 235,
+                            LanguageID = 1,
+                            Description = "Activities"
+                        },
+                        new
+                        {
+                            ID = 235,
+                            LanguageID = 2,
+                            Description = "الفعاليات"
+                        },
+                        new
+                        {
+                            ID = 236,
+                            LanguageID = 1,
+                            Description = "Activities And Programs"
+                        },
+                        new
+                        {
+                            ID = 236,
+                            LanguageID = 2,
+                            Description = "الفعاليات والبرامج"
+                        },
+                        new
+                        {
+                            ID = 237,
+                            LanguageID = 1,
+                            Description = "Showing {1} - {2}, We've Found {0} Activities For You"
+                        },
+                        new
+                        {
+                            ID = 237,
+                            LanguageID = 2,
+                            Description = "يتم عرض {1} – {2} ،لقد وجدنا {0}  الفعاليات متاحة لك"
+                        },
+                        new
+                        {
+                            ID = 238,
+                            LanguageID = 1,
+                            Description = "All Categories"
+                        },
+                        new
+                        {
+                            ID = 238,
+                            LanguageID = 2,
+                            Description = "جميع الفئات"
+                        },
+                        new
+                        {
+                            ID = 239,
+                            LanguageID = 1,
+                            Description = "Sort by"
+                        },
+                        new
+                        {
+                            ID = 239,
+                            LanguageID = 2,
+                            Description = "ترتيب حسب"
+                        },
+                        new
+                        {
+                            ID = 240,
+                            LanguageID = 1,
+                            Description = "Default"
+                        },
+                        new
+                        {
+                            ID = 240,
+                            LanguageID = 2,
+                            Description = "الافتراضي"
+                        },
+                        new
+                        {
+                            ID = 241,
+                            LanguageID = 1,
+                            Description = "Search"
+                        },
+                        new
+                        {
+                            ID = 241,
+                            LanguageID = 2,
+                            Description = "البحث"
+                        },
+                        new
+                        {
+                            ID = 242,
+                            LanguageID = 1,
+                            Description = "We found exactly {0} activities available for you"
+                        },
+                        new
+                        {
+                            ID = 242,
+                            LanguageID = 2,
+                            Description = "لقد وجدنا {0} فعاليات متاحة لك"
+                        },
+                        new
+                        {
+                            ID = 243,
+                            LanguageID = 1,
+                            Description = "Live Broadcast"
+                        },
+                        new
+                        {
+                            ID = 243,
+                            LanguageID = 2,
+                            Description = "البث المباشر"
+                        },
+                        new
+                        {
                             ID = 1001,
                             LanguageID = 1,
                             Description = "Jordan"
@@ -8762,6 +9788,10 @@ namespace Qimmah.Migrations
                     b.Property<int>("ID")
                         .HasColumnType("int");
 
+                    b.Property<string>("Culture")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(10)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(20)");
@@ -8782,6 +9812,7 @@ namespace Qimmah.Migrations
                         new
                         {
                             ID = 1,
+                            Culture = "en-US",
                             Description = "en",
                             Direction = "ltr",
                             LanguageName = "English"
@@ -8789,9 +9820,86 @@ namespace Qimmah.Migrations
                         new
                         {
                             ID = 2,
+                            Culture = "ar-SA",
                             Description = "ar",
                             Direction = "rtl",
                             LanguageName = "العربية"
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Organizer.Organizer", b =>
+                {
+                    b.Property<long>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("ID"));
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Website")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Organizers", "Users");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1L,
+                            Email = "info@qimmah.org",
+                            ImageUrl = "/images/organizers/organizer1.jpg",
+                            IsActive = true,
+                            IsDeleted = false,
+                            Phone = "+962-6-1234567",
+                            Website = "https://qimmah.org"
+                        });
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Organizer.OrganizerLocalization", b =>
+                {
+                    b.Property<int>("LanguageID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("OrganizerId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("LanguageID");
+
+                    b.HasIndex("OrganizerId");
+
+                    b.ToTable("Organizers_Localization", "Users");
+
+                    b.HasData(
+                        new
+                        {
+                            LanguageID = 1,
+                            Description = "مؤسسة قمة",
+                            OrganizerId = 1L
+                        },
+                        new
+                        {
+                            LanguageID = 2,
+                            Description = "Qimmah Foundation",
+                            OrganizerId = 1L
                         });
                 });
 
@@ -9001,6 +10109,457 @@ namespace Qimmah.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 16,
+                            CategoryID = 2,
+                            Description = "Amman",
+                            DictionaryID = 193,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 1
+                        },
+                        new
+                        {
+                            ID = 17,
+                            CategoryID = 2,
+                            Description = "Irbid",
+                            DictionaryID = 194,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 1
+                        },
+                        new
+                        {
+                            ID = 18,
+                            CategoryID = 2,
+                            Description = "Zarqa",
+                            DictionaryID = 195,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 1
+                        },
+                        new
+                        {
+                            ID = 19,
+                            CategoryID = 2,
+                            Description = "Aqaba",
+                            DictionaryID = 196,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 1
+                        },
+                        new
+                        {
+                            ID = 20,
+                            CategoryID = 2,
+                            Description = "Ramallah",
+                            DictionaryID = 197,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 2
+                        },
+                        new
+                        {
+                            ID = 21,
+                            CategoryID = 2,
+                            Description = "Nablus",
+                            DictionaryID = 198,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 2
+                        },
+                        new
+                        {
+                            ID = 22,
+                            CategoryID = 2,
+                            Description = "Hebron",
+                            DictionaryID = 199,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 2
+                        },
+                        new
+                        {
+                            ID = 23,
+                            CategoryID = 2,
+                            Description = "Gaza",
+                            DictionaryID = 200,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 2
+                        },
+                        new
+                        {
+                            ID = 24,
+                            CategoryID = 2,
+                            Description = "Beirut",
+                            DictionaryID = 201,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 3
+                        },
+                        new
+                        {
+                            ID = 25,
+                            CategoryID = 2,
+                            Description = "Tripoli",
+                            DictionaryID = 202,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 3
+                        },
+                        new
+                        {
+                            ID = 26,
+                            CategoryID = 2,
+                            Description = "Sidon",
+                            DictionaryID = 203,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 3
+                        },
+                        new
+                        {
+                            ID = 27,
+                            CategoryID = 2,
+                            Description = "Damascus",
+                            DictionaryID = 204,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 4
+                        },
+                        new
+                        {
+                            ID = 28,
+                            CategoryID = 2,
+                            Description = "Aleppo",
+                            DictionaryID = 205,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 4
+                        },
+                        new
+                        {
+                            ID = 29,
+                            CategoryID = 2,
+                            Description = "Homs",
+                            DictionaryID = 206,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 4
+                        },
+                        new
+                        {
+                            ID = 30,
+                            CategoryID = 2,
+                            Description = "Baghdad",
+                            DictionaryID = 207,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 5
+                        },
+                        new
+                        {
+                            ID = 31,
+                            CategoryID = 2,
+                            Description = "Basra",
+                            DictionaryID = 208,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 5
+                        },
+                        new
+                        {
+                            ID = 32,
+                            CategoryID = 2,
+                            Description = "Erbil",
+                            DictionaryID = 209,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 5
+                        },
+                        new
+                        {
+                            ID = 33,
+                            CategoryID = 2,
+                            Description = "Riyadh",
+                            DictionaryID = 210,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 6
+                        },
+                        new
+                        {
+                            ID = 34,
+                            CategoryID = 2,
+                            Description = "Jeddah",
+                            DictionaryID = 211,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 6
+                        },
+                        new
+                        {
+                            ID = 35,
+                            CategoryID = 2,
+                            Description = "Dammam",
+                            DictionaryID = 212,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 6
+                        },
+                        new
+                        {
+                            ID = 36,
+                            CategoryID = 2,
+                            Description = "Mecca",
+                            DictionaryID = 213,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 6
+                        },
+                        new
+                        {
+                            ID = 37,
+                            CategoryID = 2,
+                            Description = "Medina",
+                            DictionaryID = 214,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 6
+                        },
+                        new
+                        {
+                            ID = 38,
+                            CategoryID = 2,
+                            Description = "Kuwait City",
+                            DictionaryID = 215,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 7
+                        },
+                        new
+                        {
+                            ID = 39,
+                            CategoryID = 2,
+                            Description = "Manama",
+                            DictionaryID = 216,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 8
+                        },
+                        new
+                        {
+                            ID = 40,
+                            CategoryID = 2,
+                            Description = "Doha",
+                            DictionaryID = 217,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 9
+                        },
+                        new
+                        {
+                            ID = 41,
+                            CategoryID = 2,
+                            Description = "Abu Dhabi",
+                            DictionaryID = 218,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 10
+                        },
+                        new
+                        {
+                            ID = 42,
+                            CategoryID = 2,
+                            Description = "Dubai",
+                            DictionaryID = 219,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 10
+                        },
+                        new
+                        {
+                            ID = 43,
+                            CategoryID = 2,
+                            Description = "Sharjah",
+                            DictionaryID = 220,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 10
+                        },
+                        new
+                        {
+                            ID = 44,
+                            CategoryID = 2,
+                            Description = "Muscat",
+                            DictionaryID = 221,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 11
+                        },
+                        new
+                        {
+                            ID = 45,
+                            CategoryID = 2,
+                            Description = "Salalah",
+                            DictionaryID = 222,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 11
+                        },
+                        new
+                        {
+                            ID = 46,
+                            CategoryID = 2,
+                            Description = "Sana'a",
+                            DictionaryID = 223,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 12
+                        },
+                        new
+                        {
+                            ID = 47,
+                            CategoryID = 2,
+                            Description = "Aden",
+                            DictionaryID = 224,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 12
+                        },
+                        new
+                        {
+                            ID = 48,
+                            CategoryID = 2,
+                            Description = "Cairo",
+                            DictionaryID = 225,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 13
+                        },
+                        new
+                        {
+                            ID = 49,
+                            CategoryID = 2,
+                            Description = "Alexandria",
+                            DictionaryID = 226,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 13
+                        },
+                        new
+                        {
+                            ID = 50,
+                            CategoryID = 2,
+                            Description = "Giza",
+                            DictionaryID = 227,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 13
+                        },
+                        new
+                        {
+                            ID = 51,
+                            CategoryID = 2,
+                            Description = "Istanbul",
+                            DictionaryID = 228,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 14
+                        },
+                        new
+                        {
+                            ID = 52,
+                            CategoryID = 2,
+                            Description = "Ankara",
+                            DictionaryID = 229,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 14
+                        },
+                        new
+                        {
+                            ID = 53,
+                            CategoryID = 2,
+                            Description = "Izmir",
+                            DictionaryID = 230,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 14
+                        },
+                        new
+                        {
+                            ID = 54,
+                            CategoryID = 2,
+                            Description = "Tehran",
+                            DictionaryID = 231,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 15
+                        },
+                        new
+                        {
+                            ID = 55,
+                            CategoryID = 2,
+                            Description = "Mashhad",
+                            DictionaryID = 232,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 15
+                        },
+                        new
+                        {
+                            ID = 56,
+                            CategoryID = 2,
+                            Description = "Isfahan",
+                            DictionaryID = 233,
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 0,
+                            ParentID = 15
                         });
                 });
 
@@ -9048,6 +10607,14 @@ namespace Qimmah.Migrations
                             IsActive = true,
                             IsDeleted = false,
                             OrderID = 0
+                        },
+                        new
+                        {
+                            ID = 200,
+                            Description = "Program Categories",
+                            IsActive = true,
+                            IsDeleted = false,
+                            OrderID = 1
                         });
                 });
 
@@ -9207,6 +10774,184 @@ namespace Qimmah.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ProgramsUsers", b =>
+                {
+                    b.HasOne("Qimmah.Data.User.Users", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Activities.Programs", null)
+                        .WithMany()
+                        .HasForeignKey("programsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramCategoryLocalization", b =>
+                {
+                    b.HasOne("Qimmah.Data.Localization.Languages", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Activities.ProgramCategory", "ProgramCategory")
+                        .WithMany("ProgramCategoryLocalizations")
+                        .HasForeignKey("ProgramCategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+
+                    b.Navigation("ProgramCategory");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramComponent", b =>
+                {
+                    b.HasOne("Qimmah.Data.Activities.Programs", "Program")
+                        .WithMany("ProgramComponents")
+                        .HasForeignKey("ProgramId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Program");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramComponentLocalization", b =>
+                {
+                    b.HasOne("Qimmah.Data.Localization.Languages", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Activities.ProgramComponent", "ProgramComponent")
+                        .WithMany("ProgramComponentLocalizations")
+                        .HasForeignKey("ProgramComponentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+
+                    b.Navigation("ProgramComponent");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramDescriptionLocalization", b =>
+                {
+                    b.HasOne("Qimmah.Data.Localization.Languages", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Activities.Programs", "Program")
+                        .WithMany("ProgramDescriptionLocalization")
+                        .HasForeignKey("ProgramID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+
+                    b.Navigation("Program");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramGoal", b =>
+                {
+                    b.HasOne("Qimmah.Data.Activities.Programs", "Program")
+                        .WithMany("ProgramGoals")
+                        .HasForeignKey("ProgramId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Program");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramGoalLocalization", b =>
+                {
+                    b.HasOne("Qimmah.Data.Localization.Languages", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Activities.ProgramGoal", "ProgramGoal")
+                        .WithMany("ProgramGoalLocalizations")
+                        .HasForeignKey("ProgramGoalID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+
+                    b.Navigation("ProgramGoal");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramTitleLocalization", b =>
+                {
+                    b.HasOne("Qimmah.Data.Localization.Languages", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Activities.Programs", "Program")
+                        .WithMany("ProgramTitleLocalization")
+                        .HasForeignKey("ProgramID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+
+                    b.Navigation("Program");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.Programs", b =>
+                {
+                    b.HasOne("Qimmah.Data.System.Lookup", "CityLookup")
+                        .WithMany()
+                        .HasForeignKey("CityLookupID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.System.Lookup", "CountryLookup")
+                        .WithMany()
+                        .HasForeignKey("CountryLookupID")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Organizer.Organizer", "Organizer")
+                        .WithMany()
+                        .HasForeignKey("OrganizerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Activities.ProgramCategory", "ProgramCategory")
+                        .WithMany("Programs")
+                        .HasForeignKey("ProgramCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CityLookup");
+
+                    b.Navigation("CountryLookup");
+
+                    b.Navigation("Organizer");
+
+                    b.Navigation("ProgramCategory");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.Sessions", b =>
+                {
+                    b.HasOne("Qimmah.Data.Activities.Programs", "Program")
+                        .WithMany("Sessions")
+                        .HasForeignKey("ProgramId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Program");
+                });
+
             modelBuilder.Entity("Qimmah.Data.Calendar.CalendarItemLocalization", b =>
                 {
                     b.HasOne("Qimmah.Data.Calendar.CalendarItem", "CalendarItem")
@@ -9306,6 +11051,25 @@ namespace Qimmah.Migrations
                     b.Navigation("Language");
                 });
 
+            modelBuilder.Entity("Qimmah.Data.Organizer.OrganizerLocalization", b =>
+                {
+                    b.HasOne("Qimmah.Data.Localization.Languages", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Qimmah.Data.Organizer.Organizer", "Organizer")
+                        .WithMany("OrganizerLocalizations")
+                        .HasForeignKey("OrganizerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Language");
+
+                    b.Navigation("Organizer");
+                });
+
             modelBuilder.Entity("Qimmah.Data.System.Lookup", b =>
                 {
                     b.HasOne("Qimmah.Data.System.LookupCategory", "LookupCategory")
@@ -9369,6 +11133,36 @@ namespace Qimmah.Migrations
                     b.Navigation("Language");
                 });
 
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramCategory", b =>
+                {
+                    b.Navigation("ProgramCategoryLocalizations");
+
+                    b.Navigation("Programs");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramComponent", b =>
+                {
+                    b.Navigation("ProgramComponentLocalizations");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.ProgramGoal", b =>
+                {
+                    b.Navigation("ProgramGoalLocalizations");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Activities.Programs", b =>
+                {
+                    b.Navigation("ProgramComponents");
+
+                    b.Navigation("ProgramDescriptionLocalization");
+
+                    b.Navigation("ProgramGoals");
+
+                    b.Navigation("ProgramTitleLocalization");
+
+                    b.Navigation("Sessions");
+                });
+
             modelBuilder.Entity("Qimmah.Data.Calendar.CalendarItem", b =>
                 {
                     b.Navigation("CalendarItemLocalizations");
@@ -9389,6 +11183,11 @@ namespace Qimmah.Migrations
             modelBuilder.Entity("Qimmah.Data.Localization.DictionaryLocalization", b =>
                 {
                     b.Navigation("CompanyDictionaryLocalization");
+                });
+
+            modelBuilder.Entity("Qimmah.Data.Organizer.Organizer", b =>
+                {
+                    b.Navigation("OrganizerLocalizations");
                 });
 
             modelBuilder.Entity("Qimmah.Data.System.LookupCategory", b =>

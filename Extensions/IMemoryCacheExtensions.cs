@@ -1,4 +1,6 @@
 
+using System.Runtime.CompilerServices;
+
 using Microsoft.Extensions.Caching.Memory;
 
 using Qimmah.Data.Localization;
@@ -6,6 +8,7 @@ using Qimmah.Data.Localization;
 namespace Qimmah.Extensions;
 public static class IMemoryCacheExtensions
 {
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static string GetWord(int DictionaryID)
     {
         var httpContext = new HttpContextAccessor().HttpContext;
@@ -29,7 +32,7 @@ public static class IMemoryCacheExtensions
         return "-";
     }
 
-
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static List<Languages> GetLanguagesFromCache(this IMemoryCache memoryCache)
     {
         if (memoryCache.TryGetValue("Languages", out List<Languages> languages))
@@ -37,6 +40,16 @@ public static class IMemoryCacheExtensions
             return languages;
         }
         return new List<Languages>();
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static string GetWord(this IMemoryCache memoryCache, int LanguageID, int DictionaryID)
+    {
+        return memoryCache.TryGetValue("DictionaryLocalizationCache", out Dictionary<int, Dictionary<int, string>> allLocalizations) &&
+               allLocalizations.TryGetValue(LanguageID, out var languageDict) &&
+               languageDict.TryGetValue(DictionaryID, out string word)
+               ? word
+               : string.Empty;
     }
 
 

@@ -2,9 +2,12 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
+using Qimmah.Data.Activities;
 using Qimmah.Data.Calendar;
+using Qimmah.Data.configuration.Activities;
 using Qimmah.Data.configuration.Calendar;
 using Qimmah.Data.configuration.localization;
+using Qimmah.Data.configuration.Organizer;
 using Qimmah.Data.configuration.System;
 using Qimmah.Data.Localization;
 using Qimmah.Data.System;
@@ -27,6 +30,10 @@ namespace Qimmah.Data
         public DbSet<Timeline> Timelines { get; set; }
         public DbSet<TimelineLocalization> TimelineLocalizations { get; set; }
 
+        public DbSet<Programs> Programs { get; set; }
+        public DbSet<Qimmah.Data.Organizer.Organizer> Organizer { get; set; }
+        public DbSet<Sessions> Sessions { get; set; }
+
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -48,6 +55,8 @@ namespace Qimmah.Data
 
             new LocalizationConfigurations(builder);
             new Calendar_Configurationcs(builder);
+            new OrganizerConfiguration(builder);
+            new ProgramsConfiguration(builder);
 
             base.OnModelCreating(builder);
         }

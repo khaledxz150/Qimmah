@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Qimmah.Data.Activities;
 
 
 namespace Qimmah.Data.User
@@ -17,6 +18,7 @@ namespace Qimmah.Data.User
         [ForeignKey("LanguageID")]
         public Localization.Languages Language { get; set; }
         public ICollection<UserLocalization> UserLocalizations { get; set; }
+        public ICollection<Programs> programs { get; set; }
     }
 
     public class User_Configuration : IEntityTypeConfiguration<Users>

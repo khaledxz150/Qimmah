@@ -22,6 +22,8 @@
     <div class="nav-center">
         <a href="@Url.Action("Index","Home")" data-tab="@nameof(TabOptions.Home)" class="nav-item @(currentActiveTab == nameof(TabOptions.Home) ? "active" : "")">@Html.GetWord(112)</a>
         <a href="@Url.Action("Index","Calendar")" data-tab="@nameof(TabOptions.Calendar)" class="nav-item @(currentActiveTab == nameof(TabOptions.Calendar) ? "active" : "")">@Html.GetWord(86)</a>
+        <a href="@Url.Action("Index","Activities")" data-tab="@nameof(TabOptions.Calendar)" class="nav-item @(currentActiveTab == nameof(TabOptions.Calendar) ? "active" : "")">@Html.GetWord(235)</a>
+
         @* <a href="#" data-tab="@nameof(TabOptions.About)">@Html.GetWord(113)</a>
         <a href="#" data-tab="@nameof(TabOptions.Speakers)">@Html.GetWord(114)</a>
         <a href="#" data-tab="@nameof(TabOptions.SponsorsAndPartners)">@Html.GetWord(115)</a>
