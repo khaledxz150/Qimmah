@@ -9,6 +9,10 @@
     {
       "library": "motion.js@0.3.0",
       "destination": "wwwroot/lib/motion.js/"
+    },
+    {
+      "library": "bootstrap-icons@1.13.1",
+      "destination": "wwwroot/lib/bootstrap-icons/"
     }
   ]
 }

@@ -3,8 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
+using Qimmah.Application.Activities;
 using Qimmah.Application.Calendar;
 using Qimmah.Application.System;
+using Qimmah.Core.Activities;
 using Qimmah.Core.Calendar;
 using Qimmah.Core.System;
 using Qimmah.Data;
@@ -22,7 +24,12 @@ namespace Qimmah.Managers
         public static void InjectDB(this IServiceCollection Services, string CS)
         {
             Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(CS));
+            {
+                options.UseSqlServer(CS);
+                options.EnableSensitiveDataLogging();
+
+
+            });
 
         }
 
@@ -83,6 +90,7 @@ namespace Qimmah.Managers
         {
             Services.AddScoped<ILookupService, LookupService>();
             Services.AddScoped<ICalendarService, CalendarService>();
+            Services.AddScoped<IProgramService, ProgramService>();
 
         }
     }

@@ -26,6 +26,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="D:\WorkItems\Git\Qimmah\.editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <Using Include="Qimmah.Extensions.IHtmlHelperExtension">
@@ -49,5 +50,8 @@
     <Using Include="Qimmah.Security.SecurityExtensions">
       <Static>True</Static>
     </Using>
+  </ItemGroup>
+  <ItemGroup>
+    <EditorConfigFiles Remove="D:\WorkItems\Git\Qimmah\Models\Common\.editorconfig" />
   </ItemGroup>
 </Project>

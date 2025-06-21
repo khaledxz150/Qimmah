@@ -22,6 +22,12 @@ public class LookupsCategoryConfiguration : IEntityTypeConfiguration<LookupCateg
                 ID = LookupCategoryEnum.Cities.ToAnyType<int>(),
                 Description = "List of cities",
 
+            },
+            new LookupCategory
+            {
+                ID = 200,
+                Description = "Program Categories",
+                OrderID = 1
             }
         });
     }

@@ -1,0 +1,83 @@
+﻿<div class="live-broadcasts-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div id="liveBroadcastCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                        var program = Model[i];
+                        <div class="carousel-item @(i == 0 ? " active" : "" )">
+                            <div class="live-broadcast-card"
+                                 data-program-id="@program.ID"
+                                 data-youtube-link="@program.liveBrodcastLink">
+                                <!-- Background Image -->
+                                <div class="card-background" style="background-image: url('@program.ImageUrl');">
+                                    <div class="overlay"></div>
+                                </div>
+
+                                <!-- Live Badge -->
+                                @if (program.IsCurrentlyBroadCasting)
+                                {
+                                <div class="live-badge">
+                                    <span class="live-dot"></span>
+                                    @Html.GetWord(243) <!-- Live Broadcast -->
+                                </div>
+                                }
+
+                                <!-- Play Button -->
+                                <div class="play-button-container">
+                                    <button class="play-button" onclick="toggleYouTubePlayer('@program.liveBrodcastLink', @program.ID)">
+                                        <i class="bi bi-play-circle play-icon"></i>
+                                    </button>
+                                </div>
+
+                                <!-- YouTube Player Container (Hidden by default) -->
+                                <div class="youtube-player-container d-none" id="youtube-player-@program.ID">
+                                    <iframe class="youtube-iframe"
+                                            src=""
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowfullscreen>
+                                    </iframe>
+                                    <button class="close-button" onclick="closeYouTubePlayer(@program.ID)">
+                                        <i class="bi bi-x-circle"></i>
+                                    </button>
+                                </div>
+
+                                <!-- Content -->
+                                <div class="card-content">
+
+                                    <h3 class="program-title">@program.Title</h3>
+                                    <div class="session-datetime my-1">
+                                        @program.SessionDateTimeFormatted
+                                    </div>
+                                    <p class="program-description">@program.ShortDescription</p>
+                                </div>
+                            </div>
+                        </div>
+                        }
+                    </div>
+
+                    <!-- Carousel Indicators (Dots) -->
+                    @if (Model.Count > 1)
+                    {
+                    <div class="carousel-indicators">
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                        <button type="button"
+                                data-bs-target="#liveBroadcastCarousel"
+                                data-bs-slide-to="@i"
+                                class="@(i == 0 ? " active" : "" )"
+                                aria-current="@(i == 0 ? " true" : "false" )"
+                                aria-label="Slide @(i + 1)">
+                        </button>
+                        }
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/components/livebroadcast.js"></script>

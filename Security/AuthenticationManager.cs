@@ -26,7 +26,6 @@ public static class AuthenticationManager
         new Claim(ClaimTypes.Name, user.UserName ?? string.Empty),
         new Claim(ClaimTypes.Email, user.Email ?? string.Empty),
         new Claim("LanguageID", user.LanguageID.ToString()),
-        new Claim("ID", lstPolicyIds ?? string.Empty)
     };
 
         // Add user roles

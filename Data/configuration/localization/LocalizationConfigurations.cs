@@ -18,8 +18,8 @@ namespace Qimmah.Data.configuration.localization
             builder.Entity<Languages>(entity =>
             {
                 entity.ToTable(schema: "Localization", name: "Language");
-                entity.HasData(new Languages { ID = EnglishInt, LanguageName = EnglishString, Description = "en", Direction = Direction.ltr.ToString() });
-                entity.HasData(new Languages { ID = ArabicInt, LanguageName = "العربية", Description = "ar", Direction = Direction.rtl.ToString() });
+                entity.HasData(new Languages { ID = EnglishInt, LanguageName = EnglishString, Description = "en", Direction = Direction.ltr.ToString(), Culture = "en-US" });
+                entity.HasData(new Languages { ID = ArabicInt, LanguageName = "العربية", Description = "ar", Direction = Direction.rtl.ToString(), Culture = "ar-SA" });
             });
 
 
@@ -636,6 +636,106 @@ namespace Qimmah.Data.configuration.localization
                                 );
 
 
+                builder.Entity<DictionaryLocalization>().HasData(
+    // Jordan
+    new DictionaryLocalization { ID = 193, LanguageID = EnglishInt, Description = "Amman" }, new DictionaryLocalization { ID = 193, LanguageID = ArabicInt, Description = "عمّان" },
+    new DictionaryLocalization { ID = 194, LanguageID = EnglishInt, Description = "Irbid" }, new DictionaryLocalization { ID = 194, LanguageID = ArabicInt, Description = "إربد" },
+    new DictionaryLocalization { ID = 195, LanguageID = EnglishInt, Description = "Zarqa" }, new DictionaryLocalization { ID = 195, LanguageID = ArabicInt, Description = "الزرقاء" },
+    new DictionaryLocalization { ID = 196, LanguageID = EnglishInt, Description = "Aqaba" }, new DictionaryLocalization { ID = 196, LanguageID = ArabicInt, Description = "العقبة" },
+
+    // Palestine
+    new DictionaryLocalization { ID = 197, LanguageID = EnglishInt, Description = "Ramallah" }, new DictionaryLocalization { ID = 197, LanguageID = ArabicInt, Description = "رام الله" },
+    new DictionaryLocalization { ID = 198, LanguageID = EnglishInt, Description = "Nablus" }, new DictionaryLocalization { ID = 198, LanguageID = ArabicInt, Description = "نابلس" },
+    new DictionaryLocalization { ID = 199, LanguageID = EnglishInt, Description = "Hebron" }, new DictionaryLocalization { ID = 199, LanguageID = ArabicInt, Description = "الخليل" },
+    new DictionaryLocalization { ID = 200, LanguageID = EnglishInt, Description = "Gaza" }, new DictionaryLocalization { ID = 200, LanguageID = ArabicInt, Description = "غزة" },
+
+    // Lebanon
+    new DictionaryLocalization { ID = 201, LanguageID = EnglishInt, Description = "Beirut" }, new DictionaryLocalization { ID = 201, LanguageID = ArabicInt, Description = "بيروت" },
+    new DictionaryLocalization { ID = 202, LanguageID = EnglishInt, Description = "Tripoli" }, new DictionaryLocalization { ID = 202, LanguageID = ArabicInt, Description = "طرابلس" },
+    new DictionaryLocalization { ID = 203, LanguageID = EnglishInt, Description = "Sidon" }, new DictionaryLocalization { ID = 203, LanguageID = ArabicInt, Description = "صيدا" },
+
+    // Syria
+    new DictionaryLocalization { ID = 204, LanguageID = EnglishInt, Description = "Damascus" }, new DictionaryLocalization { ID = 204, LanguageID = ArabicInt, Description = "دمشق" },
+    new DictionaryLocalization { ID = 205, LanguageID = EnglishInt, Description = "Aleppo" }, new DictionaryLocalization { ID = 205, LanguageID = ArabicInt, Description = "حلب" },
+    new DictionaryLocalization { ID = 206, LanguageID = EnglishInt, Description = "Homs" }, new DictionaryLocalization { ID = 206, LanguageID = ArabicInt, Description = "حمص" },
+
+    // Iraq
+    new DictionaryLocalization { ID = 207, LanguageID = EnglishInt, Description = "Baghdad" }, new DictionaryLocalization { ID = 207, LanguageID = ArabicInt, Description = "بغداد" },
+    new DictionaryLocalization { ID = 208, LanguageID = EnglishInt, Description = "Basra" }, new DictionaryLocalization { ID = 208, LanguageID = ArabicInt, Description = "البصرة" },
+    new DictionaryLocalization { ID = 209, LanguageID = EnglishInt, Description = "Erbil" }, new DictionaryLocalization { ID = 209, LanguageID = ArabicInt, Description = "أربيل" },
+
+    // Saudi Arabia
+    new DictionaryLocalization { ID = 210, LanguageID = EnglishInt, Description = "Riyadh" }, new DictionaryLocalization { ID = 210, LanguageID = ArabicInt, Description = "الرياض" },
+    new DictionaryLocalization { ID = 211, LanguageID = EnglishInt, Description = "Jeddah" }, new DictionaryLocalization { ID = 211, LanguageID = ArabicInt, Description = "جدة" },
+    new DictionaryLocalization { ID = 212, LanguageID = EnglishInt, Description = "Dammam" }, new DictionaryLocalization { ID = 212, LanguageID = ArabicInt, Description = "الدمام" },
+    new DictionaryLocalization { ID = 213, LanguageID = EnglishInt, Description = "Mecca" }, new DictionaryLocalization { ID = 213, LanguageID = ArabicInt, Description = "مكة" },
+    new DictionaryLocalization { ID = 214, LanguageID = EnglishInt, Description = "Medina" }, new DictionaryLocalization { ID = 214, LanguageID = ArabicInt, Description = "المدينة المنورة" },
+
+    // Kuwait
+    new DictionaryLocalization { ID = 215, LanguageID = EnglishInt, Description = "Kuwait City" }, new DictionaryLocalization { ID = 215, LanguageID = ArabicInt, Description = "مدينة الكويت" },
+
+    // Bahrain
+    new DictionaryLocalization { ID = 216, LanguageID = EnglishInt, Description = "Manama" }, new DictionaryLocalization { ID = 216, LanguageID = ArabicInt, Description = "المنامة" },
+
+    // Qatar
+    new DictionaryLocalization { ID = 217, LanguageID = EnglishInt, Description = "Doha" }, new DictionaryLocalization { ID = 217, LanguageID = ArabicInt, Description = "الدوحة" },
+
+    // UAE
+    new DictionaryLocalization { ID = 218, LanguageID = EnglishInt, Description = "Abu Dhabi" }, new DictionaryLocalization { ID = 218, LanguageID = ArabicInt, Description = "أبو ظبي" },
+    new DictionaryLocalization { ID = 219, LanguageID = EnglishInt, Description = "Dubai" }, new DictionaryLocalization { ID = 219, LanguageID = ArabicInt, Description = "دبي" },
+    new DictionaryLocalization { ID = 220, LanguageID = EnglishInt, Description = "Sharjah" }, new DictionaryLocalization { ID = 220, LanguageID = ArabicInt, Description = "الشارقة" },
+
+    // Oman
+    new DictionaryLocalization { ID = 221, LanguageID = EnglishInt, Description = "Muscat" }, new DictionaryLocalization { ID = 221, LanguageID = ArabicInt, Description = "مسقط" },
+    new DictionaryLocalization { ID = 222, LanguageID = EnglishInt, Description = "Salalah" }, new DictionaryLocalization { ID = 222, LanguageID = ArabicInt, Description = "صلالة" },
+
+    // Yemen
+    new DictionaryLocalization { ID = 223, LanguageID = EnglishInt, Description = "Sana'a" }, new DictionaryLocalization { ID = 223, LanguageID = ArabicInt, Description = "صنعاء" },
+    new DictionaryLocalization { ID = 224, LanguageID = EnglishInt, Description = "Aden" }, new DictionaryLocalization { ID = 224, LanguageID = ArabicInt, Description = "عدن" },
+
+    // Egypt
+    new DictionaryLocalization { ID = 225, LanguageID = EnglishInt, Description = "Cairo" }, new DictionaryLocalization { ID = 225, LanguageID = ArabicInt, Description = "القاهرة" },
+    new DictionaryLocalization { ID = 226, LanguageID = EnglishInt, Description = "Alexandria" }, new DictionaryLocalization { ID = 226, LanguageID = ArabicInt, Description = "الإسكندرية" },
+    new DictionaryLocalization { ID = 227, LanguageID = EnglishInt, Description = "Giza" }, new DictionaryLocalization { ID = 227, LanguageID = ArabicInt, Description = "الجيزة" },
+
+    // Turkey
+    new DictionaryLocalization { ID = 228, LanguageID = EnglishInt, Description = "Istanbul" }, new DictionaryLocalization { ID = 228, LanguageID = ArabicInt, Description = "إسطنبول" },
+    new DictionaryLocalization { ID = 229, LanguageID = EnglishInt, Description = "Ankara" }, new DictionaryLocalization { ID = 229, LanguageID = ArabicInt, Description = "أنقرة" },
+    new DictionaryLocalization { ID = 230, LanguageID = EnglishInt, Description = "Izmir" }, new DictionaryLocalization { ID = 230, LanguageID = ArabicInt, Description = "إزمير" },
+
+    // Iran
+    new DictionaryLocalization { ID = 231, LanguageID = EnglishInt, Description = "Tehran" }, new DictionaryLocalization { ID = 231, LanguageID = ArabicInt, Description = "طهران" },
+    new DictionaryLocalization { ID = 232, LanguageID = EnglishInt, Description = "Mashhad" }, new DictionaryLocalization { ID = 232, LanguageID = ArabicInt, Description = "مشهد" },
+    new DictionaryLocalization { ID = 233, LanguageID = EnglishInt, Description = "Isfahan" }, new DictionaryLocalization { ID = 233, LanguageID = ArabicInt, Description = "أصفهان" },
+    new DictionaryLocalization { ID = 234, LanguageID = EnglishInt, Description = "Free" }, new DictionaryLocalization { ID = 234, LanguageID = ArabicInt, Description = "مجاني" },
+    new DictionaryLocalization { ID = 235, LanguageID = EnglishInt, Description = "Activities" },
+    new DictionaryLocalization { ID = 235, LanguageID = ArabicInt, Description = "الفعاليات" },
+
+    new DictionaryLocalization { ID = 236, LanguageID = EnglishInt, Description = "Activities And Programs" },
+    new DictionaryLocalization { ID = 236, LanguageID = ArabicInt, Description = "الفعاليات والبرامج" },
+
+    new DictionaryLocalization { ID = 237, LanguageID = EnglishInt, Description = "Showing {1} - {2}, We've Found {0} Activities For You" },
+    new DictionaryLocalization { ID = 237, LanguageID = ArabicInt, Description = "يتم عرض {1} – {2} ،لقد وجدنا {0}  الفعاليات متاحة لك" },
+
+    new DictionaryLocalization { ID = 238, LanguageID = EnglishInt, Description = "All Categories" },
+    new DictionaryLocalization { ID = 238, LanguageID = ArabicInt, Description = "جميع الفئات" },
+
+    new DictionaryLocalization { ID = 239, LanguageID = EnglishInt, Description = "Sort by" },
+    new DictionaryLocalization { ID = 239, LanguageID = ArabicInt, Description = "ترتيب حسب" },
+
+    new DictionaryLocalization { ID = 240, LanguageID = EnglishInt, Description = "Default" },
+    new DictionaryLocalization { ID = 240, LanguageID = ArabicInt, Description = "الافتراضي" },
+
+    new DictionaryLocalization { ID = 241, LanguageID = EnglishInt, Description = "Search" },
+    new DictionaryLocalization { ID = 241, LanguageID = ArabicInt, Description = "البحث" },
+
+    new DictionaryLocalization { ID = 242, LanguageID = EnglishInt, Description = "We found exactly {0} activities available for you" },
+    new DictionaryLocalization { ID = 242, LanguageID = ArabicInt, Description = "لقد وجدنا {0} فعاليات متاحة لك" },
+
+    new DictionaryLocalization { ID = 243, LanguageID = EnglishInt, Description = "Live Broadcast" },
+    new DictionaryLocalization { ID = 243, LanguageID = ArabicInt, Description = "البث المباشر" });
+
+
                 // Jordan
                 entity.HasData(new DictionaryLocalization { ID = 1001, LanguageID = EnglishInt, Description = "Jordan" });
                 entity.HasData(new DictionaryLocalization { ID = 1001, LanguageID = ArabicInt, Description = "الأردن" });
@@ -692,6 +792,8 @@ namespace Qimmah.Data.configuration.localization
 
                 entity.HasData(new DictionaryLocalization { ID = 1015, LanguageID = EnglishInt, Description = "Iran" });
                 entity.HasData(new DictionaryLocalization { ID = 1015, LanguageID = ArabicInt, Description = "إيران" });
+
+
 
 
 

@@ -21,5 +21,9 @@ namespace Qimmah.Data.Localization
         [Column(TypeName = "nvarchar(20)")]
         [Required]
         public string Direction { get; set; }
+
+        [Column(TypeName = "nvarchar(10)")]
+        [Required]
+        public string Culture { get; set; } // Added Culture property
     }
 }

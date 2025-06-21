@@ -102,7 +102,7 @@ namespace Qimmah.Migrations
                         column: x => x.RoleId,
                         principalSchema: "Users",
                         principalTable: "AspNetRoles",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -232,7 +232,7 @@ namespace Qimmah.Migrations
                         column: x => x.UserId,
                         principalSchema: "Users",
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -254,7 +254,7 @@ namespace Qimmah.Migrations
                         column: x => x.UserId,
                         principalSchema: "Users",
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -274,14 +274,14 @@ namespace Qimmah.Migrations
                         column: x => x.RoleId,
                         principalSchema: "Users",
                         principalTable: "AspNetRoles",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_AspNetUserRoles_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalSchema: "Users",
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -303,7 +303,7 @@ namespace Qimmah.Migrations
                         column: x => x.UserId,
                         principalSchema: "Users",
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -326,21 +326,21 @@ namespace Qimmah.Migrations
                         column: x => x.UserID,
                         principalSchema: "Users",
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Users_Localization_AspNetUsers_UsersId",
                         column: x => x.UsersId,
                         principalSchema: "Users",
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Users_Localization_AspNetUsers_UsersId1",
                         column: x => x.UsersId1,
                         principalSchema: "Users",
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Users_Localization_Language_LanguageID",
@@ -2354,7 +2354,7 @@ namespace Qimmah.Migrations
                 name: "IX_AspNetUsers_Id_LanguageID",
                 schema: "Users",
                 table: "AspNetUsers",
-                columns: new[] { "Id", "LanguageID" });
+                columns: new[] { "ID", "LanguageID" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUsers_LanguageID",

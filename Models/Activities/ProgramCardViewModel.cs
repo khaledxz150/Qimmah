@@ -1,13 +1,28 @@
-﻿namespace Qimmah.Models.Activities
+﻿
+namespace Qimmah.Models.Activities
 {
-    public class ProgramCardViewModel
+    public class ProgramCardViewModel 
     {
-        public string ImageUrl { get; set; } = "https://picsum.photos/200/300";
-        public string Type { get; set; } // "برنامج"
+        public long ID { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
-        public string PriceLabel { get; set; } // "مجاني"
-        public string Duration { get; set; } // "8h 12m"
-        public string ParticipantCount { get; set; } // "30 أعضاء"
+        public string ShortDescription { get; set; }
+        public string ImageUrl { get; set; }
+        public string liveBrodcastLink { get; set; }
+        public bool IsCurrentlyBroadCasting { get; set; }
+
+        public bool IsFree { get; set; }
+        public decimal? PriceValue { get; set; } // Store the actual price
+        public string Price => IsFree ? FreeText : PriceValue?.ToString();
+        public string FreeText { get; set; } // Set this after query execution
+        public int? DiscountPercent { get; set; }
+        public int DurationMinutes { get; set; }
+        public int ParticipantCount { get; set; }
+        public double? Rating { get; set; }
+        public int? RatingCount { get; set; }
+        public string CategoryName { get; set; }
+
+        public string SessionDateTimeFormatted { get; set; }
+        public DateTime SessionStartDateTime { get; internal set; }
+        public DateTime SessionEndDateTime { get; internal set; }
     }
 }
