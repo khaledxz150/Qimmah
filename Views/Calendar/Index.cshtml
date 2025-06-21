@@ -32,7 +32,8 @@
                                 <div class="timeline-number">@item.DayNumber</div>
                             </div>
 
-                            <a href="#" class="timeline-action" data-bs-toggle="modal" data-bs-target="#timelineModal@(item.Id)">عرض التفاصيل</a>
+                            <a href="#" class="timeline-action" data-bs-toggle="modal"
+                                data-bs-target="#timelineModal@(item.Id)">عرض التفاصيل</a>
 
                         </div>
 
@@ -47,11 +48,22 @@
 
 @await Component.InvokeAsync(nameof(Qimmah.Helpers.Components.ProgramCardComponents))
 
-<script>
-    function drawBulletConnections( modal ) {
-        const container = modal.querySelector( '.timeline-container' );
 
-        const bullets = Array.from( container.querySelectorAll( '.bullet-point' ) );
+@{
+    await Html.RenderPartialAsync("~/Views/Home/_sponsors.cshtml");
+}
+
+@{
+    await Html.RenderPartialAsync("~/Views/Home/_becomeAPartner.cshtml");
+}
+
+
+
+<script>
+    function drawBulletConnections(modal) {
+        const container = modal.querySelector('.timeline-container');
+
+        const bullets = Array.from(container.querySelectorAll('.bullet-point'));
 
         // Configurable offsets
         const startOffset = 12;
@@ -59,37 +71,37 @@
         const lineWidth = 2;
         const lineColor = '#14748e';
 
-        for ( let i = 0; i < bullets.length - 1; i++ ) {
-            const bulletA = bullets[ i ];
-            const bulletB = bullets[ i + 1 ];
+        for (let i = 0; i < bullets.length - 1; i++) {
+            const bulletA = bullets[i];
+            const bulletB = bullets[i + 1];
 
-            const aCenter = getCenterPosition( bulletA, container );
-            const bCenter = getCenterPosition( bulletB, container );
+            const aCenter = getCenterPosition(bulletA, container);
+            const bCenter = getCenterPosition(bulletB, container);
 
             const top = aCenter.y + startOffset;
             const bottom = bCenter.y - endOffset;
             const height = bottom - top;
 
-            const line = document.createElement( 'div' );
+            const line = document.createElement('div');
             line.className = 'connecting-line d-block';
-            line.style.left = `${ aCenter.x }px`;
-            line.style.top = `${ top }px`;
+            line.style.left = `${aCenter.x}px`;
+            line.style.top = `${top}px`;
             line.style.height = '0px';
-            line.style.width = `${ lineWidth }px`;
+            line.style.width = `${lineWidth}px`;
             line.style.backgroundColor = lineColor;
             line.style.position = 'absolute';
             line.style.transform = 'translateX(-50%)';
             line.style.zIndex = 1;
             line.style.transition = 'height 0.3s ease';
 
-            container.appendChild( line );
+            container.appendChild(line);
 
-            requestAnimationFrame( () => {
-                line.style.height = `${ height }px`;
-            } );
+            requestAnimationFrame(() => {
+                line.style.height = `${height}px`;
+            });
         }
 
-        function getCenterPosition( element, container ) {
+        function getCenterPosition(element, container) {
             const elRect = element.getBoundingClientRect();
             const containerRect = container.getBoundingClientRect();
 
@@ -100,23 +112,23 @@
         }
     }
 
-    document.querySelectorAll( '[id*="timelineModal"]' ).forEach( modal => {
-        const container = modal.querySelector( '.timeline-container' );
+    document.querySelectorAll('[id*="timelineModal"]').forEach(modal => {
+        const container = modal.querySelector('.timeline-container');
 
-        modal.addEventListener( 'shown.bs.modal', () => {
-            setTimeout( () => drawBulletConnections( modal ), 10 );
-        } );
+        modal.addEventListener('shown.bs.modal', () => {
+            setTimeout(() => drawBulletConnections(modal), 10);
+        });
 
-        modal.addEventListener( 'hidden.bs.modal', () => {
-            container.querySelectorAll( '.connecting-line' ).forEach( el => el.remove() );
-        } );
+        modal.addEventListener('hidden.bs.modal', () => {
+            container.querySelectorAll('.connecting-line').forEach(el => el.remove());
+        });
 
-        window.addEventListener( 'resize', () => {
-            if ( modal.classList.contains( 'show' ) ) {
-                modal.querySelectorAll( '.connecting-line' ).forEach( el => el.remove() );
+        window.addEventListener('resize', () => {
+            if (modal.classList.contains('show')) {
+                modal.querySelectorAll('.connecting-line').forEach(el => el.remove());
 
-                drawBulletConnections( modal );
+                drawBulletConnections(modal);
             }
-        } );
-    } );
+        });
+    });
 </script>

@@ -447,8 +447,44 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 125, LanguageID = EnglishInt, Description = "Please Confirm Your Password" });
                 entity.HasData(new DictionaryLocalization { ID = 125, LanguageID = ArabicInt, Description = "الرجاء تأكيد كلمة المرور" });
 
+                entity.HasData(new DictionaryLocalization
+                {
+                    ID = 126,
+                    LanguageID = EnglishInt,
+                    Description = "Be a strategic partner in the Innovation and Technology Summit 2025"
+                });
+                entity.HasData(new DictionaryLocalization
+                {
+                    ID = 126,
+                    LanguageID = ArabicInt,
+                    Description = "كن شريكًا استراتيجيًا في قمة الابتكار والتكنولوجيا 2025"
+                });
 
+                entity.HasData(new DictionaryLocalization
+                {
+                    ID = 127,
+                    LanguageID = EnglishInt,
+                    Description = "The Innovation and Technology Summit invites all leading entities – companies, universities, organizations, media or government institutions – to join as strategic partners in supporting and empowering Arab youth in digital transformation, innovation, and entrepreneurship"
+                });
+                entity.HasData(new DictionaryLocalization
+                {
+                    ID = 127,
+                    LanguageID = ArabicInt,
+                    Description = "تدعو قمة الابتكار والتكنولوجيا جميع الجهات الرائدة – شركات، جامعات، منظمات، مؤسسات إعلامية أو حكومية – إلى الانضمام كشركاء استراتيجيين في دعم وتمكين شباب الوطن العربي في التحول الرقمي، الابتكار، والريادة"
+                });
 
+                entity.HasData(new DictionaryLocalization
+                {
+                    ID = 128,
+                    LanguageID = EnglishInt,
+                    Description = "Apply now as a strategic partner"
+                });
+                entity.HasData(new DictionaryLocalization
+                {
+                    ID = 128,
+                    LanguageID = ArabicInt,
+                    Description = "قدّم الآن كشريك استراتيجي"
+                });
 
 
 
@@ -562,7 +598,7 @@ namespace Qimmah.Data.configuration.localization
                                new DictionaryLocalization { ID = 182, LanguageID = ArabicInt, Description = "عذرا، حدث خطأ غير متوقع" },
 
                                new DictionaryLocalization { ID = 183, LanguageID = EnglishInt, Description = "Have An Account?" },
-                               new DictionaryLocalization { ID = 183, LanguageID = ArabicInt, Description = "لديك حساب؟"  },
+                               new DictionaryLocalization { ID = 183, LanguageID = ArabicInt, Description = "لديك حساب؟" },
 
                                new DictionaryLocalization { ID = 184, LanguageID = EnglishInt, Description = "Login Now" },
                                new DictionaryLocalization { ID = 184, LanguageID = ArabicInt, Description = "سجل الدخول الآن" },
@@ -570,7 +606,7 @@ namespace Qimmah.Data.configuration.localization
                                 // "You don't have an account?"
                                 new DictionaryLocalization { ID = 185, LanguageID = EnglishInt, Description = "Don't have an account?" },
                                 new DictionaryLocalization { ID = 185, LanguageID = ArabicInt, Description = "ليس لديك حساب؟" },
-                                
+
                                 // "Register Now"
                                 new DictionaryLocalization { ID = 186, LanguageID = EnglishInt, Description = "Register Now" },
                                 new DictionaryLocalization { ID = 186, LanguageID = ArabicInt, Description = "سجل الآن" },
@@ -587,10 +623,10 @@ namespace Qimmah.Data.configuration.localization
 
                                 new DictionaryLocalization { ID = 189, LanguageID = EnglishInt, Description = "Please Enter Your Email Address" },
                                 new DictionaryLocalization { ID = 189, LanguageID = ArabicInt, Description = "أدخل بريدك الإلكتروني" },
-                                     
+
                                 new DictionaryLocalization { ID = 190, LanguageID = EnglishInt, Description = "Subscribe" },
                                 new DictionaryLocalization { ID = 190, LanguageID = ArabicInt, Description = "اشتراك" },
-                                 
+
                                 new DictionaryLocalization { ID = 191, LanguageID = EnglishInt, Description = "LogOut" },
                                 new DictionaryLocalization { ID = 191, LanguageID = ArabicInt, Description = "تسجيل الخروج" },
 

@@ -8061,6 +8061,42 @@ namespace Qimmah.Migrations
                         },
                         new
                         {
+                            ID = 126,
+                            LanguageID = 1,
+                            Description = "Be a strategic partner in the Innovation and Technology Summit 2025"
+                        },
+                        new
+                        {
+                            ID = 126,
+                            LanguageID = 2,
+                            Description = "كن شريكًا استراتيجيًا في قمة الابتكار والتكنولوجيا 2025"
+                        },
+                        new
+                        {
+                            ID = 127,
+                            LanguageID = 1,
+                            Description = "The Innovation and Technology Summit invites all leading entities – companies, universities, organizations, media or government institutions – to join as strategic partners in supporting and empowering Arab youth in digital transformation, innovation, and entrepreneurship"
+                        },
+                        new
+                        {
+                            ID = 127,
+                            LanguageID = 2,
+                            Description = "تدعو قمة الابتكار والتكنولوجيا جميع الجهات الرائدة – شركات، جامعات، منظمات، مؤسسات إعلامية أو حكومية – إلى الانضمام كشركاء استراتيجيين في دعم وتمكين شباب الوطن العربي في التحول الرقمي، الابتكار، والريادة"
+                        },
+                        new
+                        {
+                            ID = 128,
+                            LanguageID = 1,
+                            Description = "Apply now as a strategic partner"
+                        },
+                        new
+                        {
+                            ID = 128,
+                            LanguageID = 2,
+                            Description = "قدّم الآن كشريك استراتيجي"
+                        },
+                        new
+                        {
                             ID = 150,
                             LanguageID = 1,
                             Description = "Password does not meet security requirements"

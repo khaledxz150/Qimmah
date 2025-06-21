@@ -1,0 +1,23 @@
+.becomeAPartner-svg-background-box {
+    position: absolute;
+    top: -20px;
+    right: -50px;
+    width: 150%;
+    height: auto;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .becomeAPartner-svg-background-box {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .container.position-relative {
+        overflow: visible;
+        min-height: auto;
+    }
+}
