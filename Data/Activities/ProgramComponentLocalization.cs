@@ -14,7 +14,5 @@ namespace Qimmah.Data.Activities
         [ForeignKey(nameof(ProgramComponentID))]
         public ProgramComponent ProgramComponent { get; set; }
 
-        [Required, MaxLength(300)]
-        public string ComponentText { get; set; }
     }
 }

@@ -44,6 +44,8 @@ namespace Qimmah.Data.Activities
         public ICollection<ProgramGoal> ProgramGoals { get; set; }
         public ICollection<ProgramComponent> ProgramComponents { get; set; }
         public ICollection<Sessions> Sessions { get; set; } // Added Sessions navigation
+
+        public ICollection<ProgramRating> ProgramRatings { get; set; }
         public bool IsCurrentlyBroadCasting { get;  set; }
         public ICollection<Users> Users { get; set; }
     }

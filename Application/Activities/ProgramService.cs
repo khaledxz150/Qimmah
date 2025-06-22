@@ -71,7 +71,7 @@ namespace Qimmah.Application.Activities
             // Project to view model
             var projectedQuery = query.Select(p => new ProgramCardViewModel
             {
-                ID = p.ID,
+                Code = p.ID.Encrypt(),
                 Title = p.ProgramTitleLocalization
                     .Where(l => l.LanguageID == _currentLanguageId)
                     .Select(l => l.Description)
@@ -87,7 +87,7 @@ namespace Qimmah.Application.Activities
                 DiscountPercent = p.DiscountPercent,
                 DurationMinutes = p.DurationMinutes,
                 ParticipantCount = p.ParticipantCount,
-                Rating = p.Rating,
+                Rating = p.Rating, 
                 RatingCount = p.RatingCount,
                 FreeText = localization,
                 CategoryName = p.ProgramCategory.ProgramCategoryLocalizations
@@ -149,7 +149,7 @@ namespace Qimmah.Application.Activities
                     .Where(s => s.IsActive && s.IsCurrentlyBroadcasting)
                     .Select(s => new ProgramCardViewModel
                     {
-                        ID = p.ID,
+                        Code = p.ID.Encrypt(),
                         Title = p.ProgramTitleLocalization
                             .Where(l => l.LanguageID == _currentLanguageId)
                             .Select(l => l.Description)
@@ -193,6 +193,10 @@ namespace Qimmah.Application.Activities
 
         public async Task<ProgramDetailsViewModel> GetProgramDetailsAsync(long programId)
         {
+            var freeText = _memoryCache.GetWord(_currentLanguageId, 253); // "Watch Here"
+            var currentLanguage = await _context.Languages
+              .Where(l => l.ID == _currentLanguageId)
+              .FirstOrDefaultAsync();
             var program = await _context.Programs
                 .Where(p => p.ID == programId && p.IsActive)
                 .Select(p => new ProgramDetailsViewModel
@@ -224,15 +228,22 @@ namespace Qimmah.Application.Activities
                     Goals = p.ProgramGoals
                         .SelectMany(g => g.ProgramGoalLocalizations
                             .Where(gl => gl.LanguageID == _currentLanguageId)
-                            .Select(gl => gl.GoalText))
+                            .Select(gl => gl.Description))
                         .ToList(),
                     Components = p.ProgramComponents
                         .SelectMany(c => c.ProgramComponentLocalizations
                             .Where(cl => cl.LanguageID == _currentLanguageId)
-                            .Select(cl => cl.ComponentText))
-                        .ToList()
+                            .Select(cl => cl.Description))
+                        .ToList(),
+                    SessionsOriginal = p.Sessions.Select(x=>x).ToList()
                 })
                 .FirstOrDefaultAsync();
+
+            foreach (var x in program.SessionsOriginal)
+            {
+
+                program.Sessions.Add($"{FormatSessionDateTimeV2(x.StartDateTime, x.EndDateTime, currentLanguage.Culture)}  {$"{(x.LiveBroadcastLink != null && x.IsActive == true && x.IsCurrentlyBroadcasting == false ? $"<a href='{x.LiveBroadcastLink}' class='btn btn-primary p-3 ms-3' target='_blank'>{freeText}</a>" : "")}"}");
+            }
 
             return program;
         }
@@ -268,6 +279,42 @@ namespace Qimmah.Application.Activities
                 string amPm = endDateTime.Hour >= 12 ? "مساءً" : "صباحاً";
 
                 return $"{dayName} {day} {month} {year} {startTime} - {endTime} {amPm}";
+            }
+            else
+            {
+                // English formatting - EXACT format: "Sunday 17 August 2025 10:00 - 12:00 PM"
+                string dayName = startDateTime.ToString("dddd", cultureInfo);
+                string day = startDateTime.Day.ToString();
+                string month = startDateTime.ToString("MMMM", cultureInfo);
+                string year = startDateTime.Year.ToString();
+                string startTime = startDateTime.ToString("HH:mm");
+                string endTime = endDateTime.ToString("HH:mm");
+
+                // English AM/PM
+                string amPm = endDateTime.Hour >= 12 ? "PM" : "AM";
+
+                return $"{dayName} {day} {month} {year} {startTime} - {endTime} {amPm}";
+            }
+        }
+
+        private string FormatSessionDateTimeV2(DateTime startDateTime, DateTime endDateTime, string culture)
+        {
+            var cultureInfo = new CultureInfo(culture);
+
+            if (culture.StartsWith("ar"))
+            {
+                // Arabic formatting - EXACT format: "الأحد 17 أغسطس 2025 10:00 - 12:00 مساءً"
+                string dayName = startDateTime.ToString("dddd", cultureInfo);
+                string day = startDateTime.Day.ToString();
+                string month = startDateTime.ToString("MMMM", cultureInfo);
+                string year = startDateTime.Year.ToString();
+                string startTime = startDateTime.ToString("HH:mm");
+                string endTime = endDateTime.ToString("HH:mm");
+
+                // Arabic AM/PM
+                string amPm = endDateTime.Hour >= 12 ? "مساءً" : "صباحاً";
+
+                return $"{dayName} {day} {month} {year} - {startTime} - {endTime} {amPm}";
             }
             else
             {

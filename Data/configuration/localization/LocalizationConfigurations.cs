@@ -745,7 +745,34 @@ namespace Qimmah.Data.configuration.localization
     new DictionaryLocalization { ID = 246, LanguageID = ArabicInt, Description = "لا يجود بيانات" },
 
     new DictionaryLocalization { ID = 247, LanguageID = EnglishInt, Description = "Developed By Coderz For Development And Training" },
-    new DictionaryLocalization { ID = 247, LanguageID = ArabicInt, Description = "تم التطوير من قبل كودرز للبرمجه والتدريب" }
+    new DictionaryLocalization { ID = 247, LanguageID = ArabicInt, Description = "تم التطوير من قبل كودرز للبرمجه والتدريب" },
+
+    new DictionaryLocalization { ID = 248, LanguageID = EnglishInt, Description = "By" },
+    new DictionaryLocalization { ID = 248, LanguageID = ArabicInt, Description = "بواسطة" },
+    
+    new DictionaryLocalization { ID = 249, LanguageID = EnglishInt, Description = "Category" },
+    new DictionaryLocalization { ID = 249, LanguageID = ArabicInt, Description = "فئة" },
+    
+    new DictionaryLocalization { ID = 250, LanguageID = EnglishInt, Description = "Reviews" },
+    new DictionaryLocalization { ID = 250, LanguageID = ArabicInt, Description = "مراجعة" },
+    
+    new DictionaryLocalization { ID = 251, LanguageID = EnglishInt, Description = "Rating" },
+    new DictionaryLocalization { ID = 251, LanguageID = ArabicInt, Description = "تقييم" },
+
+    new DictionaryLocalization { ID = 252, LanguageID = EnglishInt, Description = "Description" },
+    new DictionaryLocalization { ID = 252, LanguageID = ArabicInt, Description = "وصف" },
+    
+    new DictionaryLocalization { ID = 253, LanguageID = EnglishInt, Description = "Watch" },
+    new DictionaryLocalization { ID = 253, LanguageID = ArabicInt, Description = "شاهد" },
+    
+    new DictionaryLocalization { ID = 254, LanguageID = EnglishInt, Description = "Event Goals" },
+    new DictionaryLocalization { ID = 254, LanguageID = ArabicInt, Description = "أهداف الفعالية" },
+    
+    new DictionaryLocalization { ID = 255, LanguageID = EnglishInt, Description = "Event Components" },
+    new DictionaryLocalization { ID = 255, LanguageID = ArabicInt, Description = "مكونات الفعالية" },
+
+      new DictionaryLocalization { ID = 256, LanguageID = EnglishInt, Description = "Sessions" },
+    new DictionaryLocalization { ID = 256, LanguageID = ArabicInt, Description = "الجلسات" }
     );
 
 

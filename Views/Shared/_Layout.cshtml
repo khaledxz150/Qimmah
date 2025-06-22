@@ -47,17 +47,80 @@
         await Html.RenderPartialAsync("../Shared/CommonViews/Footer.cshtml");
     }
     @*  <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - Qimmah - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer> *@
+            <div class="container">
+                &copy; 2025 - Qimmah - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer> *@
     <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/Helpers/AjaxHelpers.js" asp-append-version="true"></script>
     <script src="~/lib/select2/js/select2.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
 
+function initTextOverflow() {
+    const textContainers = document.querySelectorAll( '.text-container' );
+
+    textContainers.forEach( container => {
+        const textContent = container.querySelector( '.text-content' );
+        const showMoreBtn = container.querySelector( '.show-more-btn' );
+
+        if ( !textContent || !showMoreBtn ) return;
+
+        // Check if text overflows
+        function checkOverflow() {
+
+            const computedStyle = window.getComputedStyle( textContent );
+            const maxHeight = parseFloat( computedStyle.maxHeight );
+            const actualHeight = textContent.scrollHeight;
+
+            console.log( `Container: ${ textContent.dataset.textId }` );
+            console.log( `Max height: ${ maxHeight }px` );
+            console.log( `Actual height: ${ actualHeight }px` );
+            console.log( `Overflow: ${ actualHeight > maxHeight }` );
+
+            if ( actualHeight > maxHeight && !textContent.classList.contains( 'expanded' ) ) {
+                showMoreBtn.style.display = 'block';
+            } else if ( !textContent.classList.contains( 'expanded' ) ) {
+                showMoreBtn.style.display = 'none';
+            }
+        }
+
+        // Initial check after a small delay to ensure DOM is fully loaded
+        setTimeout( () => {
+            checkOverflow();
+        }, 100 );
+
+        // Recheck on window resize
+        window.addEventListener( 'resize', checkOverflow );
+
+        // Handle show more button click
+        showMoreBtn.addEventListener( 'click', function () {
+            const isExpanded = textContent.classList.contains( 'expanded' );
+
+            if ( isExpanded ) {
+                // Collapse: Animate max-height to collapsed value
+                textContent.style.maxHeight = `${ textContent.scrollHeight }px`; // Set current height
+                requestAnimationFrame( () => {
+                    textContent.style.maxHeight = '11rem'; // Collapse target
+                } );
+
+                textContent.classList.remove( 'expanded' );
+                showMoreBtn.textContent = '@Html.Raw(Html.GetWord(99))';
+            } else {
+                // Expand: Animate to scrollHeight
+                const fullHeight = textContent.scrollHeight;
+                textContent.style.maxHeight = `${ fullHeight }px`;
+                textContent.classList.add( 'expanded' );
+                showMoreBtn.textContent = '@Html.Raw(Html.GetWord(110))';
+            }
+        } );
+    } );
+}
+    </script>
 </body>
+
+
 
 </html>

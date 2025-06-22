@@ -14,7 +14,5 @@ namespace Qimmah.Data.Activities
         [ForeignKey(nameof(ProgramGoalID))]
         public ProgramGoal ProgramGoal { get; set; }
 
-        [Required, MaxLength(300)]
-        public string GoalText { get; set; }
     }
 }

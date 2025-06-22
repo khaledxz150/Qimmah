@@ -3,7 +3,7 @@ namespace Qimmah.Models.Activities
 {
     public class ProgramCardViewModel
     {
-        public long ID { get; set; }
+        public string Code { get; set; }
         public string Title { get; set; }
         public string ShortDescription { get; set; }
         public string ImageUrl { get; set; }

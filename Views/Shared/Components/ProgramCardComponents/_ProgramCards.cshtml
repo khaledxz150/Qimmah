@@ -11,7 +11,7 @@
             {
                 @foreach (var program in Model)
                 {
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6 cursor-pointer"  onclick="window.location.href='@Url.ActionLink("ProgramDetails","Activities", new {ProgramCode = program.Code})'">
                         <div class="program-card">
                             <div class="card-image">
                                 <img src="@program.ImageUrl" alt="@program.Title" class="img-fluid">

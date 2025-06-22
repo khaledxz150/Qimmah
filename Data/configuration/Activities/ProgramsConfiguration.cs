@@ -154,6 +154,64 @@ namespace Qimmah.Data.configuration.Activities
                     Description = "برمج. ابتكر. انطلق.\" ليست مجرد فعالية تقنية، بل منصة متكاملة تُطلق العنان لإبداع الشباب، وتمنحهم فرصة حقيقية للانتقال من مجرد أفكار إلى مشاريع واقعية ذات أثر.\r\n\r\n يعيش المشاركون تجربة فريدة تجمع بين التعلم العملي، والتفكير التصميمي، والعمل الجماعي، ضمن بيئة تفاعلية تحفّز الابتكار وتحتضن الموهبة. سواء كنت مبتدئًا في البرمجة أو مطورًا يسعى للارتقاء بمهاراته، ستجد في هذه الفعالية محتوى يناسبك، وورشًا تُشعل شغفك، وفرصًا لصقل مشروعك."
                 }
             );
+
+            // Seed Program Goals
+            builder.Entity<ProgramGoal>().HasData(
+                new ProgramGoal { Id = 1, ProgramId = 1 },
+                new ProgramGoal { Id = 2, ProgramId = 1 },
+                new ProgramGoal { Id = 3, ProgramId = 1 },
+                new ProgramGoal { Id = 4, ProgramId = 1 },
+                new ProgramGoal { Id = 5, ProgramId = 1 },
+                new ProgramGoal { Id = 6, ProgramId = 1 },
+                new ProgramGoal { Id = 7, ProgramId = 1 },
+                new ProgramGoal { Id = 8, ProgramId = 1 }
+            );
+
+            builder.Entity<ProgramGoalLocalization>().HasData(
+                // 1
+                new ProgramGoalLocalization { ProgramGoalID = 1, LanguageID = 1, Description = "Enable participants in programming basics" },
+                new ProgramGoalLocalization { ProgramGoalID = 1, LanguageID = 2, Description = "تمكين المشاركين من أساسيات البرمجة" },
+                // 2
+                new ProgramGoalLocalization { ProgramGoalID = 2, LanguageID = 1, Description = "Foster innovation in technical solutions" },
+                new ProgramGoalLocalization { ProgramGoalID = 2, LanguageID = 2, Description = "تعزيز الابتكار في الحلول التقنية" },
+                // 3
+                new ProgramGoalLocalization { ProgramGoalID = 3, LanguageID = 1, Description = "Encourage teamwork and competition" },
+                new ProgramGoalLocalization { ProgramGoalID = 3, LanguageID = 2, Description = "تحفيز روح العمل الجماعي والمنافسة" },
+                // 4
+                new ProgramGoalLocalization { ProgramGoalID = 4, LanguageID = 1, Description = "Connect participants with industry experts and mentors" },
+                new ProgramGoalLocalization { ProgramGoalID = 4, LanguageID = 2, Description = "ربط المشاركين بأهل الصناعة والمستشارين" },
+                // 5 (repeat of 2)
+                new ProgramGoalLocalization { ProgramGoalID = 5, LanguageID = 1, Description = "Foster innovation in technical solutions" },
+                new ProgramGoalLocalization { ProgramGoalID = 5, LanguageID = 2, Description = "تعزيز الابتكار في الحلول التقنية" },
+                // 6 (repeat of 3)
+                new ProgramGoalLocalization { ProgramGoalID = 6, LanguageID = 1, Description = "Encourage teamwork and competition" },
+                new ProgramGoalLocalization { ProgramGoalID = 6, LanguageID = 2, Description = "تحفيز روح العمل الجماعي والمنافسة" },
+                // 7 (repeat of 4)
+                new ProgramGoalLocalization { ProgramGoalID = 7, LanguageID = 1, Description = "Connect participants with industry experts and mentors" },
+                new ProgramGoalLocalization { ProgramGoalID = 7, LanguageID = 2, Description = "ربط المشاركين بأهل الصناعة والمستشارين" },
+                // 8 (repeat of 1)
+                new ProgramGoalLocalization { ProgramGoalID = 8, LanguageID = 1, Description = "Enable participants in programming basics" },
+                new ProgramGoalLocalization { ProgramGoalID = 8, LanguageID = 2, Description = "تمكين المشاركين من أساسيات البرمجة" }
+            );
+
+            // Seed Program Components
+            builder.Entity<ProgramComponent>().HasData(
+                new ProgramComponent { Id = 1, ProgramId = 1 },
+                new ProgramComponent { Id = 2, ProgramId = 1 },
+                new ProgramComponent { Id = 3, ProgramId = 1 }
+            );
+
+            builder.Entity<ProgramComponentLocalization>().HasData(
+                // Component 1
+                new ProgramComponentLocalization { ProgramComponentID = 1, LanguageID = 1, Description = "Training sessions and workshops for programming languages, UI design, and startup tools" },
+                new ProgramComponentLocalization { ProgramComponentID = 1, LanguageID = 2, Description = "جلسات تدريبية وورشات عمل لتعليم لغات برمجة، تصميم واجهات، وأدوات تطوير المشاريع الناشئة" },
+                // Component 2
+                new ProgramComponentLocalization { ProgramComponentID = 2, LanguageID = 1, Description = "Multi-day tech competition for creative solutions in teams, with prizes for top three" },
+                new ProgramComponentLocalization { ProgramComponentID = 2, LanguageID = 2, Description = "مسابقة تقنية تمتد لعدة أيام لتطوير حلول تقنية إبداعية ضمن فرق، مع جوائز للمراكز الثلاثة الأولى" },
+                // Component 3
+                new ProgramComponentLocalization { ProgramComponentID = 3, LanguageID = 1, Description = "Building collaborative project platforms and interaction with visitors and mentors" },
+                new ProgramComponentLocalization { ProgramComponentID = 3, LanguageID = 2, Description = "بناء منصات المشاريع المشتركة والتفاعل مع الزوار والمستشارين" }
+            );
         }
     }
 }

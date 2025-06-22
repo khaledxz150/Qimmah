@@ -78,7 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
       // Set the value
       el.value = lang;
     }
-  });
+  } );
+
+
+    initTextOverflow()
 });
 
 function setCookie(name, value, days) {

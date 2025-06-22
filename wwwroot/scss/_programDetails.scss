@@ -1,0 +1,145 @@
+﻿.program-details-page {
+    @extend .container-fluid;
+    @extend .p-0;
+
+    .program-details-img-wrapper {
+        position: relative;
+        width: 100%; // Fixed width
+        max-width: 100%;
+        height: 31.875rem; // Fixed height
+        min-height: 31.875rem;
+        max-height: 31.875rem;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient( to right, rgba(#0F172A, 1), rgba(#0F172A, 0.2) );
+        }
+
+        .program-details-img {
+            width: 100%;
+            max-width: 100%;
+            height: 31.875rem;
+            min-height: 31.875rem;
+            max-height: 31.875rem;
+            object-fit: cover;
+            display: block;
+        }
+
+        .program-details-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+            color: #fff;
+            max-width: 65rem;
+            z-index: 2;
+        }
+
+        .program-details-organizer-wrapper {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            gap: 2rem;
+            display: flex;
+            align-items: center;
+            z-index: 3;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+            .organizer-img {
+                width: 4.5rem;
+                height: 4.5rem;
+                border-radius: 50%;
+                border: 3px solid #fff;
+                object-fit: cover;
+                margin-right: 1rem;
+            }
+
+            .organizer-info {
+                color: #fff;
+                font-size: 1.1rem;
+                line-height: 1.3;
+            }
+        }
+    }
+}
+
+
+.rating-display {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    color: #fff;
+    font-size: 1.5rem;
+    gap: 0.1rem;
+}
+
+.rating-value {
+    font-weight: 400;
+}
+
+.rating-count {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-right: 0.4rem;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.star {
+    color: #ffc285;
+    font-size: 2rem;
+    margin-left: 0.1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.star.empty {
+    opacity: 0.3;
+}
+
+// For partial stars (if you use them)
+.star-partial {
+    position: relative;
+    display: inline-block;
+    width: 2rem;
+    height: 3rem;
+
+    .star-fill {
+        color: #ffc285;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 0;
+        z-index: 2;
+    }
+
+    .star-empty {
+        color: #ffc285;
+        opacity: 0.3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+}

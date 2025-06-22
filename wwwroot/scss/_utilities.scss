@@ -103,7 +103,9 @@ $spacers: map-merge($default-spacers, $custom-spacers);
     position: absolute;
     bottom: 20px;
 }
-
+.cursor-pointer{
+    cursor:pointer;
+}
 
 //border
 .border-color-white {
@@ -124,3 +126,10 @@ $spacers: map-merge($default-spacers, $custom-spacers);
     filter: drop-shadow(rgba(0, 170, 139, 0.9) 0px 0px 100.56577px);
 }
 
+//Lists
+.list-marker-color-main {
+    li::marker {
+        color: $primary;    
+        font-size: 1.2em;
+    }
+}

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qimmah.Data;
 
@@ -11,9 +12,11 @@ using Qimmah.Data;
 namespace Qimmah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250622191150_updatedLocal3")]
+    partial class updatedLocal3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -253,23 +256,6 @@ namespace Qimmah.Migrations
                     b.HasIndex("ProgramId");
 
                     b.ToTable("ProgramComponents", "Activities");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            ProgramId = 1L
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            ProgramId = 1L
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            ProgramId = 1L
-                        });
                 });
 
             modelBuilder.Entity("Qimmah.Data.Activities.ProgramComponentLocalization", b =>
@@ -280,6 +266,11 @@ namespace Qimmah.Migrations
                     b.Property<int>("LanguageID")
                         .HasColumnType("int");
 
+                    b.Property<string>("ComponentText")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -289,44 +280,6 @@ namespace Qimmah.Migrations
                     b.HasIndex("LanguageID");
 
                     b.ToTable("ProgramComponents_Localization", "Activities");
-
-                    b.HasData(
-                        new
-                        {
-                            ProgramComponentID = 1L,
-                            LanguageID = 1,
-                            Description = "Training sessions and workshops for programming languages, UI design, and startup tools"
-                        },
-                        new
-                        {
-                            ProgramComponentID = 1L,
-                            LanguageID = 2,
-                            Description = "جلسات تدريبية وورشات عمل لتعليم لغات برمجة، تصميم واجهات، وأدوات تطوير المشاريع الناشئة"
-                        },
-                        new
-                        {
-                            ProgramComponentID = 2L,
-                            LanguageID = 1,
-                            Description = "Multi-day tech competition for creative solutions in teams, with prizes for top three"
-                        },
-                        new
-                        {
-                            ProgramComponentID = 2L,
-                            LanguageID = 2,
-                            Description = "مسابقة تقنية تمتد لعدة أيام لتطوير حلول تقنية إبداعية ضمن فرق، مع جوائز للمراكز الثلاثة الأولى"
-                        },
-                        new
-                        {
-                            ProgramComponentID = 3L,
-                            LanguageID = 1,
-                            Description = "Building collaborative project platforms and interaction with visitors and mentors"
-                        },
-                        new
-                        {
-                            ProgramComponentID = 3L,
-                            LanguageID = 2,
-                            Description = "بناء منصات المشاريع المشتركة والتفاعل مع الزوار والمستشارين"
-                        });
                 });
 
             modelBuilder.Entity("Qimmah.Data.Activities.ProgramDescriptionLocalization", b =>
@@ -372,48 +325,6 @@ namespace Qimmah.Migrations
                     b.HasIndex("ProgramId");
 
                     b.ToTable("ProgramGoals", "Activities");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            ProgramId = 1L
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            ProgramId = 1L
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            ProgramId = 1L
-                        },
-                        new
-                        {
-                            Id = 4L,
-                            ProgramId = 1L
-                        },
-                        new
-                        {
-                            Id = 5L,
-                            ProgramId = 1L
-                        },
-                        new
-                        {
-                            Id = 6L,
-                            ProgramId = 1L
-                        },
-                        new
-                        {
-                            Id = 7L,
-                            ProgramId = 1L
-                        },
-                        new
-                        {
-                            Id = 8L,
-                            ProgramId = 1L
-                        });
                 });
 
             modelBuilder.Entity("Qimmah.Data.Activities.ProgramGoalLocalization", b =>
@@ -428,109 +339,16 @@ namespace Qimmah.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("GoalText")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
                     b.HasKey("ProgramGoalID", "LanguageID");
 
                     b.HasIndex("LanguageID");
 
                     b.ToTable("ProgramGoals_Localization", "Activities");
-
-                    b.HasData(
-                        new
-                        {
-                            ProgramGoalID = 1L,
-                            LanguageID = 1,
-                            Description = "Enable participants in programming basics"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 1L,
-                            LanguageID = 2,
-                            Description = "تمكين المشاركين من أساسيات البرمجة"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 2L,
-                            LanguageID = 1,
-                            Description = "Foster innovation in technical solutions"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 2L,
-                            LanguageID = 2,
-                            Description = "تعزيز الابتكار في الحلول التقنية"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 3L,
-                            LanguageID = 1,
-                            Description = "Encourage teamwork and competition"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 3L,
-                            LanguageID = 2,
-                            Description = "تحفيز روح العمل الجماعي والمنافسة"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 4L,
-                            LanguageID = 1,
-                            Description = "Connect participants with industry experts and mentors"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 4L,
-                            LanguageID = 2,
-                            Description = "ربط المشاركين بأهل الصناعة والمستشارين"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 5L,
-                            LanguageID = 1,
-                            Description = "Foster innovation in technical solutions"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 5L,
-                            LanguageID = 2,
-                            Description = "تعزيز الابتكار في الحلول التقنية"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 6L,
-                            LanguageID = 1,
-                            Description = "Encourage teamwork and competition"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 6L,
-                            LanguageID = 2,
-                            Description = "تحفيز روح العمل الجماعي والمنافسة"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 7L,
-                            LanguageID = 1,
-                            Description = "Connect participants with industry experts and mentors"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 7L,
-                            LanguageID = 2,
-                            Description = "ربط المشاركين بأهل الصناعة والمستشارين"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 8L,
-                            LanguageID = 1,
-                            Description = "Enable participants in programming basics"
-                        },
-                        new
-                        {
-                            ProgramGoalID = 8L,
-                            LanguageID = 2,
-                            Description = "تمكين المشاركين من أساسيات البرمجة"
-                        });
                 });
 
             modelBuilder.Entity("Qimmah.Data.Activities.ProgramRating", b =>
@@ -9990,13 +9808,13 @@ namespace Qimmah.Migrations
                         {
                             ID = 253,
                             LanguageID = 1,
-                            Description = "Watch"
+                            Description = "Read more"
                         },
                         new
                         {
                             ID = 253,
                             LanguageID = 2,
-                            Description = "شاهد"
+                            Description = "اقرأ المزيد"
                         },
                         new
                         {
@@ -10021,18 +9839,6 @@ namespace Qimmah.Migrations
                             ID = 255,
                             LanguageID = 2,
                             Description = "مكونات الفعالية"
-                        },
-                        new
-                        {
-                            ID = 256,
-                            LanguageID = 1,
-                            Description = "Sessions"
-                        },
-                        new
-                        {
-                            ID = 256,
-                            LanguageID = 2,
-                            Description = "الجلسات"
                         },
                         new
                         {

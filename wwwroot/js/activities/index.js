@@ -40,7 +40,7 @@ function loadPrograms(page = 1) {
                         // Step 3: Then render cards
                         renderProgramCards();
                     },
-                    error: function () {
+                    error: function (data) {
                         $('.pagination-container').html(`<div class="alert alert-warning">${window.AppLocalization.errorMessage}</div>`);
                         renderProgramCards(); // Still try to render cards
                     }

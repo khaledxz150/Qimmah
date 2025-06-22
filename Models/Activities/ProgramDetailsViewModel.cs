@@ -1,4 +1,5 @@
-﻿using Qimmah.Data.Base;
+﻿using Qimmah.Data.Activities;
+using Qimmah.Data.Base;
 
 namespace Qimmah.Models.Activities
 {
@@ -26,6 +27,9 @@ namespace Qimmah.Models.Activities
         public List<string> Components { get; set; }
         public string OrganizerName { get; set; }
         public string? OrganizerImage { get; set; }
+        public List<Sessions> SessionsOriginal { get;  set; }
+
+        public List<string> Sessions { get; set; } = new List<string>();
     }
 
     public class ProgramTitleDescriptionDTO

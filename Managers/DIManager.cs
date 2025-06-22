@@ -91,6 +91,7 @@ namespace Qimmah.Managers
             Services.AddScoped<ILookupService, LookupService>();
             Services.AddScoped<ICalendarService, CalendarService>();
             Services.AddScoped<IProgramService, ProgramService>();
+            Services.AddScoped<IProgramRatingService, ProgramRatingService>();
 
         }
     }

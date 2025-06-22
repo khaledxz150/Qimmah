@@ -1,0 +1,92 @@
+﻿@model Qimmah.Models.Activities.ProgramDetailsViewModel
+<div class="program-details-page">
+    <div class="program-details-img-wrapper">
+        <img class="program-details-img" src="@Model.ImageUrl" />
+        <div class="program-details-text">
+            <h2 class="my-4">@Model.Title</h2>
+            <p class="my-4 font-color-white">@Model.ShortDescription</p>
+        </div>
+        <div class="program-details-organizer-wrapper">
+            <img src="@Model.OrganizerImage" class="organizer-img" />
+            <div class="mb-2">
+                <div class="mb-2 fs-125-rem ">@Html.GetWord(248)</div>
+                <div>@Model.OrganizerName</div>
+            </div>
+            <div class="mb-2">
+                <div class="mb-2 fs-125-rem">@Html.GetWord(249)</div>
+                <div>@Model.CategoryName</div>
+            </div>
+            <div>
+                <div class=" fs-125-rem">@Html.GetWord(250)</div>
+                @Html.RatingDisplay(Model.Rating.Value, Model.RatingCount.Value.ToString(), @Html.GetWord(251))
+            </div>
+        </div>
+    </div>
+    <div class="row flex-column g-5">
+        <div class="col-md-6 text-align-start">
+
+            <div class="text-container my-5 text-align-start">
+                <h3 class="font-weight-bold mb-4 font-color-black">@Html.GetWord(252) <!-- أهداف الفعالية --></h3>
+
+                <div class="text-content text-secondary text-align-start" data-text-id="description">
+                    <p class="fs-125-rem text-align-start">
+                        @Html.Raw(Model.Description)
+                    </p>
+                </div>
+                <a class="read-more show-more-btn" data-target="description" style="display: none;">
+                    @Html.GetWord(99) <!-- "Read more" -->
+                </a>
+            </div>
+            <div class="my-5">
+                <h3 class="font-weight-bold mb-4 font-color-black">@Html.GetWord(254) <!-- أهداف الفعالية --></h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            @foreach (var goal in Model.Goals.Take((Model.Goals.Count + 1) / 2))
+                            {
+                                <li class="mb-3 d-flex align-items-center font-color-black">
+                                    <i class="bi bi-check-circle-fill me-2 font-color-main"></i>
+                                    <span>@goal</span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            @foreach (var goal in Model.Goals.Skip((Model.Goals.Count + 1) / 2))
+                            {
+                                <li class="mb-3 d-flex align-items-center font-color-black">
+                                    <i class="bi bi-check-circle-fill me-2 font-color-main"></i>
+                                    <span>@goal</span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="my-5">
+                <h3 class="font-weight-bold mb-4 font-color-black">@Html.GetWord(255) <!-- مكونات الفعالية --></h3>
+                <ul class="list-marker-color-main">
+                    @foreach (var component in Model.Components)
+                    {
+                        <li class="mb-3 align-items-center font-color-black">
+                            <span>@component</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="my-5">
+                <h3 class="font-weight-bold mb-4 font-color-black">@Html.GetWord(256) <!-- مكونات الفعالية --></h3>
+                <ul class="list-marker-color-main">
+                    @foreach (var component in Model.Sessions)
+                    {
+                        <li class="mb-3 align-items-center font-color-black">
+                            <span>@Html.Raw(component)</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>  
+</div>
