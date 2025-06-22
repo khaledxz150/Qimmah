@@ -28,16 +28,8 @@
         @media (max-width: 576px) {
             padding: 0 20px;
         }
-        // RTL Support
-        &[dir="rtl"] {
-            .carousel-nav-prev i {
-                transform: scaleX(-1);
-            }
-
-            .carousel-nav-next i {
-                transform: scaleX(-1);
-            }
-        }
+        
+        
     }
 
     .carousel-track-container {
@@ -69,22 +61,7 @@
             transform: translateX(-50%);
         }
     }
-    // RTL Animation
-    [dir="rtl"] {
-        @keyframes infiniteScrollRTL {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(50%);
-            }
-        }
-
-        .carousel-track.infinite-animation {
-            animation: infiniteScrollRTL 20s linear infinite;
-        }
-    }
+   
 
     .partner-item {
         flex: 0 0 auto;
@@ -94,14 +71,7 @@
         // Responsive widths for infinite scroll
         width: 20rem;
 
-        @media (max-width: 768px) {
-            width: 26rem;
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 576px) {
-            width: 22rem;
-        }
+       
     }
 
     .partner-card {
@@ -122,15 +92,7 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         }
 
-        @media (max-width: 768px) {
-            padding: 20px 15px;
-            height: 100px;
-        }
-
-        @media (max-width: 576px) {
-            padding: 15px 10px;
-            height: 80px;
-        }
+        
 
         img {
             height: auto;
@@ -140,13 +102,6 @@
             transition: filter 0.3s ease;
 
 
-            @media (max-width: 768px) {
-                max-height: 50px;
-            }
-
-            @media (max-width: 576px) {
-                max-height: 40px;
-            }
         }
 
         &:hover img {
@@ -184,15 +139,6 @@
             box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
         }
 
-        @media (max-width: 768px) {
-            width: 40px;
-            height: 40px;
-            font-size: 14px;
-        }
-
-        @media (max-width: 576px) {
-            display: none; // Hide arrows on mobile
-        }
 
         i {
             transition: transform 0.3s ease;
@@ -206,18 +152,7 @@
     .carousel-nav-next {
         right: 10px;
     }
-    // RTL adjustments for arrows
-    [dir="rtl"] {
-        .carousel-nav-prev {
-            right: 10px;
-            left: auto;
-        }
-
-        .carousel-nav-next {
-            left: 10px;
-            right: auto;
-        }
-    }
+    
 }
 
 // Utility class for rounded white background (matching your existing code)
@@ -227,39 +162,4 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-// Additional responsive adjustments
-@media (max-width: 1200px) {
-    .partners-section .partner-item {
-        &.col-lg-2 {
-            flex: 0 0 20%;
-            max-width: 20%;
-        }
-    }
-}
 
-@media (max-width: 992px) {
-    .partners-section .partner-item {
-        &.col-md-3 {
-            flex: 0 0 25%;
-            max-width: 25%;
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    .partners-section .partner-item {
-        &.col-sm-4 {
-            flex: 0 0 33.333333%;
-            max-width: 33.333333%;
-        }
-    }
-}
-
-@media (max-width: 576px) {
-    .partners-section .partner-item {
-        &.col-6 {
-            flex: 0 0 50%;
-            max-width: 50%;
-        }
-    }
-}

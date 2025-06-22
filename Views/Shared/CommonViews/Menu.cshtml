@@ -11,7 +11,7 @@
 <nav>
     <div class="nav-right">
         <div class="logo-small">
-            <img src="~/images/logos/mainlogo.svg" />
+            <img src="~/images/logos/mainlogoempty.svg" />
         </div>
         <div class="burger-menu" onclick="toggleMobileMenu()">
             <div class="burger-line"></div>
@@ -20,23 +20,23 @@
         </div>
     </div>
     <div class="nav-center">
-        <a href="@Url.Action("Index","Home")" data-tab="@nameof(TabOptions.Home)" class="nav-item @(currentActiveTab == nameof(TabOptions.Home) ? "active" : "")">@Html.GetWord(112)</a>
-        <a href="@Url.Action("Index","Calendar")" data-tab="@nameof(TabOptions.Calendar)" class="nav-item @(currentActiveTab == nameof(TabOptions.Calendar) ? "active" : "")">@Html.GetWord(86)</a>
-        <a href="@Url.Action("Index","Activities")" data-tab="@nameof(TabOptions.Calendar)" class="nav-item @(currentActiveTab == nameof(TabOptions.Calendar) ? "active" : "")">@Html.GetWord(235)</a>
+        <a href="@Url.Action("Index", "Home")" data-tab="@nameof(TabOptions.Home)" class="nav-item @(currentActiveTab == nameof(TabOptions.Home) ? "active" : "")">@Html.GetWord(112)</a>
+        <a href="@Url.Action("Index", "Calendar")" data-tab="@nameof(TabOptions.Calendar)" class="nav-item @(currentActiveTab == nameof(TabOptions.Calendar) ? "active" : "")">@Html.GetWord(86)</a>
+        <a href="@Url.Action("Index", "Activities")" data-tab="@nameof(TabOptions.Activities)" class="nav-item @(currentActiveTab == nameof(TabOptions.Activities) ? "active" : "")">@Html.GetWord(235)</a>
 
         @* <a href="#" data-tab="@nameof(TabOptions.About)">@Html.GetWord(113)</a>
         <a href="#" data-tab="@nameof(TabOptions.Speakers)">@Html.GetWord(114)</a>
         <a href="#" data-tab="@nameof(TabOptions.SponsorsAndPartners)">@Html.GetWord(115)</a>
         <a href="#" data-tab="@nameof(TabOptions.LatestNews)">@Html.GetWord(116)</a> *@
     </div>
-   <div class="nav-left">
-       @if (!User.Identity.IsAuthenticated)
+    <div class="nav-left">
+        @if (!User.Identity.IsAuthenticated)
         {
-            <button class="login-btn" onClick='window.location.href=`@(Url.Action("Register","Identity"))`'>@Html.GetWord(121)</button>
+            <button class="login-btn" onClick='window.location.href=`@(Url.Action("Register", "Identity"))`'>@Html.GetWord(121)</button>
         }
         else
         {
-            <button class="btn btn-secondary" onClick='window.location.href=`@(Url.Action("Logout","Identity"))`'>@Html.GetWord(191)</button>
+            <button class="btn btn-secondary" onClick='window.location.href=`@(Url.Action("Logout", "Identity"))`'>@Html.GetWord(191)</button>
         }
         <select class="form-select form-control select2 form-select-lg lang-selector" id="langSelector" name="LanguageID" onchange="ChangeCookieValue(this,false)">
 
@@ -53,7 +53,7 @@
                 }
             }
         </select>
-    </div>  
+    </div>
 </nav>
 
 <!-- Mobile Menu Overlay -->
@@ -62,20 +62,26 @@
         <span>&times;</span>
     </button>
 
-    <a href="#" data-tab="@nameof(TabOptions.Home)" class="active">@Html.GetWord(112)</a>
-    <a href="#" data-tab="@nameof(TabOptions.About)">@Html.GetWord(113)</a>
-    <a href="#" data-tab="@nameof(TabOptions.Speakers)">@Html.GetWord(114)</a>
-    <a href="#" data-tab="@nameof(TabOptions.SponsorsAndPartners)">@Html.GetWord(115)</a>
-    <a href="#" data-tab="@nameof(TabOptions.LatestNews)">@Html.GetWord(116)</a>
+    <a href="@Url.Action("Index", "Home")" data-tab="@nameof(TabOptions.Home)" class="nav-item @(currentActiveTab == nameof(TabOptions.Home) ? "active" : "")">@Html.GetWord(112)</a>
+    <a href="@Url.Action("Index", "Calendar")" data-tab="@nameof(TabOptions.Calendar)" class="nav-item @(currentActiveTab == nameof(TabOptions.Calendar) ? "active" : "")">@Html.GetWord(86)</a>
+    <a href="@Url.Action("Index", "Activities")" data-tab="@nameof(TabOptions.Activities)" class="nav-item @(currentActiveTab == nameof(TabOptions.Activities) ? "active" : "")">@Html.GetWord(235)</a>
+
 
     <div class="mobile-actions">
-        <button class="login-btn">@Html.GetWord(121)</button>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <button class="login-btn" onClick='window.location.href=`@(Url.Action("Register", "Identity"))`'>@Html.GetWord(121)</button>
+        }
+        else
+        {
+            <button class="btn btn-secondary" onClick='window.location.href=`@(Url.Action("Logout", "Identity"))`'>@Html.GetWord(191)</button>
+        }
         <select class="form-select form-control select2 form-select-lg lang-selector" id="langSelectorMobile" name="LanguageID" onchange="ChangeCookieValue(this,true)">
 
 
             @foreach (var item in Languages)
             {
-                var isSelected = item.ID == currentLanguage ;
+                var isSelected = item.ID == currentLanguage;
                 if (isSelected)
                 {
                     <option value="@item.ID" selected>@item.LanguageName</option>
@@ -85,7 +91,7 @@
                     <option value="@item.ID">@item.LanguageName</option>
                 }
             }
-            </select>
+        </select>
     </div>
 </div>
 

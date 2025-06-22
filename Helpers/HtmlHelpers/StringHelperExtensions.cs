@@ -7,6 +7,7 @@ using System.Text.Encodings.Web;
 
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
+
 using Qimmah.Attributes;
 using Qimmah.Models.Localization;
 
@@ -173,7 +174,8 @@ namespace Qimmah.Helpers.HtmlHelpers
     string requiredErrorMessage = null,
     Dictionary<string, object> textBoxCustomAttributes = null,
     Dictionary<string, object> labelCustomAttributes = null,
-    Dictionary<string, object> validationMessageCustomAttribues = null)
+    Dictionary<string, object> validationMessageCustomAttribues = null,
+    bool AddMargin = true)
         {
             var localizationDictionary = htmlHelper.GetLocalization();
 
@@ -273,7 +275,7 @@ namespace Qimmah.Helpers.HtmlHelpers
 
             // Wrap label and input in a container
             var html = new HtmlString(
-                $"<div class=\"mb-3 {(isRequired ? "needs-validation" : "")}\">{labelHtml}{inputHtml}{validationField}</div>");
+                $"<div class=\" {(AddMargin ? "mb-3" : "")} {(isRequired ? "needs-validation" : "")}\">{labelHtml}{inputHtml}{validationField}</div>");
 
             return html;
         }

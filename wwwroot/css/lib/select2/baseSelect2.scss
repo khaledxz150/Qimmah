@@ -27,6 +27,7 @@
     border-end-end-radius: 0rem !important;
     transition: border-radius 0.15s ease-in-out;
 }
+
 .select2-container--bootstrap-5.select2-container--open.select2-container--above .select2-selection {
     border-color: $accent-color !important;
     box-shadow: 0 0 0 0.01rem rgba($accent-color, 0.3) !important;
@@ -51,4 +52,9 @@
 .select2-container--bootstrap-5.select2-container--open .select2-selection {
     border-color: $accent-color;
     box-shadow: 0 0 0 .25rem rgba($accent-color, .25)
+}
+
+.select2-search__field {
+
+    padding-top: 0.4rem !important;
 }

@@ -9,14 +9,19 @@ namespace Qimmah.Helpers.Components
     public class ProgramCardComponents : ViewComponent
     {
         private readonly IProgramService programService;
-        public  ProgramCardComponents(IProgramService programService)
+        public ProgramCardComponents(IProgramService programService)
         {
             this.programService = programService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int size = 3)
+        public async Task<IViewComponentResult> InvokeAsync(List<ProgramCardViewModel> obj,int size = 3)
         {
-            return View("_ProgramCards", await programService.GetProgramCardsAsync(1, size));
+            if (obj.IsNotNullOrEmpty())
+            {
+                return View("_ProgramCards", obj);
+
+            }
+            return View("_ProgramCards", (await programService.GetProgramCardsAsync(1, size)).Items);
         }
     }
 }

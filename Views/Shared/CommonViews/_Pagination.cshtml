@@ -1,0 +1,90 @@
+﻿@using Qimmah.Models.Common.Filters
+@model PaginationInfo
+
+@{
+    int totalPages = (int)Math.Ceiling((double)Model.TotalCount / Model.PageSize);
+    int currentPage = Model.PageIndex;
+    int startPage = Math.Max(1, currentPage - 2);
+    int endPage = Math.Min(totalPages, currentPage + 2);
+    
+    if (endPage - startPage < 4)
+    {
+        if (startPage == 1)
+        {
+            endPage = Math.Min(totalPages, startPage + 4);
+        }
+        else
+        {
+            startPage = Math.Max(1, endPage - 4);
+        }
+    }
+}
+
+@if (totalPages > 1)
+{
+    <div aria-label="Page navigation" class="d-flex justify-content-center mt-4">
+        <ul class="pagination pagination-lg">
+            <!-- Previous Button -->
+            <li class="page-item @(currentPage == 1 ? "disabled" : "")">
+                <a class="page-link pagination-link @(currentPage == 1 ? "disabled" : "")" 
+                   data-page="@(currentPage - 1)" 
+                   href="#" aria-label="Previous">
+                    <span aria-hidden="true">‹</span>
+                </a>
+            </li>
+
+            <!-- First page if not in range -->
+            @if (startPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link pagination-link" data-page="1" href="#">1</a>
+                </li>
+                @if (startPage > 2)
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link">...</span>
+                    </li>
+                }
+            }
+
+            <!-- Page Numbers -->
+            @for (int i = startPage; i <= endPage; i++)
+            {
+                <li class="page-item @(i == currentPage ? "active" : "")">
+                    <a class="page-link pagination-link @(i == currentPage ? "bg-primary text-white" : "")" 
+                       data-page="@i" href="#">@i</a>
+                </li>
+            }
+
+            <!-- Last page if not in range -->
+            @if (endPage < totalPages)
+            {
+                @if (endPage < totalPages - 1)
+                {
+                    <li class="page-item disabled">
+                        <span class="page-link">...</span>
+                    </li>
+                }
+                <li class="page-item">
+                    <a class="page-link pagination-link" data-page="@totalPages" href="#">@totalPages</a>
+                </li>
+            }
+
+            <!-- Next Button -->
+            <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
+                <a class="page-link pagination-link @(currentPage == totalPages ? "disabled" : "")" 
+                   data-page="@(currentPage + 1)" 
+                   href="#" aria-label="Next">
+                    <span aria-hidden="true">›</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Page Info -->
+    <div class="text-center mt-3 color-grey-light">
+        @string.Format(Html.GetWord(237), Model.TotalCount,
+        (Model.PageIndex == 1) ? 1 : (Model.PageIndex - 1) * Model.PageSize,
+        ((Model.PageIndex - 1) * Model.PageSize) + Model.CurrentlyViewingCount)
+    </div>
+}

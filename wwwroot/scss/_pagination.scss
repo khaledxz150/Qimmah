@@ -1,0 +1,23 @@
+﻿@import "variables";
+.page-item {
+    margin: 0px 1rem 0px 1rem;
+}
+
+.page-link {
+    border-radius: $border-radius-full;
+    border: 0rem !important;
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.page-item:last-child .page-link {
+    border-radius: $border-radius-full;
+    border: 1px solid #E9E9E9 !important;
+}
+
+.page-item:first-child .page-link {
+    border-radius: $border-radius-full;
+    border: 1px solid #E9E9E9 !important;
+}
+
+

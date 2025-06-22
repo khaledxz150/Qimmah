@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qimmah.Data;
 
@@ -11,9 +12,11 @@ using Qimmah.Data;
 namespace Qimmah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250621202056_addlocal12")]
+    partial class addlocal12
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -516,57 +519,57 @@ namespace Qimmah.Migrations
                         new
                         {
                             ID = 1L,
-                            EndDateTime = new DateTime(2025, 6, 22, 12, 0, 0, 0, DateTimeKind.Local),
+                            EndDateTime = new DateTime(2025, 6, 21, 12, 0, 0, 0, DateTimeKind.Local),
                             IsActive = true,
                             IsCurrentlyBroadcasting = true,
                             IsDeleted = false,
                             LiveBroadcastLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                             ProgramId = 1L,
-                            StartDateTime = new DateTime(2025, 6, 22, 10, 0, 0, 0, DateTimeKind.Local)
+                            StartDateTime = new DateTime(2025, 6, 21, 10, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             ID = 2L,
-                            EndDateTime = new DateTime(2025, 6, 23, 12, 0, 0, 0, DateTimeKind.Local),
+                            EndDateTime = new DateTime(2025, 6, 22, 12, 0, 0, 0, DateTimeKind.Local),
                             IsActive = false,
                             IsCurrentlyBroadcasting = false,
                             IsDeleted = false,
                             LiveBroadcastLink = "https://www.youtube.com/watch?v=example2",
                             ProgramId = 1L,
-                            StartDateTime = new DateTime(2025, 6, 23, 10, 0, 0, 0, DateTimeKind.Local)
+                            StartDateTime = new DateTime(2025, 6, 22, 10, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             ID = 3L,
-                            EndDateTime = new DateTime(2025, 6, 24, 12, 0, 0, 0, DateTimeKind.Local),
+                            EndDateTime = new DateTime(2025, 6, 23, 12, 0, 0, 0, DateTimeKind.Local),
                             IsActive = false,
                             IsCurrentlyBroadcasting = false,
                             IsDeleted = false,
                             LiveBroadcastLink = "https://www.youtube.com/watch?v=example3",
                             ProgramId = 1L,
-                            StartDateTime = new DateTime(2025, 6, 24, 10, 0, 0, 0, DateTimeKind.Local)
+                            StartDateTime = new DateTime(2025, 6, 23, 10, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             ID = 4L,
-                            EndDateTime = new DateTime(2025, 6, 29, 12, 0, 0, 0, DateTimeKind.Local),
+                            EndDateTime = new DateTime(2025, 6, 28, 12, 0, 0, 0, DateTimeKind.Local),
                             IsActive = false,
                             IsCurrentlyBroadcasting = false,
                             IsDeleted = false,
                             LiveBroadcastLink = "https://www.youtube.com/watch?v=example4",
                             ProgramId = 1L,
-                            StartDateTime = new DateTime(2025, 6, 29, 10, 0, 0, 0, DateTimeKind.Local)
+                            StartDateTime = new DateTime(2025, 6, 28, 10, 0, 0, 0, DateTimeKind.Local)
                         },
                         new
                         {
                             ID = 5L,
-                            EndDateTime = new DateTime(2025, 7, 1, 12, 0, 0, 0, DateTimeKind.Local),
+                            EndDateTime = new DateTime(2025, 6, 30, 12, 0, 0, 0, DateTimeKind.Local),
                             IsActive = false,
                             IsCurrentlyBroadcasting = false,
                             IsDeleted = false,
                             LiveBroadcastLink = "https://www.youtube.com/watch?v=example5",
                             ProgramId = 1L,
-                            StartDateTime = new DateTime(2025, 7, 1, 10, 0, 0, 0, DateTimeKind.Local)
+                            StartDateTime = new DateTime(2025, 6, 30, 10, 0, 0, 0, DateTimeKind.Local)
                         });
                 });
 
@@ -7001,13 +7004,13 @@ namespace Qimmah.Migrations
                         {
                             ID = 3,
                             LanguageID = 1,
-                            Description = "We Innovate Today To Lead Tomorrow"
+                            Description = "Begin your journey toward an Arab future led by innovation"
                         },
                         new
                         {
                             ID = 3,
                             LanguageID = 2,
-                            Description = "نبتكر اليوم لنقود الغد"
+                            Description = "ابدأ رحلتك نحو مستقبل عربي تقوده الابتكار"
                         },
                         new
                         {
@@ -9648,42 +9651,6 @@ namespace Qimmah.Migrations
                             ID = 244,
                             LanguageID = 2,
                             Description = "عذرا، حدث خطأ ما يرجى المعاودة لاحقا."
-                        },
-                        new
-                        {
-                            ID = 245,
-                            LanguageID = 1,
-                            Description = "Coming Soon..."
-                        },
-                        new
-                        {
-                            ID = 245,
-                            LanguageID = 2,
-                            Description = "قريباً..."
-                        },
-                        new
-                        {
-                            ID = 246,
-                            LanguageID = 1,
-                            Description = "No Data"
-                        },
-                        new
-                        {
-                            ID = 246,
-                            LanguageID = 2,
-                            Description = "لا يجود بيانات"
-                        },
-                        new
-                        {
-                            ID = 247,
-                            LanguageID = 1,
-                            Description = "Developed By Coderz For Development And Training"
-                        },
-                        new
-                        {
-                            ID = 247,
-                            LanguageID = 2,
-                            Description = "تم التطوير من قبل كودرز للبرمجه والتدريب"
                         },
                         new
                         {

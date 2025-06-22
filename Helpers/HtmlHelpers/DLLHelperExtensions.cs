@@ -5,6 +5,7 @@ using System.Text;
 
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
+
 using Qimmah.Attributes;
 
 
@@ -268,6 +269,120 @@ namespace Qimmah.Helpers.HtmlHelpers
             return new HtmlString(html);
         }
 
+        public static IHtmlContent JDropDownMultiSelect<TModel, TOptions>(
+            this IHtmlHelper<TModel> htmlHelper,
+            string name,
+            JDropDownListModel<TModel, TOptions> OptionsModel,
+            List<string> SelectedValues = null,
+            string SelectedValue = null,
+            string labelText = null,
+            bool isRequired = false,
+            string requiredErrorMessage = null,
+            string permanentLabel = null)
+        {
+            Dictionary<int, string> localizationDictionary = htmlHelper.GetLocalization();
 
+            OptionsModel.SelectCustomAttributes ??= new Dictionary<string, object>();
+            OptionsModel.labelCustomAttributes ??= new Dictionary<string, object>();
+
+            // Add Select2 classes for multi-select
+            if (OptionsModel.SelectCustomAttributes.ContainsKey("class"))
+            {
+                OptionsModel.SelectCustomAttributes["class"] += " form-select select2 select2-multiple form-select-lg mb-3";
+            }
+            else
+            {
+                OptionsModel.SelectCustomAttributes["class"] = " form-select select2 select2-multiple form-select-lg mb-3";
+            }
+
+            // Add permanent label as data attribute if provided
+            if (permanentLabel.IsNotNullOrEmpty())
+            {
+                OptionsModel.SelectCustomAttributes["data-permanent-label"] = permanentLabel;
+            }
+
+            // Handle required validation
+            string validationField = null;
+            if (isRequired)
+            {
+                string errorMessage = requiredErrorMessage ?? "This field is required.";
+
+                // Add required attributes
+                OptionsModel.SelectCustomAttributes["required"] = "required";
+                OptionsModel.labelCustomAttributes["class"] = "required";
+                OptionsModel.SelectCustomAttributes["data-val-required"] = errorMessage;
+
+                // Validation feedback
+                validationField = $"<div class=\"invalid-feedback\">{errorMessage}</div>";
+            }
+
+            // Generate label
+            IHtmlContent labelHtml = null;
+            if (labelText.IsNotNullOrEmpty())
+            {
+                var labelTag = new TagBuilder("label");
+                labelTag.Attributes["for"] = name;
+                labelTag.InnerHtml.SetContent(labelText);
+
+                // Add label attributes
+                foreach (var attr in OptionsModel.labelCustomAttributes)
+                {
+                    labelTag.Attributes[attr.Key] = attr.Value?.ToString();
+                }
+
+                labelHtml = labelTag;
+            }
+
+            // Build dropdown options
+            var optionsHtml = new StringBuilder();
+            var model = htmlHelper.ViewData.Model;
+            var options = OptionsModel.optionsProvider(model);
+
+            if (options.IsNotNullOrEmpty())
+            {
+                foreach (var option in options)
+                {
+                    var value = OptionsModel.valueSelector(option);
+                    var displayText = OptionsModel.labelSelector(option);
+                    var dataAttributes = OptionsModel.dataSelector(option);
+
+                    var attributes = new StringBuilder($"value=\"{value}\"");
+
+                    // Check if this option should be selected
+                    if (SelectedValues.IsNotNullOrEmpty() && SelectedValues.Contains(value))
+                    {
+                        attributes.Append(" selected");
+                    }
+
+                    if (SelectedValue.IsNotNullOrEmpty() && SelectedValue == value)
+                    {
+                        attributes.Append(" selected");
+                    }
+
+                    if (dataAttributes != null)
+                    {
+                        foreach (var attr in dataAttributes)
+                        {
+                            attributes.Append($" {attr.Key}=\"{attr.Value}\"");
+                        }
+                    }
+
+                    optionsHtml.AppendLine($"<option {attributes}>{displayText}</option>");
+                }
+            }
+
+            // Generate dropdown with multiple attribute
+            var dropdownHtml = $"<select name=\"{name}\" id=\"{name}\" multiple {ConvertAttributesToHtml(OptionsModel.SelectCustomAttributes)}>{optionsHtml}</select>";
+
+            // Wrap everything
+            var html = $@"
+    <div class='mb-3 {(isRequired ? "needs-validation" : "")}'>
+        {labelHtml?.GetString()}
+        {dropdownHtml}
+        {validationField}
+    </div>";
+
+            return new HtmlString(html);
+        }
     }
 }

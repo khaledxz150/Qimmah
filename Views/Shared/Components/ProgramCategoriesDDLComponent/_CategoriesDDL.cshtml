@@ -1,0 +1,21 @@
+﻿@using Qimmah.Models.Activities
+@model (List<ProgramCategoryViewModel> Items, string OnChangeFunction)
+@{
+    var categoryDropdownModel = new JDropDownListModel<(List<ProgramCategoryViewModel>, string), ProgramCategoryViewModel>
+    {
+        
+        optionsProvider = model => model.Item1, // or any IEnumerable<CategoryOption>
+        labelSelector = category => category.Name,
+        valueSelector = category => category.Code.ToString(),
+        dataSelector = category => new Dictionary<string, string>
+        {
+        },
+        SelectCustomAttributes = new Dictionary<string, object>
+        {
+            {"onchange", Model.OnChangeFunction}
+        }
+    };
+}
+
+@(Html.JDropDownMultiSelect<(List<ProgramCategoryViewModel>, string),
+ProgramCategoryViewModel>("CategoryFilter", categoryDropdownModel))

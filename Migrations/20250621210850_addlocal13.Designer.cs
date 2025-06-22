@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qimmah.Data;
 
@@ -11,9 +12,11 @@ using Qimmah.Data;
 namespace Qimmah.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250621210850_addlocal13")]
+    partial class addlocal13
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -9672,18 +9675,6 @@ namespace Qimmah.Migrations
                             ID = 246,
                             LanguageID = 2,
                             Description = "لا يجود بيانات"
-                        },
-                        new
-                        {
-                            ID = 247,
-                            LanguageID = 1,
-                            Description = "Developed By Coderz For Development And Training"
-                        },
-                        new
-                        {
-                            ID = 247,
-                            LanguageID = 2,
-                            Description = "تم التطوير من قبل كودرز للبرمجه والتدريب"
                         },
                         new
                         {

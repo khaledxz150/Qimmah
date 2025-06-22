@@ -33,6 +33,7 @@ namespace Qimmah.Data
         public DbSet<Programs> Programs { get; set; }
         public DbSet<Qimmah.Data.Organizer.Organizer> Organizer { get; set; }
         public DbSet<Sessions> Sessions { get; set; }
+        public DbSet<ProgramCategory> ProgramCategories { get; set; }
 
 
 

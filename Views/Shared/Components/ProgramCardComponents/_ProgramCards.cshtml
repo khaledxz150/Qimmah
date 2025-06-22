@@ -1,44 +1,52 @@
-﻿@model Qimmah.Models.Common.Filters.PaginatedList<Qimmah.Models.Activities.ProgramCardViewModel>
+﻿@model List<Qimmah.Models.Activities.ProgramCardViewModel>
 
-@{ 
+@{
     string countText = Html.GetWord(123);
 
 }
-
-<div class="programs-section">
-    <div class="container">
-        <div class="row">
-            @foreach (var program in Model.Items)
+<div class="container">
+    <div class="programs-section">
+        <div class="row g-5">
+            @if (Model.Any())
             {
-                <div class="col-lg-4 col-md-6">
-                    <div class="program-card">
-                        <div class="card-image">
-                            <img src="@program.ImageUrl" alt="@program.Title" class="img-fluid">
-                        </div>
-                        <div class="card-content">
-                            <div class="program-type">
-                                <span class="badge">@program.CategoryName</span>
+                @foreach (var program in Model)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="program-card">
+                            <div class="card-image">
+                                <img src="@program.ImageUrl" alt="@program.Title" class="img-fluid">
                             </div>
-                            <h3 class="program-title">@program.Title</h3>
-                            <p class="program-description">@program.ShortDescription</p>
-                            <div class="card-footer-info">
-                                <div class="pricing">
-                                    <span class="price-label">@program.Price</span>
+                            <div class="card-content">
+                                <div class="program-type">
+                                    <span class="badge">@program.CategoryName</span>
                                 </div>
-                                <div class="program-details">
-                                    <span class="duration">
-                                        <i class="bi bi-clock"></i>
-                                        @program.DurationMinutes
-                                    </span>
-                                    <span class="participants">
-                                        <i class="bi bi-book"></i>
-                                        @program.ParticipantCount
-                                    </span>
+                                <h3 class="program-title">@program.Title</h3>
+                                <p class="program-description">@program.ShortDescription</p>
+                                <div class="card-footer-info">
+                                    <div class="pricing">
+                                        <span class="price-label">@program.Price</span>
+                                    </div>
+                                    <div class="program-details">
+                                        <span class="duration">
+                                            <i class="bi bi-clock"></i>
+                                            @program.DurationMinutes
+                                        </span>
+                                        <span class="participants">
+                                            <i class="bi bi-book"></i>
+                                            @program.ParticipantCount
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
+            }
+            else
+            {
+                <h2 class="color-grey-light">
+                    @Html.GetWord(246)
+                </h2>
             }
         </div>
     </div>

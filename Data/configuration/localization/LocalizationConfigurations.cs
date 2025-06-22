@@ -61,8 +61,8 @@ namespace Qimmah.Data.configuration.localization
                 entity.HasData(new DictionaryLocalization { ID = 2, LanguageID = EnglishInt, Description = "Arab Youth Innovation & Technology Summit" });
                 entity.HasData(new DictionaryLocalization { ID = 2, LanguageID = ArabicInt, Description = "قمة الابتكار والتكنولوجيا للشباب العربي" });
 
-                entity.HasData(new DictionaryLocalization { ID = 3, LanguageID = EnglishInt, Description = "Begin your journey toward an Arab future led by innovation" });
-                entity.HasData(new DictionaryLocalization { ID = 3, LanguageID = ArabicInt, Description = "ابدأ رحلتك نحو مستقبل عربي تقوده الابتكار" });
+                entity.HasData(new DictionaryLocalization { ID = 3, LanguageID = EnglishInt, Description = "We Innovate Today To Lead Tomorrow" });
+                entity.HasData(new DictionaryLocalization { ID = 3, LanguageID = ArabicInt, Description = "نبتكر اليوم لنقود الغد" });
 
                 entity.HasData(new DictionaryLocalization { ID = 4, LanguageID = EnglishInt, Description = "from the Land of Civilizations… the Arab Innovation Summit Begins" });
                 entity.HasData(new DictionaryLocalization { ID = 4, LanguageID = ArabicInt, Description = "من أرض الحضارات… تنطلق قمة الابتكار العربي" });
@@ -733,7 +733,20 @@ namespace Qimmah.Data.configuration.localization
     new DictionaryLocalization { ID = 242, LanguageID = ArabicInt, Description = "لقد وجدنا {0} فعاليات متاحة لك" },
 
     new DictionaryLocalization { ID = 243, LanguageID = EnglishInt, Description = "Live Broadcast" },
-    new DictionaryLocalization { ID = 243, LanguageID = ArabicInt, Description = "البث المباشر" });
+    new DictionaryLocalization { ID = 243, LanguageID = ArabicInt, Description = "البث المباشر" },
+
+    new DictionaryLocalization { ID = 244, LanguageID = EnglishInt, Description = "Sorry, something went wrong, please try again later." },
+    new DictionaryLocalization { ID = 244, LanguageID = ArabicInt, Description = "عذرا، حدث خطأ ما يرجى المعاودة لاحقا." },
+
+    new DictionaryLocalization { ID = 245, LanguageID = EnglishInt, Description = "Coming Soon..." },
+    new DictionaryLocalization { ID = 245, LanguageID = ArabicInt, Description = "قريباً..." },
+
+    new DictionaryLocalization { ID = 246, LanguageID = EnglishInt, Description = "No Data" },
+    new DictionaryLocalization { ID = 246, LanguageID = ArabicInt, Description = "لا يجود بيانات" },
+
+    new DictionaryLocalization { ID = 247, LanguageID = EnglishInt, Description = "Developed By Coderz For Development And Training" },
+    new DictionaryLocalization { ID = 247, LanguageID = ArabicInt, Description = "تم التطوير من قبل كودرز للبرمجه والتدريب" }
+    );
 
 
                 // Jordan

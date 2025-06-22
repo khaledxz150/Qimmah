@@ -68,6 +68,10 @@
   box-shadow: 0 0 0 0.25rem rgba(138, 36, 50, 0.25);
 }
 
+.select2-search__field {
+  padding-top: 0.4rem !important;
+}
+
 .select2-container--bootstrap-5 {
   display: block;
 }

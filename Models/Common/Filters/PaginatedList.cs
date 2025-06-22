@@ -15,4 +15,28 @@
             PageSize = pageSize;
         }
     }
+
+
+    public class PaginationInfo
+    {
+        public int TotalCount { get; set; }
+        public int PageIndex { get; set; }
+        public int PageSize { get; set; }
+        public int CurrentlyViewingCount { get;  set; }
+
+        public PaginationInfo(int totalCount, int pageIndex, int pageSize,int CurrentlyViewingCount)
+        {
+            TotalCount = totalCount;
+            PageIndex = pageIndex;
+            PageSize = pageSize;
+            this.CurrentlyViewingCount = CurrentlyViewingCount;
+        }
+
+        // Create from PaginatedList
+        public static PaginationInfo FromPaginatedList<T>(PaginatedList<T> paginatedList)
+        {
+            return new PaginationInfo(paginatedList.TotalCount, paginatedList.PageIndex, paginatedList.PageSize, paginatedList.Items.Count);
+        }
+    }
+
 }

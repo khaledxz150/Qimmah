@@ -4,6 +4,7 @@
     {
         Home,
         Calendar,
+        Activities,
         About,
         Speakers,
         SponsorsAndPartners,

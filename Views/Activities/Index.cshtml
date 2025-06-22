@@ -1,35 +1,152 @@
-﻿<div class="container pt-5">
+﻿@using Qimmah.Models.Activities
+@using Qimmah.Models.Common.Filters
+@model PaginatedList<ProgramCardViewModel>
+
+<div class="container pt-5">
     <h1 class="color-dark mb-4 mt-5">
         @Html.GetWord(235)
     </h1>
     <h6 class="color-grey-light">
         @Html.GetWord(112) / @Html.GetWord(235)
     </h6>
-
-   
-
-        @{
-
-            @await Component.InvokeAsync(nameof(Qimmah.Helpers.Components.LiveBroadcastComponent))
-
-        }
+    @{
+        @await Component.InvokeAsync(nameof(Qimmah.Helpers.Components.LiveBroadcastComponent))
+    }
 
     <div class="row">
-        <div class="col-md-9">
-            @string.Format(Html.GetWord(237), 250,1,1)
+        <div class="col-md-5 color-dark align-content-center">
+            <div class="total-count-display text-align-start">
+                @string.Format(Html.GetWord(242), Model.TotalCount)
+            </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-7 align-content-center">
             <div class="row">
                 <div class="col-md-4">
-
+                    @Html.JTextBox("Search", textBoxCustomAttributes: new Dictionary<string, object> { { "placeholder", Html.GetWord(236) } })
                 </div>
                 <div class="col-md-4">
-
+                    @Html.DropDownList("OrderBy", new SelectList(
+                    new List<DDLViewModel>{
+                                        new DDLViewModel{ Value = "1", Text = Html.GetWord(240) }, // Default
+                                        // new DDLViewModel{ Value = "2", Text = Html.GetWord(241) }, // Newest
+                                        // new DDLViewModel{ Value = "3", Text = Html.GetWord(242) }, // Oldest
+                                        // new DDLViewModel{ Value = "4", Text = Html.GetWord(243) }, // Highest Rated
+                                        // new DDLViewModel{ Value = "5", Text = Html.GetWord(244) }, // Lowest Rated
+                                        // new DDLViewModel{ Value = "6", Text = Html.GetWord(245) }, // Most Popular
+                                        // new DDLViewModel{ Value = "7", Text = Html.GetWord(246) }, // Cheapest
+                                        // new DDLViewModel{ Value = "8", Text = Html.GetWord(247) }, // Most Expensive
+                                        // new DDLViewModel{ Value = "9", Text = Html.GetWord(248) }, // A-Z
+                                        // new DDLViewModel{ Value = "10", Text = Html.GetWord(249) }, // Z-A
+                                        // new DDLViewModel{ Value = "11", Text = Html.GetWord(250) }, // Longest
+                                        // new DDLViewModel{ Value = "12", Text = Html.GetWord(251) }, // Shortest
+                                        }, "Value", "Text"),
+                                        new { @class = "form-select form-control select2 form-select-lg", data_permanent_label = Html.GetWord(239) })
                 </div>
                 <div class="col-md-4">
-
+                    @{
+                        @await Component.InvokeAsync(nameof(Qimmah.Helpers.Components.ProgramCategoriesDDLComponent), new { OnChangeFunction = "loadPrograms(1)" })
+                    }
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Loading overlay -->
+    <div id="loading-overlay" class="d-none">
+        <div class="loading-spinner">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="loading-text mt-2">@Html.GetWord(238)</div>
+        </div>
+    </div>
+
+    <div class="row mt-3" id="program-cards-container">
+        @await Html.PartialAsync("~/Views/Shared/Components/ProgramCardComponents/_ProgramCards.cshtml", Model.Items)
+    </div>
+
+    <div class="pagination-container">
+        @await Html.PartialAsync("~/Views/Shared/CommonViews/_Pagination.cshtml", PaginationInfo.FromPaginatedList(Model))
+    </div>
+
+    <div class="bottom-count-display">
+        @string.Format(Html.GetWord(237), Model.TotalCount, (Model.PageIndex - 1) * Model.PageSize == 0 ? 1 :
+                (Model.PageIndex - 1) * Model.PageSize, (Model.PageIndex - 1) * Model.PageSize == 0 ? 1 :
+                (Model.PageIndex - 1) * Model.PageSize + Model.Items.Count)
+    </div>
 </div>
+
+<style>
+    #loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loading-spinner {
+        text-align: center;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .loading-text {
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+
+    .content-loading {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    .pagination-loading {
+        background: linear-gradient(90deg, #f0f0f0 25%, transparent 37%, #f0f0f0 63%);
+        background-size: 400% 100%;
+        animation: shimmer 1.5s ease-in-out infinite;
+        height: 40px;
+        border-radius: 4px;
+    }
+
+    .cards-loading {
+        background: linear-gradient(90deg, #f0f0f0 25%, transparent 37%, #f0f0f0 63%);
+        background-size: 400% 100%;
+        animation: shimmer 1.5s ease-in-out infinite;
+        height: 300px;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+
+    @@keyframes shimmer {
+        0% {
+            background-position: -400% 0;
+        }
+        100% {
+            background-position: 400% 0;
+        }
+    }
+</style>
+<script src="~/js/activities/index.js"></script>
+<script>
+    const API_ENDPOINTS = {
+        getProgramData: '@Url.Action("GetProgramData", "Activities")',
+        renderPagination: '@Url.Action("RenderPagination", "Activities")',
+        renderProgramCards: '@Url.Action("RenderProgramCards", "Activities")'
+    };
+    // Pass localization to JavaScript
+    window.AppLocalization = {
+        totalCountFormat: '@Html.Raw(Html.GetWord(242))',
+        bottomCountFormat: '@Html.Raw(Html.GetWord(237))',
+        errorMessage: '@Html.Raw(Html.GetWord(244))',
+        loadingMessage: '@Html.Raw(Html.GetWord(238))'
+    };
+     
+</script>
